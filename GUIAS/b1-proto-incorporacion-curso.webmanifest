@@ -1,0 +1,17 @@
+{
+  "id": "./b1-proto-incorporacion-curso.html",
+  "name": "SUMAMOS Plan de acogida",
+  "short_name": "SUMAMOS Plan de acogida",
+  "description": "Plataforma de seguimiento del plan de acogida del alumnado que se incorpora durante el curso. Proyecto SUMAMOS (Escuela+Familia+EOEP).",
+  "lang": "es",
+  "start_url": "./b1-proto-incorporacion-curso.html",
+  "scope": "./b1-proto-incorporacion-curso.html",
+  "display": "standalone",
+  "background_color": "#F4F6F8",
+  "theme_color": "#2A8B8D",
+  "icons": [
+    { "src": "b1-proto-incorporacion-curso-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "b1-proto-incorporacion-curso-icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "b1-proto-incorporacion-curso-icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

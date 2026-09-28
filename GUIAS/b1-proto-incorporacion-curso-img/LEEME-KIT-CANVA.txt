@@ -1,0 +1,27 @@
+KIT VISUAL DE CANVA · SUMAMOS Plan de acogida
+
+La plataforma ya muestra iconos profesionales propios (SVG). Si se añaden ilustraciones
+de Canva en esta carpeta, las sustituye automáticamente, sin tocar el código.
+
+CÓMO INCORPORAR LAS ILUSTRACIONES
+1. Diseñar en Canva cada ilustración en formato cuadrado (mínimo 256 x 256 px),
+   con fondo transparente y la paleta SUMAMOS (#48C5C7, #2A8B8D, #E4F6F7).
+2. Descargar cada una en PNG con el nombre exacto de la lista (kit.ejemplo.json).
+3. Copiar los PNG en esta carpeta b1-proto-incorporacion-curso-img/.
+4. Duplicar kit.ejemplo.json, llamarlo kit.json y dejar SOLO las líneas de las
+   ilustraciones que existan.
+5. Subir la carpeta b1-proto-incorporacion-curso-img/ a GitHub junto a index.html.
+
+No es obligatorio tenerlas todas: las que falten siguen con su icono SVG.
+Las ilustraciones solo se ven al abrir la plataforma desde GitHub (no desde el disco).
+
+LISTA DE ILUSTRACIONES (nombre del archivo · qué representa)
+Pestañas: conocer, alumnos, asistente, calendario, historial, semaforo, documentos
+Agentes: directivo, tutor, docentes, orientador, psc, familia
+Fases: fase1 (antes de la incorporación), fase2 (primera semana), fase3 (adaptación activa), fase4 (seguimiento y cierre)
+Perfiles: traslado (A), mundo (B), reagrupacion (C), proteccion (D), informe (E), descubrir (F)
+Indicadores: gota (control de esfínteres), habla (lenguaje/castellano oral), camiseta (autonomía),
+ corazon (adaptación emocional), oreja (comprensión), juego (juego y relación), movimiento (motricidad),
+ asistencia, familia (comunicación con la familia), mochila (escolarización previa), hogar (situación
+ socioeducativa), lectura (lectoescritura), lengua (nivel en Lengua), mates (nivel en Matemáticas),
+ grupo (integración social)
