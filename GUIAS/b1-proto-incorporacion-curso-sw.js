@@ -1,6 +1,6 @@
 /* SUMAMOS Plan de acogida · funcionamiento sin conexión
    Solo atiende a la página del protocolo: no afecta a las demás guías de la carpeta GUIAS. */
-const CACHE = 'sumamos-plan-acogida-v8';
+const CACHE = 'sumamos-plan-acogida-v9';
 const PAGE = './b1-proto-incorporacion-curso.html';
 const FILES = [PAGE, './b1-proto-incorporacion-curso.webmanifest', './b1-proto-incorporacion-curso-icon-192.png', './b1-proto-incorporacion-curso-icon-512.png', './b1-proto-incorporacion-curso-icon-maskable-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())); });
