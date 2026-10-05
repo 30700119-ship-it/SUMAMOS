@@ -28,7 +28,7 @@ body>*{position:relative;z-index:1}
 .hero h1 span{background:linear-gradient(90deg,#a8efef,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .h-sub{display:flex;flex-direction:column;gap:4px;margin-bottom:16px;font-size:.85rem;opacity:.9}
 .h-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:6px}
-.d1{background:#48C5C7;box-shadow:0 0 6px #48C5C7}.d5{background:#e8a025;box-shadow:0 0 6px #e8a025}
+.d1{background:#48C5C7;box-shadow:0 0 6px #48C5C7}.d5{background:#e8a025;box-shadow:0 0 6px #e8a025}.d6{background:#7B5FCF;box-shadow:0 0 6px #7B5FCF}
 .h-pills{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
 .h-pill{font-size:.62rem;font-weight:600;padding:4px 12px;border-radius:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15)}
 
@@ -49,7 +49,7 @@ body>*{position:relative;z-index:1}
 .sc{margin-bottom:28px}
 .sc-h{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .sc-ch{font-size:.55rem;font-weight:800;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:1px;color:var(--w)}
-.ch1{background:var(--c1)}.ch5{background:#e8a025}
+.ch1{background:var(--c1)}.ch5{background:#e8a025}.ch6{background:#7B5FCF}
 .sc-h h2{font-size:1rem;font-weight:700;color:var(--dk2)}
 
 /* ═══ GRID ═══ */
@@ -129,6 +129,7 @@ body>*{position:relative;z-index:1}
   <div class="h-sub">
     <div><span class="h-dot d1"></span>Bloque 1: Acogida y Adaptación</div>
     <div><span class="h-dot d5"></span>Bloque 5: Transición Infantil-Primaria</div>
+    <div><span class="h-dot d6"></span>Bloque 6: Caminos de inclusión</div>
   </div>
   <div class="h-pills">
     <span class="h-pill">EOEP General Cehegín</span>
@@ -142,6 +143,7 @@ body>*{position:relative;z-index:1}
     <button class="tb-b on" data-f="bl" data-v="all">Todos</button>
     <button class="tb-b" data-f="bl" data-v="b1">Bloque 1</button>
     <button class="tb-b" data-f="bl" data-v="b5">Bloque 5</button>
+    <button class="tb-b" data-f="bl" data-v="b6">Bloque 6</button>
   </div>
   <div class="tg"><span class="tl">Para</span>
     <button class="tb-b on" data-f="de" data-v="all">Todos</button>
@@ -250,6 +252,23 @@ body>*{position:relative;z-index:1}
   <div class="c-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M7.502 6h7.128A3.375 3.375 0 0118 9.375v9.375a3 3 0 003-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 00-.673-.05A3 3 0 0015 1.5h-1.5a3 3 0 00-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6zM13.5 3A1.5 1.5 0 0012 4.5h4.5A1.5 1.5 0 0015 3h-1.5z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V9.375zm9.586 4.594a.75.75 0 00-1.172-.938l-2.476 3.096-.908-.907a.75.75 0 00-1.06 1.06l1.5 1.5a.75.75 0 001.116-.062l3-3.749z" clip-rule="evenodd"/></svg></div>
   <span class="c-badge td">Docentes</span>
   <h3>Traspaso Tutor<br>EI → Primaria</h3>
+</a></div>
+</section>
+
+
+<section class="sc" data-sb="b6">
+  <div class="sc-h"><span class="sc-ch ch6">Bloque 6</span><h2>Caminos de inclusión · Itinerario de respuesta a la diversidad</h2></div>
+  <div class="gr"><a href="https://30700119-ship-it.github.io/SUMAMOS/GUIAS/b6-guia-doc-caminos-inclusion.html" target="_blank" rel="noopener" class="c" data-bl="b6" data-de="docentes" style="--d:700ms">
+  <button class="c-qr" onclick="event.preventDefault();event.stopPropagation();showQR(this.closest('.c'))" title="Código QR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-3.75A1.125 1.125 0 013.75 8.625v-3.75zM3.75 14.625c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-3.75a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 4.875c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-3.75a1.125 1.125 0 01-1.125-1.125v-3.75z"/></svg></button>
+  <div class="c-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z"/></svg></div>
+  <span class="c-badge td">Docentes</span>
+  <h3>Caminos de inclusión<br>Itinerario de respuesta</h3>
+</a>
+<a href="https://30700119-ship-it.github.io/SUMAMOS/GUIAS/b6-caminos/doc/anexo-i-solicitud.docx" download class="c" data-bl="b6" data-de="docentes" style="--d:750ms">
+  <button class="c-qr" onclick="event.preventDefault();event.stopPropagation();showQR(this.closest('.c'))" title="Código QR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-3.75A1.125 1.125 0 013.75 8.625v-3.75zM3.75 14.625c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-3.75a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 4.875c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-3.75a1.125 1.125 0 01-1.125-1.125v-3.75z"/></svg></button>
+  <div class="c-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M7.502 6h7.128A3.375 3.375 0 0118 9.375v9.375a3 3 0 003-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 00-.673-.05A3 3 0 0015 1.5h-1.5a3 3 0 00-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6zM13.5 3A1.5 1.5 0 0012 4.5h4.5A1.5 1.5 0 0015 3h-1.5z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V9.375zm9.586 4.594a.75.75 0 00-1.172-.938l-2.476 3.096-.908-.907a.75.75 0 00-1.06 1.06l1.5 1.5a.75.75 0 001.116-.062l3-3.749z" clip-rule="evenodd"/></svg></div>
+  <span class="c-badge td">Docentes</span>
+  <h3>Anexo I · Solicitud<br>de intervención (Word)</h3>
 </a></div>
 </section>
 
