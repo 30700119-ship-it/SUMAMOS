@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUMAMOS: Cada día cuenta · Prevención del absentismo desde Educación Infantil</title>
+<meta name="description" content="Guía para el profesorado y los equipos directivos: prevención del absentismo desde Educación Infantil. Proyecto SUMAMOS (Escuela+Familia+EOEP) · EOEP General Cehegín.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F8F8; --surface:#FFFFFF; --surface2:#E8F2F2; --fg:#1C2A2E; --muted:#4F6166; --line:#D2E2E3;
+  --teal:#2A8B8D; --tealD:#1E6466; --tealL:#E1F1F1; --tq:#48C5C7; --navy:#0B2545;
+  --or:#D9822B; --orD:#9A5410; --orL:#FBEBD9;
+  --c1:#D9822B; --c1d:#8A4A0E; --c1l:#FBEBD9;
+  --c2:#2A8B8D; --c2d:#1E6466; --c2l:#DDF3F3;
+  --c3:#3A7FC1; --c3d:#235B92; --c3l:#E0ECF8;
+  --c4:#7563B0; --c4d:#51428A; --c4l:#ECE8F7;
+  --c5:#C9536A; --c5d:#93344A; --c5l:#F9E3E8;
+  --green:#16A34A; --amber:#F59E0B; --red:#DC2626;
+  --shadow:0 1px 2px rgba(11,60,62,.06),0 6px 18px rgba(11,60,62,.08);
+  --f-display:"Nunito",ui-rounded,"Segoe UI",system-ui,sans-serif;
+  --f-body:"Nunito Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r:16px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+a{color:var(--tealD)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,3vw,32px)}
+.eyebrow{font-family:var(--f-display);font-weight:800;font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tealD)}
+.muted{color:var(--muted)}
+
+/* Cabecera */
+header.top{background:var(--surface);border-bottom:4px solid var(--tq)}
+.brand{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-block:12px}
+.logos{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logos img{height:40px;width:auto;display:block}
+.brand-r{font-family:var(--f-display);font-weight:800;font-size:.82rem;letter-spacing:.12em;color:var(--tealD)}
+
+/* Hero */
+.hero{background:var(--surface)}
+.hero-in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:center;padding-block:30px 34px}
+.h-sum{font-family:var(--f-display);font-weight:900;font-size:clamp(2.6rem,7vw,4.6rem);line-height:.95;color:var(--navy);letter-spacing:.01em}
+.h-name{font-family:var(--f-display);font-weight:900;font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.05;color:var(--or);margin-top:6px}
+.h-sub{font-size:clamp(1.1rem,2.2vw,1.45rem);font-weight:700;color:var(--muted);margin-top:10px}
+.hero-art{display:flex;flex-direction:column;align-items:center;gap:6px}
+.hero-art svg{width:100%;max-width:440px;height:auto;border-radius:22px;background:#FFF7EE;border:1px solid #F1D6B8}
+.lema{font-family:"Caveat",cursive;font-size:2rem;color:#B3304D;transform:rotate(-2deg)}
+
+/* Layout con índice */
+.layout{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;padding-block:26px 50px}
+aside.idx{flex:1 1 260px;max-width:300px;background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;position:sticky;top:140px}
+.idx-h{background:var(--tealL);padding:14px 16px;border-bottom:1px solid var(--line)}
+.idx-h b{font-family:var(--f-display);font-size:1.15rem;color:var(--tealD)}
+.idx-h span{display:block;font-size:.8rem;color:var(--muted)}
+.idx ul{list-style:none;margin:0;padding:8px}
+.idx li{margin:2px 0}
+.idx a.it{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--fg);padding:8px 10px;border-radius:12px;font-weight:700;font-size:.93rem;line-height:1.25}
+.idx a.it:hover{background:var(--surface2)}
+.idx a.it[aria-current="true"]{background:var(--tealL);color:var(--tealD)}
+.idx .nb{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;color:#fff;font-family:var(--f-display);font-weight:900;font-size:.85rem}
+.idx .sub{list-style:none;margin:2px 0 6px 36px;padding:0;border-left:2px solid var(--line)}
+.idx .sub a{display:block;text-decoration:none;color:var(--muted);padding:5px 10px;font-size:.88rem;border-radius:0 8px 8px 0}
+.idx .sub a:hover{color:var(--fg);background:var(--surface2)}
+.idx .sub a[aria-current="true"]{color:var(--tealD);font-weight:800;background:var(--tealL)}
+#view{flex:999 1 560px;min-width:0;display:grid;gap:24px}
+
+/* Camino fijo en todas las secciones */
+.minirail{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(11,60,62,.06)}
+.minirail-in{overflow-x:auto;scrollbar-width:thin}
+.rb{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:4px;padding-block:10px 8px;min-width:700px}
+.rb-line{position:absolute;left:28px;right:28px;top:31px;height:12px;background:#3E4A52;border-radius:6px;z-index:0}
+.rb-line::after{content:"";position:absolute;left:6px;right:6px;top:4px;border-top:3px dashed #F5C542}
+.rbi{position:relative;z-index:1;flex:1 0 88px;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--fg);text-align:center}
+.rbi .c{position:relative;width:46px;height:46px;border-radius:50%;background:#fff;border:4px solid var(--k);display:grid;place-items:center;color:var(--kd);transition:transform .15s}
+.rbi .c svg{width:22px;height:22px}
+.rbi .c .nn{position:absolute;top:-7px;right:-9px;width:20px;height:20px;border-radius:50%;background:var(--k);color:#fff;font-family:var(--f-display);font-weight:900;font-size:.7rem;display:grid;place-items:center;border:2px solid #fff}
+.rbi .t{font-family:var(--f-display);font-weight:800;font-size:.76rem;line-height:1.15;max-width:120px}
+.rbi:hover .c{transform:translateY(-2px)}
+.rbi[aria-current="true"] .c{width:58px;height:58px;margin-top:-6px;background:var(--k);color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.rbi[aria-current="true"] .c svg{width:28px;height:28px}
+.rbi[aria-current="true"] .t{background:var(--k);color:#fff;border-radius:999px;padding:2px 10px}
+.rbi .here{font-size:.66rem;font-weight:800;letter-spacing:.08em;color:var(--kd);text-transform:uppercase}
+.rbi.home .c{border-style:dashed}
+
+/* Semáforo */
+.sem{display:flex;gap:16px;align-items:center;border-radius:18px;padding:14px 16px;background:#fff;border:2px solid var(--line)}
+.sem .lights{flex:none;display:flex;flex-direction:column;gap:6px;background:#26313A;border-radius:14px;padding:8px}
+.sem .lights span{width:24px;height:24px;border-radius:50%;background:#56616A;opacity:.35}
+.sem .lights .g.on{background:var(--green);opacity:1;box-shadow:0 0 12px var(--green)}
+.sem .lights .a.on{background:var(--amber);opacity:1;box-shadow:0 0 12px var(--amber)}
+.sem .lights .r.on{background:var(--red);opacity:1;box-shadow:0 0 12px var(--red)}
+.sem .txt{display:grid;gap:4px;min-width:0}
+.sem .txt b{font-family:var(--f-display);font-size:1.2rem}
+.sem.v{border-color:var(--green);background:#EEF9F1} .sem.v .txt b{color:#14532D}
+.sem.a{border-color:var(--amber);background:#FFF7E6} .sem.a .txt b{color:#7A4510}
+.sem.r{border-color:var(--red);background:#FDEEEE} .sem.r .txt b{color:#9B1C1C}
+.sem.n .txt b{color:var(--muted)}
+.deriv{border-radius:16px;padding:14px 16px;background:#F3F0FA;border:2px solid #C9BFE8;display:grid;gap:8px}
+.deriv .bt{font-family:var(--f-display);font-weight:900;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c4d)}
+
+/* Camino grande */
+.road-card{background:#FFF7EE;border:2px solid #F1D6B8;border-radius:26px;padding:22px 18px 26px}
+.road-top{display:flex;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.flag{color:#fff;font-weight:900;font-size:.78rem;letter-spacing:.1em;padding:6px 12px;border-radius:10px;font-family:var(--f-display)}
+.road{position:relative}
+.road::before{content:"";position:absolute;left:3%;right:3%;top:46px;height:26px;background:#3E4A52;border-radius:13px}
+.road::after{content:"";position:absolute;left:4%;right:4%;top:57px;border-top:4px dashed #F5C542}
+.stops{position:relative;z-index:1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.stop{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.stop .c{width:96px;height:96px;border-radius:50%;background:#fff;border:6px solid var(--k);display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:2rem;color:var(--kd);box-shadow:0 4px 12px rgba(0,0,0,.12);transition:transform .15s}
+.stop:hover .c,.stop:focus-visible .c{transform:translateY(-3px) scale(1.04)}
+.stop .c svg{width:44px;height:44px}
+.stop .c{position:relative}
+.stop .c .nn{position:absolute;top:-8px;right:-8px;width:32px;height:32px;border-radius:50%;background:var(--k);color:#fff;font-size:1rem;display:grid;place-items:center;border:3px solid #fff}
+.stop .l{background:#fff;border:2px solid var(--k);border-radius:999px;padding:5px 12px;font-weight:800;font-size:.9rem;line-height:1.2;color:var(--fg)}
+.stop .w{font-size:.8rem;color:var(--muted);font-weight:700}
+.stop:focus-visible{outline:none}
+.stop:focus-visible .c{outline:3px solid var(--amber);outline-offset:3px}
+
+/* Tarjetas */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.pad{padding:24px clamp(18px,3vw,30px)}
+.sec-h{display:grid;gap:6px}
+.sec-h h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900}
+.sec-h p{color:var(--muted);font-size:1.03rem;max-width:75ch}
+.stop-head{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.stop-badge svg{width:34px;height:34px}
+.stop-badge{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--f-display);font-weight:900;font-size:1.8rem;flex:none}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{border:2px solid var(--line);background:#fff;border-radius:14px;padding:10px 16px;font-weight:800;color:var(--tealD);font-family:var(--f-display)}
+.tab[aria-selected="true"]{background:var(--k,var(--teal));border-color:var(--k,var(--teal));color:#fff}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.col{border-radius:18px;padding:16px 18px;display:grid;gap:10px;align-content:start}
+.col h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:900}
+.col.ce{background:var(--c2l)} .col.ce h4{color:var(--c2d)}
+.col.au{background:var(--orL)} .col.au h4{color:var(--orD)}
+.col.fa{background:#FBE7DE} .col.fa h4{color:#8E3A1C}
+.item b{display:block;font-size:1rem}
+.item span{display:block;font-size:.93rem;color:#33484D}
+.refs{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ref{font-size:.8rem;font-weight:800;background:var(--surface2);color:var(--tealD);border-radius:999px;padding:4px 10px}
+.refs .lbl{font-family:var(--f-display);font-weight:900;font-size:.78rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--line);background:#fff;border-radius:12px;padding:9px 14px;font-weight:800;font-size:.92rem;text-decoration:none;color:var(--tealD)}
+.btn:hover{border-color:var(--tq)}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.primary:hover{background:var(--tealD)}
+.btn.or{background:var(--orD);border-color:var(--orD);color:#fff}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* Cajas de aviso */
+.box{border-radius:16px;padding:16px 18px;display:grid;gap:6px}
+.box .bt{font-family:var(--f-display);font-weight:900;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.box.clave{background:var(--tealL);border:2px solid var(--tq)} .box.clave .bt{color:var(--tealD)}
+.box.regla{background:#FDECEC;border:2px solid #F3B4B4} .box.regla .bt{color:#9B1C1C}
+.box.recom{background:#E9F7EE;border:2px solid #A7DDB8} .box.recom .bt{color:#14532D}
+.box.contexto{background:#F2F9F9;border:1px dashed var(--tq)} .box.contexto .bt{color:var(--tealD)}
+.box.enlace{background:#F1F3F4;border:1px solid #D5DADC} .box.enlace .bt{color:#3F4A4E}
+
+/* Salida */
+.deber{background:var(--navy);color:#fff;border-radius:26px;padding:clamp(22px,4vw,36px);display:grid;gap:12px}
+.deber .eyebrow{color:#9BE3E5}
+.deber h2{font-size:clamp(1.6rem,3.6vw,2.6rem);font-weight:900}
+.deber p{font-size:1.08rem;color:#E6F4F5;max-width:80ch}
+.deber .hand{font-family:"Caveat",cursive;font-size:2rem;color:#F5C542}
+.pilares{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.pilar{border-radius:20px;padding:18px 18px 16px;display:grid;gap:8px;align-content:start;border:3px solid var(--k);background:#fff}
+.pilar .pn{font-family:var(--f-display);font-weight:900;font-size:1.6rem;color:var(--kd);letter-spacing:.04em}
+.pilar .pq{font-weight:800;color:var(--fg)}
+.pilar ul{margin:0;padding-left:18px;font-size:.94rem;color:#33484D;display:grid;gap:4px}
+.pilar .ref{justify-self:start}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.si{background:#E9F7EE;border-radius:18px;padding:18px 20px;display:grid;gap:10px;align-content:start}
+.si h3{font-size:.85rem;letter-spacing:.12em;color:#14532D;text-transform:uppercase}
+.ob{background:#FFF4E5;border-radius:18px;padding:18px 20px;display:grid;gap:10px;align-content:start}
+.ob h3{font-size:.85rem;letter-spacing:.12em;color:#7A4510;text-transform:uppercase}
+.li{font-size:.97rem}
+.li .r{color:var(--tealD);font-weight:800;font-size:.86rem}
+.ob .li .r{color:#7A4510}
+
+/* Tablas */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:620px}
+th{background:var(--teal);color:#fff;text-align:left;padding:10px 12px;font-family:var(--f-display);font-weight:800;font-size:.86rem;letter-spacing:.03em}
+td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#F8FBFB}
+td.k{font-weight:800}
+
+/* Escala SÍ / EN PROCESO / NO */
+.chk{display:grid;gap:10px}
+.ci{border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:8px;background:#fff}
+.ci .q{font-weight:700}
+.ci .h{font-size:.88rem;color:var(--muted)}
+.ci .ac{font-size:.9rem;color:#33484D;background:#F4F8F8;border-radius:10px;padding:8px 10px}
+.est{display:flex;gap:6px;flex-wrap:wrap}
+.est button{border:2px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.85rem;color:var(--muted)}
+.est button.on[data-v="si"]{background:var(--green);border-color:var(--green);color:#fff}
+.est button.on[data-v="ep"]{background:var(--amber);border-color:var(--amber);color:#3B2600}
+.est button.on[data-v="no"]{background:#5F6B6E;border-color:#5F6B6E;color:#fff}
+.ci textarea,.ci input[type=text]{width:100%;font:inherit;font-size:.92rem;border:1px solid var(--line);border-radius:10px;padding:8px 10px;resize:vertical;background:#FBFDFD}
+.dimh{font-family:var(--f-display);font-weight:900;font-size:1.05rem;margin-top:8px;color:var(--c3d)}
+.result{border-radius:18px;padding:16px 18px;display:grid;gap:6px;color:#fff}
+.result.v{background:var(--green)} .result.a{background:#B45309} .result.r{background:var(--red)} .result.n{background:#5F6B6E}
+.result b{font-family:var(--f-display);font-size:1.3rem}
+.saved{font-size:.82rem;color:var(--muted)}
+
+/* Formularios */
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.form label{display:grid;gap:4px;font-weight:700;font-size:.9rem}
+.form input,.form textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:9px 10px;background:#fff;width:100%;resize:vertical}
+.ptab td:first-child textarea{min-width:220px}
+.ptab textarea{overflow:hidden;width:100%;min-width:140px;font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:8px;padding:6px 8px;resize:vertical;background:#FBFDFD}
+.ptab td{padding:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Acordeón */
+details.acc{border:1px solid var(--line);border-radius:14px;background:#fff}
+details.acc>summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:800;font-family:var(--f-display);display:flex;justify-content:space-between;gap:10px}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary::after{content:"+";font-size:1.3rem;color:var(--tealD)}
+details.acc[open]>summary::after{content:"–"}
+details.acc .in{padding:0 16px 16px;display:grid;gap:10px}
+
+/* Semáforo */
+.lev{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.lv{border-radius:18px;padding:16px 18px;display:grid;gap:8px;align-content:start;background:#fff;border:3px solid var(--k)}
+.lv .lt{display:flex;gap:10px;align-items:center;font-family:var(--f-display);font-weight:900;font-size:1.1rem}
+.lv .dot{width:18px;height:18px;border-radius:50%;background:var(--k);flex:none}
+.lv ul{margin:0;padding-left:18px;font-size:.93rem;display:grid;gap:4px}
+
+/* Pasos */
+.steps{display:grid;gap:10px;counter-reset:s}
+.step{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--k,var(--teal));color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-weight:900}
+.step.exc{background:#FFF8EC;border-color:#F1D6B8}
+.step b{display:block}
+.step .m{font-size:.86rem;color:var(--muted)}
+
+.pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.license{background:#fff;border:2px solid var(--tq);border-radius:16px;padding:14px 18px;font-size:.86rem;margin-top:10px}
+.license strong{color:var(--tealD)}
+footer{background:var(--tealD);color:#fff;text-align:center;padding:22px 16px;font-size:.88rem}
+footer a{color:#fff}
+.f1{font-family:var(--f-display);font-weight:800;letter-spacing:.05em}
+.f2{opacity:.92;margin-top:6px;font-size:.82rem}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--tealD);color:#fff;padding:10px 18px;border-radius:12px;font-weight:700;z-index:60;box-shadow:var(--shadow)}
+
+@media (max-width:860px){
+  .hero-in{grid-template-columns:1fr}
+  aside.idx{position:static;max-width:none}
+  .road::before,.road::after{display:none}
+  .stops{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .stop .c{width:78px;height:78px;font-size:1.6rem}
+}
+@media print{
+  header.top,.hero,aside.idx,.minirail,.pager,.noprint,footer,.tabs{display:none!important}
+  body{background:#fff;font-size:12pt}
+  .card{box-shadow:none;border:1px solid #ccc}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap brand">
+    <div class="logos">
+      <img src="data:image/jpeg;base64,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" alt="EOEP General Cehegín">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACWAWYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7LooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiikdlRSzMFUDJJOAKV7ALXN2j2v/AAmExGt75CgT7PkZyCx29OgzwAc9c1r2urabd3ZtLa8hmmALFUbPA9+lcJptlpS+KYpU1qJ0+07o08t97Nu4U8Y696+aznMFGeHdHlkufV86Vraaaq+/n6anp4PD3VTnutO1/wBP67npFFUZdX0yG9NlLewx3C4yjtt68jrV4EEAg5Br6GnWp1G1CSdtHZ7PzPOlCUbNq1wooorUkKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK5vxV4pi0lza2yLPd4yQT8sf19/at6+nFtZzXBGRFGz4+gzXlOhWj65r6RXEjfvmaWZu+Op/wAK+T4nzbEYX2WFwn8Sq7J9tl+N/lqetleEp1earW+GJ0HhHX9U1HxCsd5dgw+W7FAoVRgVleKNdudavjb25f7IH2xRL/y0PYkdyewrudXtYNO8NXq2NvHFst32hV9vWuK+HUUMniNTIATHCzRg/wB7gfyJr5zM8PjqXsMpq13J1XeUtdnZW1eqWr6X0PSwtShP2mLjTtyqyX6m54J8O6hpt/8AbrwxIGiKeUGywyR17dq5HRf+Rks/+vtf/Q69fryDRf8AkZbP/r8X/wBDp8RZbRy1YKhRvbmb19Yhl2Jnifb1J72X6nTeM/DWpXepXGpWojmRgv7oH5+FA6dD0rO8F+IJ9PvI7G6dmtJG2Dcf9UT3HtnqK9KryjxvHFD4mvVhwASHIHZioJ/XmtuJMD/YteOaYSTUpS95dHe7+521X3GeWV/rtN4SsrpLR9raGrr/AIk1fT/Ed3DBdAwo4CxOgK42j8f1rpPC3iSDWVMMiCC7UZMechh6r/hVxrC11PSokvoEkLxKWJHzA4HIPUGvNJ1m0DxEVRyXtZgQ3TcvX9Qa1xmKzDIsVHEzqOdCpLVP7N9bK97WW1tHbVE0aWHx9J0ox5akVv3seu0UiMGQMOhGRS1+hp3PnQooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAIb+D7TZT2+cebGyZ+oxXl3hWafTfEcWbeWR0ZopY0QswB4PA9DzXq9ZWvXiaLYTahDYCViw8wphfbcx9OlfNZ9lUcRUpY11OT2N23a+m+3yPTwGLdOM6Cjzc+m9jSmjSaB4pBlJFKsPUEVyWleDJLG9ju49VdXibKbIu3ocn0rBv/GOs3GRFJHap6Rrk/may3u9Xv25uL65J9GZh+lfNZnxPlOLrQkqEqkobO/L+Tv06o9PC5Xi6MGudRT36nr7SRoMPIg+pArmrbw1oEF7Hdx3khkjkEigzqRnOa4dNF1iXkaZeNnuYj/Wn/wDCO61jP9lXH/fIqcTxHVxjjKpl7ly6q93b/wAl8gpZbCimo4hK++3+Z6zvWRCI5VyRwQQcVyM/gkzX/wBpm1N5g8m+UPFgtzk8g1yL6NrEPJ028XHcRn+lIl/q9g2BdXtufRmYD8jWWP4kw+L5VmGDlaO2r/K0fxLoZZUo3+rVlr5L/gnr7kRxFtpIUZwoyfwFeTal9o1jxNIpgkiluZgqxuuGUdBn8Bmr9h4z1iDAnMN2n+2u0/mP8K7vRriPVLODU5LHyJCDs3gFgD3B9DXqV6+E4rUKNGo48j5nFx3W2+3XTXrsctOFbKXKc4p30TuaEahEVR0AwKWiivvEraHgBRRRTAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAMj1FFfLXwx8Jv4z1W7sW1aax+zwCUOFMm7LYxjcK0tYHiX4W+MLa3h1qW7hZVmCb28uaPcQVZCSAeDyPYilcD6ToqC6u7a0s3vLueO3t413PJKwVVHqSelcpH8UPAz3X2ca9EDnG9onCf99FcfjTA7KimxSRzRLLE6yRuAyspyGB6EHvXLat8RPBul6g1hd63CLhG2yLGjyBD6MVBANAHV1ma34h0TRHiTVtVtLJpQTGJpAu4DrjP1FUD438KC/s7Aa1btcXqo1sqBmEgc4XBAxyQR1rmfjHpvgu/u9ObxVr1xpciRyCBYhneCV3E/K3Tj86APR1YMoZSCCMgjvVbUtRsNMgE+o3ttZxM20PPKEUt6ZPfg1LE0MNmr+YBCkYO9jgbQOp/CvJfHOr+AfEXinT5NY8XRy6dYE/6DDbO0cjnqzSDII6DjsDzyaAPWrS5t7y2jubWeOeCQbkkjYMrD1BHUVLVPRr3Tr/TornSri3uLQriNoGBQAdhjpj07VmHxn4YGsz6O2sQJfW4czRuGUIFGWJYjaAB70Ab9FcjafErwTdaitjDrsPmuwVGZHVGJ7ByMfrXXUAFMmSOaJ4pU3o4KspHBB7Vl+NmZfB2tMrFWGn3BBBwQfLavz4j1TVPLT/iZ3/3R/wAvUnp9awrVFHRq9z2cqyh5gpSU+Xlt0/4J+hFj4e0WzA8rT4iw/ikXefzNaiBUUKi7QOgAxX5y/wBqap/0E7//AMCpP8aP7U1T/oJ3/wD4FSf41yUPYYePLRpqK8kl+R7M+GKtR3nWv6r/AIJ+jefY/lRkeh/Kvzk/tTVP+gnf/wDgVJ/jR/amqf8AQTv/APwKk/xrf60uxH+qkv8An7+H/BP0bz7H8qbIiSKVkQOp7MuRX5zf2pqn/QTv/wDwKk/xo/tTVP8AoJ3/AP4FSf40PEpqzQf6qS/5+/h/wT9Bbzw7ol0d0mnRK2c5jBQ/pWqoVFCqu1QMAAcAV+cv9qap/wBBO/8A/AqT/GpLXVNT+1Q/8TO//wBYn/L1J/eHvWFH2FGTlTpqLe9klf1LnwzVkkpVr28v+CfoxRSL90fSlJwMmvSPjQrH/wCEn0D+3v7C/tW2/tPds+zbvnzt3Yx9Oazrj4h+CoL1rOTxFZCUNtOCSgPu4G39a8tgkSX9pRZI3V43utyspyCDbcEGgD3uiqWsarpuj2RvNUvYLO3U43yuFBPoPU+wrH0fx54Q1a9SysNdtZLhzhI23IXPoNwGT9KAOloorL8XEr4V1dlJBFjMQQeR+7agDUor5A0q71axittfgubhktLuNeZWPzgbwDz0IUivrawvYL3TINQiceRPCsysT/Cwz/KgCzRXyb4p1TUNc1nWPEMdxcLateBVxKwADbhGBg/3UzX0D8ONQtrD4U6RqOo3QigisleWaRiQoyeSaAOxorP0LWtK1y0a70i+hvIEcxs8ZyAwAJH6iq7+KPD6a8NBfVbYamWCC23fPkruAx9OaANiisnVPEmh6Zqlvpd/qdvb3lzt8mFz8z7m2jH1PFNsfFGgX2uzaHZ6pBPqEKs0kMeTtCkA5OMZBI4zQBsVFeXNvZ20l1dzxW8EY3PJIwVVHqSelYmveNfCuh3f2TVNatoLgDJiGXZfqFBx+NU9b1Pwx4s8Cao661GulMhiuLqPjyuhOQw4PI6jvQB0Wm6jYanAZ9Ovbe8iVtheCQOob0yO/Iq1XHfCXTtA0zw5Pb+HdYOq2jXbO0xxw5VcrwB2A/OrWqfEDwbpt01rd6/aLMhwyx7pNp9DtBwaAOnorN0DX9G1+2a40fUbe8jU4fy25U+4PI/GigD5q+F58YjVLxvBgjN2LceeG8vmPdxjfx1ra8CRx+KviaIfHVzey6lGxEcMgVUZ4yT5TAdAME4HBwfx1f2brW6g8T6o09rPEpslAMkTKD+8HqKj+NWkX+hfESz8TaRbTObgpcAxRlgJoyAQceo2/maQGl+0vqs6vpOiLIyW0ga4mA/iIIVcjvj5jj1xWFq2t/CWXwrLpdhpN7FeLCRBdm3Al80DhmbdkgnqOnPSuu+MPh688YeHNI8TaDbyS3EMW8wBf3hjfDcA9WVh0+tZ1j8XbOGySDU/CE7aki7ZBHGqq7euCMrn0wcUAUvh/wCKb2y+CfiHypm87TW8q2YHJjEu0DH0LMRU3wI8E6HrWh3esazZx3zG4aCKOXJVAoBJx3JLdT6V29lBdeOfhnfRXmlro0+oLIsUWwrtCtmNjkAnoDnFeZeBPEXir4eXF5ot54YvLtJpN4hCsCsmMZVgpDKQB+QoAra1oVr4c+N2m6ZYbltPt9rLCjMTsDsCVyewOa3P2nv+Qlon/XCf/wBCSudvJtauvjJpN5r9stpfXN5aSm3B/wBShYBEPoQBz9a6f9pe2ubjUdFMFtPMBBNny42bHzJ6CgC7+0NrVzZ+F9J0e3kZI71TJcbTjciKuF+hLZP0rb8IfDHwmfCFmuoacl5dXNukk1wzMHDMoPykH5QM8Y9KPjF4QvPE/hOym02Pzb+wG9IehlRlAZRnvwCPpjvXJaB8WtQ0HQIdE1Lw7dS6jZxiBGYmPdtGF3KRkEcA464oAg+D9xdeHPivqHhSOdpbOSSeFgTwWjyVfHrgEH6+1ZOoaNH4g+O97pE7OIJ9QfztpwTGqbmGffGPxrq/gt4U1qfxNc+Ndfgkt3l8xoEkXa8jyfefaeQoBIGeufaqOg21yv7R1zO1tOIjdTnzDE23/UnvjFAB8evB+gaHomnX2kafFZO9wYJFjzh1KEjIJ6jb1969V+HNzNeeBNEubhy8r2MRZj1J24ya439o+CefwppywQyysL8EiNCxA8t/Suu+GCPH8PtCSRGRlsowVYEEHHcGgC344/5EzW/+wdcf+imr87o/9Wn+6P5V+iPjj/kTNb/7B1x/6Kavzuj/ANWn+6P5VyYrdH2vCn8Or6r9TqPC/ha01qwjupfEOnaeTNJHLHcSorKFUFWALAsGY49uvNZviDSItJv7azXUrW8aSCOSWS3kV0jdiQU3A4OMdeK9D8L6tb+EfhNZ6xNpEN/Jd30gUSADjnncQeyH86g+KenR3njbww8FssKalDCPLVAP+Wg9OCcNXxtHNK7x0oT/AId5pbbx38z6VVHz67GQ/gKxWRs+MNFMQmddwuYyfKC5V8bvvFuNvbrk1wo5ANfRNtrthdfEW78H/wBhW6iKEt9o2LknaGI27emG9a+e7yI293PAesUrIfwYj+lbZFj8RiXKOI3tFrbaV9dB0Zyl8RFRRRX0RuFS2v8Ax9Q/9dU/9CFRVLa/8fUP/XVP/QhQiZbH6RL90fSuG+OmqXGmfDu7+zO0cl1IltvU4IVj835qCPxruV+6PpXLfFfQJ/Engi90+0UNdrtmgUnG50Odv4jI/GvWPx84P4O/D3w7q3gpdV1mxF5NeO4jy7KIkVioC4IwcgnP0rlvB+kjQvjtbaOsjSJa3kiRs3Up5TFc++CKu/Dr4kyeDtGl8Papot5PLDKxgRfkdSxyUZW5HOeRnr0ql4LfVrr432d9q9lLbXdxdPNJGyEeWGiYqPbClRzSAtfF3V7PUPivHY69NOui6aUjkWIEtyodiB6sSFz6Cs34gal8Nb7R4/8AhFrSax1GKRduImRXTvkknkdQevFdV8XND1TQ/Hlv44sNOGoWZ2NcxmPeqsq7SGGDhWXHzY4P4U+X4reFpLYLYeC5Li+YYWEwRbd3plQSfwFAHovwv1abW/AWk6jcyeZO8OyV88syEqSfc7c1o+L/APkU9Y/68Z//AEW1T6Fzo1m5tEs2khR3gRNojZgCy47YJNQeLgT4U1cAEk2M2AP+ubUwPn/4faMdb+Fvi2CNd09u8F1CP9qNGJH4ruH410nh7xh9n+AN6glxd2pbTovX959w/gjH/vmrn7MsLrpeuLNC6hpYeHQjI2N615vrvh3U7Txld+ErZLgQS6iqRAKdhBJEb+nCv/OkBsajo/8AZvwL0+8ZNsuo6us59dgR1QfkCfxr0D/m23/uE/8As1J8fbFbT4c6XYWcTmK3vIY0VVJIVY3A6VpeHtJn1j4EW+kxArPcaWUQNx8/JAOenIFAFP8AZu/5Ei8/7CMn/oCVymoZ/wCGl4v+vyP/ANJxWf8ADHx5J4Ht7/Q9S0W9mlkn8xIkG2RZMBSpU89h096j8PNrNz8cbC+1qxltLu5uxO8RU/ulaIlFPphdo55oA0f2iJJ4vH2kyWzlJ1skMTA9G81sH88V1p8IaX8OfCt/4lsHuZdXttPdDK8uUZ2xzt6AbsGuZ+PkUsnxH0NkikdRbw5KoSB+/PpXsfijSk1zw5qGkSNsF3A8Qb+6SOD+BwaYHi/wP8F6X4mi1DXPEEbX4Sfykjkc4Z8BmdsHLH5h+td9480LSvD3wo8Q2ej2i2tu8TSmNWJG4lQSMk46DivM/A/ijVPhfqN/o/iDR7hoJpA5CnBDgY3IT8rKRjv2HuK7bWPF8XjX4U+KLq00+4tkgTylVyGZ+FOcD69OaQEn7ODBfAl4zEADUZCST0+RK5y51H4N6Xd3Fv8A2bca5cSSu0kyRGQFixJ2klRjJ42j8au/CjTr+++DHiHTrNXju7ia4SIMCpJMSDHPr0zXO/C/xnp/gi2vtM1Tw7etqjzkqY4h5p4AEZDYIwQemetAHNWmv/2B4u1C98KNdWVpMpSKOYYdUJU7SOehBx7UVB46bWrnxdfX2qafLaXd0VmaDaSYlZQVU8dQuM0UAfWdFFFMApNq53YGfWlooADwOK8c/wCE5+KGnb7a98FPdShiElW3kweeM7MqfwxXsdFAHi3w/wDB3ifWvHf/AAmXi63a08uTzkikG15HAwgC/wAKLx154Hua9poooAKQqCckDI70tFABRRRQAUUUUAY/jj/kTNb/AOwdcf8Aopq/O6P/AFaf7o/lX6I+OP8AkTNb/wCwdcf+imr87o/9Wn+6P5Vx4rdH2vCn8Or6r9TrvDWhQa3o8JvPFdrYQpPIjW1zcgeWAuVZUZudzEg9McnnpWf4ktptO1Oxtxr41CRYI3M0NyZEgcnlUYHtgc8V3nhjWU8IfCSz1c6XFeyXd/IAJMKMc85weyVB8U7FL/xr4WlithEupQwjYFA/5aA449mr4ujmNV46UZr93eaXw7x36XPpVN8+u2pnnwnbx3z3Y8f6fv8AOdTOt8vmmEJ8rZ3ZLEgDbngc5PSvPizOS7klm5JJySTX0TbeIre6+I934QOjQKkUJbz8DJO1WI246YbHXtXz3ewm3vZ7c9YpXT8mI/pW2Q42viHJV1Z8sWttne2yQ6Mm9yGiiivpDcKltf8Aj6h/66p/6EKiqW1/4+of+uqf+hChEy2P0iX7o+lLSL90fSlr1j8fGGKIyCQxoXHRioyPxp9FFABTEhhR96xIrHuFANPooAKKKKACiiigAooooAYYozIJDGpcdGxz+dPoooAKKKKAGyRxyDEiK49GGaVFVF2ooUDsBilooAKYYozIJCilx0bHI/Gn0UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQBj+OP8AkTNb/wCwdcf+imr87o/9Wn+6P5V+iXjYFvB2tKOp0+4H/kNq/OyP/VJ/uj+VceK3R9rwp/Dq+q/UmaaZoVhaaRol5VC5Kj6DoKV7m4dkZ7iZmj+4TIxK/Tnj8Kiorj5V2PrCUXNyJzOLiYSnrIJDuP45zUbEsSzEkk5JJ5NJV/TdKu9RtL24tF81rRUdolUtI4ZtvygA5wevtUzlCmuaWi0/yQOyKFFdLqHgrV7G4eO5aFUj083zTAOYwoXOzO37/bFc1UUcRSrq9OV0JST2CpbX/j6h/wCuqf8AoQqKpbX/AI+of+uqf+hCt0Etj9Il+6PpS0i/dH0pa9Y/HwooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAKeu2xvdFvrNc5nt5Ihj/AGlI/rX5xhGjAjYYZPlI9CODX6UHpXwV8bfDj+F/ifrem+WUge4N1bHHBilO8Y+hLL/wGuXFLRM+t4UrJTqUnu7P7v8AhzjKv+HrBNU1yy015jALqYReYF3bSenHfnFUKdG7xyLJG7I6kFWU4II7g1wVFKUGouz6M+0Z3EXww8RPo8F0bW4S8e78mS1MQzHF/wA9d27ke1VvCtlrFr4k1yy8LancrfWkUiwmGNd10qSqpXB4X+9+FU/CU+qazrsOmS63qcZnSQRFbxl/eBCUyScYJABrrrL4aajbJpd1/aUtvdPI39qvDeKPLjz1jYcsSOua+bxWLnh+aljKsbyWi5dOr1Teq0t8+9jCUuW6kyzr+j+PZdOEOra9qEulTac9xqDNAgELKpbyiOpyQBkVxvhfwXf+IbGwvLEzPFNdvb3jLFuFqo2kOefmyG6e1XPDWlav4r07UI7LWL5pYblFMdxfERtbsGyTk8twPY5rS8T+EbrwpZave2ur3sWnRiIWQjvArySsyht6r2A3Yx6CsaVd4VvCxqxjUbVkoWWvdLr7yt5R9bpPl92+voYHirwZfeHbC5u9QaRFW9FtabowBcJhiZOpx0HHvWHoNrJfa7p9lEpaS4u4YlHqWdR/Wo7u/vrxVW7vbq4VTlRLMzgH1GTXof7M3h1/EHxb0yRoy1tpeb+Y9gU4jH4uV/I19Ng6ddRUa0lKXkrIWJq+woTqSeyZ9uDpRRRXun5OFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAV4n+1Z8P5fEvhmPxLpcBk1PSEbzUQZaa2PLAepU/MB6bvWvbKCM1M4qSszpwmKnha0asN0fmv1GRyKK+hP2g/gjc2N1c+KvBlkZrGQmS80+FcvA3UvGo6oepUcr244Hz3Xmzg4OzP03BY2ljKSqU36rqvUK6Dwdo1rry6jZy3ttZ3awpJazXM/lxgh8OD65B4Fc/QQD1AP1rnr05VIOMJcr7nW1dHpHiLwZ4f0y2utRg1WzmtYNOOIEvw0r3WMBhgcrk5xXnBz600KoOQoH4U5FZ3VEVmZiFVVGSSegA7msMHhqtCLVSo5vuyYpxWruABJwASfYV9qfs2/D9/BXgr7TqUPl6zqpWe6Uj5oUA/dxfUAkn/AGmPpXCfs8fBKeyuoPFvjO08ueMiSw06Qcxt1Eso/vDsvbqecAfR1ezQpW95nxXEGbxrf7NRd11ffyCiiiuo+VCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvMPiX8EvB3jKWS/WJ9H1R+Wu7NQBIfWSM/K314PvRRSlFSVmbUMRVw8+elKzPnn4lfBPXvBUP2uTV9MvrQk7GUPHJj3XBH/j1eYJC7T+SCu7OOvFFFedVioysj9JyzEVK+HU6juz1v4cfAXXfFtqmoTa3pthYkgMUV5ZceykKP1r6G+Gnwf8AB/gd0vLS1e/1NR/x/XmGkX/cGNqfgM+9FFdVGnG17HyWd5hiXVdHn93seh0UUV0HzoUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH//Z" alt="Región de Murcia">
+      <img src="data:image/jpeg;base64,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" alt="Educación Inclusiva · Región de Murcia">
+    </div>
+    <div class="brand-r">SUMAMOS (ESCUELA+FAMILIA+EOEP)</div>
+  </div>
+</header>
+<nav class="minirail" id="minirail" aria-label="Camino"><div class="wrap minirail-in" id="mrIn"></div></nav>
+
+<section class="hero" id="hero">
+  <div class="wrap hero-in">
+    <div>
+      <div class="h-sum">SUMAMOS</div>
+      <div class="h-name">CADA DÍA CUENTA</div>
+      <p class="h-sub">Prevención del absentismo desde Educación Infantil</p>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 440 250" role="img" aria-label="Ilustración: una familia llega al colegio por la mañana junto a un calendario con los días marcados">
+        <rect x="0" y="0" width="440" height="250" fill="#FFF7EE"/>
+        <circle cx="380" cy="48" r="26" fill="#F5C542"/>
+        <rect x="0" y="198" width="440" height="52" fill="#F1E3CF"/>
+        <path d="M0 214 C120 200 220 232 440 210" stroke="#3E4A52" stroke-width="18" fill="none"/>
+        <path d="M0 214 C120 200 220 232 440 210" stroke="#F5C542" stroke-width="3" stroke-dasharray="12 10" fill="none"/>
+        <g transform="translate(250 70)">
+          <rect x="0" y="40" width="150" height="100" rx="6" fill="#fff" stroke="#2A8B8D" stroke-width="4"/>
+          <path d="M-10 44 L75 0 L160 44" fill="#48C5C7" stroke="#2A8B8D" stroke-width="4" stroke-linejoin="round"/>
+          <rect x="58" y="88" width="34" height="52" rx="4" fill="#D9822B"/>
+          <rect x="16" y="62" width="26" height="22" rx="3" fill="#E1F1F1" stroke="#2A8B8D" stroke-width="3"/>
+          <rect x="108" y="62" width="26" height="22" rx="3" fill="#E1F1F1" stroke="#2A8B8D" stroke-width="3"/>
+          <circle cx="75" cy="26" r="9" fill="#fff" stroke="#2A8B8D" stroke-width="3"/>
+        </g>
+        <g transform="translate(30 40)">
+          <rect x="0" y="10" width="150" height="120" rx="12" fill="#fff" stroke="#9A5410" stroke-width="4"/>
+          <rect x="0" y="10" width="150" height="30" rx="12" fill="#D9822B"/>
+          <rect x="0" y="28" width="150" height="12" fill="#D9822B"/>
+          <rect x="30" y="0" width="8" height="22" rx="4" fill="#9A5410"/><rect x="112" y="0" width="8" height="22" rx="4" fill="#9A5410"/>
+          <g fill="#2A8B8D">
+            <circle cx="22" cy="60" r="8"/><circle cx="48" cy="60" r="8"/><circle cx="74" cy="60" r="8"/><circle cx="100" cy="60" r="8"/><circle cx="126" cy="60" r="8"/>
+            <circle cx="22" cy="88" r="8"/><circle cx="48" cy="88" r="8"/><circle cx="74" cy="88" r="8"/>
+          </g>
+          <circle cx="100" cy="88" r="8" fill="none" stroke="#2A8B8D" stroke-width="3"/><circle cx="126" cy="88" r="8" fill="none" stroke="#2A8B8D" stroke-width="3"/>
+          <circle cx="22" cy="114" r="8" fill="none" stroke="#2A8B8D" stroke-width="3"/><circle cx="48" cy="114" r="8" fill="none" stroke="#2A8B8D" stroke-width="3"/>
+        </g>
+        <g transform="translate(190 128)">
+          <circle cx="14" cy="10" r="10" fill="#7A4A2A"/><rect x="4" y="22" width="22" height="40" rx="10" fill="#7563B0"/>
+          <circle cx="44" cy="30" r="8" fill="#E3B17F"/><rect x="36" y="40" width="18" height="24" rx="8" fill="#F59E0B"/>
+          <rect x="34" y="42" width="22" height="16" rx="4" fill="#C9536A"/>
+          <path d="M26 34 L38 46" stroke="#7A4A2A" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="lema">¡cada día en el cole suma!</div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="wrap layout">
+  <aside class="idx" aria-label="Índice">
+    <div class="idx-h"><b>Índice</b><span>Salida y cinco paradas del curso</span></div>
+    <ul id="idx"></ul>
+  </aside>
+  <main id="view" tabindex="-1"></main>
+</div>
+
+<div class="wrap">
+  <div class="license">
+    <strong>Aviso legal y licencia de uso.</strong>
+    © EOEP General Cehegín · Consejería de Educación, Región de Murcia. Material del Proyecto SUMAMOS (Escuela+Familia+EOEP) · Innovación educativa Modalidad D · 2025-2027. Licencia Creative Commons CC BY-NC-ND 4.0: se permite descargar, usar y difundir sin ánimo de lucro citando la autoría; no se permite modificar ni el uso comercial sin autorización (<a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a>). Licencia: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">creativecommons.org/licenses/by-nc-nd/4.0/deed.es</a>
+  </div>
+</div>
+<footer>
+  <div class="f1">PROYECTO SUMAMOS (Escuela+Familia+EOEP) | Consejería de Educación · Región de Murcia</div>
+  <div class="f2">Equipo de Orientación Educativa y Psicopedagógica de Cehegín · C/ Esparteros, 22 · 30430 Cehegín · 968 72 36 14 · 672 44 04 17 · <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a> · Curso 2026-2027</div>
+</footer>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+"use strict";
+const BASE="https://30700119-ship-it.github.io/SUMAMOS/";
+const KEY="sumamos-b2-v1";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let ST={};try{ST=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){ST={}}
+let saveT;function save(){clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}document.querySelectorAll(".saved").forEach(x=>x.textContent="Guardado en este navegador · "+new Date().toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"}))},400)}
+function flush(){clearTimeout(saveT);try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}}
+window.addEventListener("pagehide",flush);document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")flush()});
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2200)}
+
+/* ===================== DATOS ===================== */
+const IC={
+  flag:'<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>',
+  cal:'<rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/>',
+  door:'<path d="M4 21h16"/><path d="M6 21V4h12v17"/><circle cx="14.5" cy="12.5" r="1"/>',
+  eye:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v3l2 1.5"/>',
+  hand:'<path d="M12 20s-7.5-4.6-7.5-10A4 4 0 0 1 12 7.6 4 4 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/><path d="M8.5 11.5h2l1.2-2 1.6 4 1.2-2h1.5"/>',
+  go:'<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>',
+  plan:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="m9 12.5 2 2 4-4"/><path d="M9 17.5h6"/>',
+  school:'<path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.2V20h14V9.2"/><path d="M10 20v-5h4v5"/><path d="M12 10.5v.01"/>',
+  steps:'<path d="M3 20h5v-5h5v-5h5V5h3"/><path d="m16 2 3 3-3 3"/>',
+  home:'<path d="M3 11 12 4l9 7"/><path d="M6 10v10h12V10"/>'
+};
+const svg=(k,c)=>`<svg viewBox="0 0 24 24" fill="none" stroke="${c||"currentColor"}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[k]}</svg>`;
+
+const L={
+  jpa:BASE+"GUIAS/b1-guia-jornadas-puertas-abiertas.html",
+  entrev:BASE+"CUESTIONARIOS/b1-entrev-fam-3anos.html",
+  incorp:BASE+"GUIAS/b1-proto-incorporacion-curso.html",
+  adapt:BASE+"GUIAS/b1-guia-doc-adaptacion-septiembre.html",
+  traspaso:BASE+"CUESTIONARIOS/b5-cuest-tut-traspaso-ei-primaria.html",
+  caminos:BASE+"GUIAS/b6-guia-doc-caminos-inclusion.html",
+  proto:BASE+"GUIAS/b2-proto-doc-absentismo-infantil.docx",
+  panel:BASE+"#cada-dia-cuenta",
+  deriv:BASE+"GUIAS/b6-guia-doc-caminos-inclusion.html#deriv",
+  anexo:BASE+"GUIAS/b6-caminos/doc/anexo-i-solicitud.docx"
+};
+
+/* Salida */
+const SALIDA={id:"salida",n:"S",k:"#0B2545",kd:"#0B2545",kl:"#E3E9F2",t:"Salida: por qué nos obliga",short:"Salida",w:"antes de empezar",icon:"flag",
+  subs:["Nuestro objetivo en Infantil","Un derecho del niño","Protegerle es obligatorio","Todos somos responsables","¿Por qué desde Infantil?"]};
+
+/* Paradas */
+const STOPS=[
+ {id:"p1",n:1,k:"var(--c1)",kd:"var(--c1d)",kl:"var(--c1l)",t:"Antes de empezar",w:"abril-junio y primera quincena de septiembre",icon:"plan",
+  intro:"El curso empieza antes de septiembre. El centro deja organizado su plan, las normas de justificación y la red de apoyo, y las familias reciben desde la matrícula un mensaje claro: cada día cuenta.",
+  subs:["Qué hacemos","Plan del centro","Dónde lo dice"],
+  ce:[["Plan de Prevención del Absentismo en la Programación General Anual","Con análisis del curso anterior, objetivos, actuaciones y evaluación."],["Criterios de justificación en las Normas de Organización y Funcionamiento","Qué se justifica, quién firma, plazos y qué pasa con los retrasos."],["Mapa de recursos del municipio","Servicios sociales, Comisión municipal de absentismo, centro de salud y mediación, con persona de contacto."],["Sesión con el claustro","Qué nos pide la norma en Infantil y cómo se usan las herramientas de esta guía."]],
+  au:[["Preparar el panel de asistencia","Fotos del grupo, «¿quién ha venido hoy?» y encargado del día, listos para el primer día."],["Punto fijo de asistencia en la reunión general","Diez minutos: por qué importa, cómo avisar y justificar, qué hace el centro."]],
+  fa:[["Jornadas de Puertas Abiertas","La primera ocasión para transmitir que la asistencia regular es parte del derecho a aprender.",L.jpa],["Compromiso familia-escuela","Breve documento firmado en la matrícula o en la entrevista inicial."],["Información en su idioma","Para familias con barrera idiomática, con mediación y apoyo visual."]],
+  refs:["PRAE art. 5.3","PRAE art. 9.2","PRAE art. 12.2.c","PRAE art. 18.3-18.5","PRAE art. 20","Ley 3/1995 art. 10"],
+  marcha:["El Plan de Prevención del Absentismo está en la Programación General Anual con análisis, objetivos, actuaciones y evaluación.","Las Normas de Organización y Funcionamiento recogen los criterios de justificación de faltas adaptados a Infantil.","El mapa de recursos del municipio está actualizado, con personas de contacto.","Todas las familias de nuevo ingreso reciben la información sobre asistencia en la matrícula o en junio."]},
+ {id:"p2",n:2,k:"var(--c2)",kd:"var(--c2d)",kl:"var(--c2l)",t:"Septiembre: acojo y registro",w:"primeras semanas",icon:"school",
+  intro:"Desde el primer día, cada falta se registra y se comunica a la familia. No es burocracia: es la única forma de ver a tiempo un patrón que se repite.",
+  subs:["Qué hacemos","Circuito de registro","Calculadora de faltas","Dónde lo dice"],
+  ce:[["Circuito de control de la asistencia","Quién registra, cuándo se avisa a la familia y cuándo pasa a jefatura. Incluye qué se hace si falta el profesorado."],["Alumnado matriculado que no se incorpora","Contacto con la familia la primera semana; si no se localiza, se pide ayuda a los servicios municipales."]],
+  au:[["Registro de cada falta el mismo día","También cuando la familia ya ha avisado."],["Revisión semanal de faltas y justificantes","Y contacto pronto con la familia si hay faltas sin justificar."],["Acogida diaria en la entrada","Sin reproches delante del grupo cuando el niño o la niña llega tarde: eso se habla con la familia.",L.adapt]],
+  fa:[["Entrevista inicial con bloque de asistencia","Rutinas de sueño y mañana, horarios, viajes previstos.",L.entrev],["Cómo avisar y justificar","Por escrito, firmado por al menos un progenitor; antes de la ausencia si está prevista o al volver."],["Incorporación durante el curso","Si el alumno o la alumna llega con el curso empezado.",L.incorp]],
+  refs:["PRAE art. 9.3-9.7","PRAE art. 10.1 y 10.4","PRAE art. 11","PRAE art. 13.2-13.3","PRAE art. 16.1"],
+  marcha:["Todo el profesorado registra cada falta el mismo día en la aplicación.","Las familias reciben la notificación de la ausencia de forma inmediata.","Cada tutor o tutora revisa cada semana las faltas y custodia los justificantes.","Se ha contactado con la familia de todo alumno o alumna matriculado que no se incorporó la primera semana."]},
+ {id:"p3",n:3,k:"var(--c3)",kd:"var(--c3d)",kl:"var(--c3l)",t:"Detecto a tiempo",w:"primeras 8 semanas",icon:"eye",
+  intro:"Antes de la octava semana, cada tutor o tutora completa la ficha de indicadores de riesgo de su alumnado. Detectar no es etiquetar: es saber a quién acompañar y cómo.",
+  subs:["Qué hacemos","Ficha de indicadores","Rutinas por edades","Dónde lo dice"],
+  ce:[["Derivación interna al EOEP","Cuando la ficha da alerta media o alta: hoja breve con indicadores y lo ya hecho."],["Coordinación de bienestar y protección","Si hay indicios de desprotección, se activa además el cauce de protección."]],
+  au:[["Ficha de indicadores de riesgo","32 indicadores en 4 dimensiones, con escala SÍ / EN PROCESO / NO y Plan de Acción."],["Rutinas de pertenencia","Para que cada niño y niña quiera volver mañana."],["Pautas éticas","Celebramos la asistencia del grupo, nunca premiamos individualmente la «asistencia perfecta»."]],
+  fa:[["Plan de Acción individual","Objetivos, medidas, responsables y fecha de revisión cuando hay alerta media o alta."],["Primer contacto según el perfil familiar","Orientaciones para siete perfiles frecuentes en la zona, sin etiquetar."]],
+  refs:["PRAE art. 8","PRAE art. 12.3","PRAE art. 17.3","PRAE art. 18.2","Ley Orgánica 8/2021 art. 16 y 35"],
+  marcha:["Todo el alumnado de 3 años tiene la ficha de indicadores completada antes de la 8.ª semana.","Todo alumno o alumna con alerta media o alta tiene Plan de Acción con responsable y fecha.","Las aulas de Infantil aplican rutinas de pertenencia y celebran la asistencia del grupo.","El equipo conoce cómo se activa el cauce de protección ante indicios de desprotección."]},
+ {id:"p4",n:4,k:"var(--c4)",kd:"var(--c4d)",kl:"var(--c4l)",t:"Acompaño y sigo",w:"octubre-mayo",icon:"hand",
+  intro:"Acompañar es graduar la respuesta: lo mismo para todas las familias, más apoyo para las que lo necesitan y actuación coordinada en los casos. Siempre por la causa, no solo por el porcentaje.",
+  subs:["Semáforo de actuación","Solicitar intervención del EOEP","Dos cauces","Secuencia del PRAE","Perfiles familiares","Dónde lo dice"],
+  ce:[],au:[],fa:[],
+  refs:["PRAE art. 3.4 y 12.3","PRAE art. 13.4-13.6","PRAE art. 14","PRAE art. 17.1-17.3","Ley Orgánica 1/1996 art. 13.1","Ley Orgánica 8/2021 art. 15 y 16"],
+  marcha:["Las familias con indicadores reciben seguimiento según su Plan de Acción.","El tutor o la tutora contacta por escrito con la familia en los 5 días lectivos siguientes al aviso de «detección absentismo».","La asistencia se valora en las sesiones de evaluación de cada trimestre.","Se piden asesoramiento al EOEP y a su PSC cuando el caso lo requiere."]},
+ {id:"p5",n:5,k:"var(--c5)",kd:"var(--c5d)",kl:"var(--c5l)",t:"Cierro y traspaso",w:"junio",icon:"steps",
+  intro:"Junio cierra el curso y abre el siguiente: se analiza lo que ha funcionado, se traslada la información a quien va a acompañar al grupo y se prepara el verano con las familias.",
+  subs:["Qué hacemos","Registro de cierre del caso","Solicitar intervención del EOEP","Autoevaluación del centro","Dónde lo dice"],
+  ce:[["Análisis en el Claustro y en el Consejo Escolar","Faltas, casos y medidas que han funcionado."],["Memoria y buenas prácticas","Qué mantener y qué cambiar el curso siguiente."]],
+  au:[["Seguimiento trimestral de cierre","Revisión de todo el grupo y de la evolución de cada caso."],["Traspaso a 1.º de Primaria","La información sobre asistencia y las medidas eficaces viajan con el alumno o la alumna.",L.traspaso]],
+  fa:[["Mensaje de cierre y verano","Reconocer el esfuerzo de las familias y recordar la fecha de inicio del curso."],["Acuerdos de ausencias previstas","Viajes y temporadas: fechas, actividades de continuidad y regreso pactado."]],
+  refs:["PRAE art. 5.3","PRAE art. 10.6","PRAE art. 13.7","PRAE art. 18.5","PRAE art. 21"],
+  marcha:["El Claustro ha analizado las faltas de cada trimestre y el Consejo Escolar ha recibido los indicadores.","La información de asistencia figura en el traspaso a 1.º de Primaria.","La memoria recoge las buenas prácticas del curso.","El Plan de Prevención del curso siguiente incorpora las propuestas de mejora."]}
+];
+const ALL=[SALIDA].concat(STOPS);
+const byId=Object.fromEntries(ALL.map(s=>[s.id,s]));
+
+/* Ficha de indicadores */
+const DIM=[
+ {t:"Dimensión 1 · Factores centrados en el alumno o la alumna",ref:"PRAE art. 8.a",u:"Observación directa durante las primeras 8 semanas.",it:[
+  ["Dificultades en el período de adaptación prolongadas más allá de 6-8 semanas.","¿Sigue llorando o negándose a entrar? ¿Recae tras fines de semana o vacaciones?","Derivar a orientación del EOEP. Ajustar el plan de adaptación. Entrevista detallada con la familia."],
+  ["Resistencia intensa y continuada a entrar al aula, con reacción emocional desproporcionada.","¿Llanto intenso, aferramiento extremo? ¿Igual o peor cada día?","Entrevista urgente con la familia. Plan de adaptación personalizado con orientación."],
+  ["Expresión frecuente de miedos o quejas somáticas (dolor de barriga, de cabeza) sin causa médica.","¿Dice que le duele algo antes de entrar? ¿Va al médico sin diagnóstico?","Comunicar a orientación. Solicitar informe médico. Explorar ansiedad de separación."],
+  ["Baja autoestima o sentimiento de no pertenencia al grupo.","¿Evita el juego con iguales? ¿Dice «no quiero ir»? ¿Se aísla?","Actividades de cohesión. Tutoría individualizada. Comunicar a orientación."],
+  ["Necesidades específicas de apoyo educativo no bien atendidas.","¿Hay informe previo? ¿El apoyo está activo y recogido en el expediente?","Revisar expediente. Solicitar informe actualizado. Verificar las medidas."],
+  ["Dificultades de relación con iguales o con el adulto de referencia.","¿Conflictos frecuentes? ¿Rechaza al tutor o tutora? ¿Sin compañero de referencia?","Acogida entre iguales. Tutoría de seguimiento. Orientación si persiste."],
+  ["Cambios frecuentes de centro o de localidad.","¿Constan cambios de centro? ¿La familia menciona traslados?","Acogida reforzada. Comunicar a la PSC. Coordinar con el centro de origen."],
+  ["Problemas de salud mental o emocional identificados (ansiedad de separación, TDAH, TEA...).","¿Hay diagnóstico documentado? ¿Conductas aún no valoradas?","Coordinar con orientación y apoyos. Ajustar la respuesta educativa. Informar a la familia."]]},
+ {t:"Dimensión 2 · Factores centrados en la familia",ref:"PRAE art. 8.b",u:"Entrevista inicial y cada contacto significativo del primer trimestre.",it:[
+  ["Escasa valoración de la educación o desconocimiento de su importancia.","¿Dice que «en Infantil no pasa nada si falta»?","Informar sobre la importancia de esta etapa. Entregar la guía para familias."],
+  ["Falta de hábitos básicos en el hogar: horarios irregulares, rutinas desorganizadas.","¿Llega tarde habitualmente? ¿Sin desayunar o con ropa inadecuada?","Entrevista de apoyo a la organización familiar. PSC si hacen falta recursos."],
+  ["Sobreprotección que dificulta la separación y la autonomía.","¿Entra al aula cada día? ¿Llama durante la mañana? ¿Justifica cada malestar?","Acompañar la separación. Entrevista con orientación si es muy intensa."],
+  ["Dificultades socioeconómicas graves: pobreza, cambios frecuentes de domicilio.","¿Necesidades materiales? ¿Inestabilidad de vivienda?","Coordinar con servicios sociales. Seguimiento de la PSC."],
+  ["Barreras idiomáticas o culturales; desconocimiento del sistema educativo.","¿No comprende las comunicaciones? ¿Hizo falta mediación?","Mediación intercultural. Información en su idioma. Acogida específica."],
+  ["Experiencias escolares negativas de los propios progenitores.","¿Mencionan malas experiencias? ¿Desconfianza hacia el centro?","Sensibilización desde la acogida. Desayunos educativos."],
+  ["Escasa implicación: no acuden a reuniones, entrevistas ni jornadas.","¿No vinieron a la reunión inicial ni a las Jornadas de Puertas Abiertas?","Llamada de bienvenida. Horario alternativo. PSC si hay segunda negativa."],
+  ["Desestructuración familiar: rupturas recientes, violencia doméstica, salud mental.","¿Cambios bruscos en el estado emocional? ¿Indicios de crisis?","Cauce de protección si procede. Informar a orientación y equipo directivo."],
+  ["Hermanos o hermanas con antecedentes de absentismo o abandono.","¿Hay expedientes de hermanos en este u otros centros?","Seguimiento preventivo desde el primer día. Informar a la PSC."],
+  ["Actitudes permisivas: justificaciones vagas o excesivas, permiso para faltar sin causa.","¿«Estaba cansado», «no tenía ganas»? ¿Considera normal faltar?","Revisar el patrón de justificaciones. Entrevista. Documentación si es recurrente."],
+  ["Pautas culturales que no priorizan la escolarización en Infantil.","¿Dice explícitamente que Infantil «no es obligatorio»?","Sesión informativa con la PSC. Información en su idioma. Ver perfiles familiares."]]},
+ {t:"Dimensión 3 · Factores centrados en el centro escolar",ref:"PRAE art. 8.c",u:"Autoevaluación del centro: no valora al alumno ni a la familia, sino nuestra respuesta.",it:[
+  ["Protocolo de acogida insuficiente o no adaptado a la diversidad cultural y lingüística.","¿Existe por escrito? ¿Contempla otras lenguas? ¿Se aplica?","Revisar el protocolo de acogida con el equipo directivo y la PSC."],
+  ["Dificultades de comunicación centro-familia (idioma, canal, accesibilidad).","¿Todo solo en castellano y en papel?","Diversificar canales, apoyo visual y mediación."],
+  ["Clima percibido como poco acogedor por la familia.","¿Las familias no se sienten bienvenidas? ¿La entrada es agradable?","Mejorar la acogida física y emocional; revisar el trato en puertas y secretaría."],
+  ["Respuesta educativa no ajustada a las necesidades del alumno o la alumna.","¿Las medidas están activas y son reales?","Revisar las medidas con orientación."],
+  ["Sin seguimiento individualizado del período de adaptación cuando hay dificultades.","¿Hay plan escrito y revisable?","Plan individual con registro semanal las primeras 8 semanas."],
+  ["Escasa presencia del EOEP o de la PSC en la fase preventiva.","¿Ha habido coordinación en el primer mes?","Calendario de presencia del EOEP desde septiembre."],
+  ["Información a las familias sobre derechos y deberes poco clara.","¿Conocen cómo se justifica y qué pasa si se acumulan faltas?","Simplificar el lenguaje y usar formato visual."]]},
+ {t:"Dimensión 4 · Factores centrados en el entorno social",ref:"PRAE art. 8.d",u:"Entrevista familiar, conocimiento de la zona y coordinación con servicios sociales o la PSC.",it:[
+  ["Zona con altos índices de vulnerabilidad social.","¿Zona reconocida de actuación preferente?","Medidas preventivas prioritarias y coordinación con servicios sociales."],
+  ["Modelos de referencia absentistas en el entorno.","¿Hermanos mayores o primos que no van al cole?","Sensibilización comunitaria y referentes positivos con la PSC."],
+  ["Responsabilidades domésticas, cuidado de hermanos o trabajo informal.","¿Falta en días concretos por cuidado o mercadillo?","Entrevista con la familia. Derivar a la PSC y a servicios sociales."],
+  ["Tradiciones que no contemplan la escolarización completa.","¿Ausencias en celebraciones o viajes prolongados?","Diálogo intercultural; acordar ausencias; PSC como mediadora."],
+  ["Acceso difícil al centro por distancia o falta de transporte.","¿Sin vehículo y fuera de ruta?","Gestionar transporte; alternativas con servicios sociales."],
+  ["Bajo capital educativo en el entorno próximo.","¿«Nadie del barrio estudia»?","Conexión con modelos positivos y comunidad educativa ampliada."]]}
+];
+
+/* Perfiles */
+const PERF=[
+ ["Familias de origen marroquí",["La Educación Infantil no es obligatoria en Marruecos y el cuidado en casa se considera prioritario.","Barrera idiomática (árabe, darija).","Desconfianza inicial hacia las instituciones."],["Acogida con mediación en árabe o darija.","Información en árabe sobre el sistema educativo.","Construir confianza antes de intervenir.","Implicar a referentes de la comunidad si la familia lo permite."]],
+ ["Familias latinoamericanas",["Inestabilidad económica y laboral.","Viajes prolongados al país de origen.","Dificultad para acceder a becas y ayudas."],["Comunicación directa y empática.","Acordar los viajes con antelación y planificar el regreso.","Facilitar el acceso a becas y comedor."]],
+ ["Familias de Europa del Este",["Alta movilidad laboral y residencial.","Retornos prolongados al país de origen.","Barrera idiomática en primeras generaciones."],["Información en rumano o búlgaro.","Mediación o compatriotas como puente.","Seguimiento activo en septiembre de quien no regresa."]],
+ ["Familias en exclusión social o pobreza severa",["Dificultades básicas: ropa, desayuno, transporte.","Vergüenza o miedo al juicio."],["Coordinación con servicios sociales desde el primer trimestre.","La PSC como puente.","Comedor y banco de materiales. Trato cálido, sin señalar carencias."]],
+ ["Familias en situación de ruptura o crisis",["Conflicto parental, duelo, violencia doméstica.","Inestabilidad que altera las rutinas."],["Respetar las instrucciones para progenitores separados.","Cauce de protección si procede.","Entorno estable y predecible en el aula."]],
+ ["Familias de etnia gitana",["Desconfianza fruto de la discriminación histórica.","Festividades propias que generan ausencias.","Experiencias escolares negativas de los progenitores."],["Mediación gitana y entidades especializadas.","Reconocer la cultura gitana en el aula.","Implicar a las personas mayores de referencia.","Anticipar y acordar las ausencias por festividades."]],
+ ["Familias monoparentales con sobrecarga laboral",["Un solo adulto con todas las cargas.","Horarios incompatibles (turnos, temporada agrícola)."],["Tutorías flexibles, también telefónicas.","Canales rápidos de comunicación.","Programa de madrugadores si el horario de entrada es el problema.","No interpretar la ausencia en reuniones como desinterés."]]
+];
+
+/* Autoevaluación del centro (Infantil) */
+const AUTO=[
+ "El Plan de Prevención del Absentismo forma parte de la Programación General Anual e incluye análisis, objetivos, actuaciones y evaluación.",
+ "Las Normas de Organización y Funcionamiento recogen los criterios de justificación de faltas conforme al art. 9 del PRAE.",
+ "El profesorado de Infantil registra cada falta en la aplicación el mismo día.",
+ "Cada tutor o tutora revisa semanalmente faltas y justificantes y los custodia.",
+ "Se responde a los avisos de «detección absentismo» en 5 días lectivos y se registra el Anexo I del PRAE.",
+ "Todo el alumnado de 3 años tiene la ficha de indicadores completada antes de la 8.ª semana.",
+ "Todo alumno o alumna con alerta media o alta tiene Plan de Acción con responsable y fecha.",
+ "El centro conoce y utiliza la Hoja de notificación de riesgo y maltrato infantil desde el ámbito educativo.",
+ "El Claustro analiza trimestralmente el absentismo y el Consejo Escolar recibe sus indicadores.",
+ "Las familias reciben la información sobre asistencia en su idioma y con apoyo visual.",
+ "La asistencia se traslada en los informes de tránsito a 1.º de Primaria y en los cambios de centro.",
+ "En Infantil se desarrollan actuaciones preventivas con las familias sobre la asistencia regular."
+];
+
+/* ===================== NAVEGACIÓN ===================== */
+let cur={id:"inicio",sub:0};
+function go(id,sub){location.hash=id==="inicio"?"inicio":id+"-"+(sub||0)}
+function parse(){const h=decodeURIComponent(location.hash.slice(1));const m=h.match(/^(salida|p[1-5])(?:-(\d+))?$/);if(m)return{id:m[1],sub:+(m[2]||0)};return{id:"inicio",sub:0}}
+function renderIdx(){
+  $("#idx").innerHTML=`<li><a class="it" href="#inicio" ${cur.id==="inicio"?'aria-current="true"':""}><span class="nb" style="background:var(--teal)">⌂</span>Inicio</a></li>`+
+  ALL.map(s=>{const on=cur.id===s.id;return `<li><a class="it" href="#${s.id}-0" ${on?'aria-current="true"':""}><span class="nb" style="background:${s.k}">${s.n}</span>${esc(s.t)}</a>${on?`<ul class="sub">${s.subs.map((x,i)=>`<li><a href="#${s.id}-${i}" ${cur.sub===i?'aria-current="true"':""}>${esc(x)}</a></li>`).join("")}</ul>`:""}</li>`}).join("");
+  $("#mrIn").innerHTML=`<div class="rb"><div class="rb-line"></div><a class="rbi home" href="#inicio" style="--k:var(--teal);--kd:var(--tealD)" ${cur.id==="inicio"?'aria-current="true"':""}><span class="c">${svg("home")}</span><span class="t">Inicio</span>${cur.id==="inicio"?'<span class="here">Estás aquí</span>':""}</a>`+ALL.map(s=>{const on=cur.id===s.id;return `<a class="rbi" href="#${s.id}-0" style="--k:${s.k};--kd:${s.kd}" ${on?'aria-current="true"':""} aria-label="${esc(s.id==="salida"?"Salida":"Parada "+s.n)}: ${esc(s.t)}"><span class="c">${svg(s.icon)}${s.id==="salida"?"":`<span class="nn">${s.n}</span>`}</span><span class="t">${esc(s.id==="salida"?"Por qué nos obliga":s.t)}</span>${on?`<span class="here">Estás aquí</span>`:""}</a>`}).join("")+`</div>`;
+  $("#minirail").hidden=false;
+  const cc=document.querySelector('.rbi[aria-current="true"]'),sc=$("#mrIn");if(cc&&sc)sc.scrollLeft=cc.offsetLeft-sc.clientWidth/2+cc.clientWidth/2;
+  $("#hero").hidden=cur.id!=="inicio";
+}
+function route(){cur=parse();renderIdx();const v=$("#view");
+  if(cur.id==="inicio")v.innerHTML=vInicio();
+  else if(cur.id==="salida")v.innerHTML=vSalida(cur.sub);
+  else v.innerHTML=vStop(byId[cur.id],cur.sub);
+  bind();
+  window.scrollTo({top:0});
+}
+window.addEventListener("hashchange",route);
+
+/* ===================== VISTAS ===================== */
+function road(){
+  return `<div class="road-card"><div class="road-top"><span class="flag" style="background:var(--navy)">SALIDA · empieza aquí</span><span class="flag" style="background:var(--c5d)">JUNIO · META</span></div>
+  <div class="road"><div class="stops">${ALL.map(s=>`<a class="stop" href="#${s.id}-0" style="--k:${s.k};--kd:${s.kd}"><span class="c">${svg(s.icon)}${s.id==="salida"?"":`<span class="nn">${s.n}</span>`}</span><span class="l">${esc(s.id==="salida"?"Por qué nos obliga":s.t)}</span><span class="w">${esc(s.w)}</span></a>`).join("")}</div></div></div>`;
+}
+function objetivos(){
+  return `<div class="pilares">
+   <div class="pilar" style="--k:var(--c1);--kd:var(--c1d)"><div class="pn">SENSIBILIZAR</div><div class="pq">A las familias y a toda la comunidad educativa.</div><ul><li>Cada día cuenta: la asistencia es parte del derecho a aprender.</li><li>Desde la matrícula, en su idioma y con apoyo visual.</li><li>Campañas en los momentos críticos del curso.</li></ul><span class="ref">PRAE art. 4.2 (objetivos preventivos, e) y 18.5</span></div>
+   <div class="pilar" style="--k:var(--c2);--kd:var(--c2d)"><div class="pn">ASESORAR</div><div class="pq">Al profesorado, las tutorías y los equipos directivos.</div><ul><li>Qué nos exige la norma en Infantil y qué no.</li><li>Cómo registrar, detectar y acompañar.</li><li>El EOEP y su PSC asesoran en todo momento.</li></ul><span class="ref">PRAE art. 17.2</span></div>
+   <div class="pilar" style="--k:var(--c4);--kd:var(--c4d)"><div class="pn">PREVENIR</div><div class="pq">Crear el hábito y detectar pronto.</div><ul><li>Rutinas de asistencia y vínculo con el cole.</li><li>Ficha de indicadores en las primeras 8 semanas.</li><li>Acompañar a las familias con dificultades.</li></ul><span class="ref">PRAE art. 2.2 y 18.2</span></div>
+  </div>
+  <div class="box regla"><div class="bt">Regla esencial en Infantil</div><p>Prevenir <b>no es opcional</b>: el PRAE es de aplicación en todos los centros sostenidos con fondos públicos (art. 1.2) y pide actuar «particularmente desde el segundo ciclo de la educación infantil» (art. 18.2). Lo que <b>no</b> hacemos en Infantil de forma ordinaria es sancionar ni abrir expedientes: el expediente es excepcional y solo cuando la situación supone un riesgo para el desarrollo del menor.</p></div>`;
+}
+function vInicio(){
+  return `<section class="card pad"><div class="sec-h"><div class="eyebrow">Para el profesorado y los equipos directivos</div><h2>Nuestro objetivo en Educación Infantil</h2><p>Sensibilizar, asesorar y prevenir. Es un trabajo de todos y es una obligación que tenemos que conocer y poner en marcha.</p></div><div style="margin-top:18px;display:grid;gap:16px">${objetivos()}</div></section>
+  <section style="display:grid;gap:14px"><div class="sec-h"><div class="eyebrow">La línea del curso</div><h2>Una salida y cinco paradas</h2><p>Empieza por la salida: por qué nos obliga. Después, cada parada dice qué organiza el centro, qué me toca en el aula y qué hacemos con el alumnado y las familias.</p></div>${road()}</section>
+  <div class="box contexto"><div class="bt">Las siglas de esta guía</div><p><b>PRAE</b>: programa de prevención e intervención en absentismo escolar y reducción del abandono educativo temprano, regulado por la Orden de 31 de enero de 2025 de la Consejería de Educación y Formación Profesional (BORM n.º 34, de 11 de febrero de 2025). Cuando la guía dice «PRAE, art. …», se refiere a esta Orden. <b>EOEP</b>: Equipo de Orientación Educativa y Psicopedagógica. <b>PSC</b>: Profesorado de Servicios a la Comunidad del EOEP.</p></div><div class="box enlace"><div class="bt">Para tenerlo a mano</div><div class="row"><a class="btn primary" href="#p4-1">Solicitud de intervención de los servicios de orientación</a><a class="btn" href="${L.proto}" download>Protocolo de prevención (Word)</a><a class="btn" href="${L.panel}">Todos los materiales del bloque en el panel</a><a class="btn" href="${L.caminos}" target="_blank" rel="noopener">SUMAMOS Camino a la inclusión</a></div></div>`;
+}
+function headOf(s){
+  return `<div class="stop-head"><span class="stop-badge" style="background:${s.k}">${svg(s.icon,"#fff")}</span><div class="sec-h"><div class="eyebrow" style="color:${s.kd}">${s.id==="salida"?"Salida":"Parada "+s.n} · ${esc(s.w)}</div><h2>${esc(s.t)}</h2></div></div>`;
+}
+function tabsOf(s,sub){return `<div class="tabs noprint" role="tablist" style="--k:${s.k}">${s.subs.map((x,i)=>`<a class="tab" role="tab" aria-selected="${i===sub}" href="#${s.id}-${i}" style="text-decoration:none">${esc(x)}</a>`).join("")}</div>`}
+function pager(s){const i=ALL.indexOf(s);const p=ALL[i-1],n=ALL[i+1];return `<div class="pager noprint">${p?`<a class="btn" href="#${p.id}-0">← ${esc(p.id==="salida"?"Salida":p.t)}</a>`:`<a class="btn" href="#inicio">← Inicio</a>`}${n?`<a class="btn or" href="#${n.id}-0">Siguiente: ${esc(n.t)} →</a>`:`<a class="btn primary" href="#inicio">Volver al inicio</a>`}</div>`}
+
+function vSalida(sub){
+  const s=SALIDA;let body="";
+  if(sub===0)body=`<div class="deber"><div class="eyebrow">Antes de entrar en el camino</div><h2>No es una campaña: es un deber que tenemos que conocer y cumplir</h2><p>Cuando un niño o una niña deja de venir al cole no solo pierde clases: deja de ejercer un derecho y, a veces, nos está mostrando una situación de riesgo que nadie ha visto todavía. Por eso la norma no deja la respuesta a la buena voluntad: fija responsables, plazos y registro.</p><div class="hand">activar no es denunciar: es abrir una red de ayuda</div></div>${objetivos()}<div class="box contexto"><div class="bt">Las siglas de esta guía</div><p><b>PRAE</b>: programa de prevención e intervención en absentismo escolar y reducción del abandono educativo temprano, regulado por la Orden de 31 de enero de 2025 de la Consejería de Educación y Formación Profesional (BORM n.º 34, de 11 de febrero de 2025). Cuando la guía dice «PRAE, art. …», se refiere a esta Orden. <b>EOEP</b>: Equipo de Orientación Educativa y Psicopedagógica. <b>PSC</b>: Profesorado de Servicios a la Comunidad del EOEP.</p></div>`;
+  if(sub===1)body=`<div class="sec-h"><h2>La asistencia es la condición del derecho a la educación</h2><p>El titular del derecho es el niño o la niña. La familia lo garantiza y el centro, como parte de los poderes públicos, vela por él. Ante una ausencia, la pregunta es qué necesita el menor.</p></div>
+  <div class="tw"><table><thead><tr><th>Norma y artículo</th><th>Qué establece</th><th>Qué significa para el centro</th></tr></thead><tbody>
+  <tr><td class="k">Convención sobre los Derechos del Niño, art. 3.1</td><td>El interés superior del niño es consideración primordial.</td><td>Decidimos pensando en lo que necesita el menor.</td></tr>
+  <tr><td class="k">Convención sobre los Derechos del Niño, art. 28.1.e</td><td>Fomentar la asistencia regular y reducir el abandono escolar.</td><td>Es el fundamento internacional del PRAE.</td></tr>
+  <tr><td class="k">Constitución Española, art. 27.1 y 27.4</td><td>Derecho a la educación; enseñanza básica obligatoria y gratuita.</td><td>La asistencia forma parte del contenido del derecho.</td></tr>
+  <tr><td class="k">Constitución Española, art. 39.3 y 39.4</td><td>Deber de los padres de asistir a sus hijos; protección de la infancia según los acuerdos internacionales.</td><td>Recordamos a la familia su deber y activamos la protección cuando no se cumple.</td></tr>
+  <tr><td class="k">Ley Orgánica 1/1996, art. 2</td><td>Interés superior del menor como principio de actuación.</td><td>Guía todas las decisiones del protocolo.</td></tr>
+  <tr><td class="k">Ley 3/1995 de la Infancia de la Región de Murcia, art. 10</td><td>Derecho a la educación y colaboración entre administraciones para fomentar la asistencia regular.</td><td>Base de la coordinación centro-ayuntamiento.</td></tr>
+  </tbody></table></div>`;
+  if(sub===2)body=`<div class="sec-h"><h2>El absentismo puede ser un indicador de riesgo</h2><p>No todo absentismo es desprotección, pero toda inasistencia reiterada se valora también desde la protección. El profesorado ve a cada menor cada día: por eso la ley le exige de forma especial comunicar los indicios.</p></div>
+  <div class="grid2"><div class="box clave"><div class="bt">Deber de comunicar el riesgo</div><p>Toda persona, y especialmente quien por su profesión detecte una situación de riesgo o posible desamparo, lo comunicará a la autoridad.</p><span class="ref">Ley Orgánica 1/1996, art. 13.1</span></div>
+  <div class="box clave"><div class="bt">Deber cualificado del personal educativo</div><p>El deber de comunicar indicios de violencia es especialmente exigible a quien tiene encomendada la enseñanza de niños y niñas. La violencia incluye la omisión y el trato negligente.</p><span class="ref">Ley Orgánica 8/2021, arts. 1.2, 15 y 16</span></div></div>
+  <div class="sec-h" style="margin-top:6px"><h2 style="font-size:1.35rem">Dos cauces que se suman, no se sustituyen</h2></div>
+  <div class="tw"><table><thead><tr><th></th><th>Cauce PRAE (absentismo)</th><th>Cauce de protección (riesgo o maltrato)</th></tr></thead><tbody>
+  <tr><td class="k">Cuándo</td><td>Faltas no justificadas o mal justificadas.</td><td>Indicadores de riesgo, desprotección o maltrato, haya o no absentismo.</td></tr>
+  <tr><td class="k">Instrumento</td><td>Aplicación informática y Anexos I a IV del PRAE.</td><td>Hoja de notificación de riesgo y maltrato infantil desde el ámbito educativo.</td></tr>
+  <tr><td class="k">Quién inicia</td><td>Tutor o tutora, con jefatura y dirección.</td><td>Cualquier docente que lo detecte, con el equipo directivo y la coordinación de bienestar y protección.</td></tr>
+  <tr><td class="k">Base</td><td>PRAE, arts. 12 a 17.</td><td>Ley Orgánica 1/1996, art. 13; Ley Orgánica 8/2021, arts. 15, 16 y 35; PRAE, art. 17.3.</td></tr>
+  </tbody></table></div>
+  <div class="box contexto"><div class="bt">Cuándo valorar también la protección</div><p>Inasistencia con signos de descuido en higiene, alimentación, sueño o salud; hermanos también absentistas; menores que cuidan de familiares o asumen tareas; familias que no se pueden localizar; cambios bruscos de conducta o de estado emocional.</p></div>`;
+  if(sub===3)body=`<div class="sec-h"><h2>Todos somos responsables</h2><p>La respuesta nunca es individual: se rige por el trabajo en red y la responsabilidad compartida (PRAE, art. 12.2.c). Cada agente tiene su parte, y está escrita.</p></div>
+  <div class="tw"><table><thead><tr><th>Quién</th><th>Qué le toca</th><th>Dónde lo dice</th></tr></thead><tbody>
+  <tr><td class="k">Todo el profesorado</td><td>Controlar y registrar las faltas de su alumnado; comunicar los indicios de riesgo.</td><td>PRAE 10.1 · Ley Orgánica 1/1996 13.1 · Ley Orgánica 8/2021 16</td></tr>
+  <tr><td class="k">Tutor o tutora</td><td>Revisar cada semana faltas y justificantes; contactar con la familia; valorar la asistencia en la evaluación; trasladar la información a Primaria. El seguimiento de la asistencia es función tutorial, no una tarea añadida.</td><td>PRAE 9.7, 11, 13.2-13.7 · Ley Orgánica de Educación 91.1</td></tr>
+  <tr><td class="k">Jefatura de estudios</td><td>Citar a la familia con el tutor o la tutora y dejar acta cuando el caso lo requiere.</td><td>PRAE 14.2-14.4</td></tr>
+  <tr><td class="k">Dirección y equipo directivo</td><td>Plan de Prevención en la Programación General Anual; garantizar el registro diario; alumnado matriculado que no se incorpora.</td><td>PRAE 5.3, 10.4, 16</td></tr>
+  <tr><td class="k">Claustro y Consejo Escolar</td><td>Analizar las faltas cada trimestre; recibir los indicadores.</td><td>PRAE 10.6</td></tr>
+  <tr><td class="k">Coordinación de bienestar y protección</td><td>Canalizar las situaciones con indicadores de riesgo.</td><td>Ley Orgánica 8/2021 35 · Ley Orgánica de Educación 124.5</td></tr>
+  <tr><td class="k">EOEP y PSC</td><td>Asesorar al centro en todo momento; valoración sociofamiliar y coordinación con los servicios municipales.</td><td>PRAE 17.2</td></tr>
+  <tr><td class="k">Familia</td><td>Educar y procurar una formación integral; avisar y justificar las ausencias.</td><td>Código Civil 154 · PRAE 9.4-9.5</td></tr>
+  <tr><td class="k">Ayuntamiento y servicios sociales</td><td>Programas de seguimiento del absentismo y ayuda socioeducativa a la familia.</td><td>Ley 3/1995 10.2 y 21</td></tr>
+  </tbody></table></div>
+  <div class="box recom"><div class="bt">Por qué actuar a tiempo nos protege a todos</div><p>Protege al alumnado, porque cada semana sin actuar consolida la desvinculación. Y acredita la diligencia profesional: el registro en la aplicación es la prueba de que el centro actuó en plazo (PRAE, arts. 12.4 y 17.8).</p></div>`;
+  if(sub===4)body=`<div class="sec-h"><h2>¿Por qué desde Infantil, si no es una etapa obligatoria?</h2><p>Porque la norma lo pide expresamente y porque es cuando se construye el hábito. Hay que saber con precisión qué nos obliga en Infantil y qué se refiere a la etapa obligatoria, para no confundir prevención con expediente.</p></div>
+  <div class="cols2"><div class="si"><h3>En Infantil sí nos obliga</h3>
+   <div class="li"><b>Prevenir desde los 3 años.</b> El alumnado de Infantil es destinatario del PRAE en su carácter preventivo, que se desarrolla «particularmente desde el segundo ciclo». <span class="r">PRAE, arts. 2.2, 4.1 y 18.2</span></div>
+   <div class="li"><b>Registrar las faltas.</b> Todo el profesorado controla y registra la asistencia de su alumnado. <span class="r">PRAE, art. 10.1</span></div>
+   <div class="li"><b>Tenerlo en el plan del centro.</b> <span class="r">PRAE, art. 5.3</span></div>
+   <div class="li"><b>Comunicar el riesgo, a cualquier edad.</b> <span class="r">Ley Orgánica 1/1996, art. 13.1 · Ley Orgánica 8/2021, arts. 15 y 16 · PRAE, art. 17.3</span></div>
+   <div class="li"><b>Trasladar la información a Primaria.</b> <span class="r">PRAE, art. 13.7</span></div>
+   <div class="li"><b>Hacerlo como parte de la función tutorial.</b> <span class="r">Ley Orgánica de Educación, art. 91.1</span></div></div>
+  <div class="ob"><h3>Se refiere a la etapa obligatoria</h3>
+   <div class="li"><b>El deber de comunicar la inasistencia habitual</b> se formula «durante el período obligatorio». <span class="r">Ley Orgánica 1/1996, art. 13.2</span></div>
+   <div class="li"><b>La inasistencia como causa de desamparo</b> se refiere a «las etapas de escolarización obligatoria». <span class="r">Ley Orgánica 1/1996, art. 18.2.g</span></div>
+   <div class="li"><b>El deber de la familia de que asista a clase</b> se refiere a las enseñanzas obligatorias. <span class="r">Ley Orgánica 8/1985 del Derecho a la Educación, art. 4.2.a</span></div>
+   <div class="li"><b>La escolaridad obligatoria</b> va de los 6 a los 16 años; el segundo ciclo de Infantil es voluntario y gratuito. <span class="r">Ley Orgánica de Educación, arts. 4, 12 y 15</span></div>
+   <div class="box contexto" style="background:#fff"><p><b>En Infantil, el expediente es excepcional</b> y solo cuando hay riesgo para el desarrollo del menor. Lo ordinario es sensibilizar, asesorar y prevenir.</p></div></div></div>
+  <div class="grid3"><div class="box clave"><div class="bt">El hábito se aprende ahora</div><p>Las rutinas de asistencia se fijan en casa en estos años; lo que se normaliza en Infantil cuesta mucho cambiarlo después.</p></div>
+  <div class="box clave"><div class="bt">El vínculo empieza el primer día</div><p>El abandono es el final de una desvinculación lenta, conductual, emocional y cognitiva (Fredricks, Blumenfeld y Paris, 2004). Cuanto antes se cuida el vínculo, más reversible es.</p></div>
+  <div class="box clave"><div class="bt">Es la mejor ventana de detección</div><p>El absentismo es uno de los factores que mejor predicen el abandono (preámbulo del PRAE). En Infantil lo vemos cuando aún es fácil actuar.</p></div></div>`;
+  return `<section class="card pad" style="display:grid;gap:18px">${headOf(s)}${tabsOf(s,sub)}${body}</section>${pager(s)}`;
+}
+
+function cols(s){
+  const it=(a)=>a.map(x=>`<div class="item"><b>${esc(x[0])}</b><span>${esc(x[1])}</span>${x[2]?`<a href="${x[2]}" target="_blank" rel="noopener" style="font-weight:800;font-size:.88rem">Abrir material →</a>`:""}</div>`).join("");
+  return `<div class="grid3"><div class="col ce"><h4>Lo organiza el centro</h4>${it(s.ce)}</div><div class="col au"><h4>Lo que me toca en el aula</h4>${it(s.au)}</div><div class="col fa"><h4>Con el alumnado y las familias</h4>${it(s.fa)}</div></div>`;
+}
+function refsOf(s){return `<div class="refs"><span class="lbl">Dónde lo dice</span>${s.refs.map(r=>`<span class="ref">${esc(r)}</span>`).join("")}</div>`}
+function semHTML(lv,title,lines){
+  const on=x=>lv===x?" on":"";
+  return `<div class="sem ${lv}" role="status"><div class="lights" aria-hidden="true"><span class="r${on("r")}"></span><span class="a${on("a")}"></span><span class="g${on("v")}"></span></div><div class="txt"><b>${title}</b>${lines.map(l=>`<span>${l}</span>`).join("")}</div></div>`;
+}
+function derivBox(lv){
+  if(lv!=="a"&&lv!=="r")return "";
+  const t=lv==="r"?"Valorad ya, con el equipo directivo, la solicitud de intervención de los servicios de orientación (orientación, PSC). Si hay indicios de desprotección, el cauce de protección va primero.":"Si tras aplicar el Plan de Acción la situación no mejora, el siguiente paso es solicitar la intervención de los servicios de orientación, una vez aplicadas y registradas las medidas ordinarias.";
+  return `<div class="deriv"><div class="bt">Solicitud de intervención de los servicios de orientación</div><p>${t} La solicitud la hace el tutor o la tutora con el documento de solicitud de intervención de los servicios de orientación y la entrega a la jefatura de estudios.</p><div class="row"><a class="btn primary" href="#p4-1">Cuándo y cómo se solicita</a><a class="btn" href="${L.anexo}" download>Descargar la solicitud (Word)</a></div></div>`;
+}
+function listSem(keys,ctx){
+  let si=0,ep=0,no=0;keys.forEach(k=>{const v=(ST[k]||{}).e;if(v==="si")si++;else if(v==="ep")ep++;else if(v==="no")no++});
+  const tot=keys.length,done=si+ep+no;
+  if(!done)return semHTML("n","Semáforo sin valorar",["Valora cada indicador con SÍ, EN PROCESO o NO."]);
+  let lv="v",t="Verde: en marcha",a=ctx==="auto"?"El centro cumple lo previsto. Mantener y recoger como buena práctica.":"Esta parada está en marcha.";
+  if(ep>0||no>0){lv="a";t="Ámbar: en proceso";a="Completar el Plan de Acción de los indicadores en proceso o en NO y fijar fecha de revisión."}
+  if(no>=Math.ceil(tot/3)){lv="r";t="Rojo: prioridad";a=ctx==="auto"?"Llevar al equipo directivo y al EOEP; incorporar las mejoras a la Programación General Anual.":"Revisar esta parada con el equipo directivo y pedir asesoramiento al EOEP."}
+  return semHTML(lv,t,[`${si} SÍ · ${ep} EN PROCESO · ${no} NO${done<tot?` · faltan ${tot-done} por valorar`:""}`,a]);
+}
+function semUpdate(){document.querySelectorAll("[data-sem]").forEach(el=>{const [ctx,...keys]=el.dataset.sem.split("|");el.innerHTML=listSem(keys,ctx)})}
+function estRow(key,txt,extra){
+  const v=(ST[key]||{});
+  return `<div class="ci" data-key="${key}"><div class="q">${txt}</div>${extra||""}<div class="est" role="group" aria-label="Valoración">${[["si","SÍ"],["ep","EN PROCESO"],["no","NO"]].map(([k,l])=>`<button type="button" data-v="${k}" class="${v.e===k?"on":""}" aria-pressed="${v.e===k}">${l}</button>`).join("")}</div><label class="h">Plan de Acción<textarea rows="2" data-pa>${esc(v.p||"")}</textarea></label></div>`;
+}
+function marcha(s){return `<div class="card pad" style="display:grid;gap:12px"><div class="sec-h"><div class="eyebrow">Está en marcha cuando...</div><h2 style="font-size:1.3rem">Comprobación de la parada</h2></div><div class="chk">${s.marcha.map((t,i)=>estRow(s.id+"-m"+i,esc(t))).join("")}</div><div data-sem="marcha|${s.marcha.map((t,i)=>s.id+"-m"+i).join("|")}"></div><div class="row noprint"><button class="btn primary" data-word="marcha" data-stop="${s.id}">Descargar en Word</button><button class="btn" data-print>Imprimir</button><span class="saved"></span></div></div>`}
+
+function vStop(s,sub){
+  let body="";const name=s.subs[sub];
+  if(name==="Qué hacemos")body=`<p class="muted" style="font-size:1.05rem">${esc(s.intro)}</p>${cols(s)}${refsOf(s)}`;
+  if(name==="Dónde lo dice")body=refsTable(s);
+  if(name==="Plan del centro")body=planCentro();
+  if(name==="Circuito de registro")body=circuito();
+  if(name==="Calculadora de faltas")body=calculadora();
+  if(name==="Ficha de indicadores")body=ficha();
+  if(name==="Rutinas por edades")body=rutinas();
+  if(name==="Semáforo de actuación")body=`<p class="muted" style="font-size:1.05rem">${esc(s.intro)}</p>`+semaforo()+refsOf(s);
+  if(name==="Dos cauces")body=dosCauces();
+  if(name==="Secuencia del PRAE")body=secuencia();
+  if(name==="Perfiles familiares")body=perfiles();
+  if(name==="Autoevaluación del centro")body=autoeval();
+  if(name==="Registro de cierre del caso")body=cierre();
+  if(name==="Solicitar intervención del EOEP")body=derivacion();
+  return `<section class="card pad" style="display:grid;gap:18px">${headOf(s)}${tabsOf(s,sub)}${body}</section>${name==="Qué hacemos"||name==="Semáforo de actuación"?marcha(s):""}${pager(s)}`;
+}
+
+const REFT={
+ p1:[["PRAE, art. 5.3","Los equipos directivos elaboran un Plan de Prevención del Absentismo que forma parte de la Programación General Anual: análisis, objetivos, actuaciones y evaluación."],["PRAE, art. 9.2","Los criterios de justificación de las ausencias se recogen en las Normas de Organización y Funcionamiento del centro."],["PRAE, art. 12.2.c","Trabajo en red con responsabilidad compartida entre todos los agentes."],["PRAE, art. 18.3-18.5","Las medidas preventivas se recogen en los documentos del centro: campañas de información, planes de acogida, acción tutorial y relación con las familias."],["PRAE, art. 20","Formación del profesorado en prevención del absentismo."],["Ley 3/1995, art. 10","Colaboración entre administraciones para fomentar la asistencia regular."]],
+ p2:[["PRAE, art. 9.3","Tres retrasos o salidas anticipadas sin justificar cuentan como una falta; si suponen media sesión o más, cada uno es una falta."],["PRAE, art. 9.4-9.6","La familia justifica por escrito; con más de 3 días de enfermedad al mes y dudas, el equipo directivo comprueba."],["PRAE, art. 9.7 y 13.2","El tutor o la tutora revisa semanalmente faltas y justificantes."],["PRAE, art. 10.1 y 10.4","El profesorado registra las faltas; el equipo directivo garantiza el registro diario, también si falta el profesorado."],["PRAE, art. 11","Notificación inmediata a las familias por los medios electrónicos de la Consejería; constancia de los contactos infructuosos."],["PRAE, art. 16.1","Contacto con la familia del alumnado matriculado que no asiste la primera semana."]],
+ p3:[["PRAE, art. 8","Tipos de absentismo según su origen: alumno, familia, centro, entorno o mixto."],["PRAE, art. 12.3","Se actúa sobre todo según la causa y, en menor medida, según el porcentaje."],["PRAE, art. 17.3","Ante riesgo de desprotección, comunicación inmediata por el protocolo de atención al maltrato infantil."],["PRAE, art. 18.2","Actuaciones preventivas desde el segundo ciclo de Infantil."],["Ley Orgánica 8/2021, arts. 16 y 35","Deber cualificado de comunicación y coordinación de bienestar y protección."]],
+ p4:[["PRAE, art. 3.4 y 12.3","Los porcentajes son orientativos; se actúa sobre todo por la causa."],["PRAE, art. 13.4-13.6","Aviso de «detección absentismo» con más de 3 días al mes o el 10 %: contacto escrito con la familia en 5 días lectivos y registro del Anexo I del PRAE."],["PRAE, art. 14","Fase de intervención con jefatura de estudios; en Infantil, excepcional."],["PRAE, art. 17.1-17.3","Plazo máximo de 6 meses; asesoramiento del EOEP y la PSC; cauce de protección."],["Ley Orgánica 1/1996, art. 13.1","Deber de comunicar las situaciones de riesgo."],["Ley Orgánica 8/2021, arts. 15 y 16","Deber general y deber cualificado de comunicación."]],
+ p5:[["PRAE, art. 5.3","Evaluación del Plan de Prevención."],["PRAE, art. 10.6","Análisis trimestral en el Claustro e información al Consejo Escolar."],["PRAE, art. 13.7","Traslado de la información de absentismo en el tránsito entre etapas y en los cambios de centro."],["PRAE, art. 18.5","Informes de tránsito con el análisis del absentismo y seguimiento en los cambios de etapa."],["PRAE, art. 21","Buenas prácticas."]]
+};
+function refsTable(s){return `<div class="tw"><table><thead><tr><th>Norma y artículo</th><th>Qué establece</th></tr></thead><tbody>${(REFT[s.id]||[]).map(r=>`<tr><td class="k">${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</tbody></table></div><p class="muted" style="font-size:.88rem">PRAE: Orden de 31 de enero de 2025, de la Consejería de Educación y Formación Profesional (BORM n.º 34, de 11 de febrero de 2025).</p>`}
+
+const PLAN_DEF={
+ obj:["Que el 100 % de las familias del alumnado de nuevo ingreso en 3 años reciba información clara sobre la importancia de la asistencia regular.","Que todo el alumnado de 3 años tenga la ficha de indicadores de riesgo completada antes de la 8.ª semana.","Que todo el alumnado con semáforo ámbar o rojo tenga Plan de Acción individual con responsable y fecha.","Mantener el porcentaje de faltas injustificadas en Infantil por debajo del 5 % mensual de media.",""],
+ act:[
+  ["Jornadas de Puertas Abiertas con mensaje sobre la asistencia","Profesorado de Servicios a la Comunidad (PSC) y equipo directivo","Abril-mayo (matrícula)","% de familias asistentes"],
+  ["Entrevista inicial con todas las familias de 3 años, con bloque de asistencia","Tutor o tutora y orientación","Septiembre","N.º de entrevistas realizadas"],
+  ["Registro de faltas el mismo día y notificación inmediata a las familias","Todo el profesorado","Diario","% de días con registro completo"],
+  ["Revisión semanal de faltas y justificantes del grupo","Tutor o tutora","Semanal","% de semanas con revisión registrada"],
+  ["Ficha de indicadores de riesgo de todo el alumnado de 3 años","Tutores y tutoras","Semanas 1 a 8","N.º de fichas completadas"],
+  ["Sesión informativa con familias sobre la importancia de la asistencia","PSC y tutores o tutoras","Octubre","N.º de familias participantes"],
+  ["Desayunos educativos con familias","PSC y tutores o tutoras","Trimestral","N.º de familias asistentes"],
+  ["Reunión de seguimiento del alumnado en ámbar o rojo","Orientación, PSC y tutor o tutora","Mensual (octubre-junio)","N.º de casos revisados"],
+  ["Análisis de las faltas en el Claustro e información al Consejo Escolar","Equipo directivo","Trimestral","Acta del Claustro con el punto tratado"],
+  ["Coordinación con los servicios sociales municipales","PSC y equipo directivo","Según necesidad","N.º de coordinaciones y resultados"],
+  ["Traspaso de la información de asistencia a 1.º de Primaria","Tutor o tutora de 5 años y orientación","Junio-septiembre","N.º de traspasos con dato de asistencia"]
+ ]
+};
+function planGet(){
+  if(!ST.plan){ST.plan={d:{},obj:PLAN_DEF.obj.slice(),act:PLAN_DEF.act.map(r=>r.slice()),ev:{}}}
+  return ST.plan;
+}
+function planCentro(){
+  const P=planGet(),d=P.d,ev=P.ev;
+  const f=(k,l,ph,big)=>`<label>${l}${big?`<textarea rows="3" data-pd="${k}" placeholder="${esc(ph||"")}">${esc(d[k]||"")}</textarea>`:`<input type="text" data-pd="${k}" placeholder="${esc(ph||"")}" value="${esc(d[k]||"")}">`}</label>`;
+  return `<p class="muted">El art. 5.3 del PRAE obliga a que el Plan de Prevención del Absentismo forme parte de la Programación General Anual, con al menos cuatro contenidos: análisis, objetivos, actuaciones y evaluación. Esta plantilla ya los trae ordenados para Infantil y con propuestas que el centro puede cambiar. Se guarda sola en este navegador y se descarga en Word para incorporarla a la Programación General Anual.</p>
+  <div class="card pad plan" style="display:grid;gap:14px;box-shadow:none">
+   <h3 class="dimh" style="margin:0;color:var(--c1d)">1. Datos de identificación y análisis previo</h3>
+   <div class="form">${f("centro","Centro educativo")}${f("curso","Curso escolar","2026-2027")}${f("resp","Responsable del plan","Jefatura de estudios / orientación")}</div>
+   <div class="form" style="grid-template-columns:1fr">${f("analisis","Análisis del absentismo del curso anterior","Porcentaje de faltas injustificadas por nivel (3, 4 y 5 años). Causas más frecuentes: alumno, familia, centro, entorno o mixto.",1)}${f("riesgo","Alumnado identificado en riesgo","Número y características generales, sin datos personales.",1)}${f("previo","Alumnado con información de absentismo de la etapa o del centro anterior","Casos recibidos en el traspaso y seguimiento previsto desde el primer día.",1)}</div>
+   <h3 class="dimh" style="margin:6px 0 0;color:var(--c1d)">2. Objetivos preventivos del curso</h3>
+   <div class="chk">${P.obj.map((o,i)=>`<label class="ci" style="gap:4px"><span class="q">Objetivo ${i+1}</span><textarea rows="2" data-po="${i}" placeholder="Completar por el centro">${esc(o)}</textarea></label>`).join("")}</div>
+   <div class="row noprint"><button class="btn" data-padd="obj">+ Añadir objetivo</button></div>
+   <h3 class="dimh" style="margin:6px 0 0;color:var(--c1d)">3. Actuaciones preventivas programadas</h3>
+   <div class="tw"><table class="ptab"><thead><tr><th>Actuación</th><th>Responsable</th><th>Temporalización</th><th>Indicador de evaluación</th><th class="noprint"><span class="sr">Quitar</span></th></tr></thead><tbody>
+   ${P.act.map((r,i)=>`<tr>${r.map((c,j)=>`<td><textarea rows="2" data-pa2="${i}-${j}" aria-label="${["Actuación","Responsable","Temporalización","Indicador"][j]} ${i+1}">${esc(c)}</textarea></td>`).join("")}<td class="noprint"><button class="btn" data-pdel="${i}" aria-label="Quitar la actuación ${i+1}" title="Quitar">✕</button></td></tr>`).join("")}
+   </tbody></table></div>
+   <div class="row noprint"><button class="btn" data-padd="act">+ Añadir actuación</button></div>
+   <h3 class="dimh" style="margin:6px 0 0;color:var(--c1d)">4. Evaluación del plan</h3>
+   <div class="form" style="grid-template-columns:1fr">
+    <label>Evaluación del 1.er trimestre<textarea rows="2" data-pe="t1" placeholder="Resultados parciales, alumnado con seguimiento activo, actuaciones realizadas.">${esc(ev.t1||"")}</textarea></label>
+    <label>Evaluación del 2.º trimestre<textarea rows="2" data-pe="t2" placeholder="Revisión de indicadores, cambios en el alumnado identificado, coordinaciones.">${esc(ev.t2||"")}</textarea></label>
+    <label>Evaluación final (junio)<textarea rows="2" data-pe="fin" placeholder="Porcentaje final de faltas injustificadas, casos resueltos y pendientes, propuestas de mejora.">${esc(ev.fin||"")}</textarea></label>
+   </div>
+   <div class="box contexto"><div class="bt">Para la evaluación</div><p>La autoevaluación del centro de la parada 5 da un semáforo que sirve como resumen de la evaluación trimestral.</p><div class="row"><a class="btn" href="#p5-3">Ir a la autoevaluación</a></div></div>
+  </div>
+  <div class="row noprint"><button class="btn primary" data-word="plan">Descargar el plan en Word</button><button class="btn" data-print>Imprimir</button><button class="btn" data-reset="plan">Volver a la plantilla inicial</button><span class="saved"></span></div>
+  <div class="box enlace"><div class="bt">También en el protocolo</div><p>La misma plantilla está en el apartado 5 del Protocolo de prevención.</p><div class="row"><a class="btn" href="${L.proto}" download>Descargar el protocolo (Word)</a></div></div>`;
+}
+function circuito(){
+  const st=[["Cada sesión","Todo el profesorado","Registro de la falta en la aplicación, también si la familia ya avisó.","PRAE 10.1"],["El mismo día","Centro","Notificación inmediata a la familia por los medios electrónicos de la Consejería.","PRAE 11.1"],["Cada semana","Tutor o tutora","Revisión de faltas y justificantes; contacto pronto con la familia si hay faltas sin justificar.","PRAE 9.7, 13.2-13.3"],["Si no se localiza a la familia","Tutor o tutora","Se deja constancia en los documentos de tutoría.","PRAE 11.2"],["Si la falta sigue sin justificar","Tutor o tutora → jefatura","Comunicación inmediata a jefatura de estudios.","PRAE 11.3"],["Si falta el profesorado","Equipo directivo","El control de la asistencia está garantizado por quien sustituye.","PRAE 10.4"]];
+  return `<div class="steps">${st.map((x,i)=>`<div class="step" style="--k:var(--c2)"><span class="n">${i+1}</span><div><b>${esc(x[0])} · ${esc(x[1])}</b>${esc(x[2])}<div class="m">${esc(x[3])}</div></div></div>`).join("")}</div>`;
+}
+function calculadora(){
+  const c=ST.calc||{d:20,s:5,f:0,u:0,r:0};
+  return `<p class="muted">Calcula el porcentaje mensual de faltas injustificadas sobre las sesiones del mes (PRAE, art. 7) y si se alcanza el aviso de detección (art. 13.4). En Infantil, el resultado orienta la prevención: no abre ningún expediente.</p>
+  <div class="form" id="calc">
+   <label>Días lectivos del mes<input type="number" min="1" max="31" data-c="d" value="${c.d}"></label>
+   <label>Sesiones por día<input type="number" min="1" max="10" data-c="s" value="${c.s}"></label>
+   <label>Días completos de falta sin justificar<input type="number" min="0" data-c="f" value="${c.f}"></label>
+   <label>Sesiones sueltas sin justificar<input type="number" min="0" data-c="u" value="${c.u}"></label>
+   <label>Retrasos o salidas sin justificar (menos de media sesión)<input type="number" min="0" data-c="r" value="${c.r}"></label>
+  </div><div id="calcRes"></div>
+  <div class="box contexto"><div class="bt">Cómo se cuenta</div><p>Un día completo de falta son todas las sesiones de ese día. Tres retrasos o salidas sin justificar equivalen a una falta (art. 9.3). Los niveles son: leve hasta el 10 %, moderado del 11 al 20 %, grave del 21 al 50 % y muy grave por encima del 50 %; también sube de nivel si se mantiene más de tres meses seguidos (art. 7).</p></div>`;
+}
+function calcUpdate(){
+  const g=k=>Math.max(0,+(document.querySelector(`[data-c="${k}"]`)||{}).value||0);
+  const d=g("d")||1,s=g("s")||1,f=g("f"),u=g("u"),r=g("r");
+  ST.calc={d,s,f,u,r};save();
+  const ses=f*s+u+Math.floor(r/3),tot=d*s,p=Math.round(ses/tot*1000)/10;
+  let lv="Sin faltas injustificadas";
+  if(ses>0){if(p<=10)lv="nivel leve (hasta el 10 %)";else if(p<=20)lv="nivel moderado (11-20 %)";else if(p<=50)lv="nivel grave (21-50 %)";else lv="nivel muy grave (más del 50 %)"}
+  const det=f>3||p>=10;
+  let sl="v",st="Verde: seguimiento ordinario";
+  if(det){sl="a";st="Ámbar: aviso de detección"}
+  if(p>20){sl="r";st="Rojo: absentismo grave"}
+  const acc=sl==="v"?"Mantener la revisión semanal y el contacto habitual con la familia.":sl==="a"?"Contacto por escrito con la familia en los 5 días lectivos siguientes al fin de mes y registro del Anexo I del PRAE. Revisar o abrir el Plan de Acción individual.":"Reunión de tutor o tutora, jefatura, PSC y orientación. Valorar la solicitud de intervención de los servicios de orientación y, si hay indicios de desprotección, el cauce de protección.";
+  $("#calcRes").innerHTML=semHTML(sl,st,[`${p} % · ${lv}. ${ses} sesiones de falta sin justificar sobre ${tot} sesiones del mes.`,acc])+derivBox(sl);
+}
+function ficha(){
+  const f=ST.ficha||{};
+  let n=0;
+  const dims=DIM.map((D,di)=>`<div class="dimh">${esc(D.t)} <span class="ref">${D.ref}</span></div><p class="muted" style="font-size:.9rem">${esc(D.u)}</p><div class="chk">${D.it.map((x,ii)=>{n++;return estRow("f-"+di+"-"+ii,`${n}. ${esc(x[0])}`,`<div class="h">¿Cómo detectarlo? ${esc(x[1])}</div><div class="ac"><b>Acción preventiva:</b> ${esc(x[2])}</div>`)}).join("")}</div>`).join("");
+  return `<p class="muted">Una ficha por alumno o alumna. El semáforo se calcula solo: verde de 0 a 2 indicadores con SÍ, ámbar de 3 a 4 y rojo con 5 o más o con indicios de desprotección. Se guarda en este navegador; descárgala en Word para el expediente de tutoría. Para empezar otra ficha, pulsa «Nueva ficha».</p>
+  <div class="form"><label>Alumno o alumna<input type="text" data-ff="al" value="${esc(f.al||"")}"></label><label>Aula<input type="text" data-ff="au" value="${esc(f.au||"")}"></label><label>Tutor o tutora<input type="text" data-ff="tu" value="${esc(f.tu||"")}"></label><label>Fecha<input type="date" data-ff="fe" value="${esc(f.fe||"")}"></label></div>
+  <div id="fichaTop"></div><div class="ci" data-key="f-prot"><div class="q">Hay indicios de maltrato, violencia, desprotección o desamparo del menor.</div><div class="est">${[["si","SÍ"],["no","NO"]].map(([k,l])=>`<button type="button" data-v="${k}" class="${(ST["f-prot"]||{}).e===k?"on":""}" aria-pressed="${(ST["f-prot"]||{}).e===k}">${l}</button>`).join("")}</div><div class="h">Si es SÍ: alerta alta directa y cauce de protección, sin esperar al recuento (PRAE, art. 17.3).</div></div>
+  ${dims}<div id="fichaRes"></div>
+  <div class="row noprint"><button class="btn primary" data-word="ficha">Descargar en Word</button><button class="btn" data-print>Imprimir</button><button class="btn" data-reset="ficha">Nueva ficha</button><span class="saved"></span></div>`;
+}
+function fichaUpdate(){
+  if(!$("#fichaRes"))return;
+  let si=0,ep=0;const dimsSi=new Set();
+  DIM.forEach((D,di)=>D.it.forEach((x,ii)=>{const v=(ST["f-"+di+"-"+ii]||{}).e;if(v==="si"){si++;dimsSi.add(di)}if(v==="ep")ep++}));
+  const prot=(ST["f-prot"]||{}).e==="si";
+  let cls="v",t="Verde: atención ordinaria",a="Seguimiento ordinario por el tutor o la tutora. Revisión al finalizar el primer trimestre.";
+  if(si>=3&&si<=4){cls="a";t="Ámbar: alerta media";a="Comunicar a la PSC del EOEP. Reforzar la comunicación con la familia. Abrir Plan de Acción individual."}
+  if(si>=5){cls="r";t="Rojo: alerta alta";a="Comunicación urgente a la PSC. Reunión de tutor o tutora, jefatura, PSC y orientación. Coordinación con servicios sociales si procede."}
+  if(prot){cls="r";t="Rojo: alerta alta directa";a="Comunicar de inmediato al equipo directivo y activar el cauce de protección (PRAE, art. 17.3), sin esperar al recuento."}
+  const html=semHTML(cls,t,[`${si} indicadores con SÍ · ${ep} en proceso (revisar en 2 semanas)${dimsSi.size>=2?" · absentismo mixto: indicadores en "+dimsSi.size+" dimensiones (art. 8.e), planificación conjunta con la PSC y orientación":""}.`,a])+derivBox(cls);
+  $("#fichaRes").innerHTML=html;if($("#fichaTop"))$("#fichaTop").innerHTML=semHTML(cls,t,[`${si} indicadores con SÍ · ${ep} en proceso.`]);
+}
+function rutinas(){
+  const R=[["3 años","Entrada con saludo personal y canción de buenos días.","Panel «¿quién ha venido hoy?» con fotos: contamos a los que estamos y nombramos a quien falta.","Encargado o encargada del día con una tarea que no se quiere perder.","Tarjeta o dibujo del grupo para quien falta varios días."],["4 años","Asamblea con el panel de asistencia y el tiempo del día.","Responsabilidades rotativas por semanas.","Actividad especial anunciada para los lunes y los viernes.","Bienvenida tras una ausencia: «lo que hicimos mientras no estabas»."],["5 años","Calendario de grupo: marcamos los días de cole y anticipamos fines de semana y vacaciones.","Celebración de la asistencia del grupo, nunca premios individuales.","Proyectos con continuidad de un día a otro.","Kit de continuidad para viajes previstos, con puesta en común al volver."]];
+  return `<div class="grid3">${R.map(x=>`<div class="col au"><h4>${x[0]}</h4>${x.slice(1).map(y=>`<div class="item"><span>${esc(y)}</span></div>`).join("")}</div>`).join("")}</div>
+  <div class="box regla"><div class="bt">Pautas éticas</div><p>Celebramos la asistencia del grupo. Nunca premiamos individualmente la «asistencia perfecta» ni exponemos al niño o la niña que falta: las faltas en Infantil dependen de los adultos. Los retrasos se hablan con la familia, no delante del grupo (PRAE, art. 17.5).</p></div>`;
+}
+function semaforo(){
+  return `<div class="lev">
+  <div class="lv" style="--k:var(--green)"><div class="lt"><span class="dot"></span>Todas las familias</div><div class="muted" style="font-size:.88rem">Atención ordinaria · 0-2 indicadores</div><ul><li>Guía para familias en su idioma.</li><li>Rutinas de pertenencia en el aula.</li><li>Desayunos educativos trimestrales.</li><li>Mensajes antes de puentes y vacaciones.</li></ul></div>
+  <div class="lv" style="--k:var(--amber)"><div class="lt"><span class="dot"></span>Familias con indicadores</div><div class="muted" style="font-size:.88rem">Alerta media · 3-4 indicadores</div><ul><li>Plan de Acción individual con fecha de revisión.</li><li>Entrevista de asistencia con acta de acuerdos.</li><li>Acuerdo de ausencias previstas y kit de continuidad.</li><li>Comunicación a la PSC del EOEP.</li></ul></div>
+  <div class="lv" style="--k:var(--red)"><div class="lt"><span class="dot"></span>Casos</div><div class="muted" style="font-size:.88rem">Alerta alta · 5 o más, o indicios de desprotección</div><ul><li>Reunión de tutor o tutora, jefatura, PSC y orientación.</li><li>Coordinación con servicios sociales.</li><li>Cauce de protección si hay indicios.</li><li>Plan de retorno tras una ausencia prolongada.</li><li>Solicitud de intervención de los servicios de orientación.</li></ul></div></div>`+derivBox("r");
+}
+function dosCauces(){return `<p class="muted">El expediente PRAE y la notificación de riesgo no son alternativos: cuando la inasistencia va con indicadores de desprotección, se notifica además por el cauce de protección (PRAE, art. 17.3; Ley Orgánica 1/1996, art. 13.1; Ley Orgánica 8/2021, art. 16).</p><div class="grid2"><div class="box clave"><div class="bt">Cauce PRAE</div><p>Faltas no justificadas o mal justificadas. Aplicación informática y Anexos I a IV. Lo inicia el tutor o la tutora, con jefatura y dirección.</p></div><div class="box regla"><div class="bt">Cauce de protección</div><p>Indicadores de riesgo, desprotección o maltrato, haya o no absentismo. Hoja de notificación de riesgo y maltrato infantil desde el ámbito educativo. Lo inicia cualquier docente, con el equipo directivo y la coordinación de bienestar y protección.</p></div></div><div class="box enlace"><div class="bt">Más detalle</div><p>La tabla completa de los dos cauces está en la Salida, apartado «Protegerle es obligatorio».</p><div class="row"><a class="btn" href="#salida-2">Ir a la Salida</a></div></div>`}
+function secuencia(){
+  const S=[["Matrícula y acogida","Tutor o tutora y orientación","Entrevista inicial con bloque de asistencia; revisar si hay información de absentismo previo.","arts. 13.7 y 18.5",0],["Primera semana","Tutor o tutora y equipo directivo","Si un alumno o alumna matriculado no asiste: contacto con la familia; si no se localiza, servicios municipales.","art. 16.1",0],["Cada día","Todo el profesorado","Registro de faltas y notificación inmediata a la familia.","arts. 10.1 y 11.1",0],["Cada semana","Tutor o tutora","Revisión de faltas y justificantes; contacto con la familia.","arts. 9.7 y 13.2-13.3",0],["Semanas 1-8","Tutor o tutora","Ficha de indicadores, nivel de alerta y Plan de Acción.","art. 18.2",0],["Aviso «detección absentismo»","Tutor o tutora","Más de 3 días al mes o el 10 %: contacto escrito con la familia en 5 días lectivos y registro del Anexo I del PRAE.","arts. 13.4-13.6",0],["Persiste la falta sin justificar","Jefatura y tutor o tutora","Aviso «intervención absentismo»: entrevista con la familia en un máximo de 5 días lectivos y acta firmada.","arts. 14.1-14.4",1],["Sin evolución favorable","Jefatura y PSC","«Apertura expediente absentismo» y trabajo coordinado con los servicios municipales.","arts. 14.6-14.9",1],["Expediente sin resolver","Dirección","Derivación a la Comisión municipal (Anexo III) y comunicación escrita a la familia.","arts. 15.1-15.3",1],["Cierre","Jefatura y tutor o tutora","Máximo 6 meses desde la detección; cierre tras 3 meses seguidos de asistencia regular.","arts. 17.1 y 17.7.a",1]];
+  return `<div class="box regla"><div class="bt">En Infantil</div><p>Los pasos 1 a 6 son ordinarios. Los pasos 7 a 10 solo se activan de forma excepcional, cuando la situación supone un riesgo para el desarrollo del menor, tras valorarlo el equipo directivo con la PSC y orientación.</p></div>
+  <div class="steps">${S.map((x,i)=>`<div class="step ${x[4]?"exc":""}" style="--k:${x[4]?"var(--c1d)":"var(--c4)"}"><span class="n">${i+1}</span><div><b>${esc(x[0])} · ${esc(x[1])}</b>${esc(x[2])}<div class="m">PRAE, ${esc(x[3])}${x[4]?" · excepcional en Infantil":""}</div></div></div>`).join("")}</div>`;
+}
+function perfiles(){
+  return `<p class="muted">Orientaciones para el primer contacto con perfiles familiares frecuentes en la zona. No son categorías cerradas: cada familia es única y se atiende sin discriminación por nacimiento, nacionalidad, lengua, cultura o cualquier otra circunstancia (PRAE, art. 17.5). El perfil nunca sustituye a la ficha de indicadores.</p>
+  ${PERF.map(p=>`<details class="acc"><summary>${esc(p[0])}</summary><div class="in"><div class="grid2"><div><b>Barreras a tener en cuenta</b><ul>${p[1].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div><div><b>Orientaciones para el centro</b><ul>${p[2].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div></div></details>`).join("")}`;
+}
+const CIERRE=[
+ ["El porcentaje de faltas injustificadas del curso supera el 10 %.","Calculadora de faltas, parada 2."],
+ ["El patrón de faltas se ha mantenido en los tres trimestres.","Seguimiento trimestral."],
+ ["Hay ausencias concentradas antes de vacaciones o en mayo y junio.","Registro semanal."],
+ ["La familia no ha cumplido los acuerdos del Plan de Acción.","Actas de las entrevistas."],
+ ["No ha sido posible mantener un contacto estable con la familia.","Contactos registrados."],
+ ["Las medidas aplicadas no han mejorado la asistencia.","Plan de Acción individual."],
+ ["Persisten factores de riesgo familiares o sociales.","Ficha de indicadores, dimensiones 2 y 4."],
+ ["Se ha observado desfase en el desarrollo o el aprendizaje relacionado con las ausencias.","Evaluación del curso."]
+];
+function cierre(){
+  const f=ST.cierre||{};
+  return `<p class="muted">Al cerrar el curso, el tutor o la tutora revisa cada caso con seguimiento. El semáforo indica qué hacer: verde, traspaso ordinario; ámbar, traspaso prioritario y Plan de Acción desde septiembre; rojo, solicitud de intervención de los servicios de orientación.</p>
+  <div class="form"><label>Alumno o alumna<input type="text" data-cf="al" value="${esc(f.al||"")}"></label><label>Aula<input type="text" data-cf="au" value="${esc(f.au||"")}"></label><label>Tutor o tutora<input type="text" data-cf="tu" value="${esc(f.tu||"")}"></label><label>Fecha<input type="date" data-cf="fe" value="${esc(f.fe||"")}"></label></div>
+  <div id="cierreTop"></div>
+  <div class="ci" data-key="c-prot"><div class="q">Hay indicios de maltrato, violencia, desprotección o desamparo del menor.</div><div class="est">${[["si","SÍ"],["no","NO"]].map(([k,l])=>`<button type="button" data-v="${k}" class="${(ST["c-prot"]||{}).e===k?"on":""}" aria-pressed="${(ST["c-prot"]||{}).e===k}">${l}</button>`).join("")}</div><div class="h">Si es SÍ: semáforo rojo y cauce de protección (PRAE, art. 17.3).</div></div>
+  <div class="chk">${CIERRE.map((x,i)=>estRow("c-"+i,`${i+1}. ${esc(x[0])}`,`<div class="h">Dónde mirarlo: ${esc(x[1])}</div>`)).join("")}</div>
+  <div id="cierreRes"></div>
+  <div class="row noprint"><button class="btn primary" data-word="cierre">Descargar en Word</button><button class="btn" data-print>Imprimir</button><button class="btn" data-reset="cierre">Nuevo registro</button><a class="btn" href="${L.traspaso}" target="_blank" rel="noopener">Traspaso a 1.º de Primaria</a><span class="saved"></span></div>`;
+}
+function cierreUpdate(){
+  if(!$("#cierreRes"))return;
+  let si=0,ep=0;CIERRE.forEach((x,i)=>{const v=(ST["c-"+i]||{}).e;if(v==="si")si++;if(v==="ep")ep++});
+  const prot=(ST["c-prot"]||{}).e==="si";
+  let lv="v",t="Verde: traspaso ordinario",a="La información de asistencia viaja en el traspaso a 1.º de Primaria. Reconocer a la familia la mejora.";
+  if(si>=2&&si<=3){lv="a";t="Ámbar: traspaso prioritario";a="Traspaso prioritario al tutor o la tutora del curso siguiente, con las medidas eficaces. Plan de Acción activo desde septiembre."}
+  if(si>=4){lv="r";t="Rojo: solicitar intervención";a="Solicitar la intervención de los servicios de orientación con el modelo de solicitud, coordinación con la PSC y los servicios sociales, y traspaso prioritario."}
+  if(prot){lv="r";t="Rojo: cauce de protección";a="Comunicación inmediata al equipo directivo y cauce de protección (PRAE, art. 17.3). Después, solicitud de intervención de los servicios de orientación."}
+  $("#cierreRes").innerHTML=semHTML(lv,t,[`${si} indicadores con SÍ · ${ep} en proceso.`,a])+derivBox(lv);
+  $("#cierreTop").innerHTML=semHTML(lv,t,[`${si} indicadores con SÍ · ${ep} en proceso.`]);
+}
+function derivacion(){
+  const F=[["0","Respuesta ordinaria","Tutor o tutora y jefatura","Ficha de indicadores, Plan de Acción individual, entrevista con la familia y contactos registrados."],["1","Solicitud","Tutor o tutora","Se cumplimenta el Anexo I completo y se entrega a la jefatura de estudios."],["2","Admisión","Jefatura de estudios y EOEP","Valoran si procede y qué profesional la atiende."],["3","Intervención","EOEP","Revisión, entrevista con la familia, observación y ajuste de medidas."],["4","Decisión técnica","EOEP","Solo aquí se decide si hace falta evaluación psicopedagógica."],["5","Derivación","EOEP de sector","Si procede, a un equipo específico."]];
+  return `<p class="muted" style="font-size:1.05rem">Cuando las medidas del centro y del aula no bastan, el tutor o la tutora pide ayuda al EOEP. Se hace con un único documento: la <b>solicitud de intervención de los servicios de orientación</b> (Anexo I de la Resolución de 30 de mayo de 2024). No hay que confundirlo con el Anexo I del PRAE, que es el registro de las entrevistas con la familia en la aplicación.</p>
+  <div class="deriv"><div class="bt">Acceso directo</div><p>La guía de SUMAMOS Camino a la inclusión explica el documento apartado por apartado. Aquí tienes el modelo listo para rellenar.</p><div class="row"><a class="btn primary" href="${L.anexo}" download>Descargar la solicitud de intervención (Word)</a><a class="btn" href="${L.deriv}" target="_blank" rel="noopener">Cómo se rellena, apartado por apartado</a></div></div>
+  <div class="grid2">
+   <div class="box clave"><div class="bt">Cuándo se solicita en prevención del absentismo</div><ul style="margin:0;padding-left:18px;display:grid;gap:4px"><li>El semáforo sigue en <b>ámbar</b> en la fecha de revisión del Plan de Acción individual.</li><li>La ficha de indicadores, la calculadora o el registro de cierre dan <b>rojo</b>.</li><li>La familia necesita asesoramiento o el alumno o la alumna está en riesgo sociofamiliar.</li></ul></div>
+   <div class="box clave"><div class="bt">A quién se pide</div><p>Es el mismo documento para los tres perfiles del EOEP. La jefatura de estudios y el EOEP deciden quién atiende el caso.</p><ul style="margin:0;padding-left:18px;display:grid;gap:4px"><li><b>Servicios a la comunidad (PSC):</b> asesorar a la familia y acompañar al alumnado en riesgo sociofamiliar. Es lo más habitual en absentismo.</li><li><b>Orientación educativa:</b> cuando además hay necesidades del niño o la niña, como ansiedad de separación o dificultades en el desarrollo.</li><li><b>Fisioterapia:</b> necesidades de tipo motor.</li></ul></div>
+  </div>
+  <div class="box recom"><div class="bt">Antes de solicitarla</div><p>Las medidas ordinarias tienen que estar <b>decididas, programadas, aplicadas, registradas y evaluadas</b>. En absentismo, eso significa tener la ficha de indicadores, el Plan de Acción individual con su revisión y el registro de los contactos con la familia. Descárgalos en Word desde esta guía: van en los apartados 6 y 7 del Anexo I (medidas aplicadas y su efecto).</p><div class="row"><a class="btn" href="#p3-1">Ficha de indicadores</a><a class="btn" href="#p5-1">Registro de cierre del caso</a></div></div>
+  <div class="sec-h"><h2 style="font-size:1.3rem">El recorrido de una solicitud</h2></div>
+  <div class="steps">${F.map(x=>`<div class="step" style="--k:var(--c4)"><span class="n">${x[0]}</span><div><b>${esc(x[1])} · ${esc(x[2])}</b>${esc(x[3])}</div></div>`).join("")}</div>
+  <div class="grid2"><div class="box regla"><div class="bt">No es lo mismo</div><p>Solicitar la intervención <b>no es pedir una evaluación psicopedagógica</b>. La evaluación es solo una de las salidas posibles y la decide el EOEP.</p></div><div class="box regla"><div class="bt">Si hay indicios de desprotección</div><p>No se espera a la solicitud: primero el cauce de protección, con el equipo directivo y la coordinación de bienestar y protección (PRAE, art. 17.3).</p><div class="row"><a class="btn" href="#salida-2">Ver los dos cauces</a></div></div></div>`;
+}
+function autoeval(){
+  return `<p class="muted">Para el equipo directivo con la jefatura de estudios y el EOEP, al cierre de cada trimestre. El Plan de Acción se traslada a la Programación General Anual del curso siguiente.</p><div class="chk">${AUTO.map((t,i)=>estRow("a-"+i,esc(t))).join("")}</div><div data-sem="auto|${AUTO.map((t,i)=>"a-"+i).join("|")}"></div><div class="row noprint"><button class="btn primary" data-word="auto">Descargar en Word</button><button class="btn" data-print>Imprimir</button><span class="saved"></span></div>`;
+}
+
+/* ===================== INTERACCIÓN ===================== */
+function bind(){
+  document.querySelectorAll(".ci").forEach(ci=>{
+    const k=ci.dataset.key;
+    ci.querySelectorAll(".est button").forEach(b=>b.onclick=()=>{
+      const was=b.classList.contains("on");ST[k]=ST[k]||{};ST[k].e=was?"":b.dataset.v;
+      ci.querySelectorAll(".est button").forEach(x=>{const on=x===b&&!was;x.classList.toggle("on",on);x.setAttribute("aria-pressed",on)});
+      save();fichaUpdate();cierreUpdate();semUpdate();
+    });
+    const ta=ci.querySelector("[data-pa]");if(ta)ta.oninput=()=>{ST[k]=ST[k]||{};ST[k].p=ta.value;save()};
+  });
+  document.querySelectorAll("[data-ff]").forEach(i=>i.oninput=()=>{ST.ficha=ST.ficha||{};ST.ficha[i.dataset.ff]=i.value;save()});
+  document.querySelectorAll("[data-c]").forEach(i=>i.oninput=calcUpdate);
+  if($("#calc"))calcUpdate();
+  fichaUpdate();cierreUpdate();semUpdate();
+  const autoH=t=>{t.style.height="auto";t.style.height=(t.scrollHeight+4)+"px"};
+  document.querySelectorAll(".plan textarea").forEach(t=>{autoH(t);t.addEventListener("input",()=>autoH(t))});
+  document.querySelectorAll("[data-pd]").forEach(i=>i.oninput=()=>{planGet().d[i.dataset.pd]=i.value;save()});
+  document.querySelectorAll("[data-po]").forEach(i=>i.oninput=()=>{planGet().obj[+i.dataset.po]=i.value;save()});
+  document.querySelectorAll("[data-pa2]").forEach(i=>i.oninput=()=>{const [r,c]=i.dataset.pa2.split("-").map(Number);planGet().act[r][c]=i.value;save()});
+  document.querySelectorAll("[data-pe]").forEach(i=>i.oninput=()=>{planGet().ev[i.dataset.pe]=i.value;save()});
+  document.querySelectorAll("[data-padd]").forEach(b=>b.onclick=()=>{const P=planGet();if(b.dataset.padd==="obj")P.obj.push("");else P.act.push(["","","",""]);flush();route()});
+  document.querySelectorAll("[data-pdel]").forEach(b=>b.onclick=()=>{planGet().act.splice(+b.dataset.pdel,1);flush();route();toast("Actuación quitada")});
+  document.querySelectorAll("[data-cf]").forEach(i=>i.oninput=()=>{ST.cierre=ST.cierre||{};ST.cierre[i.dataset.cf]=i.value;save()});
+  document.querySelectorAll("[data-print]").forEach(b=>b.onclick=()=>window.print());
+  document.querySelectorAll("[data-reset]").forEach(b=>b.onclick=()=>{if(!confirmReset(b))return;const pre=b.dataset.reset==="ficha"?"f-":b.dataset.reset==="cierre"?"c-":"__none__";Object.keys(ST).forEach(k=>{if(k.startsWith(pre))delete ST[k]});delete ST[b.dataset.reset];save();route();toast(b.dataset.reset==="plan"?"Plantilla inicial recuperada":"Registro vacío preparado")});
+  document.querySelectorAll("[data-word]").forEach(b=>b.onclick=()=>word(b.dataset.word,b.dataset.stop));
+}
+function confirmReset(b){if(b.dataset.armed){return true}const old=b.textContent;b.dataset.armed="1";b.textContent="Pulsa otra vez para vaciar";setTimeout(()=>{b.dataset.armed="";b.textContent=old},3000);return false}
+
+const LAB={si:"SÍ",ep:"EN PROCESO",no:"NO"};
+function wtable(rows){return `<table border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse;width:100%;font-family:Arial;font-size:10pt"><tr style="background:#2A8B8D;color:#fff"><th>Indicador</th><th>SÍ</th><th>EN PROCESO</th><th>NO</th><th>Plan de Acción</th></tr>${rows.map(([t,k])=>{const v=ST[k]||{};return `<tr><td>${esc(t)}</td>${["si","ep","no"].map(x=>`<td style="text-align:center">${v.e===x?"X":""}</td>`).join("")}<td>${esc(v.p||"")}</td></tr>`}).join("")}</table>`}
+function word(kind,stop){
+  let title="",body="";
+  if(kind==="marcha"){const s=byId[stop];title="Comprobación de la parada: "+s.t;body=wtable(s.marcha.map((t,i)=>[t,s.id+"-m"+i]))}
+  if(kind==="auto"){title="Autoevaluación del centro · Prevención del absentismo en Educación Infantil";body=wtable(AUTO.map((t,i)=>[t,"a-"+i]))}
+  if(kind==="ficha"){const f=ST.ficha||{};title="Ficha de indicadores de riesgo de absentismo";
+    body=`<p style="font-family:Arial">Alumno o alumna: <b>${esc(f.al||"")}</b> · Aula: ${esc(f.au||"")} · Tutor o tutora: ${esc(f.tu||"")} · Fecha: ${esc(f.fe||"")}</p><p style="font-family:Arial">Indicios de desprotección: <b>${(ST["f-prot"]||{}).e==="si"?"SÍ (alerta alta directa)":(ST["f-prot"]||{}).e==="no"?"NO":"sin valorar"}</b></p>`+DIM.map((D,di)=>`<h3 style="font-family:Arial;color:#2A8B8D">${esc(D.t)}</h3>`+wtable(D.it.map((x,ii)=>[x[0]+" Acción preventiva: "+x[2],"f-"+di+"-"+ii]))).join("")+`<p style="font-family:Arial">${esc(($("#fichaRes")||{}).innerText||"")}</p>`}
+  if(kind==="plan"){const P=planGet(),d=P.d,ev=P.ev;title="Plan de Prevención del Absentismo · Educación Infantil";
+    const tr=(a,b)=>`<tr><td style="width:32%;background:#F0FAFA"><b>${esc(a)}</b></td><td>${esc(b||"").replace(/\n/g,"<br>")}</td></tr>`;
+    const T=r=>`<table border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse;width:100%;font-family:Arial;font-size:10pt">${r}</table>`;
+    body=`<p style="font-family:Arial;font-size:9pt">Documento para la Programación General Anual (Orden de 31 de enero de 2025, PRAE, art. 5.3).</p><h3 style="font-family:Arial;color:#2A8B8D">1. Datos de identificación y análisis previo</h3>`+T(tr("Centro educativo",d.centro)+tr("Curso escolar",d.curso)+tr("Etapa","Educación Infantil, segundo ciclo (3, 4 y 5 años)")+tr("Responsable del plan",d.resp)+tr("Análisis del absentismo del curso anterior",d.analisis)+tr("Alumnado identificado en riesgo",d.riesgo)+tr("Alumnado con información de absentismo de la etapa o del centro anterior",d.previo))
+    +`<h3 style="font-family:Arial;color:#2A8B8D">2. Objetivos preventivos del curso</h3><ol style="font-family:Arial;font-size:10pt">${P.obj.filter(x=>x&&x.trim()).map(o=>`<li>${esc(o)}</li>`).join("")}</ol>`
+    +`<h3 style="font-family:Arial;color:#2A8B8D">3. Actuaciones preventivas programadas</h3>`+T(`<tr style="background:#2A8B8D;color:#fff"><th>Actuación</th><th>Responsable</th><th>Temporalización</th><th>Indicador de evaluación</th></tr>`+P.act.filter(r=>r.some(c=>c&&c.trim())).map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join(""))
+    +`<h3 style="font-family:Arial;color:#2A8B8D">4. Evaluación del plan</h3>`+T(tr("Evaluación del 1.er trimestre",ev.t1)+tr("Evaluación del 2.º trimestre",ev.t2)+tr("Evaluación final (junio)",ev.fin))}
+  if(kind==="cierre"){const f=ST.cierre||{};title="Registro de cierre del caso · Prevención del absentismo";
+    body=`<p style="font-family:Arial">Alumno o alumna: <b>${esc(f.al||"")}</b> · Aula: ${esc(f.au||"")} · Tutor o tutora: ${esc(f.tu||"")} · Fecha: ${esc(f.fe||"")}</p><p style="font-family:Arial">Indicios de desprotección: <b>${(ST["c-prot"]||{}).e==="si"?"SÍ":(ST["c-prot"]||{}).e==="no"?"NO":"sin valorar"}</b></p>`+wtable(CIERRE.map((x,i)=>[x[0],"c-"+i]))+`<p style="font-family:Arial"><b>${esc((($("#cierreRes")||{}).innerText||"").split("\n").slice(0,3).join(" · "))}</b></p>`}
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>${esc(title)}</title></head><body style="font-family:Arial"><p style="font-size:9pt;color:#2A8B8D"><b>PROYECTO SUMAMOS (Escuela+Familia+EOEP)</b> · EOEP General Cehegín · Consejería de Educación, Región de Murcia</p><h2 style="font-family:Arial;color:#2A8B8D">${esc(title)}</h2>${body}<p style="font-size:8pt;color:#555;border-top:1px solid #48C5C7;padding-top:6px">© EOEP General Cehegín · Consejería de Educación, Región de Murcia. Material del Proyecto SUMAMOS (Escuela+Familia+EOEP) · Innovación educativa Modalidad D · 2025-2027. Licencia CC BY-NC-ND 4.0 (30700119@murciaeduca.es).</p></body></html>`;
+  const blob=new Blob(["﻿",html],{type:"application/msword;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(kind==="ficha"?"ficha-indicadores":kind==="auto"?"autoevaluacion-centro":kind==="cierre"?"registro-cierre-caso":kind==="plan"?"plan-prevencion-absentismo":"comprobacion-"+stop)+"-sumamos.doc";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);toast("Documento Word descargado");
+}
+
+route();
+})();
+</script>
+</body>
+</html>
