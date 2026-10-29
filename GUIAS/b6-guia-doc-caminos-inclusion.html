@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SUMAMOS Caminos de inclusión · Caja de herramientas del EOEP Cehegín</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap"><style>
+<title>SUMAMOS: Camino a la inclusión · Caja de herramientas del EOEP Cehegín</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap"><style>
 /* Layout: cabecera institucional + pestañas fijas; cada pestaña es una herramienta de consulta (materiales, fichas, medidas, guías) */
 :root{
   --bg:#F4F8F8; --surface:#FFFFFF; --surface2:#E8F2F2; --fg:#1C2A2E; --muted:#56666B; --line:#D2E2E3;
@@ -547,7 +547,7 @@ section.panel,.block{grid-template-columns:minmax(0,1fr)}
 @media (max-width:640px){.cmp-form,.cmp-fases{grid-template-columns:minmax(0,1fr)}.cmp-head{flex-direction:column;align-items:flex-start}}
 .cmp-pf{grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr))}
 .cmp-pf button{min-width:0}.cmp-pf button span{min-width:0;overflow-wrap:anywhere;hyphens:auto}
-/* ===== v7: identidad SUMAMOS · Caminos de inclusión ===== */
+/* ===== v7: identidad SUMAMOS · Camino a la inclusión ===== */
 :root{--bg:#F0FAFA;--teal:#2A8B8D;--tealD:#296272;--tealL:#E3F6F6;--sm:#48C5C7;--navy:#0B2545}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--teal:#48C5C7;--sm:#48C5C7;--navy:#E4EFEF}}
 :root[data-theme="dark"]{--teal:#48C5C7;--sm:#48C5C7;--navy:#E4EFEF}
@@ -770,7 +770,7 @@ footer{border-top:5px solid var(--sm)}
   <div class="sm-line" aria-hidden="true"></div>
   <div class="wrap sm-hero">
     <div class="brand-txt">
-      <h1>SUMAMOS<span>CAMINOS DE INCLUSIÓN</span></h1>
+      <h1>SUMAMOS<span>CAMINO A LA INCLUSIÓN</span></h1>
       <p class="sm-sub">Itinerario de respuesta a la diversidad</p>
       
     </div>
@@ -778,7 +778,7 @@ footer{border-top:5px solid var(--sm)}
   </div>
 </header>
 <nav class="tabs" aria-label="Guías">
-  <div class="wrap"><button class="tabs-tog" id="tabsTog" type="button" aria-expanded="false" aria-controls="tabs"><span>Guías · <span id="tabsCur">Inicio</span></span><i aria-hidden="true">▾</i></button></div>
+  <div class="wrap"><button class="tabs-tog" id="tabsTog" type="button" aria-expanded="false" aria-controls="tabs"><span>Camino · <span id="tabsCur">Inicio</span></span><i aria-hidden="true">▾</i></button></div>
   <div class="wrap tabs-in" role="tablist" id="tabs"></div>
 </nav>
 <main class="wrap">
@@ -1202,7 +1202,7 @@ function checkList(id,items,key,fmt){const st=(()=>{const o=store.get(key+"-3",n
 function picker(id,items,onPick,cls){return{html:`<div class="${cls||"grid3"}" id="${id}">${items}</div>`,bind(){$$("#"+id+" [data-i]").forEach(b=>b.onclick=()=>{$$("#"+id+" [data-i]").forEach(x=>{x.classList.toggle("t",x===b);x.setAttribute("aria-pressed",x===b?"true":"false")});onPick(+b.dataset.i)})}}}
 
 /* ---------- estructura ---------- */
-const TABS=[["inicio","Inicio"],["conozco","Conozco a mi alumnado"],["evalua","Evalúo lo que funciona"],["medidas","Medidas generales y ordinarias"],["medesp","Respuesta específica ACNEAE"],["deriv","Solicitar intervención"],["pap","Guía rápida del PAP"],["fichas","Fichas del PAP"],["aula","Un aula para todos"],["org","Organizar un aula"],["pautas","Pautas y materiales visuales"],["comp","Compensación educativa"],["adapt","Adaptaciones"]];
+const TABS=[["inicio","Inicio"],["conozco","Conozco a mi alumnado (DETECTA)"],["medidas","Actuaciones generales y medidas ordinarias"],["medesp","Respuesta específica ACNEAE"],["deriv","Solicitar intervención"],["pap","Guía rápida del PAP"],["fichas","Fichas del PAP"],["aula","Un aula para todos"],["org","Organizar un aula"],["pautas","Pautas y materiales visuales"],["comp","Compensación educativa"],["adapt","Adaptaciones"]];
 $("#tabs").innerHTML=TABS.map(([k,t])=>`<button class="tab" role="tab" data-tab="${k}">${esc(t)}</button>`).join("");
 const S={blk:{}};
 const GD={};
@@ -1237,7 +1237,7 @@ function renderGuide(k){const g=GD[k];const P=$("#p-"+k);if(!S.blk[k])S.blk[k]=g
 
 /* ================= INICIO ================= */
 function renderInicio(){const P=$("#p-inicio");
-  const cards=[["medidas","med","Medidas generales y ordinarias","Respuesta educativa para todos: actuaciones generales, medidas ordinarias y caja de herramientas."],["deriv","der","Solicitar la intervención del EOEP","Anexo I paso a paso: a quién, cuándo, cómo y qué ocurre después."],["pap","pap","Guía rápida del PAP","Quién lo tiene, quién hace qué, apartados y anexos."],["fichas","dos","Fichas del PAP","Buscador por lo que observas y orientaciones de cada necesidad."],["aula","acc","Un aula para todos","Barreras, aula accesible, adaptaciones y checklist."],["org","org","Organizar un aula para todos","Recursos, espacios y tiempos, co-enseñanza y habilidades básicas."],["pautas","pautas","Pautas y materiales visuales","Diez pautas de aula y seis fichas técnicas de materiales."],["comp","comp","Compensación educativa","Tres perfiles, orientaciones, casos prácticos y generador para el PAP."],["adapt",null,"Adaptaciones según la normativa","Por tipo y por perfil, con ejemplos de Infantil y Primaria."]];
+  const cards=[["medidas","med","Actuaciones generales y medidas ordinarias","Respuesta educativa para todos: actuaciones generales y medidas ordinarias con estrategias del día a día, y análisis del grupo-clase para decidir."],["deriv","der","Solicitar la intervención del EOEP","Anexo I paso a paso: a quién, cuándo, cómo y qué ocurre después."],["pap","pap","Guía rápida del PAP","Quién lo tiene, quién hace qué, apartados y anexos."],["fichas","dos","Fichas del PAP","Buscador por lo que observas y orientaciones de cada necesidad."],["aula","acc","Un aula para todos","Barreras, aula accesible, adaptaciones y checklist."],["org","org","Organizar un aula para todos","Recursos, espacios y tiempos, co-enseñanza y habilidades básicas."],["pautas","pautas","Pautas y materiales visuales","Diez pautas de aula y seis fichas técnicas de materiales."],["comp","comp","Compensación educativa","Tres perfiles, orientaciones, casos prácticos y generador para el PAP."],["adapt",null,"Adaptaciones según la normativa","Por tipo y por perfil, con ejemplos de Infantil y Primaria."]];
   P.innerHTML=`<div class="hero"><div><div class="eyebrow">Para el profesorado</div><h2>Accesible para uno, mejor para todos</h2><p class="lead">Cada guía tiene su propio apartado, ordenado igual que el documento original. Elige una para empezar.</p></div>
    </div>
    <div class="homegrid">${cards.map(([k,d,t,s],i)=>`<button class="hcard" data-go="${k}"><span class="hill"><img src="${img(HOMEILL[k])}" alt="" loading="lazy"></span><span class="hbody">${d?`<img class="hcov" src="${img(DOCS[d].img)}" alt="">`:`<span class="hicon">§</span>`}<span><b>${esc(t)}</b><span>${esc(s)}</span></span></span></button>`).join("")}</div>
@@ -1739,7 +1739,7 @@ const B_der=[
   <div class="dv-worry" id="dvw">${DV.worry.map((w,i)=>`<button type="button" class="dv-wbtn" data-i="${i}" aria-pressed="false">${esc(w[0])}</button>`).join("")}</div>
   <div id="dvwr" aria-live="polite"><p class="muted">Pulsa una de las opciones para ver qué marcar en el apartado 3 del Anexo I.</p></div>
   <div class="dv-urg"><b>No esperes al circuito ordinario</b> si hay indicios de ideación suicida, conductas autolíticas, posible acoso escolar o situación de desprotección: comunícalo de inmediato al equipo directivo, que activa el protocolo que corresponda. El Anexo I sirve para la demanda de intervención, no sustituye a esos protocolos.</div>
-  <div class="row">${goBtn("Siguiente: primero, las medidas ordinarias","deriv","ordinarias","btn primary")}</div>`;
+  <div class="row">${goBtn("‹ Antes: análisis del grupo-clase (Paso 2)","medidas","analisis","btn")+goBtn("Siguiente: el Anexo I, apartado por apartado","deriv","anexo","btn primary")}</div>`;
   const draw=()=>{const w=DV.worry[sel];const p=DV.prof.find(x=>x.k===w[1]);$$("#dvw button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.i===sel?"true":"false"));
    $("#dvwr").innerHTML=`<div class="result acc dv-res" style="--c:${p.c}"><span class="kicker">Apartado 3.1 · Marca</span><h4>${esc(p.t)}</h4><p><b>Apartado 3.2 · Motivo:</b> ${esc(w[2])}</p><p><b>No olvides:</b> ${esc(w[3])}</p></div>`};
   $$("#dvw button").forEach(b=>b.onclick=()=>{sel=+b.dataset.i;draw()});
@@ -1785,8 +1785,8 @@ const B_der=[
    if(k==="a4")return H4("Los indicadores del apartado 4")+`<div class="grid3">${DV.a4.map(g=>`<div class="box"><h4><span class="code">${g[0]}</span> ${esc(g[1])}</h4><ul>${g[2].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div>`;
    if(k==="a53")return H4("¿Qué perfil marco? Asistente")+`<div class="wizard" id="dvpf"><div class="wstep"><p><b>1. ¿En qué etapa está?</b></p><div class="row"><button class="btn" data-a="inf">Educación Infantil</button><button class="btn" data-a="pri1">1.º o 2.º de Primaria</button><button class="btn" data-a="pri3">De 3.º a 6.º de Primaria</button></div></div><div id="dvpf2"></div></div>`;
    if(k==="a54")return H4("Situaciones de riesgo del apartado 5.4")+`<div class="chips dv-chips">${DV.a54.map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div><div class="dv-urg"><b>Ideación suicida, conductas autolíticas, posible acoso o desprotección:</b> además de anotarlo, comunícalo de inmediato al equipo directivo para que active el protocolo que corresponda. No esperes a la respuesta del EOEP.</div>`;
-   if(k==="a6")return `<p class="note"><b>Paso 3 del itinerario · Evalúo lo que funciona:</b> los apartados 6 y 7 del Anexo I recogen qué medidas ordinarias se han aplicado, desde cuándo y si han funcionado (SÍ / NO), con datos.</p>`+anx6Html()+H4("Los grupos de medidas del apartado 6")+`<div class="card tbl"><table><thead><tr><th>Grupo</th><th>Medidas</th><th>Códigos</th></tr></thead><tbody>${DV.a6.map(r=>`<tr><td><span class="code">${r[0]}</span></td><td><b>${esc(r[1])}</b></td><td>${esc(r[2])}</td></tr>`).join("")}</tbody></table></div><div class="row">${goBtn("Ver las 25 medidas ordinarias con ejemplos","medidas","m25","btn primary")}</div>`;
-   if(k==="a7")return `<p class="note"><b>Paso 3 del itinerario · Evalúo lo que funciona:</b> los apartados 6 y 7 del Anexo I recogen qué medidas ordinarias se han aplicado, desde cuándo y si han funcionado (SÍ / NO), con datos.</p>`+H4("Ejemplos de valoración")+`<div class="grid3">${DV.ej7.map(e=>`<div class="box ${e[0]==="no"?"n":e[0]==="inf"?"o":"t"}">${e[0]==="no"?`<span class="kicker">✕ ${esc(e[1])}</span>`:`<h4><span class="lvl ${e[0]}">${e[0]==="inf"?"INF":"PRI"}</span>${esc(e[1])}</h4>`}<p>${esc(e[2])}</p></div>`).join("")}</div>`;
+   if(k==="a6")return `<p class="note"><b>Viene del Paso 2 · Análisis del grupo-clase:</b> los apartados 6 y 7 del Anexo I recogen qué medidas ordinarias se han aplicado, desde cuándo y si han funcionado (SÍ / NO), con datos.</p>`+anx6Html()+H4("Los grupos de medidas del apartado 6")+`<div class="card tbl"><table><thead><tr><th>Grupo</th><th>Medidas</th><th>Códigos</th></tr></thead><tbody>${DV.a6.map(r=>`<tr><td><span class="code">${r[0]}</span></td><td><b>${esc(r[1])}</b></td><td>${esc(r[2])}</td></tr>`).join("")}</tbody></table></div><div class="row">${goBtn("Ver las 25 medidas ordinarias con ejemplos","medidas","m25","btn primary")}</div>`;
+   if(k==="a7")return `<p class="note"><b>Viene del Paso 2 · Análisis del grupo-clase:</b> los apartados 6 y 7 del Anexo I recogen qué medidas ordinarias se han aplicado, desde cuándo y si han funcionado (SÍ / NO), con datos.</p>`+H4("Ejemplos de valoración")+`<div class="grid3">${DV.ej7.map(e=>`<div class="box ${e[0]==="no"?"n":e[0]==="inf"?"o":"t"}">${e[0]==="no"?`<span class="kicker">✕ ${esc(e[1])}</span>`:`<h4><span class="lvl ${e[0]}">${e[0]==="inf"?"INF":"PRI"}</span>${esc(e[1])}</h4>`}<p>${esc(e[2])}</p></div>`).join("")}</div>`;
    if(k==="a8")return anxBtns();
    return""};
   const v=()=>{const a=DV.aps.find(x=>x.k===cur);$$("#dvap button").forEach(b=>b.setAttribute("aria-current",b.dataset.k===cur?"true":"false"));
@@ -2110,12 +2110,11 @@ renderInicio();
 
 /* ===== v9: navegación por los 6 pasos del itinerario ===== */
 const PASOS=[
- {n:1,t:"Conozco a mi alumnado",c:"Conozco",tabs:["conozco"],pend:true},
- {n:2,t:"Respuesta con medidas generales y ordinarias",c:"Medidas generales y ordinarias",tabs:["medidas"]},
- {n:3,t:"Evalúo lo que funciona",c:"Evalúo",tabs:["evalua"]},
- {n:4,t:"Solicito intervención de los servicios de orientación",c:"Solicito intervención",tabs:["deriv"]},
- {n:5,t:"Medidas específicas para ACNEAE",c:"Medidas específicas",tabs:["medesp","pap","fichas","comp","adapt"]},
- {n:6,t:"Aula accesible para todos",c:"Aula accesible",tabs:["aula","org","pautas"]}];
+ {n:1,t:"Conozco a mi alumnado (DETECTA)",c:"Conozco (DETECTA)",tabs:["conozco"],pend:true},
+ {n:2,t:"Aplicación de actuaciones generales y medidas ordinarias",c:"Actuaciones y medidas",tabs:["medidas"]},
+ {n:3,t:"Solicito intervención de los servicios de orientación",c:"Solicito intervención",tabs:["deriv"]},
+ {n:4,t:"Medidas específicas para ACNEAE",c:"Medidas específicas",tabs:["medesp","pap","fichas","comp","adapt"]},
+ {n:5,t:"Aula accesible para todos",c:"Aula accesible",tabs:["aula","org","pautas"]}];
 const TABNAME=Object.fromEntries(TABS);
 const pasoDe=t=>PASOS.find(p=>p.tabs.includes(t));
 (()=>{const T=$("#tabs");
@@ -2153,6 +2152,1430 @@ const pasoDe=t=>PASOS.find(p=>p.tabs.includes(t));
    t.querySelectorAll("tbody tr").forEach(tr=>{let i=0;[...tr.children].forEach(td=>{if(!td.hasAttribute("data-label"))td.setAttribute("data-label",ths[i]||"");i+=+(td.getAttribute("colspan")||1)})})})};
  let q=0;new MutationObserver(()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;lab()})}).observe(document.querySelector("main"),{childList:true,subtree:true});
  setTimeout(()=>{upd();lab()},0)})();
+
+/* ===== v14 · Paso 2: actuaciones generales y medidas ordinarias separadas, en la práctica, con análisis del grupo-clase e informe de decisión ===== */
+(()=>{
+const ACT=[
+ {c:"a.1",m:"Prevención del absentismo",centro:"Protocolo de absentismo recogido en el PAD; seguimiento por jefatura de estudios.",aula:"Registro diario de faltas, contacto con la familia el primer día de ausencia no justificada y seguimiento mensual del grupo.",ind:"Las faltas se registran a diario, la familia es contactada el primer día de ausencia sin justificar y existe un seguimiento mensual de la asistencia del grupo.",paso:"Revisar este mes la asistencia del grupo, detectar quién se acerca al umbral y acordar con jefatura de estudios la comunicación con esas familias (Bloque 2 SUMAMOS).",inf:"En 3 años, la tutora llama el primer día de ausencia y, si se repite, cita a la familia para explicar por qué la asistencia en Infantil es decisiva.",pri:"Gráfica de asistencia del grupo en el aula (sin nombres) y reconocimiento colectivo de la semana con mejor asistencia."},
+ {c:"a.2",m:"Colaboración con otras instituciones",centro:"Coordinación con servicios sociales, salud, atención temprana y otros servicios, canalizada por el equipo directivo y el EOEP.",aula:"El tutor o la tutora conoce qué alumnado tiene seguimiento externo, aporta lo que observa y aplica en el aula las pautas acordadas.",ind:"El tutor/a sabe qué alumnado del grupo tiene seguimiento externo, dispone de las pautas acordadas y las aplica en el aula.",paso:"Pedir a jefatura de estudios o al EOEP la relación de coordinaciones externas activas del grupo y las pautas acordadas.",inf:"Niña que llega de atención temprana: la tutora recibe en septiembre las pautas del CDIAT (anticipación con fotos) y las incorpora a la rutina.",pri:"Alumno con seguimiento de servicios sociales: coordinación trimestral con la profesora técnica de servicios a la comunidad del EOEP y acuerdos sobre asistencia y material."},
+ {c:"a.3",m:"Condiciones físicas y accesibilidad",centro:"Eliminación de barreras arquitectónicas y señalética accesible en el centro.",aula:"Aula con zonas delimitadas, señalética con pictograma y texto, iluminación y ruido controlados.",ind:"El aula tiene zonas identificadas, señalética con pictograma y texto, y este curso se ha pasado el checklist de accesibilidad.",paso:"Pasar el checklist «¿es accesible mi aula?» (Paso 5) y elegir tres prioridades para este trimestre.",inf:"Pictogramas en la puerta del aseo, en las perchas y en las cajas de material; zona de asamblea delimitada con alfombra.",pri:"Horario visual del día, materiales etiquetados por áreas y mesa del alumno con baja visión junto a la ventana sin reflejos."},
+ {c:"a.4",m:"Ayudas técnicas y equipamientos",centro:"Dotación de mobiliario adaptado, emisoras FM, comunicadores, tablets y otros recursos de acceso.",aula:"Las ayudas están en el aula, funcionan y las usan todos los docentes que entran en el grupo.",ind:"Las ayudas técnicas que necesita el alumnado están disponibles, funcionan y las utilizan todos los docentes del grupo, no solo el tutor/a.",paso:"Hacer un inventario rápido: qué ayuda necesita cada alumno, si la tiene y quién sabe usarla; trasladar lo que falte a jefatura de estudios.",inf:"Silla con reposapiés para el niño con hipotonía y tablero de comunicación siempre visible en la asamblea.",pri:"La emisora FM la usan también la maestra de Inglés y el de Educación Física, no solo la tutora."},
+ {c:"a.5",m:"Apoyo psicológico y programas preventivos",centro:"Plan de convivencia, protocolo ante acoso y programas de educación emocional.",aula:"Sesión fija de educación emocional o tutoría, normas visuales y conocimiento de los pasos del protocolo de convivencia.",ind:"Hay una sesión semanal programada de educación emocional o tutoría y el profesorado del grupo conoce los pasos del protocolo de convivencia.",paso:"Programar una sesión semanal fija (p. ej., la asamblea de emociones del lunes) con el Material 13 de SUMAMOS (Bloque 4).",inf:"Termómetro de emociones en la asamblea diaria y rincón de la calma con normas de uso enseñadas.",pri:"Tutoría semanal con dinámicas de resolución de conflictos y buzón de convivencia revisado cada viernes."},
+ {c:"a.6",m:"Organización de grupos y espacios",centro:"Reparto equilibrado del alumnado entre grupos con criterios recogidos en el PAD.",aula:"La ubicación del alumnado y la distribución del aula responden a criterios explícitos y se revisan.",ind:"La ubicación del alumnado en el aula responde a criterios conocidos (cercanía al docente, compañeros de referencia, equipos heterogéneos) y se revisa cada trimestre.",paso:"Hacer el mapa del grupo y reorganizar las mesas con criterios explícitos; revisarlo en la próxima sesión de evaluación.",inf:"Mesas de 4 con un niño con buen lenguaje oral en cada una; zonas fijas de juego tranquilo y de movimiento.",pri:"Mesas en equipos heterogéneos de 4 y alumnado con dificultades de atención cerca del docente y lejos de la puerta."},
+ {c:"a.7",m:"Coordinación entre profesionales",centro:"Horario de coordinación tutor/a, PT, AL y orientación; actas de coordinación.",aula:"Reunión breve y fija con acuerdos escritos y revisados.",ind:"Existe un hueco fijo de coordinación con PT, AL y el resto del equipo docente, con acuerdos escritos que se revisan.",paso:"Fijar 15-20 minutos semanales con un guion de tres preguntas: qué ha funcionado, qué cambiamos, quién hace qué.",inf:"Tutora y AL se reúnen 15 minutos los lunes para preparar el vocabulario de la semana que trabajarán ambas.",pri:"Equipo docente de 3.º acuerda en la reunión quincenal las mismas ayudas visuales en todas las áreas."},
+ {c:"a.8",m:"Innovación e investigación",centro:"Proyectos inclusivos de centro: patios dinámicos, lectura compartida, SUMAMOS, etc.",aula:"El grupo participa y los proyectos se aprovechan para que nadie quede al margen.",ind:"El grupo participa en al menos un proyecto de centro y el alumnado con más dificultades tiene en él un papel activo.",paso:"Elegir un proyecto de centro y asignar roles concretos al alumnado que suele quedar al margen.",inf:"Lectura compartida con familias: cada familia lee un cuento en su lengua y el grupo lo dramatiza.",pri:"Patios dinámicos: el alumnado con dificultades de relación es responsable del material de un juego."},
+ {c:"a.9",m:"Cláusula abierta",centro:"Cualquier otra actuación que favorezca la calidad y la igualdad de oportunidades, recogida en el PAD.",aula:"Otras actuaciones de centro con efecto en el aula: plan de acogida, Jornadas de Puertas Abiertas, banco de libros, etc.",ind:"La actuación está recogida en el PAD y se puede describir qué cambia en el aula gracias a ella.",paso:"Identificar qué otras actuaciones del centro llegan al grupo (p. ej., plan de acogida del Bloque 1) y cómo se aprovechan.",inf:"Plan de acogida de 3 años: Jornadas de Puertas Abiertas en junio y período de adaptación flexible.",pri:"Plan de acogida para alumnado de incorporación tardía con compañero de referencia la primera semana."}
+];
+const MO={
+ "b.1":["Hay equipos estables con roles visibles y al menos una actividad cooperativa estructurada a la semana.","Formar equipos heterogéneos de 4 (en Infantil, parejas) y empezar con una sola técnica (1-2-4 o «lápices al centro») una vez por semana."],
+ "b.2":["Cada unidad termina en un producto real que el alumnado elabora y presenta.","Convertir la próxima unidad en una tarea con producto final (cartel, receta, menú, folleto)."],
+ "b.3":["Al menos un proyecto por trimestre parte de una pregunta del grupo y cada alumno aporta desde su nivel.","Recoger preguntas en la asamblea y elegir una para un miniproyecto de 2-3 semanas."],
+ "b.4":["El alumnado dispone de un plan o panel de elección y registra lo que hace sin depender del adulto.","Introducir el panel de rincones con foto (Infantil) o un plan de trabajo semanal (Primaria) en una sesión por semana."],
+ "b.5":["Se plantean situaciones para predecir, probar y registrar antes de dar la explicación.","Empezar una sesión por semana con una pregunta-reto y un registro sencillo de lo observado."],
+ "b.6":["Los compromisos están escritos o en pictogramas, son pocos, tienen fecha de revisión y la familia los conoce.","Pactar un contrato de 1 a 3 compromisos con el alumno o alumna que más lo necesite y revisarlo a las dos semanas."],
+ "b.7":["Las actividades clave se ofrecen en al menos dos niveles de ejecución del mismo criterio.","Preparar la próxima ficha en tres niveles (semáforo) manteniendo el mismo criterio de evaluación."],
+ "b.8":["Hay talleres en rotación con grupos heterogéneos y un adulto de referencia por taller.","Organizar un taller mensual con apoyo de familias voluntarias o del profesorado de apoyo."],
+ "b.9":["Los contenidos de varias áreas se organizan en torno a un tema que motiva al grupo.","Elegir un centro de interés para el próximo mes y conectar con él lenguaje, lógica y expresión artística."],
+ "b.10":["Los rincones tienen propuestas graduadas, normas visuales y un sistema de rotación conocido por todos.","Graduar las propuestas de un rincón (fácil, medio, reto) y añadir su norma con pictograma."],
+ "b.11":["Hay sesiones con grupos heterogéneos de 4-5, actividades cortas y un adulto dinamizando cada grupo.","Pedir colaboración a familias o voluntariado para una sesión quincenal de grupos interactivos."],
+ "b.12":["Las tareas avanzan de lo manipulativo a lo gráfico y a lo abstracto, y cada alumno empieza donde puede.","En la próxima unidad, preparar la secuencia manipulativo → dibujo → símbolo."],
+ "b.13":["El alumnado puede elegir entre formas equivalentes de hacer o de demostrar lo aprendido.","Ofrecer dos opciones de producto en la próxima tarea (oral o dibujo; mural o audio)."],
+ "b.14":["El refuerzo tiene horario fijo, objetivo concreto, alumnado definido y se revisa con datos.","Definir con jefatura de estudios el refuerzo: quién, cuándo, con qué objetivo y cómo se medirá el avance."],
+ "b.15":["El segundo docente entra con una función acordada (no solo «ayudar») y el horario consta en la programación.","Acordar con el docente de apoyo qué hace en cada sesión y a qué alumnado atiende."],
+ "b.16":["Hay parejas o ayudantes con una tarea concreta y los roles rotan para que todos ayuden alguna vez.","Nombrar compañeros ayudantes para la agenda o la lectura y enseñarles exactamente qué deben hacer."],
+ "b.17":["Tutor/a y PT o AL planifican juntos al menos una sesión semanal y se reparten roles dentro del aula.","Elegir un modelo (estaciones, paralela, uno enseña y otro apoya) y planificarlo en 20 minutos."],
+ "b.18":["Los grupos se forman según el objetivo, son temporales y se revisan en cada evaluación.","Formar grupos de lectura o de lenguaje oral por nivel con fecha de revisión."],
+ "b.19":["En las áreas o tareas con más necesidad, el grupo se divide para reducir la ratio.","Solicitar a jefatura de estudios un desdoble en la sesión de mayor dificultad para el grupo."],
+ "b.20":["Las actividades tienen duración ajustada, hay pausas activas y un espacio para regularse.","Introducir un cambio de postura cada 10-15 minutos (Infantil) o una pausa activa cada 20 minutos (Primaria)."],
+ "b.21":["Las TIC se usan a diario para acceder a la información o expresarse, no solo como premio.","Incorporar una herramienta (audiolibro, dictado por voz, pizarra digital) en una rutina diaria."],
+ "b.22":["El equipo docente acuerda las mismas ayudas y las aplica en todas las áreas.","Llevar a la próxima reunión del equipo docente tres ayudas comunes para el grupo."],
+ "b.24":["El aula está estructurada (espacios, tiempos, agenda visual) y existe un sistema de comunicación para quien lo necesita.","Colocar la agenda visual del día y delimitar los espacios con color y pictograma."],
+ "b.25":["La estrategia está descrita en la programación y se puede explicar qué cambia en el aula.","Describir la estrategia en la programación con su objetivo y el modo de valorarla."]
+};
+const NEC=[
+ {k:"aten",t:"Atención y autorregulación",mo:["b.20","b.6","b.15","b.17","b.4","b.16"],act:["a.6","a.7"],caja:["Tiempos","Conducta y autorregulación","Organización del aula"],inf:"Asamblea de 10 minutos con cojín de posición, tarea de ayudante (repartir material), agenda visual y refuerzo inmediato y concreto.",pri:"Pausa activa cada 20 minutos, autoinstrucciones pegadas en la mesa, ubicación cerca del docente y señal pactada para reconducir sin interrumpir."},
+ {k:"conv",t:"Conducta y convivencia",mo:["b.6","b.1","b.16","b.20"],act:["a.5","a.2"],caja:["Conducta y autorregulación"],inf:"Tres normas en positivo con pictograma, rincón de la calma enseñado y refuerzo concreto («has esperado tu turno»).",pri:"Contrato quincenal con dos compromisos, tutoría semanal de resolución de conflictos y roles fijos en los equipos."},
+ {k:"leng",t:"Lenguaje oral y comunicación",mo:["b.17","b.14","b.18","b.11","b.22"],act:["a.7"],caja:["Lenguaje oral y comunicación","Presentación de la información"],inf:"Tutora y AL juntas en la asamblea: una lleva la rutina y otra modela el lenguaje; grupos de juego por nivel de lenguaje oral durante un trimestre.",pri:"Vocabulario clave con imagen antes de cada unidad, preguntas con opciones y exposiciones orales primero en pareja."},
+ {k:"lect",t:"Lectura y escritura (en Infantil, sus bases)",mo:["b.14","b.7","b.12","b.18","b.21","b.16"],act:["a.7"],caja:["Presentación de la información","Evaluación: cambiar el instrumento, no el criterio"],inf:"Sesiones cortas de conciencia fonológica en pequeño grupo y juegos de rimas y segmentación dentro de la rutina diaria.",pri:"Grupos de lectura por nivel, lectura en parejas con alumnado mayor, audiolibros y enunciados leídos en voz alta en las pruebas."},
+ {k:"mat",t:"Razonamiento lógico-matemático y cálculo",mo:["b.12","b.7","b.5","b.10","b.11"],act:[],caja:["Actividades y tareas"],inf:"Seriaciones de 2 y luego de 3 elementos; conteo con objetos reales en la «frutería» de clase.",pri:"Divisiones: material manipulativo → dibujo → algoritmo; problemas en semáforo con el mismo criterio para todos."},
+ {k:"ritm",t:"Ritmos de aprendizaje muy distintos (también quien va por delante)",mo:["b.7","b.13","b.10","b.4","b.3","b.8"],act:[],caja:["Actividades y tareas"],inf:"Trazo del número en tres niveles y rincones con propuestas fácil-medio-reto.",pri:"Plan de trabajo semanal con actividades obligatorias y opcionales de ampliación, y menú de productos para demostrar lo aprendido."},
+ {k:"idio",t:"Desconocimiento del español o familias de otras lenguas",mo:["b.16","b.21","b.9","b.11","b.1"],act:["a.2","a.1"],caja:["Presentación de la información","Lenguaje oral y comunicación"],inf:"Compañero de referencia, agenda visual, vocabulario del aula con imagen y avisos a la familia traducidos (materiales bilingües SUMAMOS).",pri:"Glosario visual por unidad, traductor en la tablet para las instrucciones y tutoría entre iguales. Si el desconocimiento es grave, valorar español para extranjeros (c.10, Paso 5)."},
+ {k:"auto",t:"Autonomía personal y hábitos",mo:["b.6","b.4","b.20","b.10"],act:[],caja:["Presentación de la información","Organización del aula"],inf:"Secuencias con fotos para quitarse el abrigo o lavarse las manos y contrato visual con sello. Recuerda: la ausencia de control de esfínteres al incorporarse a 3 años es un indicador de riesgo que se comunica al EOEP.",pri:"Lista de comprobación para preparar la mochila y revisión diaria de la agenda con el tutor o la tutora."},
+ {k:"abs",t:"Asistencia irregular o absentismo",mo:["b.6","b.16"],act:["a.1","a.2"],caja:["Organización del aula"],inf:"Llamada el primer día de ausencia, recepción afectuosa a la vuelta y una bandeja con «lo que me perdí».",pri:"Compañero que guarda tareas y apuntes, contrato de asistencia con la familia y seguimiento mensual con jefatura de estudios."},
+ {k:"nee",t:"Alumnado con necesidad de apoyo intenso dentro del grupo",mo:["b.24","b.17","b.15","b.21","b.16"],act:["a.3","a.4","a.7"],caja:["Presentación de la información","Conducta y autorregulación"],inf:"Espacios delimitados con color y pictograma, agenda de objetos y tablero de comunicación que usan también los compañeros.",pri:"Trabajo de izquierda a derecha, co-enseñanza con PT en estaciones y programación por entornos."},
+ {k:"moti",t:"Baja motivación o participación",mo:["b.2","b.3","b.9","b.13","b.1","b.11"],act:["a.8"],caja:["Actividades y tareas"],inf:"Proyecto «¿Cómo nacen los pollitos?» con aportaciones de las familias y elección de cómo contar lo aprendido.",pri:"Tarea con producto real (el menú saludable del comedor) y elección del formato final: mural, audio o exposición."},
+ {k:"soc",t:"Relaciones entre iguales y aislamiento",mo:["b.1","b.16","b.11","b.8"],act:["a.5","a.8"],caja:["Conducta y autorregulación"],inf:"Padrinos de 5 años, juegos cooperativos en el patio y parejas que rotan cada semana.",pri:"Equipos base con roles, patios dinámicos y un sociograma sencillo para reorganizar los equipos."}
+];
+const ESL=[
+ ["Decididas","Las medidas se han acordado en el equipo docente, no las decide el tutor o la tutora en solitario.","Llevar las medidas del grupo a la próxima reunión del equipo docente y dejarlas en acta."],
+ ["Programadas","Constan en la programación docente o de aula del grupo.","Incluir el párrafo de medidas ordinarias en la programación (apartado «Medidas ordinarias» de esta guía)."],
+ ["Aplicadas","Se aplican de forma sistemática, con la frecuencia y duración previstas, no de forma ocasional.","Fijar en el horario cuándo se aplica cada medida y quién la aplica."],
+ ["Registradas","Se registra su aplicación (diario de aula, hoja de seguimiento, actas).","Abrir una hoja de seguimiento sencilla: medida, fecha, quién, observación."],
+ ["Evaluadas","Se valora su efecto con datos en las sesiones de evaluación.","Elegir para cada medida un dato observable (p. ej., minutos en tarea, palabras leídas, conflictos por semana) y medirlo antes y después."]
+];
+const TIEMPO=[["m1","Menos de un mes"],["m3","Entre uno y tres meses"],["t1","Más de un trimestre"]];
+const KEY="eoep-analisis-grupo";
+const blank=()=>({g:{},nec:[],nec2:"",a:{},m:{},e:{},al:[],t:"",dec:{op:"",f:"",r:"",o:""}});
+let st=Object.assign(blank(),store.get(KEY,{}));
+const save=()=>store.set(KEY,st);
+const MROWS=DATA.m25.rows;
+const kindOf=c=>/^b\./.test(c)?"m":"a";
+const MG=DATA.m25.groups;
+const mname=c=>{const r=MROWS.find(x=>x.c===c);return r?r.m:c};
+const aname=c=>{const r=ACT.find(x=>x.c===c);return r?r.m:c};
+const lbl={si:"SÍ",proc:"EN PROCESO",no:"NO"};
+const stage=()=>st.g.et==="pri"?"pri":"inf";
+const CAJAMAP={"b.20":["Tiempos","Organización del aula"],"b.12":["Presentación de la información","Actividades y tareas"],"b.13":["Evaluación: cambiar el instrumento, no el criterio"],"b.6":["Conducta y autorregulación"],"b.14":["Lenguaje oral y comunicación"],"a.5":["Conducta y autorregulación"],"a.6":["Organización del aula"]};
+const CAJAEX={"b.13":0,"b.20":1};
+const estr=(code,s)=>{const cats=CAJAMAP[code];if(!cats)return"";const ex=CAJAEX[code]!=null?G1.cajaEj[CAJAEX[code]]:null;
+ return cats.map(t=>{const c=G1.caja.find(x=>x.t===t);if(!c)return"";const it=c.i.filter(i=>s==="all"||!i[0]||i[0]===s);return it.length?`<div class="ag-estr"><span class="kicker">Estrategias del día a día · ${esc(t)}</span><ul>${it.map(i=>`<li>${i[0]?`<span class="lvl ${i[0]}">${i[0].toUpperCase()}</span>`:""}${esc(i[1])}</li>`).join("")}</ul></div>`:""}).join("")+(ex&&(s==="all"||s===ex[0])?`<div class="ag-estr ex"><span class="kicker">Ejemplo de aplicación · ${esc(ex[1])}</span><p>${esc(ex[2])}</p></div>`:"")};
+const cajaItems=t=>{const c=G1.caja.find(x=>x.t===t);if(!c)return[];const s=stage();return c.i.filter(i=>!i[0]||i[0]===s).map(i=>i[1])};
+
+/* ---------- CSS ---------- */
+document.head.insertAdjacentHTML("beforeend",`<style>
+.ag-intro{display:grid;gap:10px}
+.ag-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:6px 0}
+.ag-flow div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.88rem}
+.ag-flow b{display:block;font-family:var(--f-display);color:var(--tealD);font-size:.95rem}
+.ag-flow i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--sm);color:#fff;font-weight:900;font-size:.8rem;margin-bottom:4px}
+.ag-part{margin-top:14px}
+.ag-ph{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+.ag-ph .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--tealD);color:#fff;font:900 1rem var(--f-display)}
+.ag-ph h4{font-size:1.15rem;font-weight:900;margin:0}
+.ag-ph .cnt{margin-left:auto;font-size:.82rem;font-weight:800;color:var(--muted)}
+.ag-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ag-form label{display:grid;gap:4px;font-size:.82rem;font-weight:700;color:var(--muted)}
+.ag-nec{display:flex;flex-wrap:wrap;gap:6px}
+.ag-nec .chipbtn{font-size:.86rem;padding:6px 12px}
+.ag-item{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:12px 14px;display:grid;gap:8px;margin-bottom:8px}
+.ag-item.si{border-left:6px solid var(--green)}.ag-item.proc{border-left:6px solid var(--sun)}.ag-item.no{border-left:6px solid var(--nee)}.ag-item.na{opacity:.55}
+.ag-top{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.ag-top b{font-size:1rem}
+.ag-rec{font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--acnL);color:#6b4a00;border-radius:999px;padding:2px 9px}
+.ag-estr{background:var(--surface2,#F6FBFB);border:1px dashed var(--line);border-radius:8px;padding:8px 10px;font-size:.86rem;margin-top:6px}.ag-estr ul{margin:4px 0 0 18px}.ag-estr li{margin:2px 0}.ag-estr.ex{background:var(--acnL);border-style:solid;border-color:transparent}
+.ag-more{margin-top:8px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.ag-more>summary{cursor:pointer;padding:9px 12px;font:800 .9rem var(--f-display);color:var(--tealD);list-style:none}.ag-more>summary::before{content:"+ ";font-weight:900}.ag-more[open]>summary::before{content:"− "}.ag-more>summary::-webkit-details-marker{display:none}.ag-more-in{display:grid;gap:10px;padding:0 12px 12px;font-size:.9rem}.ag-more-in ul,.ag-more-in ol{margin:4px 0 0 18px}.ag-more-in li{margin:3px 0}
+.ag-ind{font-size:.88rem;background:var(--tealL);border-radius:8px;padding:7px 10px}
+.ag-ind b{color:var(--tealD)}
+.ag-q{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 16px;align-items:center}
+.ag-q>div{display:grid;gap:4px}
+.ag-q .kicker{font-size:.66rem}
+.ag-txt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.ag-na{font-size:.8rem;color:var(--muted);display:inline-flex;gap:6px;align-items:center;margin-left:auto}
+.ag-na input{width:16px;height:16px;accent-color:var(--teal)}
+.ag-item details{font-size:.86rem}
+.ag-item details summary{cursor:pointer;font-weight:700;color:var(--tealD)}
+.ag-item details p{margin-top:4px}
+.ag-al{display:grid;gap:6px}
+.ag-al .row3{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1fr) 40px;gap:6px;align-items:center}
+.ag-sum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ag-sum div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.ag-sum b{display:block;font:900 1.5rem var(--f-display);color:var(--tealD)}
+.ag-sum span{font-size:.82rem;color:var(--muted)}
+.ag-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ag-list{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.ag-list li{background:var(--surface);border-radius:8px;padding:8px 10px;font-size:.9rem;border:1px solid var(--line)}
+.ag-list li small{display:block;color:var(--muted);margin-top:2px}
+.ag-prop{display:grid;gap:8px}
+.ag-prop .box h4{font-size:1rem}
+.ag-prop .box ul{margin:4px 0 0 18px}
+.ag-dec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ag-dec button{text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:14px;display:grid;gap:4px;font:inherit}
+.ag-dec button b{font:900 1.05rem var(--f-display)}
+.ag-dec button[data-v="cont"][aria-pressed="true"]{border-color:var(--green);background:var(--greenL)}
+.ag-dec button[data-v="der"][aria-pressed="true"]{border-color:var(--nee);background:var(--neeL)}
+.ag-prog{height:8px;border-radius:99px;background:var(--line);overflow:hidden}.ag-prog i{display:block;height:100%;background:var(--sm)}
+.ag-sticky{position:sticky;bottom:74px;z-index:5;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:0 6px 20px rgba(0,0,0,.08);margin-top:14px}
+.ag-sticky .ag-prog{flex:1;min-width:120px}
+@media (max-width:760px){.ag-flow,.ag-sum{grid-template-columns:repeat(2,minmax(0,1fr))}.ag-form,.ag-q,.ag-txt,.ag-cols,.ag-dec{grid-template-columns:1fr}.ag-al .row3{grid-template-columns:1fr 40px}.ag-al .row3 input:not(:first-child){grid-column:1}}
+@media print{body.print-ag header,body.print-ag nav,body.print-ag footer,body.print-ag .noprint,body.print-ag .ghead,body.print-ag .bban,body.print-ag .gsubnav,body.print-ag .gnav,body.print-ag .bprevnext,body.print-ag .sm-lic,body.print-ag #toTop{display:none!important}body.print-ag .ag-sticky{display:none!important}}
+</style>`);
+
+/* ---------- 1. ACTUACIONES GENERALES (solo a.1-a.9) ---------- */
+const fGen=B=>{const rows=DATA.matriz.generales.concat([{c:"a.9",m:"Cláusula abierta",ej:"Cualquier otra que favorezca la calidad y la igualdad de oportunidades.",r:"PAD del centro"}]);
+ B.innerHTML=H("Actuaciones generales (a.1 – a.9)",pg("med",3),"Las actuaciones generales las organiza el centro para todo el alumnado (Decreto 359/2009, art. 5; Orden de 4 de junio de 2010, art. 4.5.a). No se deciden alumno por alumno, pero el profesorado participa en ellas y tienen que verse en el aula.")+
+ `<div class="card tbl"><table><thead><tr><th>Cód.</th><th>Actuación</th><th>Cómo se concreta en un CEIP</th></tr></thead><tbody>${rows.map(r=>`<tr><td><span class="code">${esc(r.c)}</span></td><td><b>${esc(r.m)}</b></td><td>${esc(r.ej||"")}</td></tr>`).join("")}</tbody></table></div>
+ ${H4("Del papel al aula: qué significa cada actuación para el grupo")}
+ <p class="muted" style="max-width:75ch">Para cada actuación: qué organiza el centro, qué te toca en tu aula y cómo sabes que está en marcha. Elige la etapa para ver el ejemplo.</p>
+ <div>${seg("agst1",[["inf","Infantil"],["pri","Primaria"]],stage())}</div>
+ <div class="grid3" id="aggl"></div>
+ <div class="box t"><h4>¿Y ahora?</h4><p>Comprueba qué actuaciones llegan de verdad a tu grupo en el apartado <b>3 · Análisis del grupo-clase</b>. Lo que dependa del centro y no esté en marcha se traslada a jefatura de estudios o a la CCP para el PAD.</p><div class="row">${goBtn("Analizar mi grupo","medidas","analisis","btn primary")}${goBtn("Siguiente: medidas ordinarias","medidas","m25","btn")}</div></div>`;
+ const draw=s=>{$("#aggl").innerHTML=ACT.map(a=>`<div class="box"><h4><span class="code">${a.c}</span> ${esc(a.m)}</h4><p><span class="kicker">Lo organiza el centro</span><br>${esc(a.centro)}</p><p><span class="kicker">Lo que me toca en el aula</span><br>${esc(a.aula)}</p><p class="ag-ind"><b>Está en marcha cuando…</b> ${esc(a.ind)}</p><p><span class="lvl ${s}">${s.toUpperCase()}</span>${esc(a[s])}</p>${estr(a.c,s)}</div>`).join("")};
+ bindSeg("agst1",v=>{st.g.et=v;save();draw(v)});draw(stage())};
+
+/* v16 · Más ejemplos prácticos y propuestas para desarrollar cada medida ordinaria */
+const MO2={
+ "b.1":{inf:["«Folio giratorio» con dibujos: cada niño o niña añade un elemento a un dibujo común sobre el cuento de la semana.","Parejas en el rincón de construcciones: uno pide la pieza por su color y forma; el otro la busca y la coloca."],pri:["Lectura compartida por parejas: uno lee un párrafo y el otro lo resume; después cambian el papel.","«Cabezas numeradas»: el equipo resuelve un problema; el docente dice un número y responde ese alumno, así todo el equipo se asegura de que todos lo entienden."],pasos:["Formar equipos heterogéneos: uno que puede ayudar, dos de nivel medio y uno que necesita más apoyo.","Enseñar los roles con tarjetas visuales y practicarlos con una tarea sencilla.","Usar una sola técnica durante 3-4 semanas hasta que sea rutina.","Cerrar cada sesión con una autoevaluación del equipo: ¿hemos ayudado?, ¿hemos participado todos?"],dato:"Sesiones cooperativas por semana y participación del alumnado que antes no intervenía."},
+ "b.2":{inf:["Preparar la merienda saludable del viernes: lista con dibujos, contar las piezas de fruta y repartirlas.","Hacer la invitación para las familias a la fiesta de clase con dibujo, nombre y huella."],pri:["Organizar un mercadillo solidario: precios, cálculo del cambio, carteles y publicidad.","Escribir y grabar el parte meteorológico de la semana para el resto del colegio."],pasos:["Elegir un producto final real con destinatario: familias, otra clase o el centro.","Dividirlo en tareas pequeñas y asignarlas según las posibilidades de cada alumno.","Seguir el avance con una lista visual de pasos.","Presentar el producto y valorarlo con una rúbrica sencilla."],dato:"Tareas completadas por cada alumno y grado de autonomía en ellas."},
+ "b.3":{inf:["Proyecto «Los animales de la granja»: visita, fotos aportadas por las familias y mural final.","Proyecto «¿Qué hay dentro de nuestro cuerpo?» con radiografías, puzles y canciones."],pri:["Proyecto «El agua en nuestro pueblo»: fuentes, ríos y consumo, con exposición final para las familias.","Proyecto «Nuestro huerto escolar»: planificar, medir, registrar el crecimiento y repartir la cosecha."],pasos:["Partir de lo que el grupo sabe y quiere saber con un mural «Qué sabemos / Qué queremos saber».","Repartir tareas de investigación por niveles: buscar, dibujar, contar, fotografiar.","Implicar a las familias con una aportación concreta.","Cerrar con un producto y la pregunta «¿qué hemos aprendido?»."],dato:"Aportaciones de cada alumno al proyecto y aprendizajes recogidos en el producto final."},
+ "b.4":{inf:["Bandeja de trabajo autónomo con tres actividades conocidas (encajar, emparejar, trazar) para cuando terminan.","Panel «Ya sé hacerlo solo»: el niño o la niña pega un gomet cuando realiza una rutina sin ayuda."],pri:["Plan de trabajo quincenal con casillas de color para marcar lo terminado y lo revisado.","Rincón de autocorrección con plantillas de soluciones."],pasos:["Empezar con tareas que ya dominan para que puedan hacerlas sin ayuda.","Dar instrucciones visuales (fotos o pictogramas) en cada bandeja o plan.","Enseñar qué hacer al terminar y a quién preguntar antes de pedir ayuda al adulto.","Revisar con cada alumno su registro una vez por semana."],dato:"Tiempo que el alumno trabaja sin pedir ayuda y tareas que completa solo."},
+ "b.5":{inf:["Caja misteriosa: tocar sin mirar y adivinar el objeto por sus características.","Mezclar colores con témperas y registrar con gomets qué color sale."],pri:["Construir un circuito eléctrico sencillo y comprobar qué materiales conducen la electricidad.","Investigar qué papel absorbe más agua y presentar los resultados en una tabla."],pasos:["Plantear una pregunta o un reto concreto.","Pedir una predicción antes de probar, oral o con dibujo.","Experimentar en pequeño grupo con material manipulativo.","Comparar el resultado con la predicción y anotar la conclusión."],dato:"Participación en la predicción y calidad de las conclusiones."},
+ "b.6":{inf:["Contrato de recoger: «Guardo los juguetes cuando suena la canción», con cinco casillas para sellos.","Compromiso con la familia para llegar puntual, celebrado en clase con una pegatina."],pri:["Contrato de agenda: «Apunto las tareas y las enseño en casa», firmado por el alumno, la familia y el tutor.","Contrato de patio con un compromiso y una recompensa acordada."],pasos:["Elegir una o dos conductas concretas y observables.","Redactar el compromiso en positivo y con apoyo visual.","Firmarlo el alumno, el tutor o la tutora y la familia, con fecha de revisión.","Revisar, celebrar los logros y ajustar el compromiso."],dato:"Días que se cumple el compromiso cada semana."},
+ "b.7":{inf:["Contar hasta 3, hasta 5 o hasta 10 con el mismo material de la frutería.","Dibujo del cuento en tres niveles: colorear, dibujar con modelo o dibujar libre y escribir el título."],pri:["El mismo texto en tres versiones: con pictogramas, adaptado y original.","Fichas con la misma operación en tres niveles de dificultad."],pasos:["Definir el criterio común que todos trabajan.","Diseñar 2-3 niveles de la misma actividad: con apoyo, estándar y reto.","Dejar elegir o asignar el nivel, y cambiarlo cuando el alumno progrese.","Evaluar a todos con el mismo criterio."],dato:"Alumnado que sube de nivel a lo largo del trimestre."},
+ "b.8":{inf:["Taller de cocina con una familia voluntaria: hacer zumo y contar las naranjas.","Taller de títeres: fabricarlos y representar un cuento."],pri:["Taller de radio escolar: guion, grabación y emisión.","Taller de juegos de mesa matemáticos en rotación."],pasos:["Elegir 3-4 talleres con un objetivo curricular claro.","Asignar un adulto responsable por taller: docente, PT, AL o familia.","Formar grupos heterogéneos que roten cada sesión.","Registrar lo aprendido en una hoja de taller."],dato:"Participación del alumnado con más dificultades en cada taller."},
+ "b.9":{inf:["«El invierno»: ropa, temperaturas, canciones y conteo de copos.","«Los medios de transporte»: clasificar, contar ruedas y dramatizar un viaje."],pri:["«Los alimentos»: recetas (texto instructivo), cálculo de precios y alimentación saludable.","«Nuestro pueblo»: historia, plano del barrio y entrevista a personas mayores."],pasos:["Elegir el tema con el grupo.","Conectar con él actividades de varias áreas durante 2-4 semanas.","Ambientar el aula con material del tema.","Cerrar con una actividad final compartida."],dato:"Implicación del alumnado y vocabulario nuevo que utiliza."},
+ "b.10":{inf:["Rincón de la tienda con precios en dibujos para comprar y contar.","Rincón de letras con arena, plastilina y letras móviles."],pri:["Rincón de lectura con libros de distintos niveles y audiolibros.","Rincón de problemas con tarjetas de reto y material manipulativo."],pasos:["Definir 4-5 rincones con objetivo, material y norma visual.","Graduar las propuestas de cada rincón.","Organizar la rotación con un panel de elección.","Observar y registrar en cada sesión a 2-3 alumnos por rincón."],dato:"Registro de observación por rincón."},
+ "b.11":{inf:["Cuatro mesas (puzle, conteo, trazo y cuento) con un familiar en cada una.","Grupos interactivos de lenguaje oral con juegos de vocabulario."],pri:["Lengua: comprensión lectora, dictado, vocabulario y escritura en cuatro mesas.","Matemáticas: cálculo mental, problemas, geometría y juego de tablas."],pasos:["Formar cuatro grupos heterogéneos de 4-6 alumnos.","Preparar cuatro actividades de 10-15 minutos.","Explicar a los voluntarios su papel: dinamizar la ayuda entre iguales, no resolver.","Rotar cada 10-15 minutos y valorar al final con el grupo."],dato:"Tareas completadas por grupo y ayudas entre compañeros."},
+ "b.12":{inf:["Recortar: primero rasgar papel, después recortar líneas rectas y luego curvas.","Clasificar por un criterio (color) y después por dos (color y tamaño)."],pri:["Problemas: primero con objetos, después con dibujo y luego solo con números.","Redacción: completar frases, ordenarlas y después escribir el texto."],pasos:["Analizar la tarea y dividirla en pasos de dificultad creciente.","Comprobar en qué paso está cada alumno.","Pasar al siguiente cuando se logra el anterior.","Ofrecer apoyo visual o manipulativo en los primeros pasos."],dato:"Paso de la secuencia que alcanza cada alumno."},
+ "b.13":{inf:["Elegir entre construir, dibujar o contar con fotos lo que hicieron el fin de semana.","Elegir el instrumento para acompañar la canción."],pri:["Elegir el formato del trabajo de Ciencias: maqueta, presentación o vídeo.","Elegir el libro de lectura de un listado graduado."],pasos:["Ofrecer 2-3 opciones equivalentes que trabajen el mismo criterio.","Explicar las opciones con apoyo visual.","Acordar con cada alumno su elección y el tiempo.","Evaluar todas las opciones con la misma rúbrica."],dato:"Opciones elegidas y nivel de logro con cada formato."},
+ "b.14":{inf:["Refuerzo de conciencia fonológica de 15 minutos, tres días por semana, en pequeño grupo.","Refuerzo de vocabulario básico con tarjetas de imágenes."],pri:["Refuerzo de fluidez lectora con lecturas repetidas y registro de palabras por minuto.","Anticipación en cálculo con material manipulativo antes de la sesión de Matemáticas."],pasos:["Decidir con datos qué alumnado lo necesita y en qué.","Fijar horario, responsable y duración (por ejemplo, 6-8 semanas).","Coordinar con la tutoría qué contenidos anticipar o reforzar.","Medir el avance al inicio y al final del período."],dato:"Resultado inicial y final en la habilidad reforzada."},
+ "b.15":{inf:["El docente de apoyo acompaña la asamblea y la rutina de entrada con quien más lo necesita.","Apoyo dentro del rincón de grafomotricidad."],pri:["El segundo docente trabaja la resolución de problemas con un pequeño grupo dentro del aula.","Revisión individual de textos: el docente de apoyo corrige con cada alumno su escrito."],pasos:["Acordar el momento de la sesión en el que entra el apoyo.","Definir su función: a quién atiende y con qué tarea.","Preparar el material juntos con antelación.","Valorar cada quincena qué ha cambiado."],dato:"Tareas terminadas por el alumnado atendido."},
+ "b.16":{inf:["El encargado del día ayuda a un compañero a ponerse el abrigo y colocar la mochila.","Parejas de cuentos: un niño de 5 años cuenta un cuento con imágenes a uno de 3."],pri:["Tutoría de lectura: alumnado de 4.º lee con alumnado de 1.º dos veces por semana.","Compañero de acogida para el alumnado recién llegado durante su primera semana."],pasos:["Formar las parejas teniendo en cuenta afinidad y nivel.","Enseñar al alumno tutor qué hacer y qué no: ayudar, no hacerlo por el otro.","Fijar horario y duración.","Revisar con ambos cómo funciona y rotar los roles cuando sea posible."],dato:"Progreso del alumno tutorizado y valoración de los dos."},
+ "b.17":{inf:["Tutora y AL en la asamblea: una dirige y la otra modela el lenguaje y apoya a quien lo necesita.","Tutora y PT en estaciones: dos grupos trabajan lo mismo con distinto nivel de ayuda."],pri:["Enseñanza paralela: el grupo se divide en dos y cada docente enseña la misma lección.","Enseñanza alternativa: un docente trabaja una parte concreta con un pequeño grupo mientras el otro continúa con el resto."],pasos:["Elegir el modelo de co-enseñanza según el objetivo.","Planificar juntos 20 minutos a la semana.","Repartir roles y espacios en el aula.","Valorar juntos al final de cada sesión."],dato:"Sesiones de co-enseñanza realizadas y progreso del grupo."},
+ "b.18":{inf:["Grupos de lenguaje oral por nivel durante 15 minutos diarios.","Grupos de motricidad fina según el tipo de prensión."],pri:["Grupos de ortografía según los errores más frecuentes.","Grupos de resolución de problemas por nivel, con revisión mensual."],pasos:["Hacer una evaluación inicial del aspecto que se va a trabajar.","Formar grupos temporales según los resultados.","Fijar la fecha de revisión de los grupos.","Cambiar al alumnado de grupo según su progreso."],dato:"Cambios de grupo realizados y motivo."},
+ "b.19":{inf:["Psicomotricidad con medio grupo.","Taller de lenguaje oral con medio grupo mientras el otro trabaja en rincones."],pri:["Desdoble en Ciencias para hacer experimentos en grupos pequeños.","Desdoble en Inglés para trabajar la expresión oral."],pasos:["Identificar la sesión en la que el grupo completo dificulta el aprendizaje.","Solicitar el desdoble a jefatura de estudios.","Planificar la misma programación para los dos subgrupos.","Valorar los resultados al final del trimestre."],dato:"Resultados en el área desdoblada."},
+ "b.20":{inf:["Alternar actividades sentadas con actividades de movimiento cada 10-15 minutos.","Rincón de la calma con cojines y tarjetas de emociones."],pri:["Horario visual en la pizarra y aviso antes de cada cambio de actividad.","Mesa de trabajo individual para las tareas que requieren más concentración."],pasos:["Observar qué momentos del día tienen más dificultad.","Ajustar la duración de las actividades y añadir pausas.","Crear espacios definidos para trabajar, descansar y regularse.","Comprobar si disminuyen las interrupciones."],dato:"Interrupciones o conductas disruptivas por sesión."},
+ "b.21":{inf:["Juegos de discriminación auditiva en la pizarra digital.","Cuentos interactivos en la tablet con pictogramas."],pri:["Dictado por voz para el alumnado con dificultades de escritura.","Lectores de texto y audiolibros en Ciencias y Sociales."],pasos:["Identificar qué barrera reduce la tecnología.","Elegir una herramienta sencilla y probarla.","Enseñar su uso al alumno y al resto del grupo.","Valorar si mejora la participación o el rendimiento."],dato:"Tareas realizadas con apoyo tecnológico y su resultado."},
+ "b.22":{inf:["Acuerdo del equipo de Infantil para usar las mismas rutinas y pictogramas en todas las aulas.","Reunión mensual de la tutora con la AL para ajustar los objetivos de lenguaje."],pri:["Acuerdo del equipo docente para aplicar las mismas adaptaciones en las pruebas.","Documento compartido con las medidas de cada alumno, accesible para todo el equipo."],pasos:["Fijar un calendario de reuniones.","Llevar un orden del día breve con casos y medidas.","Registrar en el acta los acuerdos y los responsables.","Revisar en la reunión siguiente si se han aplicado."],dato:"Acuerdos tomados y acuerdos cumplidos."},
+ "b.24":{inf:["Agenda de objetos para anticipar la rutina del día.","Tablero de comunicación con pictogramas en la asamblea, usado por todo el grupo."],pri:["Programación por entornos: aprender a comprar en una tienda cercana.","Estructura de trabajo de izquierda a derecha con bandejas."],pasos:["Organizar el espacio con zonas delimitadas y señalizadas.","Anticipar la jornada con agenda visual.","Usar el sistema de comunicación aumentativa en todo el centro, no solo en el aula.","Coordinar la intervención con PT, AL y la familia."],dato:"Grado de autonomía y de comunicación en las rutinas."},
+ "b.25":{inf:["Gamificación de rutinas: «misiones» para recoger y ordenar el aula.","Tertulias dialógicas con cuentos clásicos."],pri:["Aprendizaje-servicio: el grupo prepara juegos y materiales para el alumnado de Infantil.","Gamificación de las tablas de multiplicar con insignias y niveles."],pasos:["Describir la estrategia y su objetivo.","Programarla e incluirla en el horario.","Aplicarla de forma sistemática.","Valorar sus resultados con un dato concreto."],dato:"Resultado del indicador elegido para la estrategia."}
+};
+const more=(code,s)=>{const m=MO2[code];if(!m)return"";const sh=k=>s==="all"||s===k;
+ return `<details class="ag-more"><summary>Más ejemplos y propuestas para desarrollar</summary><div class="ag-more-in">
+ ${sh("inf")?`<div><span class="kicker">Más ejemplos · Infantil</span><ul>${m.inf.map(x=>`<li><span class="lvl inf">INF</span>${esc(x)}</li>`).join("")}</ul></div>`:""}
+ ${sh("pri")?`<div><span class="kicker">Más ejemplos · Primaria</span><ul>${m.pri.map(x=>`<li><span class="lvl pri">PRI</span>${esc(x)}</li>`).join("")}</ul></div>`:""}
+ <div><span class="kicker">Cómo desarrollarla, paso a paso</span><ol>${m.pasos.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>
+ <p class="ag-ind"><b>Dato para comprobar si funciona:</b> ${esc(m.dato)}</p></div></details>`};
+
+/* ---------- 2. MEDIDAS ORDINARIAS (catálogo original + realidad práctica) ---------- */
+/* v17 · Catálogo de actividades por medida ordinaria (Orden de 4 de junio de 2010, art. 4.5.b) · 6 de Infantil y 6 de Primaria por medida */
+const CAT={
+"b.1":{inf:[
+ ["Parejas de asamblea","Uno reparte el material y el otro lo coloca; cambian el papel cada día. Desarrolla turnos y ayuda mutua."],
+ ["Lápices al centro con dibujos","Los lápices se dejan en el centro mientras el equipo habla de qué dibujar; solo después cada uno dibuja su parte."],
+ ["Folio giratorio","Cada niño o niña añade un elemento a un dibujo común sobre el cuento de la semana y lo pasa al compañero."],
+ ["Construcción por parejas","Uno pide la pieza por su color y forma; el otro la busca y la coloca. Trabaja vocabulario y escucha."],
+ ["Mural de equipo","Cada equipo hace una parte del mural del proyecto con una tarea para cada miembro (recortar, pegar, colorear)."],
+ ["El equipo responsable","Cada equipo se encarga una semana de una tarea del aula (plantas, biblioteca, calendario) con un pictograma de roles."]],
+ pri:[
+ ["Equipos base con roles","Equipos de 4 estables con portavoz, secretario, coordinador y responsable de material, con tarjetas de rol."],
+ ["Técnica 1-2-4","Cada uno piensa la respuesta, la comparte en pareja y el equipo elabora una respuesta común."],
+ ["Lectura compartida","Uno lee un párrafo y el otro lo resume; después cambian el papel. Mejora fluidez y comprensión."],
+ ["Cabezas numeradas","El equipo resuelve un problema; el docente dice un número y responde ese alumno: todos deben entenderlo."],
+ ["Puzle de Aronson","Cada miembro estudia una parte del tema con «expertos» de otros equipos y luego la enseña a su equipo."],
+ ["Folio giratorio de escritura","El equipo escribe un texto pasando el folio: cada uno añade una frase y revisa la anterior."]]},
+"b.2":{inf:[
+ ["La frutería de clase","Clasificar frutas, poner precios con dibujos y jugar a vender. Integra lógica, lenguaje y conteo."],
+ ["La merienda saludable","Preparar la merienda del viernes: lista con dibujos, contar las piezas y repartirlas."],
+ ["Invitación a las familias","Elaborar la invitación a la fiesta de clase con dibujo, nombre y huella de cada niño o niña."],
+ ["El huerto en macetas","Plantar, regar y registrar con fotos el crecimiento de las plantas durante un mes."],
+ ["El cartel del cumpleaños","Diseñar entre todos el cartel de felicitación para un compañero con dibujos y su nombre."],
+ ["La receta de clase","Hacer una macedonia siguiendo una receta con pictogramas y contar los ingredientes."]],
+ pri:[
+ ["Menú saludable del comedor","Elaborar el menú de una semana con presupuesto: alimentación, cálculo y texto instructivo."],
+ ["Mercadillo solidario","Organizar la venta: precios, cálculo del cambio, carteles y publicidad."],
+ ["Parte meteorológico","Escribir y grabar el parte del tiempo de la semana para el resto del colegio."],
+ ["Guía turística del pueblo","Elaborar un folleto con los lugares de interés de la localidad, con fotos y textos breves."],
+ ["Campaña de reciclaje","Diseñar carteles, medir los residuos de clase durante una semana y presentar resultados."],
+ ["Revista del aula","Cada equipo prepara una sección (noticias, entrevistas, pasatiempos) y se publica trimestralmente."]]},
+"b.3":{inf:[
+ ["¿Cómo nacen los pollitos?","Proyecto con aportaciones de cada familia, observación de huevos e imágenes y mural final."],
+ ["Los animales de la granja","Visita, fotos aportadas por las familias, clasificación y dramatización."],
+ ["¿Qué hay dentro de nuestro cuerpo?","Radiografías, puzles del cuerpo, canciones y una silueta gigante de clase."],
+ ["Los dinosaurios","Investigar tamaños, medir con pasos, crear un museo de clase con figuras y dibujos."],
+ ["Mi familia y mi casa","Cada niño trae fotos y comparte; se crea un libro viajero de la clase."],
+ ["El espacio","Planetas con material reciclado, cuentos y una «nave» en el rincón de juego simbólico."]],
+ pri:[
+ ["El agua en nuestro pueblo","Fuentes, ríos y consumo de agua, con exposición final para las familias."],
+ ["Nuestro huerto escolar","Planificar, medir, registrar el crecimiento y repartir la cosecha."],
+ ["El patrimonio de la comarca","Investigar monumentos y tradiciones y presentar una exposición a otras clases."],
+ ["¿Cómo era el colegio antes?","Entrevistas a abuelos, comparación de fotos y línea del tiempo."],
+ ["Inventos que cambiaron el mundo","Cada equipo investiga un invento, construye una maqueta y lo presenta."],
+ ["Nuestro barrio sostenible","Detectar problemas del entorno y proponer mejoras al ayuntamiento."]]},
+"b.4":{inf:[
+ ["Panel de elección de rincones","El niño coloca su foto en el rincón que elige y lo registra al terminar."],
+ ["Bandeja de trabajo autónomo","Tres actividades conocidas (encajar, emparejar, trazar) para hacer sin ayuda al terminar."],
+ ["Panel «Ya sé hacerlo solo»","Se pega un gomet cuando se realiza una rutina sin ayuda (abrigo, mochila, aseo)."],
+ ["Agenda visual personal","Tira de pictogramas con las tareas de la mañana que el niño va retirando al completarlas."],
+ ["Caja de «cuando termino»","Caja con propuestas conocidas para que elijan qué hacer al acabar una tarea."],
+ ["Responsable del día","Cumple tareas sencillas (pasar lista con fotos, regar) siguiendo una secuencia visual."]],
+ pri:[
+ ["Plan de trabajo semanal","Actividades obligatorias y opcionales que cada alumno organiza y marca al terminar."],
+ ["Rincón de autocorrección","Plantillas de soluciones para que el alumnado revise su trabajo."],
+ ["Checklist de tarea","Lista de comprobación de pasos para tareas largas: leer, hacer, revisar, entregar."],
+ ["Agenda de autoevaluación","Al final del día: ¿qué he terminado?, ¿qué me ha costado?, ¿qué haré mañana?"],
+ ["Contrato de aprendizaje autónomo","El alumno elige un reto de ampliación o refuerzo y fija cómo lo demostrará."],
+ ["Rincón de consulta","Diccionarios, tablas y fichas de ayuda para resolver dudas sin preguntar al docente."]]},
+"b.5":{inf:[
+ ["¿Qué flota y qué se hunde?","Predecir, probar y registrar con gomets."],
+ ["Caja misteriosa","Tocar sin mirar y adivinar el objeto por sus características."],
+ ["Mezcla de colores","Mezclar témperas y registrar qué color sale."],
+ ["Sombras en el patio","Observar la sombra a distintas horas y marcarla con tiza."],
+ ["¿Qué necesitan las plantas?","Plantar semillas con y sin agua o luz y comparar."],
+ ["Imanes","Explorar qué objetos atrae un imán y clasificarlos."]],
+ pri:[
+ ["Germinación con control de variables","Hipótesis, control de variables y diario de observación."],
+ ["Circuito eléctrico","Construir un circuito sencillo y comprobar qué materiales conducen."],
+ ["¿Qué papel absorbe más?","Experimentar con distintos papeles y presentar los resultados en una tabla."],
+ ["El volcán","Reacción química con bicarbonato y vinagre; explicar lo observado."],
+ ["Densidad de líquidos","Torre de líquidos de colores y predicción del orden."],
+ ["Problemas abiertos de Matemáticas","Retos con varias soluciones posibles que se comparten y comparan."]]},
+"b.6":{inf:[
+ ["Contrato visual del abrigo","«Esta semana me pongo solo el abrigo» con sello al conseguirlo."],
+ ["Contrato de recoger","«Guardo los juguetes cuando suena la canción» con cinco casillas para sellos."],
+ ["Compromiso de puntualidad","Acuerdo con la familia para llegar a tiempo, celebrado en clase con una pegatina."],
+ ["Contrato de la asamblea","«Espero mi turno para hablar» con apoyo visual y revisión diaria."],
+ ["Contrato de autonomía en el aseo","Secuencia con fotos y compromiso compartido con la familia."],
+ ["Contrato de comer solo","Pequeño compromiso en el comedor con refuerzo inmediato."]],
+ pri:[
+ ["Contrato quincenal","Tres compromisos (agenda, tareas, lectura) revisados con el tutor y la familia."],
+ ["Contrato de agenda","«Apunto las tareas y las enseño en casa», firmado por las tres partes."],
+ ["Contrato de patio","Un compromiso de convivencia y una recompensa acordada."],
+ ["Contrato de lectura","Leer 15 minutos diarios en casa con registro semanal."],
+ ["Contrato de trabajo en clase","Terminar las tareas en el tiempo previsto con autorregistro."],
+ ["Contrato de uso de pantallas","Compromiso de uso con la familia y revisión mensual."]]},
+"b.7":{inf:[
+ ["Trazo en tres niveles","Repasar punteado, copiar con modelo o escribir sin modelo."],
+ ["Conteo graduado","Contar hasta 3, hasta 5 o hasta 10 con el mismo material."],
+ ["Dibujo del cuento","Colorear, dibujar con modelo o dibujar libre y escribir el título."],
+ ["Puzles de distinta dificultad","El mismo puzle en 4, 8 y 12 piezas."],
+ ["Seriaciones","Seriación de 2, 3 o 4 elementos con el mismo material."],
+ ["Asamblea con preguntas graduadas","Preguntas sí/no, de elección o abiertas según el niño."]],
+ pri:[
+ ["Problemas en semáforo","Verde (básico), amarillo (medio), rojo (reto), con el mismo criterio."],
+ ["Texto en tres versiones","Con pictogramas, adaptado y original."],
+ ["Fichas de cálculo graduadas","La misma operación en tres niveles de dificultad."],
+ ["Redacción con andamiaje","Plantilla con inicios de frase, guion de preguntas o texto libre."],
+ ["Cuestionario de comprensión graduado","Preguntas literales, inferenciales y críticas."],
+ ["Rúbrica con niveles de logro","El alumno elige el nivel que intenta alcanzar."]]},
+"b.8":{inf:[
+ ["Taller de cocina","Hacer zumo con una familia voluntaria y contar las naranjas."],
+ ["Taller de títeres","Fabricarlos y representar un cuento."],
+ ["Taller de psicomotricidad internivel","Circuitos con niños de 3, 4 y 5 años."],
+ ["Taller de plástica","Técnicas variadas (estampado, collage) en rotación."],
+ ["Taller de música","Instrumentos con material reciclado y ritmos."],
+ ["Taller de juego simbólico","Mercado, médico o peluquería con apoyo de un adulto."]],
+ pri:[
+ ["Taller de radio escolar","Guion, grabación y emisión."],
+ ["Taller de robótica","Programación de robots sencillos en grupos heterogéneos."],
+ ["Taller de huerto","Siembra, cuidado y registro."],
+ ["Taller de juegos de mesa matemáticos","Rotación por juegos de cálculo y estrategia."],
+ ["Taller de teatro","Adaptar un texto y representarlo para otras clases."],
+ ["Taller de cómic","Crear historietas sobre contenidos de Ciencias o Sociales."]]},
+"b.9":{inf:[
+ ["El otoño","Vocabulario, conteo de hojas, canciones y arte con frutos."],
+ ["El invierno","Ropa, temperaturas, canciones y conteo de copos."],
+ ["Los medios de transporte","Clasificar, contar ruedas y dramatizar un viaje."],
+ ["Los oficios","Visitas de familias que explican su trabajo y juego simbólico."],
+ ["Los alimentos","Clasificar, probar sabores y hacer una lista de la compra."],
+ ["Los animales","Hábitats, sonidos y clasificación."]],
+ pri:[
+ ["El agua","Unidad globalizada que integra Ciencias, Lengua y Matemáticas."],
+ ["Los alimentos","Recetas, cálculo de precios y alimentación saludable."],
+ ["Nuestro pueblo","Historia, plano del barrio y entrevista a personas mayores."],
+ ["El universo","Lecturas, maquetas a escala y cálculos de distancias."],
+ ["Los derechos de la infancia","Debates, textos argumentativos y campañas."],
+ ["La Edad Media","Teatro, mapas, cálculos con medidas antiguas y escritura de crónicas."]]},
+"b.10":{inf:[
+ ["Rincón de lógica","Propuestas graduadas de clasificación, series y conteo."],
+ ["Rincón de biblioteca","Cuentos con imágenes y audiocuentos."],
+ ["Rincón de juego simbólico","Casita, tienda, médico, con normas visuales."],
+ ["Rincón de grafomotricidad","Arena, plastilina, pinzas y trazos graduados."],
+ ["Rincón de la tienda","Precios con dibujos para comprar y contar."],
+ ["Rincón de letras","Letras móviles, sellos y nombres de la clase."]],
+ pri:[
+ ["Rincón de lectura","Libros de distintos niveles y audiolibros."],
+ ["Rincón de cálculo manipulativo","Regletas, ábaco y material base 10."],
+ ["Rincón de escritura creativa","Dados de cuentos y tarjetas de inicio."],
+ ["Rincón del ordenador","Programas de refuerzo y ampliación."],
+ ["Rincón de problemas","Tarjetas de reto con material manipulativo."],
+ ["Rincón de investigación","Lupas, libros de consulta y fichas de observación."]]},
+"b.11":{inf:[
+ ["Cuatro mesas, cuatro actividades","Puzle, conteo, trazo y cuento con un familiar por mesa."],
+ ["Grupos interactivos de lenguaje","Juegos de vocabulario y de conciencia fonológica."],
+ ["Grupos de lógica","Clasificaciones, series y bloques lógicos."],
+ ["Grupos de arte","Técnicas plásticas guiadas por voluntarios."],
+ ["Grupos de cuentos","Escuchar, ordenar viñetas y dramatizar."],
+ ["Grupos de motricidad fina","Ensartar, recortar, abrochar."]],
+ pri:[
+ ["Matemáticas en cuatro estaciones","Cálculo mental, problemas, geometría y tablas."],
+ ["Lengua en cuatro estaciones","Comprensión lectora, dictado, vocabulario y escritura."],
+ ["Inglés interactivo","Vocabulario, diálogo, canción y juego."],
+ ["Ciencias interactivas","Experimento, lectura, esquema y vocabulario."],
+ ["Grupos de resolución de conflictos","Casos, debate y acuerdos guiados."],
+ ["Grupos de lectura dialógica","Lectura y comentario con un adulto que dinamiza."]]},
+"b.12":{inf:[
+ ["Puzles 4-8-12","De menos a más piezas según el progreso."],
+ ["Recortar en tres pasos","Rasgar, recortar recto y recortar curvas."],
+ ["Clasificar por uno y dos criterios","Primero por color, después por color y tamaño."],
+ ["Del objeto al símbolo en el conteo","Objetos reales, dibujos y después números."],
+ ["Del gesto al trazo","Trazo en el aire, en arena y en papel."],
+ ["Secuencias temporales","De 2 a 4 viñetas."]],
+ pri:[
+ ["Divisiones graduadas","Manipulativo, dibujo y algoritmo."],
+ ["Problemas del objeto al número","Con objetos, con dibujo y solo con números."],
+ ["Redacción progresiva","Completar frases, ordenarlas y escribir el texto."],
+ ["Lectura graduada","Palabras, frases y textos con dificultad creciente."],
+ ["Fracciones","Con plastilina, con dibujos y simbólicamente."],
+ ["Esquemas","Completar un esquema dado, ordenar uno desordenado y crear uno propio."]]},
+"b.13":{inf:[
+ ["Contar el cuento a su manera","Con marionetas, dibujo o dramatización."],
+ ["Mostrar el fin de semana","Construir, dibujar o contar con fotos."],
+ ["Elegir el instrumento","Para acompañar la canción de la semana."],
+ ["Elegir el material de la actividad","Ceras, témperas o plastilina para la misma tarea."],
+ ["Elegir el rincón","Con el mismo objetivo trabajado de forma distinta."],
+ ["Elegir el compañero","Para la tarea en pareja."]],
+ pri:[
+ ["Menú de productos","Mural, audio, cómic o exposición oral para demostrar lo aprendido."],
+ ["Formato del trabajo de Ciencias","Maqueta, presentación o vídeo."],
+ ["Libro de lectura","Elección en un listado graduado."],
+ ["Tipo de prueba","Oral o escrita para el mismo criterio."],
+ ["Tablero de elección","Nueve actividades, elegir tres en línea."],
+ ["Tema del proyecto","Dentro del contenido curricular, el alumno elige el enfoque."]]},
+"b.14":{inf:[
+ ["Conciencia fonológica en pequeño grupo","Sesiones cortas con el profesorado de apoyo."],
+ ["Vocabulario básico","Tarjetas de imágenes de las rutinas y de la unidad."],
+ ["Refuerzo de lógica","Conteo y correspondencia con material manipulativo."],
+ ["Refuerzo de grafomotricidad","Trazos previos con material sensorial."],
+ ["Anticipación del cuento","Ver y comentar el cuento antes de la asamblea."],
+ ["Refuerzo de lenguaje oral","Juegos de descripción y de construcción de frases."]],
+ pri:[
+ ["Lectura comprensiva","Dos sesiones semanales con el maestro de apoyo."],
+ ["Fluidez lectora","Lecturas repetidas con registro de palabras por minuto."],
+ ["Anticipación en Matemáticas","Trabajar con material el contenido antes de la sesión."],
+ ["Ortografía","Grupos breves según los errores más frecuentes."],
+ ["Técnicas de estudio","Subrayado, esquema y resumen."],
+ ["Cálculo mental","Rutinas breves diarias con registro de avance."]]},
+"b.15":{inf:[
+ ["Apoyo en la asamblea","Ayuda a mantener la atención y el turno."],
+ ["Apoyo en la entrada","Acompaña la rutina con quien más lo necesita."],
+ ["Apoyo en rincones","Atiende el rincón de mayor dificultad."],
+ ["Apoyo en psicomotricidad","Guía a quien necesita más ayuda motriz."],
+ ["Apoyo en el comedor o aseo","Refuerza la autonomía con pautas comunes."],
+ ["Apoyo en la salida","Revisa la agenda o el mensaje para la familia."]],
+ pri:[
+ ["Apoyo en Matemáticas","El segundo docente circula y atiende dudas."],
+ ["Apoyo en problemas","Pequeño grupo dentro del aula."],
+ ["Revisión de textos","Corrige con cada alumno su escrito."],
+ ["Apoyo en lectura","Lectura en voz alta con un pequeño grupo."],
+ ["Apoyo en exámenes","Lee enunciados y ayuda a organizar el tiempo."],
+ ["Apoyo en la agenda","Revisa al final del día lo apuntado."]]},
+"b.16":{inf:[
+ ["Padrinos de 5 años","Acompañan a los de 3 en la entrada y el patio."],
+ ["Encargado del día","Ayuda a un compañero con el abrigo y la mochila."],
+ ["Parejas de cuentos","Un niño de 5 años cuenta un cuento con imágenes a uno de 3."],
+ ["Compañero de juego en el patio","Integra a quien juega solo."],
+ ["Ayudante en la asamblea","Ayuda a un compañero a seguir la rutina."],
+ ["Compañero de acogida","Para quien se incorpora durante el curso."]],
+ pri:[
+ ["Lectura en parejas 5.º-1.º","Dos sesiones semanales."],
+ ["Compañero ayudante de agenda","Revisa con su pareja lo apuntado."],
+ ["Tutoría de matemáticas","Un alumno explica a otro un procedimiento."],
+ ["Compañero de acogida","Para el alumnado recién llegado durante su primera semana."],
+ ["Mediadores de patio","Alumnado formado para ayudar a resolver conflictos."],
+ ["Parejas de corrección","Revisan mutuamente los textos con una lista de comprobación."]]},
+"b.17":{inf:[
+ ["Asamblea con AL","Una lleva la rutina y la otra modela el lenguaje."],
+ ["Estaciones con PT","Dos grupos trabajan lo mismo con distinta ayuda."],
+ ["Uno enseña, otro observa","El segundo docente registra la conducta o el lenguaje."],
+ ["Cuento a dos voces","Tutora y AL narran y hacen preguntas graduadas."],
+ ["Rincones con apoyo","Cada docente dinamiza un rincón."],
+ ["Psicomotricidad compartida","Una dirige y otra apoya a quien lo necesita."]],
+ pri:[
+ ["Enseñanza paralela","El grupo se divide y cada docente enseña la misma lección."],
+ ["Enseñanza en estaciones","Tres estaciones, una de ellas autónoma."],
+ ["Enseñanza alternativa","Un docente trabaja una parte con un pequeño grupo."],
+ ["Enseñanza en equipo","Ambos explican y modelan juntos."],
+ ["Uno enseña, otro apoya","El segundo docente circula y resuelve dudas."],
+ ["Co-evaluación","Ambos observan y registran con una rúbrica común."]]},
+"b.18":{inf:[
+ ["Grupos de lenguaje oral","Por nivel durante un trimestre."],
+ ["Grupos de motricidad fina","Según el tipo de prensión."],
+ ["Grupos de conciencia fonológica","Según el resultado de la observación."],
+ ["Grupos de lógica","Por nivel de conteo."],
+ ["Grupos de cuento","Según el nivel de comprensión."],
+ ["Grupos de juego","Mezclando niveles para favorecer el modelado."]],
+ pri:[
+ ["Grupos de lectura","Por nivel entre dos clases del mismo curso."],
+ ["Grupos de ortografía","Según los errores más frecuentes."],
+ ["Grupos de problemas","Por nivel, con revisión mensual."],
+ ["Grupos de expresión escrita","Por tipo de dificultad."],
+ ["Grupos de inglés oral","Por nivel de comprensión."],
+ ["Grupos de ampliación","Para el alumnado que va por delante."]]},
+"b.19":{inf:[
+ ["Psicomotricidad con medio grupo","Mejora la atención individual."],
+ ["Lenguaje oral con medio grupo","Mientras el otro trabaja en rincones."],
+ ["Taller de cocina con medio grupo","Más participación de cada niño."],
+ ["Inglés con medio grupo","Más oportunidades de hablar."],
+ ["Música con medio grupo","Instrumentos y ritmos con más atención."],
+ ["Experimentos con medio grupo","Manipulación directa para todos."]],
+ pri:[
+ ["Desdoble en Ciencias","Experimentos en grupos pequeños."],
+ ["Desdoble en Inglés","Expresión oral."],
+ ["Desdoble en Lengua","Expresión escrita con revisión individual."],
+ ["Desdoble en Matemáticas","Resolución de problemas."],
+ ["Desdoble en Plástica","Técnicas con más acompañamiento."],
+ ["Desdoble en Informática","Un ordenador por alumno."]]},
+"b.20":{inf:[
+ ["Rincón de la calma","Cojines, tarjetas de emociones y normas de uso."],
+ ["Actividades cortas","De 10-15 minutos con cambio de postura."],
+ ["Anticipar transiciones","Con temporizador visual o canción."],
+ ["Zona de movimiento","Espacio para descargar energía entre tareas."],
+ ["Horario visual","Pictogramas de la jornada en la pared."],
+ ["Mesa tranquila","Lugar sin estímulos para tareas de concentración."]],
+ pri:[
+ ["Descansos activos","Cada 20 minutos, uno o dos minutos de movimiento."],
+ ["Ubicación estratégica","Cerca del docente y lejos de distractores."],
+ ["Horario visual","En la pizarra, con aviso antes de cada cambio."],
+ ["Mesa de trabajo individual","Para tareas que requieren concentración."],
+ ["Tiempo extra","En tareas escritas y pruebas."],
+ ["Fraccionar pruebas","Una prueba larga en dos sesiones."]]},
+"b.21":{inf:[
+ ["Discriminación auditiva","Juegos en la pizarra digital."],
+ ["Cuentos interactivos","En la tablet con pictogramas."],
+ ["Fotos de la rutina","Proyectadas para anticipar el día."],
+ ["Grabación de la asamblea","Para escucharse y mejorar la expresión oral."],
+ ["Juegos de lógica digitales","Clasificación y series."],
+ ["Comunicador sencillo","Con botones de voz para pedir y elegir."]],
+ pri:[
+ ["Dictado por voz","Para quien tiene dificultades de escritura."],
+ ["Audiolibros","Para acceder al contenido sin depender de la lectura."],
+ ["Lectura con resaltado","Programas que resaltan el texto leído."],
+ ["Apps de cálculo manipulativo","Regletas y base 10 virtuales."],
+ ["Mapas conceptuales digitales","Para organizar ideas."],
+ ["Presentaciones","Como alternativa a la exposición escrita."]]},
+"b.22":{inf:[
+ ["Programación internivel de lenguaje oral","Entre 3, 4 y 5 años con la AL."],
+ ["Mismas rutinas y pictogramas","Acuerdo del equipo de Infantil para todas las aulas."],
+ ["Reunión tutora-AL","Mensual para ajustar objetivos de lenguaje."],
+ ["Traspaso de información","Entre cursos al cambiar de tutor."],
+ ["Criterios comunes de observación","Una hoja compartida por el ciclo."],
+ ["Coordinación con atención temprana","Acuerdos de pautas comunes."]],
+ pri:[
+ ["Mismas ayudas visuales","Acuerdo del equipo docente para todas las áreas."],
+ ["Mismas adaptaciones en las pruebas","Acordadas por el equipo docente."],
+ ["Documento compartido","Con las medidas de cada alumno, accesible para el equipo."],
+ ["Reunión quincenal","Casos y medidas con acta de acuerdos."],
+ ["Coordinación tutor-PT-AL","Guion de 20 minutos semanal."],
+ ["Coordinación con Secundaria","En 6.º, traspaso de medidas eficaces."]]},
+"b.24":{inf:[
+ ["Agenda de objetos","Para anticipar la rutina del día."],
+ ["Tablero de comunicación","Pictogramas en la asamblea usados por todo el grupo."],
+ ["Espacios TEACCH","Delimitados con color y pictograma."],
+ ["Estimulación multisensorial","Rincón con luces, texturas y sonidos."],
+ ["Trabajo de izquierda a derecha","Bandejas con tareas cortas y final claro."],
+ ["Historias sociales","Para anticipar situaciones nuevas."]],
+ pri:[
+ ["Programación por entornos","Aprender a comprar en una tienda cercana."],
+ ["Plan centrado en la persona","Con la familia, metas significativas."],
+ ["Estructura de trabajo","Izquierda a derecha con bandejas."],
+ ["Agenda visual","Con pictogramas o fotos de la jornada."],
+ ["Comunicación aumentativa","Sistema compartido en todo el centro."],
+ ["Habilidades de la vida diaria","Rutinas de autonomía en el centro."]]},
+"b.25":{inf:[
+ ["Gamificación de rutinas","«Misiones» para recoger y ordenar."],
+ ["Tertulias dialógicas","Con cuentos clásicos."],
+ ["Patios dinámicos","Juegos organizados con material."],
+ ["Mindfulness infantil","Ejercicios breves de respiración."],
+ ["Aprendizaje-servicio","Regalar a los mayores canciones o dibujos."],
+ ["Educación emocional","Rutina diaria de emociones."]],
+ pri:[
+ ["Aprendizaje-servicio","Juegos y materiales para el alumnado de Infantil."],
+ ["Gamificación de las tablas","Insignias y niveles."],
+ ["Tertulias literarias dialógicas","Sobre clásicos adaptados."],
+ ["Clase invertida","Vídeos breves en casa y práctica en el aula."],
+ ["Debates","Con roles y argumentos preparados."],
+ ["Escape room educativo","Retos curriculares en equipo."]]}
+};
+/* v18 · Ampliación del catálogo: 6 actividades más por etapa y medida (12 de Infantil y 12 de Primaria) */
+const CAT2={
+"b.1":{inf:[
+ ["Torre por turnos","En grupos de 4, cada niño coloca una pieza por turno siguiendo una tarjeta modelo; gana el equipo si la torre se sostiene."],
+ ["Puzle de equipo","Cada niño tiene dos piezas de un puzle grande; solo se completa si todos colaboran."],
+ ["Canción con gestos por parejas","Uno canta y el otro hace los gestos; después cambian."],
+ ["Clasificación en equipo","El equipo clasifica objetos por color en aros; cada niño se encarga de un color."],
+ ["Recogida cooperativa","Cada miembro del equipo recoge un tipo de material con su pictograma."],
+ ["Cuento encadenado","Cada niño añade una frase al cuento mirando una imagen."]],
+ pri:[
+ ["Parada de tres minutos","Tras explicar, el equipo tiene tres minutos para formular una duda o resumir lo aprendido."],
+ ["Lectura y resumen por parejas","Leen en voz baja, subrayan las ideas y hacen un resumen conjunto."],
+ ["Mapa conceptual a cuatro bandas","Cada miembro elabora una parte del mapa conceptual y luego se une."],
+ ["El juego de las palabras","El docente da palabras clave; cada miembro hace una frase y el equipo crea un texto."],
+ ["Grupo de investigación","El equipo reparte subtemas, investiga y presenta un producto común."],
+ ["Torneo de equipos (TGT)","Equipos heterogéneos se preparan juntos y compiten en mesas de nivel similar."]]},
+"b.2":{inf:[
+ ["La tienda de juguetes","Montar una tienda con juguetes de casa, etiquetarlos y jugar a comprar."],
+ ["La fiesta de otoño","Preparar decorados, invitaciones y una canción para las familias."],
+ ["El periódico mural","Recoger noticias de la semana con fotos y dibujos."],
+ ["Regalo para los abuelos","Elaborar un regalo siguiendo pasos con pictogramas."],
+ ["Señales del colegio","Diseñar pictogramas para el aseo, el comedor y la biblioteca y colocarlos."],
+ ["Exposición de clase","Organizar una exposición de trabajos con cartel y guía para las familias."]],
+ pri:[
+ ["Presupuesto de una excursión","Calcular transporte, entradas y comida para una salida real."],
+ ["Guía de bienvenida","Crear la guía del colegio para el alumnado nuevo, también en otras lenguas."],
+ ["Podcast de clase","Grabar entrevistas y reseñas de libros para la web del centro."],
+ ["Campaña de convivencia","Carteles y vídeos sobre normas del patio para todo el centro."],
+ ["Juego de mesa propio","Diseñar un juego con reglas escritas y probarlo con otra clase."],
+ ["Recetario familiar","Recoger recetas de las familias, escalar cantidades y editarlas."]]},
+"b.3":{inf:[
+ ["El agua","Experimentar estados del agua, hacer hielo y registrar con fotos."],
+ ["Los cinco sentidos","Estaciones sensoriales y libro de clase con lo descubierto."],
+ ["Los insectos","Observar con lupas en el patio y construir un hotel de insectos."],
+ ["El circo","Personajes, números y una función final con disfraces."],
+ ["Mi pueblo","Paseo, fotos, maqueta de calles y lugares importantes."],
+ ["Las estaciones del año","Ropa, frutas y fiestas de cada estación con un mural rotativo."]],
+ pri:[
+ ["La energía","Investigar fuentes de energía y construir un molino o un coche solar."],
+ ["Los ecosistemas de la región","Investigar flora y fauna y elaborar una guía ilustrada."],
+ ["Periodistas por un día","Crear un periódico escolar con secciones y entrevistas."],
+ ["La alimentación en el mundo","Comparar dietas de distintos países y preparar un menú."],
+ ["El cuerpo humano","Maqueta de aparatos y exposición a otras clases."],
+ ["Emprendedores","Crear un pequeño producto, calcular costes y venderlo en el mercadillo."]]},
+"b.4":{inf:[
+ ["Tablero de elección de juego","Elegir el juego en un tablero de fotos y colocarlo al terminar."],
+ ["Secuencia de lavado de manos","Pictogramas junto al lavabo para hacerlo sin ayuda."],
+ ["Fichas autocorrectivas","Puzles y emparejamientos que solo encajan si están bien."],
+ ["Caja de trabajo personal","Material individual graduado para las primeras horas."],
+ ["Calendario autónomo","Cada niño marca el día y el tiempo en el calendario de clase."],
+ ["Reloj de arena","Para medir el tiempo de una tarea sin depender del adulto."]],
+ pri:[
+ ["Portafolio personal","El alumno selecciona sus mejores trabajos y explica por qué."],
+ ["Diario de aprendizaje","Al final de cada sesión escribe qué ha aprendido y qué duda tiene."],
+ ["Rúbrica de autoevaluación","Antes de entregar, revisa su trabajo con la rúbrica."],
+ ["Contrato de lectura libre","Elige libros, fija un ritmo y registra lo leído."],
+ ["Agenda de planificación","Divide las tareas largas en pasos con fechas."],
+ ["Semáforo de comprensión","Pone su tarjeta en verde, amarillo o rojo según entiende la tarea."]]},
+"b.5":{inf:[
+ ["Arcoíris en casa","Prisma o vaso de agua para descubrir colores de la luz."],
+ ["¿Qué se disuelve?","Probar azúcar, arena y sal en agua y registrar."],
+ ["Huellas de animales","Identificar huellas en barro o plastilina."],
+ ["Sonidos escondidos","Botes con distintos materiales para adivinar qué suena."],
+ ["Rampas y pelotas","Probar distintas inclinaciones y ver qué pelota llega más lejos."],
+ ["Hielo que se derrite","Predecir dónde se derrite antes: al sol o a la sombra."]],
+ pri:[
+ ["Investigación de hábitos","Encuesta en clase, gráficos y conclusiones."],
+ ["Péndulo","Medir oscilaciones cambiando la longitud de la cuerda."],
+ ["Geometría con geoplano","Descubrir propiedades de figuras construyéndolas."],
+ ["El método científico en el huerto","Comparar crecimiento con distintos riegos."],
+ ["Mapas del entorno","Elaborar un plano del colegio a escala tras medirlo."],
+ ["Fuentes históricas","Analizar fotos y objetos antiguos para deducir cómo se vivía."]]},
+"b.6":{inf:[
+ ["Contrato de silencio en la siesta","Compromiso visual con pegatina diaria."],
+ ["Contrato de compartir","«Presto mis juguetes en el rincón» con registro de sonrisas."],
+ ["Contrato de fila","Caminar en la fila hasta el patio con refuerzo al llegar."],
+ ["Contrato de hablar bajito","Con la señal «voz de hormiga» y registro visual."],
+ ["Contrato de manos quietas","Para la asamblea, con tarjeta en su sitio."],
+ ["Contrato de despedida","Despedirse de la familia sin llorar, con objeto de transición."]],
+ pri:[
+ ["Contrato de estudio","Plan semanal de repaso para la próxima prueba."],
+ ["Contrato de participación","Intervenir al menos una vez por sesión en Lengua."],
+ ["Contrato de orden","Mesa y mochila organizadas con revisión diaria."],
+ ["Contrato de autocontrol","Usar la señal pactada antes de reaccionar."],
+ ["Contrato de mejora de letra","Copia breve diaria con autoevaluación."],
+ ["Contrato de asistencia","Con la familia, seguimiento mensual y reconocimiento."]]},
+"b.7":{inf:[
+ ["Asamblea en tres niveles","Repetir, completar o crear la frase del día."],
+ ["Grafomotricidad graduada","Trazo libre, con guía o en pauta."],
+ ["Bits de vocabulario","Nombrar, señalar o describir la imagen."],
+ ["Construcciones con modelo","Copiar con pieza a pieza, con foto o de memoria."],
+ ["Juegos de memoria","Con 4, 8 o 12 cartas."],
+ ["Recorte por niveles","Rasgar, recortar recto o recortar curvas."]],
+ pri:[
+ ["Dictado graduado","Palabras, frases o texto completo."],
+ ["Cálculo mental en tres niveles","Sumas simples, llevando o con decimales."],
+ ["Lectura en voz alta por niveles","Párrafos de distinta longitud asignados."],
+ ["Mapa mudo","Con banco de palabras, con iniciales o sin ayuda."],
+ ["Ficha de Ciencias graduada","Unir, completar o explicar."],
+ ["Inglés por niveles","Señalar, repetir o construir la frase."]]},
+"b.8":{inf:[
+ ["Taller de cuentacuentos","Familias que narran en su lengua y en español."],
+ ["Taller de experimentos","Pequeñas investigaciones con un adulto por mesa."],
+ ["Taller de reciclaje","Construir juguetes con material de desecho."],
+ ["Taller de jardinería","Plantar y cuidar plantas aromáticas."],
+ ["Taller de bailes del mundo","Bailes de las culturas de las familias."],
+ ["Taller de construcción","Grandes bloques y retos de construcción."]],
+ pri:[
+ ["Taller de escritura creativa","Técnicas de Rodari y edición de un libro."],
+ ["Taller de periodismo","Noticias del centro y entrevistas."],
+ ["Taller de ajedrez","Estrategia y concentración en grupos mixtos."],
+ ["Taller de cocina saludable","Recetas, medidas y alimentación."],
+ ["Taller de primeros auxilios","Con el centro de salud."],
+ ["Taller de creación digital","Stop motion y presentaciones."]]},
+"b.9":{inf:[
+ ["La primavera","Flores, insectos y semilleros."],
+ ["El verano","Playa, sol y hábitos saludables."],
+ ["La Navidad y otras fiestas","Celebraciones de las familias del aula."],
+ ["El mar","Animales marinos, sonidos y collage."],
+ ["Los juguetes","Juguetes de antes y de ahora."],
+ ["Los colores","Mezclas, búsqueda en el entorno y arte."]],
+ pri:[
+ ["El clima","Registro diario, gráficas y fenómenos."],
+ ["Los inventos","Lecturas, cálculos de fechas y maquetas."],
+ ["Los Juegos Olímpicos","Geografía, estadística y deporte."],
+ ["La comunicación","Del telégrafo a internet, con textos y debates."],
+ ["Los ríos de la región","Mapa, recorrido, usos del agua."],
+ ["Los oficios del futuro","Investigación, entrevistas y exposiciones."]]},
+"b.10":{inf:[
+ ["Rincón de construcciones","Retos con tarjetas de modelo graduadas."],
+ ["Rincón de plástica","Técnica de la semana con material accesible."],
+ ["Rincón de naturaleza","Lupas, semillas y colecciones."],
+ ["Rincón de música","Instrumentos y tarjetas de ritmo."],
+ ["Rincón de la calma","Para regularse con apoyo visual."],
+ ["Rincón de las familias","Fotos y objetos que traen de casa."]],
+ pri:[
+ ["Rincón de inglés","Juegos de vocabulario y lecturas graduadas."],
+ ["Rincón de geometría","Geoplano, tangram y regletas."],
+ ["Rincón de expresión oral","Tarjetas para contar historias y debatir."],
+ ["Rincón de ortografía","Juegos y fichas autocorrectivas."],
+ ["Rincón de juegos de lógica","Sudokus y problemas de ingenio."],
+ ["Rincón de arte","Técnicas y obras de artistas."]]},
+"b.11":{inf:[
+ ["Grupos de construcción","Retos con bloques guiados por un voluntario."],
+ ["Grupos de vocabulario en otras lenguas","Familias que enseñan palabras de su idioma."],
+ ["Grupos de motricidad gruesa","Circuitos con voluntarios."],
+ ["Grupos de música","Ritmos e instrumentos."],
+ ["Grupos de memoria","Juegos de parejas y secuencias."],
+ ["Grupos de experimentos","Pequeños retos científicos."]],
+ pri:[
+ ["Grupos de ortografía","Juegos, dictado y corrección."],
+ ["Grupos de expresión oral","Debates breves y exposiciones."],
+ ["Grupos de geometría","Construcción y medida."],
+ ["Grupos de Sociales","Mapas, líneas del tiempo y fuentes."],
+ ["Grupos de cálculo","Juegos y problemas cortos."],
+ ["Grupos de escritura","Textos cortos con revisión entre iguales."]]},
+"b.12":{inf:[
+ ["Atención: de 2 a 5 minutos","Aumentar poco a poco la duración de la tarea."],
+ ["Del gesto a la palabra","Pedir con gesto, con palabra y con frase."],
+ ["Pinza fina graduada","Pinzas grandes, pequeñas y pinza digital."],
+ ["Conteo hasta 3, 5 y 10","Ampliar la serie según domine."],
+ ["Rutinas por pasos","Primero un paso, después dos y luego la rutina completa."],
+ ["Discriminación de colores","Dos colores, después cuatro y luego seis."]],
+ pri:[
+ ["Tablas de multiplicar","De la suma repetida al cálculo mental."],
+ ["Comprensión lectora","Literal, inferencial y crítica."],
+ ["Textos argumentativos","Opinión simple, con un argumento y con varios."],
+ ["Medidas","Con objetos, con unidades no convencionales y con convencionales."],
+ ["Geometría","Manipular, dibujar y calcular."],
+ ["Análisis sintáctico","Identificar, clasificar y relacionar."]]},
+"b.13":{inf:[
+ ["Elegir el cuento","Entre tres cuentos para la hora de la lectura."],
+ ["Elegir el color","Para la misma ficha de grafomotricidad."],
+ ["Elegir cómo saludar","Abrazo, choque de manos o saludo con la mano."],
+ ["Elegir el personaje","Para dramatizar el cuento."],
+ ["Elegir la canción","Para la rutina de la mañana."],
+ ["Elegir el juego del patio","Entre propuestas organizadas."]],
+ pri:[
+ ["Elegir el orden de tareas","Dentro del plan de trabajo diario."],
+ ["Elegir el método de estudio","Esquema, mapa o fichas."],
+ ["Elegir el compañero de trabajo","Para la tarea de investigación."],
+ ["Elegir cómo presentar","Oral, escrito o digital."],
+ ["Elegir el reto","Entre tres niveles de dificultad."],
+ ["Elegir el lugar de trabajo","Mesa, rincón o biblioteca según la tarea."]]},
+"b.14":{inf:[
+ ["Refuerzo de autonomía","Rutinas de vestido y aseo con pictogramas."],
+ ["Refuerzo de atención","Juegos breves de memoria y espera."],
+ ["Refuerzo de praxias","Ejercicios de soplo y lengua en pequeño grupo."],
+ ["Refuerzo de colores y formas","Juegos de clasificación."],
+ ["Refuerzo de conteo","Juegos de mesa sencillos con dado."],
+ ["Refuerzo de nombres","Reconocer su nombre y el de los compañeros."]],
+ pri:[
+ ["Refuerzo de escritura","Planificar, escribir y revisar textos cortos."],
+ ["Refuerzo de problemas","Estrategias: subrayar, dibujar, operar, comprobar."],
+ ["Refuerzo de vocabulario","Palabras clave de cada unidad."],
+ ["Refuerzo de inglés oral","Rutinas de conversación."],
+ ["Refuerzo de organización","Uso de la agenda y la mochila."],
+ ["Refuerzo de lectura en casa","Plan con la familia y registro."]]},
+"b.15":{inf:[
+ ["Apoyo en grafomotricidad","Guía la prensión y el trazo."],
+ ["Apoyo en lenguaje oral","Amplía las frases en la asamblea."],
+ ["Apoyo en juego simbólico","Modela el juego y la interacción."],
+ ["Apoyo en conteo","Material manipulativo en la mesa."],
+ ["Apoyo en el patio","Juegos estructurados para la integración."],
+ ["Apoyo en el cuento","Preguntas de comprensión con imágenes."]],
+ pri:[
+ ["Apoyo en escritura","Planificación del texto con el alumno."],
+ ["Apoyo en Ciencias","Lectura de textos y esquemas."],
+ ["Apoyo en inglés","Vocabulario y repetición."],
+ ["Apoyo en el trabajo cooperativo","Dinamiza un equipo con más dificultad."],
+ ["Apoyo en la organización","Revisa materiales y tiempos."],
+ ["Apoyo en conducta","Refuerzo positivo y señales pactadas."]]},
+"b.16":{inf:[
+ ["Ayudante de material","Reparte y recoge con un compañero."],
+ ["Pareja de fila","Va de la mano de un compañero que necesita ayuda."],
+ ["Ayudante en el comedor","Ayuda a abrir envases o recoger."],
+ ["Pareja de juego simbólico","Modela el juego a un compañero."],
+ ["Guía de rincones","Explica a un compañero cómo funciona el rincón."],
+ ["Pareja de lectura de imágenes","Comentan un libro juntos."]],
+ pri:[
+ ["Pareja de estudio","Se preguntan el tema antes de la prueba."],
+ ["Ayudante de Inglés","Practican vocabulario en parejas."],
+ ["Ayudante digital","Enseña a usar una herramienta."],
+ ["Pareja de dictado","Uno dicta y el otro escribe; corrigen juntos."],
+ ["Tutoría de cálculo","Con material manipulativo."],
+ ["Padrinos de lectura","Alumnado de 6.º con alumnado de 2.º."]]},
+"b.17":{inf:[
+ ["Rutina de entrada compartida","Una recibe y la otra organiza la asamblea."],
+ ["Taller de lenguaje con AL","Una dinamiza y la otra modela."],
+ ["Grupos paralelos de cuento","Mismo cuento, distinto nivel de apoyo."],
+ ["Psicomotricidad con PT","Circuitos con dos niveles."],
+ ["Rincones con dos docentes","Seguimiento individual."],
+ ["Registro compartido","Una dirige y otra registra el progreso."]],
+ pri:[
+ ["Estaciones de lectura","Comprensión, fluidez y vocabulario."],
+ ["Matemáticas en paralelo","Mismo contenido, dos grupos."],
+ ["Escritura con dos docentes","Uno explica y otro revisa en mesa."],
+ ["Ciencias con PT","Experimento con dos niveles de apoyo."],
+ ["Repaso alternativo","Grupo pequeño de repaso antes de la prueba."],
+ ["Proyecto co-enseñado","Planificación y evaluación conjunta."]]},
+"b.18":{inf:[
+ ["Grupos de autonomía","Según el nivel en rutinas."],
+ ["Grupos de atención","Juegos de espera y turno."],
+ ["Grupos de grafomotricidad","Según el nivel de trazo."],
+ ["Grupos de vocabulario","Según el dominio de la lengua."],
+ ["Grupos de praxias","Con la AL."],
+ ["Grupos de interacción","Mezclados por afinidad."]],
+ pri:[
+ ["Grupos de cálculo mental","Por nivel con revisión quincenal."],
+ ["Grupos de comprensión","Según el tipo de dificultad."],
+ ["Grupos de vocabulario de Ciencias","Por dominio del español."],
+ ["Grupos de estudio","Técnicas según necesidades."],
+ ["Grupos de escritura creativa","Por nivel de expresión."],
+ ["Grupos de refuerzo de tablas","Por tabla pendiente."]]},
+"b.19":{inf:[
+ ["Asamblea en dos grupos","Más turnos de palabra."],
+ ["Rincones en medio grupo","Más atención del adulto."],
+ ["Cuento en medio grupo","Más preguntas de comprensión."],
+ ["Grafomotricidad en medio grupo","Corrección individual."],
+ ["Juego simbólico en medio grupo","Modelado del lenguaje."],
+ ["Huerto en medio grupo","Participación de todos."]],
+ pri:[
+ ["Desdoble en Música","Práctica instrumental."],
+ ["Desdoble en Educación Física","Habilidades motrices."],
+ ["Desdoble en lectura","Fluidez individual."],
+ ["Desdoble en cálculo","Práctica guiada."],
+ ["Desdoble en laboratorio","Experimentos reales."],
+ ["Desdoble en tutoría","Dinámicas de convivencia."]]},
+"b.20":{inf:[
+ ["Alfombra de asamblea","Cada niño con su lugar marcado."],
+ ["Tiempo de juego libre","Entre tareas dirigidas."],
+ ["Rincón de descanso","Para quien necesita parar."],
+ ["Música para transiciones","Canción para recoger o cambiar."],
+ ["Organización del material","Al alcance y etiquetado."],
+ ["Entrada flexible","Llegada escalonada en el período de adaptación."]],
+ pri:[
+ ["Rincón de trabajo tranquilo","Para concentrarse."],
+ ["Pausa de respiración","Al volver del patio."],
+ ["Organización de la mesa","Solo el material necesario."],
+ ["Tiempo de transición","Avisos de 5 y 2 minutos."],
+ ["Distribución del aula","Zonas de trabajo en equipo e individual."],
+ ["Horario equilibrado","Alternar áreas exigentes con otras más manipulativas."]]},
+"b.21":{inf:[
+ ["Fotos de los pasos","Para secuencias de autonomía."],
+ ["Pizarra digital para votar","Elegir el cuento o la canción."],
+ ["Audio de la familia","Mensajes grabados para el período de adaptación."],
+ ["Juegos de conteo digitales","Con refuerzo visual."],
+ ["Grabaciones de canciones","Para practicar en casa."],
+ ["Cámara en el aula","Fotografiar trabajos para el portafolio."]],
+ pri:[
+ ["Traductor","Para el alumnado que no habla español."],
+ ["Calculadora","Cuando se evalúa el razonamiento."],
+ ["Correctores ortográficos","Para revisar textos."],
+ ["Plataforma de tareas","Organización de entregas."],
+ ["Vídeos educativos","Para explicar contenidos de otra manera."],
+ ["Cuestionarios digitales","Autoevaluación inmediata."]]},
+"b.22":{inf:[
+ ["Calendario de coordinación","Reuniones de ciclo con orden del día."],
+ ["Rúbricas comunes","Para la observación en todo Infantil."],
+ ["Banco de recursos compartido","Pictogramas y materiales."],
+ ["Coordinación con las familias","Criterios comunes de comunicación."],
+ ["Sesión de evaluación inicial","Con PT, AL y orientación."],
+ ["Coordinación Infantil-Primaria","Traspaso al cambiar de etapa."]],
+ pri:[
+ ["Reunión de nivel","Medidas comunes para el curso."],
+ ["Banco de adaptaciones","Modelos de pruebas adaptadas."],
+ ["Coordinación de tareas","Calendario para evitar sobrecarga."],
+ ["Comisión de convivencia","Seguimiento de casos."],
+ ["Coordinación con servicios externos","Acuerdos de pautas."],
+ ["Evaluación compartida","Rúbricas comunes por área."]]},
+"b.24":{inf:[
+ ["Rincón sensorial","Materiales para la regulación."],
+ ["Anticipación con fotos","De cambios y salidas."],
+ ["Turnos con tarjeta","«Mi turno» visual."],
+ ["Juego compartido guiado","Con un compañero y un adulto."],
+ ["Rutina de llegada estructurada","Colgar, saludar, sentarse con apoyo visual."],
+ ["Elección con imágenes","Para expresar preferencias."]],
+ pri:[
+ ["Tareas de trabajo estructurado","Inicio y final claros."],
+ ["Rincón de regulación","Con normas de uso."],
+ ["Habilidades sociales","Con historias sociales."],
+ ["Calendario visual semanal","Para anticipar actividades."],
+ ["Rutinas de comunicación","Saludar, pedir y rechazar."],
+ ["Inclusión en el patio","Juegos estructurados con compañeros."]]},
+"b.25":{inf:[
+ ["Proyectos con familias","Participación en el aula."],
+ ["Yoga infantil","Posturas y respiración."],
+ ["Huerto escolar","Cuidar y observar."],
+ ["Biblioteca de aula viajera","Libros que van a casa."],
+ ["Cine de valores","Cortos y asamblea posterior."],
+ ["Juegos tradicionales","De las familias."]],
+ pri:[
+ ["Mentoría entre etapas","Alumnado de 6.º con el de Infantil."],
+ ["Radio escolar","Producción de programas."],
+ ["Club de lectura","Encuentros mensuales."],
+ ["Mediación escolar","Alumnado mediador."],
+ ["Patrimonio local","Rutas con familias."],
+ ["Retos STEAM","Construcción y programación."]]}
+};
+Object.keys(CAT2).forEach(c=>["inf","pri"].forEach(s=>{if(CAT[c]&&CAT[c][s])CAT[c][s].push(...CAT2[c][s])}));
+
+/* plan de actividades elegidas */
+const PKEY="eoep-act-plan";
+const plan=()=>store.get(PKEY,{});
+const actId=(c,s,i)=>`${c}|${s}|${i}`;
+const actOf=id=>{const [c,s,i]=id.split("|");const a=(CAT[c]&&CAT[c][s]||[])[+i];return a?{c,s,i:+i,t:a[0],d:a[1]}:null};
+const planList=()=>{const P=plan();return Object.keys(P).filter(k=>P[k]).map(actOf).filter(Boolean)};
+
+const fM25=B=>{const G=MG;let grp="all",onlyRec=false;const R=recSet();const s0=stage();
+ const tabOf={};let open=S.moOpen||null;S.moOpen=null;
+ B.innerHTML=H("Medidas ordinarias (b.1 – b.25): catálogo de actividades",pg("med",4)+pg("med",5)+pg("med",6),"Catálogo del art. 4.5.b de la Orden de 4 de junio de 2010. Todas se pueden aplicar sin informe. Abre una medida, elige <b>Infantil</b> o <b>Primaria</b> y recorre sus pestañas. Las actividades que añadas a tu plan pasan al análisis del grupo-clase y al informe.")+
+ `<div class="box t"><h4>Medidas ordinarias</h4><p>Para cualquier alumno, alumna o grupo, sin informe previo y sin modificar los objetivos. Deben constar en la programación docente: si no están escritas y registradas, a efectos formales no están adoptadas.</p><p><b>Estrategias del día a día.</b> Las adecuaciones del currículo que no alteran los objetivos (Decreto 359/2009, art. 6.6.f; Orden de 4 de junio de 2010, b.12 – b.13) aparecen en la pestaña «Estrategias del día a día» de la medida con la que se relacionan.</p></div>
+ <div class="mo-bar"><div class="mo-stage" role="group" aria-label="Etapa"><button type="button" data-st="inf" aria-pressed="${s0==="inf"}">Infantil</button><button type="button" data-st="pri" aria-pressed="${s0==="pri"}">Primaria</button></div>
+  <label class="search mo-q" for="m25q"><input id="m25q" type="search" placeholder="Busca una medida o actividad: rincones, lectura, cooperativo…" autocomplete="off"></label></div>
+ <div class="subnav" id="m25g"><button class="chipbtn" data-v="all" aria-pressed="true">Todas</button>${Object.entries(G).map(([k,v])=>`<button class="chipbtn" data-v="${k}" aria-pressed="false">${k} · ${esc(v)}</button>`).join("")}${R.m.size?`<button class="chipbtn rec" data-rec="1" aria-pressed="false">★ Recomendadas para mi grupo</button>`:""}</div>
+ <div class="mo-plan" id="moplan" aria-live="polite"></div>
+ <div class="mo-list" id="m25l"></div>
+ <div class="box t"><h4>Párrafo para la programación</h4><p class="muted" id="m25hint">Marca «Incluir en la programación» en las medidas para construirlo. Las actividades de tu plan se añaden como concreción.</p><textarea id="m25txt" readonly aria-label="Párrafo para la programación"></textarea><div class="row"><button class="btn primary" id="m25copy">Copiar texto</button><button class="btn" id="m25clr">Borrar selección</button></div></div>`;
+ const sel=new Set(store.get("eoep-m25",[]));
+ const txt=()=>{const rows=MROWS.filter(r=>sel.has(r.c));const pl=planList().filter(a=>sel.has(a.c));$("#m25hint").hidden=rows.length>0;
+  $("#m25txt").value=rows.length?`Para atender a la diversidad del grupo se aplicarán las siguientes medidas ordinarias (Orden de 4 de junio de 2010, art. 4.5.b): ${rows.map(r=>r.m.toLowerCase()+" ("+r.c+")").join(", ").replace(/, ([^,]*)$/," y $1")}.${pl.length?` Se concretan en las siguientes actividades: ${pl.map(a=>a.t.toLowerCase()+" ("+a.c+")").join("; ")}.`:""} Se registrará su aplicación y se revisará su eficacia en cada sesión de evaluación.`:""};
+ const planBar=()=>{const pl=planList();const sx=stage();$("#moplan").innerHTML=`<div><b>Mi plan de aula:</b> ${pl.length?`${pl.length} actividad${pl.length>1?"es":""} elegida${pl.length>1?"s":""} en ${new Set(pl.map(a=>a.c)).size} medida${new Set(pl.map(a=>a.c)).size>1?"s":""}`:"todavía no has elegido actividades"} · ${sel.size} medida${sel.size===1?"":"s"} para la programación</div><div class="row">${goBtn("Analizar mi grupo","medidas","analisis","btn")}${goBtn("Ver el informe y las propuestas","medidas","decision","btn primary")}</div>`};
+ const stTxt=c=>{const v=st.m[c];if(!v)return"";if(v.na)return`<span class="mo-tag na">No procede en mi grupo</span>`;if(!v.e)return"";const t={si:"En marcha",proc:"En proceso",no:"No está en marcha"}[v.e];const f=v.f?` · funciona: ${lbl[v.f]}`:"";return`<span class="mo-tag ${v.e}">${t}${f}</span>`};
+ const body=r=>{const c=r.c,s=stage(),p=MO[c]||["",""],m=MO2[c]||{},acts=(CAT[c]&&CAT[c][s])||[],P=plan();const tb=tabOf[c]||"act";const hasE=!!CAJAMAP[c];
+  const tabs=[["act",`Actividades (${acts.length})`],["paso","Cómo ponerla en marcha"]].concat(hasE?[["estr","Estrategias del día a día"]]:[]).concat([["fun","¿Funciona en mi grupo?"]]);
+  let pane="";
+  if(tb==="act")pane=`<p class="muted mo-hint">Toca una actividad para ver cómo se hace. Pulsa <b>+ Añadir a mi plan</b> en las que vayas a usar.</p><div class="mo-acts">${acts.map((a,i)=>{const id=actId(c,s,i),on=!!P[id];return`<details class="mo-act${on?" on":""}"><summary><span class="mo-n">${i+1}</span><span class="mo-t">${esc(a[0])}</span><button type="button" class="mo-add" data-id="${id}" aria-pressed="${on}">${on?"✓ En mi plan":"+ Añadir a mi plan"}</button></summary><p>${esc(a[1])}</p></details>`}).join("")}</div>`;
+  if(tb==="paso")pane=`<p class="ag-ind"><b>Primer paso:</b> ${esc(p[1])}</p>${m.pasos?`<ol class="mo-steps">${m.pasos.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`:""}`;
+  if(tb==="estr")pane=estr(c,s)||`<p class="muted">Sin estrategias específicas para esta etapa.</p>`;
+  if(tb==="fun"){const v=st.m[c]||{};pane=`<p class="ag-ind"><b>Dato para comprobar si funciona:</b> ${esc(m.dato||"Elige un dato observable y mídelo antes y después.")}</p><div class="mo-fun"><div><span class="kicker">Situación en el análisis del grupo-clase</span><p>${v.na?"Marcada como «No procede en este grupo».":v.e?`¿Está en marcha? <b>${lbl[v.e]}</b>${v.f?` · ¿Funciona? <b>${lbl[v.f]}</b>`:""}${v.ev?`<br><span class="muted">Evidencia: ${esc(v.ev)}</span>`:""}`:"Todavía sin valorar."}</p></div><button type="button" class="btn primary" data-goan="${c}">Valorarla en el análisis del grupo-clase</button></div>`}
+  return `<p class="ag-ind"><b>Está en marcha cuando…</b> ${esc(p[0])}</p>
+  <div class="mo-sw" role="group" aria-label="Etapa"><button type="button" data-st="inf" aria-pressed="${s==="inf"}"><b>Infantil</b><small>3 a 5 años</small></button><button type="button" data-st="pri" aria-pressed="${s==="pri"}"><b>Primaria</b><small>1.º a 6.º</small></button></div>
+  <div class="mo-tabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-mt="${k}" aria-selected="${k===tb}">${esc(l)}</button>`).join("")}</div>
+  <div class="mo-pane" role="tabpanel">${pane}</div>`};
+ const draw=()=>{const q=norm($("#m25q").value.trim());const s=stage();const P=plan();
+  const rows=MROWS.filter(r=>(grp==="all"||r.g===grp)&&(!onlyRec||R.m.has(r.c))&&(!q||norm([r.c,r.m,r.d,r.inf,r.pri,...((CAT[r.c]&&CAT[r.c][s])||[]).flat()].join(" ")).includes(q)));
+  $("#m25l").innerHTML=rows.map(r=>{const np=Object.keys(P).filter(k=>P[k]&&k.startsWith(r.c+"|")).length;const isO=open===r.c;
+   return `<div class="mo-item${isO?" open":""}" data-c="${r.c}"><div class="mo-head"><button type="button" class="mo-tog" aria-expanded="${isO}"><span class="code">${esc(r.c)}</span><span class="mo-hm"><b>${esc(r.m)}</b><small>${esc(r.d||"")}</small><span class="mo-tags">${R.m.has(r.c)?`<span class="ag-rec">Recomendada para tu grupo</span>`:""}${np?`<span class="mo-tag plan">${np} en mi plan</span>`:""}${stTxt(r.c)}</span></span><span class="mo-chev" aria-hidden="true">▾</span></button><label class="mo-sel"><input type="checkbox" data-c="${r.c}" ${sel.has(r.c)?"checked":""}> Incluir en la programación</label></div>${isO?`<div class="mo-body">${body(r)}</div>`:""}</div>`}).join("")||`<div class="card empty">Sin coincidencias.</div>`;
+  bind();txt();planBar()};
+ const bind=()=>{
+  $$("#m25l .mo-tog").forEach(b=>b.onclick=()=>{const c=b.closest(".mo-item").dataset.c;open=open===c?null:c;draw();const it=$(`#m25l .mo-item[data-c="${c}"]`);if(it&&open){const nv=$("nav.tabs");const h=nv?nv.getBoundingClientRect().height:0;window.scrollTo({top:it.getBoundingClientRect().top+window.scrollY-h-12,behavior:"smooth"})}});
+  $$("#m25l .mo-sel input").forEach(i=>i.onchange=()=>{i.checked?sel.add(i.dataset.c):sel.delete(i.dataset.c);store.set("eoep-m25",[...sel]);txt();planBar()});
+  $$("#m25l .mo-tabs button").forEach(b=>b.onclick=()=>{tabOf[b.closest(".mo-item").dataset.c]=b.dataset.mt;draw()});
+  $$("#m25l .mo-sw button").forEach(b=>b.onclick=()=>setStage(b.dataset.st));
+  $$("#m25l .mo-add").forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();const P=plan();P[b.dataset.id]=!P[b.dataset.id];if(!P[b.dataset.id])delete P[b.dataset.id];store.set(PKEY,P);draw()});
+  $$("#m25l [data-goan]").forEach(b=>b.onclick=()=>{S.anOpen=b.dataset.goan;S.blk.medidas="analisis";renderGuide("medidas")})};
+ const setStage=v=>{st.g.et=v;save();$$(".mo-stage button",B).forEach(x=>x.setAttribute("aria-pressed",x.dataset.st===v?"true":"false"));draw()};
+ $$(".mo-stage button",B).forEach(b=>b.onclick=()=>setStage(b.dataset.st));
+ $("#m25q").oninput=draw;
+ $$("#m25g button").forEach(b=>b.onclick=()=>{if(b.dataset.rec){onlyRec=!onlyRec;b.setAttribute("aria-pressed",onlyRec?"true":"false")}else{grp=b.dataset.v;$$("#m25g button:not([data-rec])").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"))}draw()});
+ $("#m25copy").onclick=e=>copyText($("#m25txt").value,e.target);$("#m25clr").onclick=()=>{sel.clear();store.set("eoep-m25",[]);draw()};
+ draw();if(open){const it=$(`#m25l .mo-item[data-c="${open}"]`);if(it)setTimeout(()=>{const nv=$("nav.tabs");const h=nv?nv.getBoundingClientRect().height:0;window.scrollTo({top:it.getBoundingClientRect().top+window.scrollY-h-12})},50)}};
+document.head.insertAdjacentHTML("beforeend",`<style>
+.mo-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.mo-stage{display:inline-flex;border:2px solid var(--line);border-radius:14px;padding:3px;gap:3px;background:var(--surface)}
+.mo-stage button{border:0;background:none;border-radius:11px;padding:9px 18px;font:800 .95rem var(--f-display);color:var(--muted);cursor:pointer}
+.mo-stage button[aria-pressed="true"]{background:var(--tealD);color:#fff}
+.mo-q{flex:1;min-width:240px}
+.chipbtn.rec{border-color:#E8A92E}.chipbtn.rec[aria-pressed="true"]{background:#E8A92E;border-color:#E8A92E;color:#2a1d00}
+.mo-plan{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:var(--acnL);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.mo-list{display:grid;gap:8px}
+.mo-item{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;transition:box-shadow .15s}
+.mo-item.open{border-color:var(--teal);box-shadow:0 4px 16px rgba(0,0,0,.07)}
+.mo-head{display:flex;align-items:center;gap:8px;padding-right:12px;flex-wrap:wrap}
+.mo-tog{flex:1;min-width:240px;display:flex;align-items:center;gap:12px;text-align:left;border:0;background:none;padding:12px 14px;cursor:pointer;font:inherit;color:var(--fg)}
+.mo-tog:hover{background:var(--surface2,#F2F8F8)}
+.mo-hm{display:grid;gap:2px;flex:1}
+.mo-hm b{font-size:1.02rem}.mo-hm small{color:var(--muted);font-size:.86rem}
+.mo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.mo-tag{font-size:.72rem;font-weight:800;border-radius:999px;padding:2px 9px;background:var(--tealL);color:var(--tealD)}
+.mo-tag.plan{background:#E9E2F7;color:#5a3fa0}.mo-tag.si{background:var(--greenL);color:#1f6b45}.mo-tag.proc{background:#FFF4DA;color:#7a5600}.mo-tag.no{background:var(--neeL);color:#8e2445}.mo-tag.na{background:#eee;color:#666}
+.mo-chev{font-size:1.1rem;color:var(--muted);transition:transform .15s}.mo-item.open .mo-chev{transform:rotate(180deg)}
+.mo-sel{font-size:.82rem;font-weight:700;color:var(--muted);display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.mo-sel input{width:18px;height:18px;accent-color:var(--teal)}
+.mo-body{display:grid;gap:12px;padding:4px 16px 16px;border-top:1px dashed var(--line)}
+.mo-sw{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mo-sw button{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:10px;display:grid;gap:1px;cursor:pointer;font:inherit;color:var(--fg)}
+.mo-sw button b{font:900 1rem var(--f-display)}.mo-sw button small{color:var(--muted);font-size:.78rem}
+.mo-sw button[data-st="inf"][aria-pressed="true"]{border-color:#E8A92E;background:#FFF4DA}
+.mo-sw button[data-st="pri"][aria-pressed="true"]{border-color:#2F6FB0;background:#E3EEF9}
+.mo-tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid var(--line)}
+.mo-tabs button{border:0;background:none;padding:9px 14px;font:800 .9rem var(--f-display);color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer}
+.mo-tabs button[aria-selected="true"]{color:var(--tealD);border-bottom-color:var(--teal)}
+.mo-pane{display:grid;gap:10px}
+.mo-hint{font-size:.86rem}
+.mo-acts{display:grid;gap:6px}
+.mo-act{border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.mo-act.on{border-color:#8C6BC8;background:#F7F3FD}
+.mo-act>summary{list-style:none;display:flex;align-items:center;gap:10px;padding:9px 12px;cursor:pointer}
+.mo-act>summary::-webkit-details-marker{display:none}
+.mo-n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--tealL);color:var(--tealD);display:grid;place-items:center;font:900 .8rem var(--f-display)}
+.mo-t{flex:1;font-weight:800}
+.mo-act p{padding:0 12px 12px 48px;font-size:.92rem}
+.mo-add{border:1px solid #8C6BC8;background:#fff;color:#5a3fa0;border-radius:999px;padding:5px 11px;font:800 .78rem var(--f-display);cursor:pointer;white-space:nowrap}
+.mo-add[aria-pressed="true"]{background:#8C6BC8;color:#fff}
+.mo-steps{margin:0 0 0 20px;display:grid;gap:4px}
+.mo-fun{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface2,#F6FBFB);border-radius:10px;padding:10px 12px}
+.ag-acts{display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:.84rem}
+.ag-acts .mo-tag{background:#E9E2F7;color:#5a3fa0}
+.ag-cat{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 10px;font:800 .78rem var(--f-display);color:var(--tealD);cursor:pointer}
+@media (max-width:760px){.mo-act p{padding-left:12px}.mo-head{padding:0 10px 10px}.mo-tabs button{padding:8px 10px;font-size:.84rem}}
+</style>`);
+
+/* ---------- 4. ANÁLISIS DEL GRUPO-CLASE ---------- */
+const recSet=()=>{const m=new Set(),a=new Set();NEC.filter(n=>st.nec.includes(n.k)).forEach(n=>{n.mo.forEach(x=>m.add(x));n.act.forEach(x=>a.add(x))});return{m,a}};
+const itemHtml=(kind,o,code,name,ind,ex,rec)=>{const v=o[code]||{};const cls=v.na?"na":(v.e||"");
+ return `<div class="ag-item ${cls}" data-k="${kind}" data-c="${code}">
+  <div class="ag-top"><span class="code">${esc(code)}</span><b>${esc(name)}</b>${rec?`<span class="ag-rec">Recomendada para tu grupo</span>`:""}<label class="ag-na"><input type="checkbox" data-f="na" ${v.na?"checked":""}> No procede en este grupo</label></div>
+  ${ind?`<p class="ag-ind"><b>Está en marcha cuando…</b> ${esc(ind)}</p>`:""}
+  <div class="ag-q"><div><span class="kicker">1 · ¿Está en marcha en mi aula?</span>${sn3("e",v.e)}</div><div class="ag-fx"${v.e==="si"||v.e==="proc"?"":" hidden"}><span class="kicker">2 · ¿Funciona con el grupo?</span>${sn3("f",v.f)}</div></div>
+  <div class="ag-txt"><input class="dv-in" data-f="ev" value="${esc(v.ev||"")}" placeholder="Evidencia o dato (qué observo, cuánto, desde cuándo)"><input class="dv-in" data-f="pa" value="${esc(v.pa||"")}" placeholder="Plan de acción: qué haremos, quién y cuándo"></div>
+  ${kind==="m"?(()=>{const pl=planList().filter(a=>a.c===code);return`<div class="ag-acts"><span class="kicker">Actividades de mi plan:</span>${pl.length?pl.map(a=>`<span class="mo-tag">${esc(a.t)} · ${a.s.toUpperCase()}</span>`).join(""):`<span class="muted">ninguna elegida</span>`}<button type="button" class="ag-cat" data-cat="${code}">Ver catálogo de actividades ›</button></div>`})():""}
+  ${ex?`<details><summary>Ver ejemplo y primer paso</summary>${ex}</details>`:""}
+ </div>`};
+const fAnal=B=>{const s=stage();const R=recSet();
+ B.innerHTML=H("Análisis del grupo-clase",pg("med",3)+pg("med",4),"Valora lo que <b>ya tenéis en marcha</b> en el grupo, con datos. Escala <b>SÍ / EN PROCESO / NO</b> y plan de acción. Con estas respuestas el apartado 4 genera las fortalezas, las debilidades, las propuestas de mejora y la recomendación: continuar con medidas en el aula o solicitar la intervención del EOEP. Se guarda en este navegador.")+
+ `<div class="ag-flow"><div><i>1</i><b>Datos y necesidades</b>Qué grupo es y qué necesita.</div><div><i>2</i><b>Actuaciones generales</b>Lo que organiza el centro: ¿llega al aula?</div><div><i>3</i><b>Medidas ordinarias</b>Lo que hacemos en el aula: ¿se aplica y funciona?</div><div><i>4</i><b>Calidad y respuesta</b>Cinco eslabones y alumnado que no progresa.</div></div>
+
+ <div class="ag-ph"><span class="n">1</span><h4>Datos del grupo y necesidades que presenta</h4></div>
+ <div class="card" style="padding:14px 16px;display:grid;gap:12px">
+  <div class="ag-form">
+   <label>Centro<input class="dv-in" data-g="cen" value="${esc(st.g.cen||"")}" placeholder="CEIP…"></label>
+   <label>Grupo<input class="dv-in" data-g="gr" value="${esc(st.g.gr||"")}" placeholder="p. ej., 4 años B · 2.º A"></label>
+   <label>Tutor/a<input class="dv-in" data-g="tu" value="${esc(st.g.tu||"")}"></label>
+   <label>N.º de alumnos/as<input class="dv-in" data-g="n" type="number" min="1" value="${esc(st.g.n||"")}"></label>
+   <label>Fecha del análisis<input class="dv-in" data-g="fe" type="date" value="${esc(st.g.fe||"")}"></label>
+   <label>Etapa<span>${seg("agst2",[["inf","Infantil"],["pri","Primaria"]],s)}</span></label>
+  </div>
+  <div><span class="kicker">¿Qué necesidades presenta el grupo? Marca las que observas en varios alumnos/as</span><div class="ag-nec" id="agnec" style="margin-top:6px">${NEC.map(n=>`<button type="button" class="chipbtn" data-k="${n.k}" aria-pressed="${st.nec.includes(n.k)}">${esc(n.t)}</button>`).join("")}</div></div>
+  <label class="muted" style="font-size:.82rem;font-weight:700;display:grid;gap:4px">Otras necesidades u observaciones del grupo<input class="dv-in" data-g2="1" value="${esc(st.nec2||"")}" placeholder="p. ej., 6 alumnos de incorporación reciente; grupo muy numeroso"></label>
+  <p class="muted" style="font-size:.85rem">Al marcar necesidades, las actuaciones y medidas que mejor responden a ellas aparecen como <span class="ag-rec">Recomendada para tu grupo</span>.</p>
+ </div>
+
+ <div class="ag-ph"><span class="n">2</span><h4>Actuaciones generales (a.1 – a.9)</h4><span class="cnt" id="agcA"></span></div>
+ <p class="muted" style="max-width:75ch">Las organiza el centro. Valora si <b>llegan a tu grupo</b> tal como se describe. Si no dependen de ti, el plan de acción será trasladarlo a jefatura de estudios o a la CCP.</p>
+ <div id="agA">${ACT.map(a=>itemHtml("a",st.a,a.c,a.m,a.ind,`<p><span class="lvl ${s}">${s.toUpperCase()}</span>${esc(a[s])}</p><p><b>Primer paso:</b> ${esc(a.paso)}</p>`,R.a.has(a.c))).join("")}</div>
+
+ <div class="ag-ph"><span class="n">3</span><h4>Medidas ordinarias (b.1 – b.25)</h4><span class="cnt" id="agcM"></span></div>
+ <p class="muted" style="max-width:75ch">Las decide el equipo docente para el grupo o para quien lo necesite. No hace falta tenerlas todas: marca <b>«No procede»</b> en las que no tengan sentido para tu grupo. Las recomendadas responden a las necesidades marcadas.</p>
+ <div>${seg("agmf",[["all","Todas"],["rec","Solo recomendadas"]],"all")}</div>
+ <div id="agM">${Object.entries(MG).map(([g,gt])=>`<div class="ag-part" data-mg="${g}"><span class="kicker">${g} · ${esc(gt)}</span><div style="margin-top:6px">${MROWS.filter(r=>r.g===g).map(r=>{const p=MO[r.c]||["",""];const ex=r[s]?`<p><span class="lvl ${s}">${s.toUpperCase()}</span>${esc(r[s])}</p>`:"";return itemHtml("m",st.m,r.c,r.m,p[0],ex+(p[1]?`<p><b>Primer paso:</b> ${esc(p[1])}</p>`:""),R.m.has(r.c))}).join("")}</div></div>`).join("")}</div>
+
+ <div class="ag-ph"><span class="n">4</span><h4>Calidad de la respuesta y alumnado que no progresa</h4></div>
+ <div class="card tbl dv-sc"><table><thead><tr><th>Las medidas del grupo están…</th><th>Valoración</th><th>Plan de acción</th></tr></thead><tbody>${ESL.map((e,i)=>`<tr><td><b>${i+1}. ${esc(e[0])}</b><br><span class="muted">${esc(e[1])}</span></td><td>${sn3("q"+i,(st.e[i]||{}).v)}</td><td><input class="dv-in" data-e="${i}" value="${esc((st.e[i]||{}).p||"")}" placeholder="Qué haremos, quién y cuándo"></td></tr>`).join("")}</tbody></table></div>
+ <div class="card" style="padding:14px 16px;display:grid;gap:10px;margin-top:10px">
+  <div><span class="kicker">Tiempo de aplicación sistemática de las medidas</span><div style="margin-top:6px">${seg("agt",TIEMPO,st.t)}</div><p class="muted" style="font-size:.82rem;margin-top:4px">Criterio orientativo del equipo: la eficacia se valora de una sesión de evaluación a la siguiente.</p></div>
+  <div><span class="kicker">Alumnado que, con estas medidas aplicadas, no progresa como se esperaba</span><p class="muted" style="font-size:.82rem">Usa iniciales. Déjalo vacío si todo el grupo responde.</p><div class="ag-al" id="agal"></div><div class="row" style="margin-top:6px"><button type="button" class="btn" id="agaladd">+ Añadir alumno/a</button></div></div>
+ </div>
+
+ <div class="ag-sticky noprint"><span id="agpt" style="font-weight:800;font-size:.9rem"></span><div class="ag-prog"><i id="agpb"></i></div>${goBtn("Ver informe y decisión ›","medidas","decision","btn primary")}</div>`;
+
+ /* bindings */
+ $$("[data-g]",B).forEach(x=>x.oninput=()=>{st.g[x.dataset.g]=x.value;save()});
+ $("[data-g2]",B).oninput=e=>{st.nec2=e.target.value;save()};
+ bindSeg("agst2",v=>{st.g.et=v;save();fAnal(B)});
+ $$("#agnec button",B).forEach(b=>b.onclick=()=>{const k=b.dataset.k;st.nec=st.nec.includes(k)?st.nec.filter(x=>x!==k):st.nec.concat(k);save();const y=window.scrollY;fAnal(B);window.scrollTo(0,y)});
+ let mf="all";const fil=()=>{$$("#agM .ag-item",B).forEach(it=>it.hidden=mf==="rec"&&!R.m.has(it.dataset.c));$$("#agM .ag-part",B).forEach(p=>p.hidden=![...$$(".ag-item",p)].some(i=>!i.hidden))};
+ bindSeg("agmf",v=>{mf=v;fil()});
+ $$(".ag-item",B).forEach(it=>{const O=it.dataset.k==="a"?st.a:st.m;const c=it.dataset.c;const get=()=>O[c]=O[c]||{};
+  $$(".sn3",it).forEach(g=>$$("button",g).forEach(b=>b.onclick=()=>{const f=g.dataset.id;const o=get();o[f]=b.dataset.v;$$("button",g).forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+   if(f==="e"){it.classList.remove("si","proc","no");if(!o.na)it.classList.add(o.e);const fx=$(".ag-fx",it);fx.hidden=!(o.e==="si"||o.e==="proc");if(fx.hidden)delete o.f}save();prog()}));
+  $$("input[data-f]",it).forEach(x=>{if(x.type==="checkbox")x.onchange=()=>{const o=get();o.na=x.checked;it.classList.toggle("na",x.checked);it.classList.remove("si","proc","no");if(!x.checked&&o.e)it.classList.add(o.e);save();prog()};else x.oninput=()=>{get()[x.dataset.f]=x.value;save()}})});
+ $$(".dv-sc .sn3",B).forEach(g=>$$("button",g).forEach(b=>b.onclick=()=>{const i=+g.dataset.id.slice(1);st.e[i]=st.e[i]||{};st.e[i].v=b.dataset.v;$$("button",g).forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));save();prog()}));
+ $$("[data-e]",B).forEach(x=>x.oninput=()=>{const i=+x.dataset.e;st.e[i]=st.e[i]||{};st.e[i].p=x.value;save()});
+ bindSeg("agt",v=>{st.t=v;save()});
+ const drawAl=()=>{$("#agal",B).innerHTML=st.al.map((a,i)=>`<div class="row3"><input class="dv-in" data-al="${i}" data-x="i" value="${esc(a.i||"")}" placeholder="Iniciales"><input class="dv-in" data-al="${i}" data-x="d" value="${esc(a.d||"")}" placeholder="Qué dificultad persiste (con datos)"><input class="dv-in" data-al="${i}" data-x="m" value="${esc(a.m||"")}" placeholder="Medidas aplicadas y desde cuándo"><button type="button" class="btn" data-del="${i}" aria-label="Quitar">✕</button></div>`).join("")||`<p class="muted" style="font-size:.88rem">Ningún alumno/a señalado.</p>`;
+  $$("[data-al]",B).forEach(x=>x.oninput=()=>{st.al[+x.dataset.al][x.dataset.x]=x.value;save()});
+  $$("[data-del]",B).forEach(x=>x.onclick=()=>{st.al.splice(+x.dataset.del,1);save();drawAl()})};
+ $("#agaladd",B).onclick=()=>{st.al.push({});save();drawAl()};drawAl();
+ const prog=()=>{const cnt=(L,O)=>L.filter(c=>O[c]&&(O[c].na||O[c].e)).length;const A=ACT.map(a=>a.c),M=MROWS.map(r=>r.c);const a=cnt(A,st.a),m=cnt(M,st.m),e=ESL.filter((_,i)=>st.e[i]&&st.e[i].v).length;
+  $("#agcA",B).textContent=`${a} de ${A.length} valoradas`;$("#agcM",B).textContent=`${m} de ${M.length} valoradas`;const tot=A.length+M.length+ESL.length,d=a+m+e;$("#agpt",B).textContent=`Valorado: ${d} de ${tot}`;$("#agpb",B).style.width=(d/tot*100)+"%"};
+ $$(".ag-cat",B).forEach(b=>b.onclick=()=>{S.moOpen=b.dataset.cat;S.blk.medidas="m25";renderGuide("medidas")});
+ prog();fil();
+ if(S.anOpen){const it=$(`.ag-item[data-k="m"][data-c="${S.anOpen}"]`,B);S.anOpen=null;if(it){it.style.boxShadow="0 0 0 3px var(--sm)";setTimeout(()=>{const nv=$("nav.tabs");const h=nv?nv.getBoundingClientRect().height:0;window.scrollTo({top:it.getBoundingClientRect().top+window.scrollY-h-12})},60)}}};
+
+/* ---------- 5. INFORME Y DECISIÓN ---------- */
+const analyze=()=>{const R=recSet();const F=[],D=[],P=[];const s=stage();
+ const sug=(c,n)=>{if(kindOf(c)!=="m")return[];const pl=planList().filter(a=>a.c===c&&a.s===s);const L=pl.length?pl:((CAT[c]&&CAT[c][s])||[]).slice(0,n||2).map(a=>({t:a[0],d:a[1]}));return L.map(a=>`${pl.length?"Actividad de mi plan":"Actividad del catálogo"}: ${a.t}. ${a.d}`)};
+ const scan=(kind,list,O,nm)=>list.forEach(c=>{const v=O[c];if(!v||v.na||!v.e)return;const n=`${c} ${nm(c)}`;
+  if(v.e==="si"&&v.f==="si")F.push({t:`${n}: en marcha y con efecto positivo en el grupo.`,s:v.ev});
+  else if(v.e==="si"&&v.f==="proc")F.push({t:`${n}: en marcha; el efecto se está consolidando.`,s:v.ev});
+  if((v.e==="si"||v.e==="proc")&&v.f==="no"){D.push({t:`${n}: se aplica, pero no está dando resultado con el grupo.`,s:v.ev});P.push({p:2,t:`Ajustar ${n}`,i:["Revisar frecuencia, duración e intensidad: ¿se aplica lo suficiente?","Revisar a quién va dirigida y con qué agrupamiento.","Comprobar que todos los docentes del grupo la aplican igual.","Fijar un dato para medir el efecto y volver a valorar en la próxima sesión de evaluación."].concat(kind==="m"?(()=>{const alt=((CAT[c]&&CAT[c][s])||[]).filter(a=>!planList().some(x=>x.c===c&&x.t===a[0])).slice(0,2);return alt.map(a=>`Probar otra actividad del catálogo: ${a[0]}. ${a[1]}`)})():[]).concat(v.pa?[`Plan acordado: ${v.pa}`]:[])})}
+  if(v.e==="proc"&&v.f!=="no"){D.push({t:`${n}: en proceso, todavía no se aplica de forma sistemática.`,s:v.ev});const pp=kind==="a"?(ACT.find(a=>a.c===c)||{}).paso:(MO[c]||[])[1];P.push({p:3,t:`Consolidar ${n}`,i:[pp].concat(sug(c,1)).concat(v.pa?[`Plan acordado: ${v.pa}`]:[]).filter(Boolean)})}
+  if(v.e==="no"){const rec=kind==="a"||R.m.has(c);if(rec){D.push({t:`${n}: no está en marcha${kind==="a"?" en el grupo":" y responde a una necesidad del grupo"}.`,s:v.ev});const pp=kind==="a"?(ACT.find(a=>a.c===c)||{}).paso:(MO[c]||[])[1];P.push({p:kind==="a"?3:1,t:kind==="a"?`Trasladar a jefatura de estudios / CCP: ${n}`:`Poner en marcha ${n}`,i:[pp].concat(sug(c,2)).concat(v.pa?[`Plan acordado: ${v.pa}`]:[]).filter(Boolean)})}}
+ });
+ scan("a",ACT.map(a=>a.c),st.a,aname);scan("m",MROWS.map(r=>r.c),st.m,mname);
+ /* cobertura de necesidades */
+ NEC.filter(n=>st.nec.includes(n.k)).forEach(n=>{const on=n.mo.filter(c=>st.m[c]&&!st.m[c].na&&st.m[c].e==="si");const pr=n.mo.filter(c=>st.m[c]&&!st.m[c].na&&st.m[c].e==="proc");const ok=on.filter(c=>st.m[c].f!=="no");
+  if(ok.length>=2)F.push({t:`Necesidad «${n.t}» atendida con ${ok.map(c=>c).join(", ")}.`});
+  else{D.push({t:`Necesidad «${n.t}» ${on.length+pr.length===0?"sin medidas en marcha":"atendida de forma insuficiente"}.`,s:on.length+pr.length?`En marcha: ${on.concat(pr).join(", ")}`:""});
+   const cand=n.mo.filter(c=>!(st.m[c]&&st.m[c].e==="si"&&st.m[c].f!=="no")&&!(st.m[c]&&st.m[c].na)).slice(0,2);
+   P.push({p:1,t:`Responder a «${n.t}»`,i:cand.flatMap(c=>[`${c} ${mname(c)}: ${(MO[c]||[])[1]||""}`].concat(sug(c,1))).concat([`Así podría quedar en tu aula (${s==="inf"?"Infantil":"Primaria"}): ${n[s]}`],n.caja.map(t=>`Estrategias del día a día · ${t}: ${cajaItems(t).slice(0,2).join(" / ")}`))})}});
+ /* eslabones */
+ const ev=ESL.map((_,i)=>(st.e[i]||{}).v);
+ ESL.forEach((e,i)=>{const v=ev[i];if(v==="si")F.push({t:`Las medidas están ${e[0].toLowerCase()}: ${e[1].charAt(0).toLowerCase()+e[1].slice(1)}`});else if(v){D.push({t:`Eslabón «${e[0]}» ${v==="proc"?"en proceso":"sin cumplir"}: ${e[1]}`});P.push({p:v==="no"?1:2,t:`Asegurar que las medidas están ${e[0].toLowerCase()}`,i:[e[2]].concat((st.e[i]||{}).p?[`Plan acordado: ${(st.e[i]||{}).p}`]:[])})}});
+ P.sort((a,b)=>a.p-b.p);
+ const cnt=(O,L)=>{const r={si:0,proc:0,no:0,na:0,fs:0,fn:0};L.forEach(c=>{const v=O[c];if(!v)return;if(v.na){r.na++;return}if(v.e)r[v.e]++;if(v.f==="si")r.fs++;if(v.f==="no")r.fn++});return r};
+ const cA=cnt(st.a,ACT.map(a=>a.c)),cM=cnt(st.m,MROWS.map(r=>r.c));
+ const escOK=ev.every(v=>v==="si");const nA=st.al.filter(a=>(a.i||a.d)).length;const gaps=NEC.filter(n=>st.nec.includes(n.k)).filter(n=>n.mo.filter(c=>st.m[c]&&!st.m[c].na&&st.m[c].e==="si"&&st.m[c].f!=="no").length<2).length;
+ let rec,why=[];
+ if(!ev.every(Boolean)||!st.t){rec="pend";why.push("Faltan datos para recomendar: valora los cinco eslabones e indica el tiempo de aplicación.")}
+ else if(nA===0){rec="cont";why.push("Ningún alumno/a señalado sin progreso: el grupo responde a la respuesta ordinaria.")}
+ else if(escOK&&st.t!=="m1"){rec="der";why.push(`Hay ${nA} alumno/a(s) que no progresan pese a medidas ordinarias decididas, programadas, aplicadas, registradas y evaluadas.`);if(gaps)why.push(`Atención: ${gaps} necesidad(es) del grupo siguen sin cobertura suficiente; mantened también las propuestas de mejora de aula.`)}
+ else{rec="ajus";if(!escOK)why.push("No se cumplen todavía los cinco eslabones: las medidas no pueden acreditarse como «llevadas a cabo sin efecto».");if(st.t==="m1")why.push("El tiempo de aplicación es corto para valorar el efecto.");if(gaps)why.push(`${gaps} necesidad(es) del grupo sin cobertura suficiente.`)}
+ return{F,D,P,cA,cM,rec,why,nA}};
+const RECT={cont:["Continuar con las medidas a nivel de aula","nos","Las medidas funcionan. Se mantienen, se registran en la programación y se revisan en la próxima sesión de evaluación."],
+ ajus:["Continuar y ajustar las medidas de aula antes de solicitar","warn","Todavía no procede la solicitud de intervención: la Resolución de 30 de mayo de 2024 (cuarto, ap. 9) exige haber llevado a cabo sin efecto las medidas ordinarias. Aplicad las propuestas de mejora y volved a analizar. Podéis pedir asesoramiento al EOEP sobre las medidas a través de la jefatura de estudios."],
+ der:["Procede solicitar la intervención del EOEP","sig","Para el alumnado señalado, la respuesta ordinaria se ha aplicado de forma sistemática y no ha sido suficiente. Siguiente paso: registrar sus medidas (apartados 6 y 7 del Anexo I) y cumplimentar la solicitud."],
+ pend:["Completa el análisis","warn","Vuelve al apartado 3 y completa los datos que faltan."]};
+const fDec=B=>{const A=analyze();const r=RECT[A.rec];const d=st.dec;
+ const li=L=>L.length?`<ul class="ag-list">${L.map(x=>`<li>${esc(x.t)}${x.s?`<small>${esc(x.s)}</small>`:""}</li>`).join("")}</ul>`:`<p class="muted">Sin elementos todavía. Completa el análisis.</p>`;
+ B.innerHTML=H("Informe del grupo-clase y decisión",pg("anx",5,"Anexo I · ap. 6")+pg("der",1,"infografía"),"Generado a partir del análisis del apartado 3. Revisadlo en el equipo docente, completad la decisión y guardad el informe en el acta (Word, copiar o imprimir).")+
+ `<div id="agRep" style="display:grid;gap:14px">
+ <div class="card" style="padding:14px 16px"><span class="kicker">Grupo analizado</span><h4 style="font-size:1.15rem">${esc(st.g.gr||"Grupo sin nombre")}${st.g.cen?` · ${esc(st.g.cen)}`:""}</h4><p class="muted">${st.g.tu?`Tutor/a: ${esc(st.g.tu)} · `:""}${st.g.n?`${esc(st.g.n)} alumnos/as · `:""}${stage()==="pri"?"Primaria":"Infantil"}${st.g.fe?` · ${esc(st.g.fe)}`:""}</p>${st.nec.length?`<p style="margin-top:6px"><b>Necesidades del grupo:</b> ${NEC.filter(n=>st.nec.includes(n.k)).map(n=>esc(n.t)).join(" · ")}${st.nec2?` · ${esc(st.nec2)}`:""}</p>`:""}</div>
+ <div class="ag-sum"><div><b>${A.cA.si}/${ACT.length-A.cA.na}</b><span>actuaciones generales en marcha</span></div><div><b>${A.cM.si}</b><span>medidas ordinarias en marcha (${A.cM.proc} en proceso)</span></div><div><b>${A.cA.fs+A.cM.fs}</b><span>con efecto positivo comprobado</span></div><div><b>${A.cA.fn+A.cM.fn}</b><span>se aplican pero no funcionan</span></div></div>
+ <div class="ag-cols"><div class="box g"><h4>Fortalezas</h4>${li(A.F)}</div><div class="box n"><h4>Debilidades</h4>${li(A.D)}</div></div>
+ <div class="box t"><h4>Propuestas de mejora para el grupo-clase</h4><p class="muted" style="font-size:.85rem">Ordenadas por prioridad. Elegid como máximo tres para el próximo período y llevadlas a la programación.</p><div class="ag-prop">${A.P.length?A.P.map((p,i)=>`<div class="box"><h4>${i+1}. ${esc(p.t)}</h4><ul>${p.i.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`).join(""):`<p class="muted">Sin propuestas todavía.</p>`}</div></div>
+ ${(()=>{const pl=planList();if(!pl.length)return`<div class="box"><h4>Mi plan de actividades</h4><p class="muted">Todavía no has elegido actividades del catálogo. ${goBtn("Ir al catálogo de medidas ordinarias","medidas","m25","btn")}</p></div>`;const by={};pl.forEach(a=>(by[a.c]=by[a.c]||[]).push(a));return`<div class="box"><h4>Mi plan de actividades (catálogo de medidas ordinarias)</h4><ul class="ag-list">${Object.keys(by).map(c=>`<li><b>${esc(c)} ${esc(mname(c))}</b><small>${by[c].map(a=>`${a.s==="inf"?"INF":"PRI"} · ${esc(a.t)}`).join(" · ")}</small></li>`).join("")}</ul></div>`})()}
+ <div class="result ${r[1]}"><span class="kicker">Recomendación según los datos</span><h4>${esc(r[0])}</h4><p>${esc(r[2])}</p>${A.why.length?`<ul>${A.why.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}</div>
+ <div class="dv-urg"><b>No esperéis a este análisis</b> si hay indicios de desprotección, posible acoso escolar, ideación suicida o conductas autolíticas: comunicadlo de inmediato al equipo directivo, que activa el protocolo correspondiente. En 3 años de Infantil, la ausencia de control de esfínteres al incorporarse es un indicador de riesgo que se comunica al EOEP sin esperar.</div>
+ <div class="card" style="padding:14px 16px;display:grid;gap:10px"><span class="kicker">Decisión del equipo docente</span>
+  <div class="ag-dec" id="agdec"><button type="button" data-v="cont" aria-pressed="${d.op==="cont"}"><b>Continuar con medidas a nivel de aula</b><span class="muted">Se mantienen las fortalezas y se aplican las propuestas de mejora. Nueva revisión en la fecha indicada.</span></button><button type="button" data-v="der" aria-pressed="${d.op==="der"}"><b>Solicitar la intervención del EOEP</b><span class="muted">Para el alumnado señalado. Se pasa al Paso 3: Anexo I (apartados 6 y 7) y solicitud.</span></button></div>
+  <div id="agdecw"></div>
+  <div class="ag-form"><label>Fecha de revisión<input class="dv-in" type="date" data-d="f" value="${esc(d.f||"")}"></label><label>Responsables<input class="dv-in" data-d="r" value="${esc(d.r||"")}" placeholder="Tutor/a, PT, AL, jefatura…"></label><label>Acuerdos del equipo<input class="dv-in" data-d="o" value="${esc(d.o||"")}" placeholder="Prioridades elegidas y observaciones"></label></div>
+  <div id="agnext"></div>
+ </div>
+ </div>
+ <div class="row noprint"><button class="btn primary" id="agdoc">Descargar informe (Word)</button><button class="btn" id="agcopy">Copiar texto para el acta</button>${INFRAME?"":`<button class="btn" id="agprint">Imprimir</button>`}${goBtn("‹ Volver al análisis","medidas","analisis","btn")}<button class="btn" id="agreset">Empezar un análisis nuevo</button></div><p class="muted noprint" id="agconf" hidden></p>`;
+ const next=()=>{const w=$("#agdecw",B),n=$("#agnext",B);
+  w.innerHTML=d.op==="der"&&A.rec!=="der"&&A.rec!=="pend"?`<p class="note"><b>Atención:</b> los datos del análisis no acreditan todavía que las medidas ordinarias se hayan llevado a cabo sin efecto. Si se entrega ahora la solicitud, lo previsible es que no se admita a trámite (Resolución de 30/05/2024, quinto, ap. 4). Revisad las debilidades antes de continuar.</p>`:d.op==="cont"&&A.rec==="der"?`<p class="note"><b>Atención:</b> los datos indican que la respuesta ordinaria no es suficiente para ${A.nA} alumno/a(s). Si decidís continuar, fijad una fecha de revisión próxima.</p>`:"";
+  n.innerHTML=d.op==="der"?`<div class="box"><h4>Siguientes pasos</h4><ol style="margin-left:18px"><li>Registrar, para cada alumno/a señalado, qué medidas se han aplicado, desde cuándo y con qué resultado (apartados 6 y 7 del Anexo I).</li><li>Cumplimentar el Anexo I y entregarlo a jefatura de estudios.</li><li>Mantener en el aula las medidas que funcionan mientras se resuelve la demanda.</li></ol>${A.nA?`<p><b>Alumnado señalado:</b> ${st.al.filter(a=>a.i||a.d).map(a=>esc((a.i||"—")+(a.d?` (${a.d})`:""))).join("; ")}</p>`:""}<div class="row"><button class="btn primary" data-go="deriv" data-blk="anexo" data-ap="a6">Paso 3 · Anexo I, apartado 6</button>${goBtn("Paso 3 · Solicitar la intervención","deriv","claves","btn")}</div></div>`:d.op==="cont"?`<div class="box"><h4>Siguientes pasos</h4><ol style="margin-left:18px"><li>Elegir hasta tres propuestas de mejora y escribir su plan de acción.</li><li>Incluir las medidas en la programación (párrafo del apartado «Medidas ordinarias»).</li><li>Registrar su aplicación y repetir este análisis en la fecha de revisión.</li></ol><div class="row">${goBtn("Párrafo para la programación","medidas","m25","btn primary")}${goBtn("Actuaciones generales","medidas","generales","btn")}</div></div>`:""};
+ $$("#agdec button",B).forEach(b=>b.onclick=()=>{d.op=b.dataset.v;$$("#agdec button",B).forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));save();next()});
+ $$("[data-d]",B).forEach(x=>x.oninput=()=>{d[x.dataset.d]=x.value;save()});next();
+ const plain=()=>{const L=[];L.push("ANÁLISIS DE MEDIDAS GENERALES Y ORDINARIAS DEL GRUPO-CLASE · PROYECTO SUMAMOS");L.push(`Centro: ${st.g.cen||"-"} · Grupo: ${st.g.gr||"-"} · Tutor/a: ${st.g.tu||"-"} · Fecha: ${st.g.fe||"-"}`);
+  if(st.nec.length)L.push("Necesidades del grupo: "+NEC.filter(n=>st.nec.includes(n.k)).map(n=>n.t).join("; ")+(st.nec2?"; "+st.nec2:""));
+  L.push("","FORTALEZAS");A.F.forEach(x=>L.push("- "+x.t+(x.s?` (${x.s})`:"")));L.push("","DEBILIDADES");A.D.forEach(x=>L.push("- "+x.t+(x.s?` (${x.s})`:"")));
+  L.push("","PROPUESTAS DE MEJORA");A.P.forEach((p,i)=>{L.push(`${i+1}. ${p.t}`);p.i.forEach(x=>L.push("   · "+x))});
+  const pl=planList();if(pl.length){L.push("","PLAN DE ACTIVIDADES (CATÁLOGO DE MEDIDAS ORDINARIAS)");pl.forEach(a=>L.push(`- ${a.c} ${mname(a.c)} · ${a.s==="inf"?"Infantil":"Primaria"}: ${a.t}`))}
+  L.push("","RECOMENDACIÓN: "+r[0]);A.why.forEach(x=>L.push("- "+x));
+  L.push("","DECISIÓN DEL EQUIPO DOCENTE: "+(d.op==="der"?"Solicitar la intervención del EOEP":d.op==="cont"?"Continuar con medidas a nivel de aula":"pendiente"));
+  if(st.al.some(a=>a.i||a.d))L.push("Alumnado señalado: "+st.al.filter(a=>a.i||a.d).map(a=>(a.i||"-")+(a.d?` (${a.d})`:"")+(a.m?` · medidas: ${a.m}`:"")).join("; "));
+  L.push(`Fecha de revisión: ${d.f||"-"} · Responsables: ${d.r||"-"}`);if(d.o)L.push("Acuerdos: "+d.o);return L.join("\n")};
+ $("#agcopy",B).onclick=e=>copyText(plain(),e.target);
+ const pr=$("#agprint",B);if(pr)pr.onclick=()=>{document.body.classList.add("print-ag");window.print();setTimeout(()=>document.body.classList.remove("print-ag"),500)};
+ $("#agdoc",B).onclick=()=>{const e=x=>esc(x==null?"":String(x));const tb=(kind,list,O,nm)=>`<table class="t"><tr><th style="width:34%">Actuación / medida</th><th style="width:11%">En marcha</th><th style="width:11%">Funciona</th><th style="width:22%">Evidencia</th><th style="width:22%">Plan de acción</th></tr>${list.filter(c=>O[c]&&(O[c].e||O[c].na)).map(c=>{const v=O[c];return`<tr><td><b>${e(c)}</b> ${e(nm(c))}</td><td class="c">${v.na?"No procede":e(lbl[v.e]||"")}</td><td class="c">${e(lbl[v.f]||"")}</td><td>${e(v.ev)}</td><td>${e(v.pa)}</td></tr>`}).join("")||`<tr><td colspan="5">Sin valorar.</td></tr>`}</table>`;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Análisis del grupo-clase</title>
+<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]-->
+<style>@page Section1{size:21cm 29.7cm;margin:1.6cm 1.6cm 1.6cm 1.6cm;mso-footer:f1}div.Section1{page:Section1}
+body,h1,h2,h3,p,li,td,th{font-family:Arial,sans-serif}body{font-size:10pt;color:#1b2b33}h1{font-size:16pt;color:#296272;margin:4pt 0}h2{font-size:12pt;color:#fff;background:#48C5C7;padding:4pt 6pt;margin:14pt 0 6pt}h3{font-size:10.5pt;color:#296272;margin:8pt 0 3pt}
+.hd{border-bottom:3pt solid #48C5C7;padding-bottom:4pt;font-size:8.5pt;color:#296272;font-weight:bold}table.t{border-collapse:collapse;width:100%}table.t th{background:#296272;color:#fff;font-size:9pt;padding:4pt;border:1pt solid #296272;text-align:left}table.t td{border:1pt solid #9fd8d9;padding:4pt;font-size:9pt;vertical-align:top}td.c{text-align:center;font-weight:bold}
+.box{border:1pt solid #48C5C7;background:#F0FAFA;padding:6pt}.lic{border:1.5pt solid #48C5C7;padding:6pt;font-size:8pt;margin-top:16pt}p.MsoFooter{font-size:8pt;color:#296272;text-align:center}</style></head><body><div class="Section1">
+<p class="hd">EOEP General Cehegín · Región de Murcia · Educación Inclusiva &nbsp;|&nbsp; PROYECTO SUMAMOS (Escuela+Familia+EOEP)</p>
+<h1>Análisis de medidas generales y ordinarias del grupo-clase</h1><p><b>Bloque 6 · SUMAMOS: Camino a la inclusión · Parada 2</b></p>
+<table class="t"><tr><th>Centro</th><th>Grupo</th><th>Tutor/a</th><th>N.º alumnos</th><th>Etapa</th><th>Fecha</th></tr><tr><td>${e(st.g.cen)}</td><td>${e(st.g.gr)}</td><td>${e(st.g.tu)}</td><td>${e(st.g.n)}</td><td>${stage()==="pri"?"Primaria":"Infantil"}</td><td>${e(st.g.fe)}</td></tr></table>
+<p><b>Necesidades del grupo:</b> ${e(NEC.filter(n=>st.nec.includes(n.k)).map(n=>n.t).join("; "))}${st.nec2?"; "+e(st.nec2):""}</p>
+<h2>1. Actuaciones generales (Decreto 359/2009, art. 5; Orden de 4 de junio de 2010, art. 4.5.a)</h2>${tb("a",ACT.map(a=>a.c),st.a,aname)}
+<h2>2. Medidas ordinarias (Orden de 4 de junio de 2010, art. 4.5.b)</h2>${tb("m",MROWS.map(r=>r.c),st.m,mname)}
+<h2>3. Calidad de la respuesta ordinaria</h2><table class="t"><tr><th style="width:45%">Las medidas están…</th><th style="width:15%">Valoración</th><th>Plan de acción</th></tr>${ESL.map((x,i)=>`<tr><td><b>${i+1}. ${e(x[0])}</b>. ${e(x[1])}</td><td class="c">${e(lbl[(st.e[i]||{}).v]||"")}</td><td>${e((st.e[i]||{}).p)}</td></tr>`).join("")}</table>
+<p><b>Tiempo de aplicación sistemática:</b> ${e((TIEMPO.find(t=>t[0]===st.t)||["","Sin indicar"])[1])}</p>
+<h3>Alumnado que no progresa como se esperaba</h3>${st.al.some(a=>a.i||a.d)?`<table class="t"><tr><th>Iniciales</th><th>Dificultad que persiste</th><th>Medidas aplicadas y desde cuándo</th></tr>${st.al.filter(a=>a.i||a.d).map(a=>`<tr><td>${e(a.i)}</td><td>${e(a.d)}</td><td>${e(a.m)}</td></tr>`).join("")}</table>`:"<p>Ninguno señalado.</p>"}
+<h2>4. Fortalezas</h2><ul>${A.F.map(x=>`<li>${e(x.t)}${x.s?` <i>(${e(x.s)})</i>`:""}</li>`).join("")||"<li>-</li>"}</ul>
+<h2>5. Debilidades</h2><ul>${A.D.map(x=>`<li>${e(x.t)}${x.s?` <i>(${e(x.s)})</i>`:""}</li>`).join("")||"<li>-</li>"}</ul>
+<h2>6. Propuestas de mejora</h2>${A.P.map((p,i)=>`<h3>${i+1}. ${e(p.t)}</h3><ul>${p.i.map(x=>`<li>${e(x)}</li>`).join("")}</ul>`).join("")||"<p>-</p>"}
+${planList().length?`<h2>Plan de actividades del aula</h2><table class="t"><tr><th style="width:30%">Medida ordinaria</th><th style="width:12%">Etapa</th><th>Actividad</th></tr>${planList().map(a=>`<tr><td><b>${e(a.c)}</b> ${e(mname(a.c))}</td><td class="c">${a.s==="inf"?"Infantil":"Primaria"}</td><td><b>${e(a.t)}.</b> ${e(a.d)}</td></tr>`).join("")}</table>`:""}
+<h2>7. Recomendación y decisión</h2><div class="box"><p><b>Recomendación según los datos:</b> ${e(r[0])}. ${e(r[2])}</p><ul>${A.why.map(x=>`<li>${e(x)}</li>`).join("")}</ul></div>
+<table class="t" style="margin-top:6pt"><tr><th style="width:35%">Decisión del equipo docente</th><td>${d.op==="der"?"Solicitar la intervención del EOEP (Anexo I · Resolución de 30 de mayo de 2024)":d.op==="cont"?"Continuar con medidas a nivel de aula":"Pendiente"}</td></tr><tr><th>Fecha de revisión</th><td>${e(d.f)}</td></tr><tr><th>Responsables</th><td>${e(d.r)}</td></tr><tr><th>Acuerdos</th><td>${e(d.o)}</td></tr></table>
+<p style="margin-top:18pt">Firmado: ____________________________ (tutor/a) &nbsp;&nbsp;&nbsp; V.º B.º: ____________________________ (jefatura de estudios)</p>
+<div class="lic"><b>© EOEP General Cehegín · Consejería de Educación, Región de Murcia.</b> Material del Proyecto SUMAMOS (Escuela+Familia+EOEP) · Innovación educativa Modalidad D · 2025-2027. Licencia Creative Commons CC BY-NC-ND 4.0: se permite descargar, usar y difundir sin ánimo de lucro citando la autoría; no se permite modificar ni el uso comercial sin autorización (<a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a>). Licencia: creativecommons.org/licenses/by-nc-nd/4.0/deed.es</div>
+<div style="mso-element:footer" id="f1"><p class="MsoFooter">PROYECTO SUMAMOS (Escuela+Familia+EOEP) | Consejería de Educación · Región de Murcia · Página <span style="mso-field-code:' PAGE '"></span></p></div>
+</div></body></html>`;
+  const blob=new Blob(["﻿"+html],{type:"application/msword"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`Analisis_grupo_${(st.g.gr||"grupo").replace(/[^\wáéíóúñÁÉÍÓÚÑ-]+/g,"_")}_${st.g.fe||new Date().toISOString().slice(0,10)}.doc`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},800)};
+ let arm=false;$("#agreset",B).onclick=()=>{if(!arm){arm=true;$("#agreset",B).textContent="Pulsa otra vez para borrar";$("#agconf",B).hidden=false;$("#agconf",B).textContent="Se borrarán todos los datos del análisis de este grupo. Descarga antes el informe si lo necesitas.";setTimeout(()=>{arm=false;const b=$("#agreset",B);if(b)b.textContent="Empezar un análisis nuevo";const c=$("#agconf",B);if(c)c.hidden=true},4000);return}st=blank();save();S.blk.medidas="analisis";renderGuide("medidas")}};
+
+/* ---------- registro en la guía ---------- */
+const G=GD.medidas;const grp=G.groups[0];const old=Object.fromEntries(G.blocks.map(b=>[b[0],b[2]]));
+grp.b=[["generales","Actuaciones generales"],["m25","Medidas ordinarias"],["analisis","Análisis del grupo-clase"],["decision","Informe y decisión"]];
+grp.t="Actuaciones generales y medidas ordinarias";grp.d="Actuaciones generales y medidas ordinarias por separado, en la práctica y con sus estrategias del día a día, con el análisis del grupo-clase y la decisión: continuar en el aula o solicitar la intervención del EOEP.";
+const FN={generales:fGen,m25:fM25,analisis:fAnal,decision:fDec};
+G.blocks=grp.b.map(([k,l])=>[k,l,FN[k]]);
+G.desc="Lo que el centro organiza para todo el alumnado (actuaciones generales) y las medidas ordinarias para cualquier alumno, alumna o grupo que lo necesite, sin informe previo, convertidas en práctica de aula. Incluye el análisis del grupo-clase: fortalezas, debilidades, propuestas de mejora y decisión de continuar con medidas de aula o solicitar la intervención del EOEP.";
+ILL.medidas=Object.assign({},ILL.medidas,{analisis:["il-der-check","¿qué funciona en mi grupo?"]});
+})();
+
+/* ===== v15 · Camino interactivo de 5 estaciones + índice lateral + limpieza de apartados ===== */
+(()=>{
+/* --- títulos --- */
+if(GD.medidas)GD.medidas.title="Actuaciones generales y medidas ordinarias";
+if(GD.conozco)GD.conozco.title="Conozco a mi alumnado (DETECTA)";
+
+/* --- Solicitar intervención: sin «Primero, las medidas ordinarias» ni «El recorrido de una demanda»; infografía al entrar --- */
+const DG=GD.deriv;DG.desc="El proceso completo en una infografía y el Anexo I paso a paso: a quién pedimos la intervención, cómo cumplimentar cada apartado, las tres salidas posibles y la comprobación antes de entregar.";DG.blocks=DG.blocks.filter(b=>b[0]!=="ordinarias"&&b[0]!=="recorrido");
+const cl=DG.blocks.find(b=>b[0]==="claves");
+if(cl){const f0=cl[2];cl[2]=B=>{f0(B);
+ B.insertAdjacentHTML("afterbegin",`<figure class="card infog"><figcaption><div><span class="kicker">Infografía · Proceso de solicitud y de evaluación psicopedagógica</span><h3>El Anexo I: cómo pedimos la intervención del EOEP y cuándo hay evaluación psicopedagógica</h3><p class="muted">Todo el proceso en una página: a quién pedimos la intervención, las medidas ordinarias previas, el recorrido de la demanda, las tres salidas y la evaluación psicopedagógica.</p></div><div class="row noprint">${pg("der",1,"Ampliar")}${pdfLink(DOCS.der.file,"Abrir PDF")}</div></figcaption><button type="button" class="infog-img" data-doc="der" data-page="1" aria-label="Ampliar la infografía"><img src="${img("09-derivacion-eoep")}" alt="Infografía del proceso de solicitud de intervención del EOEP y de evaluación psicopedagógica"></button></figure>`);
+ if(hasPdf()){const box=$(".infog-img",B);const c=document.createElement("canvas");const w=Math.min(Math.max(box.clientWidth-8,320),980);
+  renderInto(DOCS.der.file,1,c,w).then(()=>{c.style.width="100%";c.style.height="auto";box.innerHTML="";box.appendChild(c)}).catch(()=>{})}}}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-ap]");if(b)window.__dvAp=b.dataset.ap},true);
+
+/* --- CSS --- */
+document.head.insertAdjacentHTML("beforeend",`<style>
+nav.tabs .wrap,main.wrap.with-guion{max-width:1440px}
+main.wrap.with-guion{display:grid;grid-template-columns:272px minmax(0,1fr);gap:28px;align-items:start}
+main.with-guion>.panel{grid-column:2;grid-row:1;min-width:0}
+.guion{grid-column:1;grid-row:1;position:sticky;top:calc(var(--navh,150px) + 14px);max-height:calc(100vh - var(--navh,150px) - 28px);display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(11,60,62,.05)}
+.g-h{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--tealL)}
+.g-h b{font:900 1rem var(--f-display);color:var(--tealD)}
+.g-h small{display:block;font-size:.72rem;color:var(--muted);font-weight:700}
+.g-close{display:none;border:0;background:none;font-size:1.2rem;color:var(--tealD);cursor:pointer}
+.g-scroll{overflow-y:auto;padding:8px 8px 14px;scrollbar-width:auto;scrollbar-color:var(--sm) transparent}
+.g-scroll::-webkit-scrollbar{width:10px}.g-scroll::-webkit-scrollbar-thumb{background:var(--sm);border-radius:10px;border:2px solid var(--surface)}
+.g-home{display:flex;width:100%;align-items:center;gap:8px;border:0;background:none;padding:8px 10px;border-radius:10px;font:800 .9rem var(--f-display);color:var(--fg);cursor:pointer;text-align:left}
+.g-home[aria-current="true"],.g-home:hover{background:var(--tealL);color:var(--tealD)}
+.g-paso{border-radius:12px;margin-top:4px}
+.g-paso>summary{list-style:none;display:flex;gap:9px;align-items:center;padding:8px 10px;border-radius:10px;cursor:pointer;font:800 .9rem/1.2 var(--f-display)}
+.g-paso>summary::-webkit-details-marker{display:none}
+.g-paso>summary i{flex:none;width:26px;height:22px;border-radius:6px;background:var(--c);color:#fff;font-style:normal;display:grid;place-items:center;font-size:.8rem;box-shadow:0 2px 0 color-mix(in srgb,var(--c) 62%,#000)}
+.g-paso>summary::after{content:"▾";margin-left:auto;color:var(--muted);transition:transform .15s}
+.g-paso:not([open])>summary::after{transform:rotate(-90deg)}
+.g-paso>summary:hover{background:var(--surface2,#F2F8F8)}
+.g-paso.cur>summary{color:var(--c)}
+.g-list{display:grid;gap:1px;margin:2px 0 6px 22px;padding-left:10px;border-left:2px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.g-guide{font:800 .78rem var(--f-display);color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:8px 8px 2px;background:none;border:0;text-align:left;cursor:pointer}
+.g-grp{font-size:.72rem;font-weight:800;color:var(--muted);padding:6px 8px 0}
+.g-it{border:0;background:none;text-align:left;padding:6px 8px;border-radius:8px;font:600 .86rem/1.25 inherit;color:var(--fg);cursor:pointer}
+.g-it:hover{background:var(--surface2,#F2F8F8)}
+.g-it[aria-current="true"]{background:color-mix(in srgb,var(--c) 16%,transparent);color:var(--fg);font-weight:800;box-shadow:inset 3px 0 0 var(--c)}
+.g-fab{display:none}
+.g-back{display:none}
+@media (max-width:1099px){
+ main.wrap.with-guion{display:block}
+ .guion{position:fixed;left:0;top:0;bottom:0;z-index:70;width:min(330px,88vw);max-height:none;border-radius:0 16px 16px 0;transform:translateX(-105%);transition:transform .22s ease}
+ body.guion-open .guion{transform:none}
+ .g-close{display:block}
+ .g-back{position:fixed;inset:0;background:rgba(10,30,32,.42);z-index:69}
+ body.guion-open .g-back{display:block}
+ .g-fab{display:inline-flex;position:fixed;left:14px;bottom:16px;z-index:40;align-items:center;gap:8px;border:0;border-radius:999px;padding:11px 16px;background:var(--tealD);color:#fff;font:800 .9rem var(--f-display);box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer}
+}
+@media print{.guion,.g-fab,.g-back{display:none!important}main.wrap.with-guion{display:block}}
+.infog{display:grid;gap:12px;padding:16px}
+.infog figcaption{display:flex;gap:12px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap}
+.infog h3{font-size:1.2rem;font-weight:900;color:var(--tealD);margin:2px 0 4px}
+.infog-img{display:block;border:1px solid var(--line);border-radius:12px;background:#fff;padding:4px;cursor:zoom-in;width:100%;max-width:1000px;margin:0 auto}
+.infog-img img,.infog-img canvas{display:block;width:100%;height:auto;border-radius:8px}
+.brand-txt h1{cursor:pointer}
+</style>`);
+
+/* --- CAMINO A LA INCLUSIÓN: carretera interactiva (compacta en la barra y grande en Inicio) --- */
+const COLS=["#7B5BC4","#1F8A8C","#2F6FB0","#C0432F","#D9822B"];
+const CL=["#ECE5F8","#D7F2F2","#DDEAF7","#F8E0DA","#FBE9D4"];
+/* iconos duotono (diseño generado en Canva, redibujado en vectorial) */
+const ICO=[
+ '<circle cx="20" cy="20" r="14" fill="#fff"/><circle cx="20" cy="16.2" r="4.6" class="f"/><path class="f" d="M11.2 29.2c1.7-4.6 4.9-7 8.8-7s7.1 2.4 8.8 7a14 14 0 0 1-17.6 0Z"/><path d="M30.4 30.4 41.5 41.5" stroke-width="3.6"/>',
+ '<path class="f" d="M8 27 24 35 40 27 24 19Z"/><path class="f" d="M8 20.5 24 28.5 40 20.5 24 12.5Z"/><path class="f" d="M24 6 40 14 24 22 8 14Z"/><circle cx="36.5" cy="35.5" r="8" fill="#fff"/><path d="m32.8 35.6 2.6 2.6 4.6-5"/>',
+ '<path class="f" d="M9 5h16.5L35 14.5V43H9Z"/><path d="M25.5 5v9.5H35"/><path class="f" d="M21 27h13.5v-5.5L44 30l-9.5 8.5V33H21Z"/>',
+ '<path class="f" d="M5 14h7.5a3.6 3.6 0 1 1 7 0H24v8.4a3.6 3.6 0 1 1 0 7.2V38H5Z"/><path class="f" d="M24 14h6.5a3.6 3.6 0 1 0 7 0H43v24H24v-8.4a3.6 3.6 0 1 0 0-7.2Z"/>',
+ '<path class="f" d="M8 20.5V40h21V20.5L18.5 11Z"/><path d="M4.5 23 18.5 9.5 32.5 23"/><circle cx="18.5" cy="21.5" r="2.6" fill="#fff"/><path d="M14.5 40v-9h8v9"/><path class="f" d="M29 40h15L29 30Z"/><path d="M33 40v-7.3M37 40v-4.7M41 40v-2"/>'];
+const INFO=[
+ {s:"Conozco a mi alumnado",d:"Observo y conozco a cada alumno y alumna del grupo para detectar pronto lo que necesita."},
+ {s:"Actuaciones y medidas ordinarias",d:"Lo que hacemos para todo el grupo: actuaciones del centro y medidas del aula. Analizo qué funciona y decido."},
+ {s:"Solicito intervención",d:"Si las medidas del aula no bastan, pido la intervención del EOEP con el Anexo I."},
+ {s:"Medidas específicas",d:"Respuesta para el alumnado ACNEAE: PAP, fichas por necesidad, adaptaciones y compensación educativa."},
+ {s:"Aula accesible",d:"Un aula organizada, visual y accesible: mejor para todo el alumnado."}];
+const icon=(i,cls)=>`<svg class="${cls||"ico"}" viewBox="0 0 48 48" fill="none" stroke="${COLS[i]}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="--cl:${CL[i]}" aria-hidden="true">${ICO[i]}</svg>`;
+const N=PASOS.length;const X=PASOS.map((_,i)=>(i+.5)*100/N);
+const curve=P=>{let d=`M${P[0][0]},${P[0][1]}`;for(let i=0;i<P.length-1;i++){const p0=P[i-1]||P[i],p1=P[i],p2=P[i+1],p3=P[i+2]||p2;d+=` C${(p1[0]+(p2[0]-p0[0])/6).toFixed(1)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(1)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(1)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(1)} ${p2[0]},${p2[1]}`}return d};
+const SMK="data:image/jpeg;base64,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";
+const ILLK=["il-aula","il-escalera","il-der-portada","il-medidas","il-portada-aula"];
+const RM=(()=>{try{return matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){return false}})();
+/* muestreo del camino: y en función de x (la carretera avanza siempre de izquierda a derecha) */
+const sampler=P=>{const s=[];for(let i=0;i<P.length-1;i++){const p0=P[i-1]||P[i],p1=P[i],p2=P[i+1],p3=P[i+2]||p2;const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];for(let k=0;k<=40;k++){const t=k/40,u=1-t;s.push([u*u*u*p1[0]+3*u*u*t*c1[0]+3*u*t*t*c2[0]+t*t*t*p2[0],u*u*u*p1[1]+3*u*u*t*c1[1]+3*u*t*t*c2[1]+t*t*t*p2[1]])}}return x=>{for(let i=1;i<s.length;i++)if(s[i][0]>=x){const a=s[i-1],b2=s[i],f=(x-a[0])/((b2[0]-a[0])||1);return a[1]+(b2[1]-a[1])*f}return s[s.length-1][1]}};
+/* mueve el logo SUMAMOS por la carretera hasta xTarget (unidades 0-1000) */
+const rider=(el,box,yAt,yOff)=>{let cur=null,raf=0;const put=x=>{const W=box.clientWidth||1;el.style.left=(x/1000*W)+"px";el.style.top=(yAt(x)+(yOff||0))+"px"};
+ return{go(x,instant){cancelAnimationFrame(raf);if(cur===null||instant||RM){cur=x;put(x);return}const from=cur,d=Math.max(600,Math.min(1600,Math.abs(x-from)*2.2)),t0=performance.now();el.classList.add("moving");
+  const st=n=>{const k=Math.min(1,(n-t0)/d),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;cur=from+(x-from)*e;put(cur);if(k<1)raf=requestAnimationFrame(st);else{el.classList.remove("moving");el.classList.add("arrive");setTimeout(()=>el.classList.remove("arrive"),500)}};raf=requestAnimationFrame(st)},
+  refresh(){if(cur!==null)put(cur)},get x(){return cur}}};
+const goPaso=n=>{const p=PASOS[n-1];const nv=$("nav.tabs");if(nv)nv.classList.remove("open");show(p.tabs[0])};
+
+document.head.insertAdjacentHTML("beforeend",`<style>
+/* barra compacta */
+.cam-wrap{overflow-x:auto;scrollbar-width:thin;padding:4px 0 2px}
+.cam{position:relative;height:112px;min-width:760px}
+.cam svg.road{position:absolute;left:0;top:0;width:100%;height:62px;overflow:visible}
+svg.road path{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+svg.road .e{stroke:#fff}svg.road .a{stroke:#4E6470}svg.road .t{stroke:var(--sm);opacity:.8}svg.road .l{stroke:#F7D46B;stroke-dasharray:11 10}
+.smk{position:absolute;z-index:3;width:44px;height:44px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--sm),0 4px 12px rgba(0,0,0,.25);overflow:hidden;transform:translate(-50%,-50%);pointer-events:none;background:#fff}
+.smk img{width:100%;height:100%;display:block;object-fit:cover}
+.smk.moving{animation:smkhop .32s ease-in-out infinite alternate}
+.smk.arrive{animation:smkarr .45s ease}
+.hr-land .smk{width:70px;height:70px;border-width:4px;animation:smkbob 2.2s ease-in-out infinite}
+.hr-land .smk.moving{animation:smkhop .32s ease-in-out infinite alternate}
+.smk-tip{position:absolute;z-index:3;transform:translate(-50%,0);background:#fff;color:var(--tealD);font:800 .78rem var(--f-display);border-radius:999px;padding:4px 10px;box-shadow:0 2px 8px rgba(0,0,0,.15);white-space:nowrap;pointer-events:none}
+@keyframes smkhop{from{margin-top:0}to{margin-top:-6px}}
+@keyframes smkarr{0%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.18)}100%{transform:translate(-50%,-50%) scale(1)}}
+@keyframes smkbob{0%,100%{margin-top:0}50%{margin-top:-6px}}
+@media (prefers-reduced-motion:reduce){.smk,.hr-land .smk{animation:none!important}}
+.cam svg.road .e{stroke-width:27}.cam svg.road .a{stroke-width:21}.cam svg.road .t{stroke-width:21}.cam svg.road .l{stroke-width:2.6}
+.cam-st{position:absolute;left:var(--x);top:0;transform:translateX(-50%);width:19%;min-width:120px;background:none;border:0;padding:0;display:grid;justify-items:center;gap:6px;cursor:pointer;font:inherit;color:var(--fg);border-radius:14px}
+.cam-st:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.cam-pin{position:relative;width:52px;height:52px;margin-top:calc(var(--y) - 26px);border-radius:50%;background:#fff;border:3px solid var(--c);box-shadow:0 3px 10px rgba(0,0,0,.18);display:grid;place-items:center;transition:transform .15s ease}
+.cam-pin .ico{width:34px;height:34px}
+svg.ico .f{fill:var(--cl)}
+.cam-pin b{background:var(--c)!important;color:#fff!important}
+.cam-pin b{position:absolute;top:-7px;right:-9px;width:22px;height:22px;border-radius:50%;background:#fff;color:var(--c);font:900 .78rem/22px var(--f-display);text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.cam-lab{font:800 .8rem/1.2 var(--f-display);text-align:center;max-width:170px;padding:3px 9px;border-radius:999px}
+.cam-st:hover .cam-pin{transform:translateY(-3px) scale(1.06)}
+.cam-st[aria-current="true"] .cam-pin{transform:scale(1.14);background:var(--cl0,#fff);box-shadow:0 0 0 4px #fff,0 0 0 7px var(--c),0 6px 16px rgba(0,0,0,.25)}
+.cam-st[aria-current="true"] .cam-lab{background:var(--c);color:#fff}
+.cam-st[aria-current="true"] .cam-lab::before{content:"Estás aquí · ";font-weight:700}
+.cam-end{position:absolute;top:8px;z-index:2;display:grid;justify-items:center;gap:1px;border:0;border-radius:12px;padding:6px 9px;font:900 .7rem var(--f-display);letter-spacing:.1em;color:#fff;box-shadow:0 3px 8px rgba(0,0,0,.2)}
+.cam-end svg{width:20px;height:20px}
+.cam-end small{font:800 .62rem var(--f-display);letter-spacing:.02em;opacity:.95}
+.cam-end.s{left:0;background:var(--green);cursor:pointer;min-width:66px;min-height:48px}
+.cam-end.s:hover,.cam-end.s:focus-visible{filter:brightness(1.1);transform:translateY(-2px)}
+.cam-end.s:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.m-salida{display:none}
+@media (max-width:760px){.m-tog-row{display:flex;gap:8px;align-items:stretch}.m-tog-row .tabs-tog{flex:1}.m-salida{display:block;border:0;border-radius:12px;background:var(--green);color:#fff;font:900 .78rem var(--f-display);letter-spacing:.08em;padding:0 12px;min-height:44px;cursor:pointer}}
+.cam-end.m{right:0;background:#1d2a33;min-width:58px}
+.cam-flag{position:absolute;top:2px;font:900 .64rem var(--f-display);letter-spacing:.12em;color:#fff;border-radius:6px;padding:3px 7px;z-index:1}
+.cam-flag.s{left:0;background:var(--green)}.cam-flag.m{right:0;background:#1d2a33}
+body.is-home nav.tabs{display:none}
+/* carretera grande de Inicio */
+.hr{display:grid;gap:18px}
+.hr-head h2{font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.1;color:var(--tealD);font-weight:900}
+.hr-head p{font-size:1.1rem;margin-top:6px}
+.hr-land{position:relative;height:260px;border-radius:24px;overflow:hidden;background:linear-gradient(180deg,#E3F6F6 0%,#EEF9F8 48%,#F6EEDD 48%,#F3E8D2 100%);border:1px solid var(--line)}
+.hr-land svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.hr-land svg.road{position:absolute;inset:0;width:100%;height:100%}
+.hr-land svg.road .e{stroke-width:60}.hr-land svg.road .a{stroke-width:50}.hr-land svg.road .l{stroke-width:5;stroke-dasharray:24 18}
+.hr-deco{position:absolute;pointer-events:none}
+.hr-pin{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:96px;height:96px;border-radius:50%;background:#fff;border:5px solid var(--c);color:var(--c);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.28);cursor:pointer;transition:transform .15s ease;z-index:2}
+.hr-pin .ico{width:60px;height:60px}
+.hr-pin b{background:var(--c)!important;color:#fff!important}
+.hr-pin b{position:absolute;top:-8px;right:-8px;width:34px;height:34px;border-radius:50%;background:#fff;color:var(--c);font:900 1.1rem/34px var(--f-display);text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.hr-pin:hover,.hr-pin:focus-visible{transform:translate(-50%,-50%) scale(1.08)}
+.hr-pin:focus-visible{outline:4px solid var(--c);outline-offset:4px}
+.hr-sign{position:absolute;z-index:2;display:flex;align-items:center;gap:6px;font:900 .82rem var(--f-display);letter-spacing:.1em;color:#fff;border-radius:10px;padding:7px 12px;box-shadow:0 3px 8px rgba(0,0,0,.18)}
+.hr-sign.s{left:16px;top:16px;background:var(--green)}.hr-sign.m{right:16px;top:16px;background:#1d2a33}
+.hr-sign small{font-weight:800;letter-spacing:0;opacity:.9}
+.hr-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.hr-card{position:relative;display:grid;align-content:start;gap:8px;background:var(--surface);border:2px solid var(--line);border-top:8px solid var(--c);border-radius:16px;padding:0 14px 16px;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+.hr-ill{display:block;margin:0 -14px 4px;height:118px;background:#F6EEDD;border-bottom:1px solid var(--line);cursor:pointer;border:0;padding:0;width:calc(100% + 28px)}
+.hr-ill img{width:100%;height:100%;object-fit:contain;display:block}
+.hr-card .hn{padding-top:2px}
+.hr-card:hover{border-color:var(--c);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.hr-card .hn{display:flex;align-items:center;gap:8px}
+.hr-card .hn i{width:36px;height:36px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font:900 1.05rem var(--f-display);font-style:normal;flex:none}
+.hr-card .hn span{font:800 .72rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hr-card h3{font-size:1.05rem;line-height:1.25;font-weight:900;margin:0}
+.hr-card p{font-size:.92rem;line-height:1.45;margin:0;color:var(--fg)}
+.hr-card .soon{justify-self:start;font:800 .7rem var(--f-display);letter-spacing:.06em;text-transform:uppercase;background:var(--acnL);color:#6b4a00;border-radius:999px;padding:3px 9px}
+.hr-chips{display:flex;flex-wrap:wrap;gap:5px}
+.hr-chips button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 10px;font:700 .8rem inherit;color:var(--fg);cursor:pointer;min-height:32px}
+.hr-chips button:hover{border-color:var(--c);color:var(--c)}
+.hr-go{margin-top:4px;border:0;border-radius:12px;background:var(--c);color:#fff;font:800 .95rem var(--f-display);padding:11px 12px;min-height:46px;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:6px}
+.hr-go:hover{filter:brightness(1.08)}.hr-go:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.hr-tip{font-size:.92rem;color:var(--muted)}
+@media (max-width:1180px){.hr-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){
+ .hr-land{display:none}
+ .hr-ill{height:96px}
+ .hr-cards{grid-template-columns:1fr;gap:0;position:relative;padding:44px 0 44px}
+ .hr-cards::before{content:"";position:absolute;left:24px;top:30px;bottom:30px;width:30px;border-radius:15px;background:#4E6470 repeating-linear-gradient(180deg,transparent 0 10px,#F7D46B 10px 22px,transparent 22px 32px) center/3px 100% no-repeat;box-shadow:0 0 0 3px #fff,0 0 0 4px var(--line)}
+ .hr-cards::after{content:"META";position:absolute;left:4px;bottom:0;font:900 .72rem var(--f-display);letter-spacing:.12em;color:#fff;background:#1d2a33;border-radius:8px;padding:5px 9px}
+ .hr-start{list-style:none;position:absolute;left:4px;top:0;font:900 .72rem var(--f-display);letter-spacing:.12em;color:#fff;background:var(--green);border-radius:8px;padding:5px 9px}
+ .hr-card{margin:10px 0 10px 76px}
+ .hr-card::before{content:attr(data-n);position:absolute;left:-70px;top:14px;width:52px;height:52px;border-radius:50%;background:var(--c);border:4px solid #fff;color:#fff;font:900 1.2rem/44px var(--f-display);text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+}
+@media (min-width:901px){.hr-start{display:none}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hr-land{background:linear-gradient(180deg,#14282c 0 48%,#2a2519 48%)}}
+:root[data-theme="dark"] .hr-land{background:linear-gradient(180deg,#14282c 0 48%,#2a2519 48%)}
+</style>`);
+
+/* barra compacta */
+const XC=[17,33.5,50,66.5,83];const YC=[33,27,35,27,33];const ptsC=[[0,34]].concat(XC.map((x,i)=>[x*10,YC[i]])).concat([[1000,32]]);const DC=curve(ptsC);
+const T=$("#tabs");
+T.innerHTML=`<div class="cam-wrap"><div class="cam" role="group" aria-label="Camino a la inclusión: paradas">
+ <svg class="road" viewBox="0 0 1000 62" preserveAspectRatio="none" aria-hidden="true"><path class="e" d="${DC}"/><path class="a" d="${DC}"/><path class="t" id="camtv" d=""/><path class="l" d="${DC}"/></svg>
+ <button type="button" class="cam-end s" id="camSalida" title="Volver a la salida (inicio)" aria-label="Volver a la salida, pantalla de inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>SALIDA</span><small>Inicio</small></button><span class="cam-end m" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M5 4h14v8H5z" fill="#fff"/><path d="M5 4h3.5v2.7H5zM12 4h3.5v2.7H12zM8.5 6.7H12v2.6H8.5zM15.5 6.7H19v2.6h-3.5zM5 9.3h3.5V12H5zM12 9.3h3.5V12H12z" fill="#1d2a33"/></svg><span>META</span></span>
+ <span class="smk" id="smkc" aria-hidden="true" title="SUMAMOS te acompaña"><img src="${SMK}" alt=""></span>
+ ${PASOS.map((p,i)=>`<button class="cam-st" type="button" data-paso="${p.n}" style="--c:${COLS[i]};--x:${XC[i]}%;--y:${YC[i]}px" aria-label="Parada ${p.n}: ${esc(p.t)}" title="${esc(p.t)}"><span class="cam-pin">${icon(i)}<b>${p.n}</b></span><span class="cam-lab">${esc(INFO[i].s)}</span></button>`).join("")}
+ </div></div><div class="nv-sub" id="nvsub" aria-label="Guías de la parada"></div>`;
+const sub=$("#nvsub");
+const drawSub=t=>{const p=pasoDe(t);if(!p||p.tabs.length<2){sub.innerHTML="";sub.hidden=true;return}sub.hidden=false;
+ sub.innerHTML=`<span class="nv-lab">Parada ${p.n} · elige una guía:</span>${p.tabs.map(k=>`<button class="tab" role="tab" data-tab="${k}" aria-selected="${k===t}">${esc(TABNAME[k])}</button>`).join("")}`;
+ $$(".tab",sub).forEach(b=>b.onclick=()=>show(b.dataset.tab))};
+$$(".cam-st",T).forEach(b=>b.onclick=()=>goPaso(+b.dataset.paso));
+(()=>{const tg=$("#tabsTog");if(tg){tg.insertAdjacentHTML("beforebegin",`<button type="button" class="m-salida" id="mSalida" aria-label="Volver a la salida, pantalla de inicio">SALIDA</button>`);tg.parentElement.classList.add("m-tog-row");$("#mSalida").onclick=()=>{const nv=$("nav.tabs");if(nv)nv.classList.remove("open");show("inicio")}}})();
+$("#camSalida",T).onclick=()=>{const nv=$("nav.tabs");if(nv)nv.classList.remove("open");show("inicio")};
+const tv=$("#camtv");
+const camBox=$(".cam",T),RC=rider($("#smkc",T),camBox,sampler(ptsC));
+const stopX=n=>{const W=camBox.clientWidth||1000;return Math.max(10,XC[n-1]*10-56*1000/W)};
+let lastN=(()=>{try{return +sessionStorage.getItem("sm-paso")||0}catch(e){return 0}})();
+const camWrap=$(".cam-wrap",T);
+const fitCam=()=>{if(!camBox.clientWidth)return;if(lastN){RC.go(stopX(lastN),true);if(camWrap.scrollWidth>camWrap.clientWidth+4){const px=XC[lastN-1]/100*camBox.clientWidth;camWrap.scrollLeft=Math.max(0,px-camWrap.clientWidth/2)}}};
+window.addEventListener("resize",fitCam);if(window.ResizeObserver)new ResizeObserver(fitCam).observe(camBox);
+window.__navUpd=t=>{const p=pasoDe(t);document.body.classList.toggle("is-home",t==="inicio");
+ $$(".cam-st",T).forEach(b=>b.setAttribute("aria-current",p&&+b.dataset.paso===p.n?"true":"false"));
+ tv.setAttribute("d",p?curve(ptsC.slice(0,p.n+1)):"");drawSub(t);
+ if(p){requestAnimationFrame(()=>{if(!camBox.clientWidth){lastN=p.n;try{sessionStorage.setItem("sm-paso",p.n)}catch(e){}return}if(RC.x===null)RC.go(lastN?stopX(lastN):0,true);RC.go(stopX(p.n));lastN=p.n;if(camWrap.scrollWidth>camWrap.clientWidth+4){const px=XC[p.n-1]/100*camBox.clientWidth;camWrap.scrollTo({left:Math.max(0,px-camWrap.clientWidth/2),behavior:"smooth"})}try{sessionStorage.setItem("sm-paso",p.n)}catch(e){}})}
+ const cur=$("#tabsCur");if(cur)cur.textContent=p?`Parada ${p.n} · ${TABNAME[t]}`:"Inicio";updG(t)};
+const h1=$(".brand-txt h1");if(h1){h1.title="Ir al inicio";h1.onclick=()=>show("inicio")}
+
+/* Inicio: solo «Accesible para uno, mejor para todos» y la carretera */
+(()=>{const P=$("#p-inicio");const YH=[176,120,170,118,168];const ptsH=[[0,210]].concat(X.map((x,i)=>[x*10,YH[i]])).concat([[1000,150]]);const DH=curve(ptsH);
+ const tree=(x,y,s)=>`<svg class="hr-deco" style="left:${x}%;top:${y}px;width:${s}px;height:${s*1.3}px" viewBox="0 0 20 26" aria-hidden="true"><path d="M6 19h8l-1.2 6H7.2Z" fill="#E36B4F"/><path d="M10 19C9 13 5 11 3 9c4 0 6 3 7 7 1-5 3-9 7-10-3 3-5 7-7 13Z" fill="#3FAE7A"/></svg>`;
+ const star=(x,y,s,col)=>`<svg class="hr-deco" style="left:${x}%;top:${y}px;width:${s}px;height:${s}px" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 0C11 7 13 9 20 10 13 11 11 13 10 20 9 13 7 11 0 10 7 9 9 7 10 0Z" fill="${col}"/></svg>`;
+ const cloud=(x,y,s)=>`<svg class="hr-deco" style="left:${x}%;top:${y}px;width:${s}px;height:${s*.5}px" viewBox="0 0 40 20" aria-hidden="true"><path d="M8 18h26a6 6 0 0 0 0-12 9 9 0 0 0-17-2A7 7 0 0 0 8 18Z" fill="#fff" opacity=".9"/></svg>`;
+ P.innerHTML=`<section class="hr" aria-labelledby="hrt">
+  <div class="hr-head"><div class="eyebrow">Para el profesorado</div><h2 id="hrt">Accesible para uno, mejor para todos</h2><p class="hr-tip">Cinco paradas, en orden. Toca una parada para entrar.</p></div>
+  <div class="hr-land">
+   <svg class="bg" viewBox="0 0 1000 260" preserveAspectRatio="none" aria-hidden="true"><path d="M0,125 C160,96 320,118 500,104 S820,86 1000,112 L1000,260 L0,260Z" fill="#CDEDEE"/><path d="M0,150 C220,132 420,160 640,140 S900,132 1000,146 L1000,260 L0,260Z" fill="#F3E8D2"/></svg>
+   ${cloud(9,24,70)}${cloud(47,16,56)}${cloud(76,30,64)}${star(30,30,18,"#E8A92E")}${star(64,52,14,"#48C5C7")}${star(88,82,16,"#E8A92E")}${star(14,70,12,"#48C5C7")}${tree(21,205,30)}${tree(41,60,28)}${tree(60,205,28)}${tree(81,60,30)}${tree(96,200,24)}
+   <svg class="road" viewBox="0 0 1000 260" preserveAspectRatio="none" aria-hidden="true"><path class="e" d="${DH}"/><path class="a" d="${DH}"/><path class="l" d="${DH}"/></svg>
+   <span class="hr-sign s">SALIDA <small>· empieza aquí</small></span><span class="hr-sign m">META</span>
+   <span class="smk" id="smkh" aria-hidden="true"><img src="${SMK}" alt=""></span><span class="smk-tip" id="smkt">¡Empezamos!</span>
+   ${PASOS.map((p,i)=>`<button type="button" class="hr-pin" data-paso="${p.n}" style="--c:${COLS[i]};--x:${X[i]}%;--y:${YH[i]}px" aria-label="Parada ${p.n}: ${esc(p.t)}. Entrar">${icon(i)}<b>${p.n}</b></button>`).join("")}
+  </div>
+  <ol class="hr-cards"><li class="hr-start" aria-hidden="true">SALIDA</li>
+   ${PASOS.map((p,i)=>`<li class="hr-card" data-n="${p.n}" style="--c:${COLS[i]}"><button type="button" class="hr-ill" data-paso="${p.n}" tabindex="-1" aria-hidden="true"><img src="${img(ILLK[i])}" alt="" loading="lazy"></button><div class="hn"><i>${p.n}</i><span>Parada ${p.n}</span></div><h3>${esc(p.t)}</h3>${p.pend?`<span class="soon">Próximamente · SUMAMOS DETECTA</span>`:""}<p>${esc(INFO[i].d)}</p>${p.tabs.length>1?`<div class="hr-chips" aria-label="Guías de esta parada">${p.tabs.map(k=>`<button type="button" data-tab="${k}">${esc(TABNAME[k])}</button>`).join("")}</div>`:""}<button type="button" class="hr-go" data-paso="${p.n}">Entrar <span aria-hidden="true">›</span></button></li>`).join("")}
+  </ol></section>`;
+ $$(".hr-pin,.hr-go,.hr-ill",P).forEach(b=>b.onclick=()=>goPaso(+b.dataset.paso));
+ const land=$(".hr-land",P),yH=sampler(ptsH),RH=rider($("#smkh",P),land,yH),tip=$("#smkt",P);
+ const sx=n=>{const W=land.clientWidth||1000;return n?Math.max(40,X[n-1]*10-70*1000/W):45};
+ const tipAt=(n,txt)=>{const W=land.clientWidth||1000;const x=sx(n);tip.style.left=(x/1000*W)+"px";tip.style.top=(yH(x)-70)+"px";tip.textContent=txt};
+ RH.go(sx(0),true);tipAt(0,"¡Empezamos!");
+ $$(".hr-pin,.hr-card",P).forEach(b=>{const n=+b.dataset.paso||+b.dataset.n;const on=()=>{RH.go(sx(n));tipAt(n,`Parada ${n}`)};b.addEventListener("mouseenter",on);b.addEventListener("focusin",on)});
+ window.addEventListener("resize",()=>{RH.refresh()});
+ $$(".hr-chips button",P).forEach(b=>b.onclick=()=>show(b.dataset.tab));
+})();
+
+/* --- ÍNDICE LATERAL (guión) --- */
+const M=$("main.wrap");M.classList.add("with-guion");
+const asideH=()=>{const items=[];
+ const blocksOf=k=>{const G=GD[k];if(!G||!G.blocks)return"";
+  if(G.groups&&G.groups.length>1)return G.groups.map(g=>`<div class="g-grp">${esc(g.t)}</div>`+g.b.map(([bk,bl])=>`<button type="button" class="g-it" data-gt="${k}" data-gb="${bk}">${esc(bl)}</button>`).join("")).join("");
+  return G.blocks.map(b=>`<button type="button" class="g-it" data-gt="${k}" data-gb="${b[0]}">${esc(b[1])}</button>`).join("")};
+ return `<div class="g-h"><div><b>Índice</b><small>Todos los apartados del camino</small></div><button type="button" class="g-close" aria-label="Cerrar índice">✕</button></div>
+ <nav class="g-scroll" aria-label="Índice de apartados"><button type="button" class="g-home" data-gh="1">⌂ Inicio</button>
+ ${PASOS.map((p,i)=>`<details class="g-paso" data-p="${p.n}" style="--c:${COLS[i]}"><summary><i>${p.n}</i><span>${esc(p.t)}</span></summary><div class="g-list">${p.tabs.map(k=>(p.tabs.length>1?`<button type="button" class="g-guide" data-gt="${k}">${esc(TABNAME[k])}</button>`:"")+blocksOf(k)).join("")}</div></details>`).join("")}</nav>`};
+M.insertAdjacentHTML("afterbegin",`<aside class="guion noprint" id="guion">${asideH()}</aside>`);
+document.body.insertAdjacentHTML("beforeend",`<div class="g-back noprint" id="gback"></div><button type="button" class="g-fab noprint" id="gfab" aria-controls="guion">☰ Índice</button>`);
+const GU=$("#guion"),SC=$(".g-scroll",GU);
+const closeG=()=>document.body.classList.remove("guion-open");
+$("#gfab").onclick=()=>document.body.classList.add("guion-open");$("#gback").onclick=closeG;$(".g-close",GU).onclick=closeG;
+$(".g-home",GU).onclick=()=>{closeG();show("inicio")};
+$$(".g-it",GU).forEach(b=>b.onclick=()=>{closeG();S.blk[b.dataset.gt]=b.dataset.gb;show(b.dataset.gt)});
+$$(".g-guide",GU).forEach(b=>b.onclick=()=>{closeG();show(b.dataset.gt)});
+function updG(t){if(!GU)return;t=t||(location.hash.slice(1)||"inicio");const p=pasoDe(t);const bk=S.blk[t]||(GD[t]&&GD[t].blocks&&GD[t].blocks[0]&&GD[t].blocks[0][0]);
+ $(".g-home",GU).setAttribute("aria-current",t==="inicio"?"true":"false");
+ $$(".g-paso",GU).forEach(d=>{const on=p&&+d.dataset.p===p.n;d.classList.toggle("cur",!!on);if(on)d.open=true});
+ let cur=null;$$(".g-it",GU).forEach(b=>{const on=b.dataset.gt===t&&b.dataset.gb===bk;b.setAttribute("aria-current",on?"true":"false");if(on)cur=b});
+ if(cur){const top=cur.offsetTop-SC.offsetTop;if(top<SC.scrollTop+20||top>SC.scrollTop+SC.clientHeight-40)SC.scrollTop=top-SC.clientHeight/3}}
+const _rg3=renderGuide;renderGuide=function(k){_rg3(k);updG(k)};
+/* altura de la barra del camino para el índice fijo */
+const NV=$("nav.tabs");const setH=()=>document.documentElement.style.setProperty("--navh",(NV?NV.offsetHeight:150)+"px");
+setH();window.addEventListener("resize",setH);if(window.ResizeObserver&&NV)new ResizeObserver(setH).observe(NV);
+
+/* --- Inicio: texto del encabezado --- */
+const lead=$("#p-inicio .hero p.lead");if(lead)lead.textContent="Sigue el camino: cinco estaciones, desde conocer a tu alumnado hasta un aula accesible para todos. Pulsa una estación arriba o usa el índice lateral para ir directamente a cualquier apartado.";
+})();
 
 show(location.hash.slice(1)||"inicio",false);
 })();
