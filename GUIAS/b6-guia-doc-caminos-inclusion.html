@@ -2115,6 +2115,194 @@ const PASOS=[
  {n:3,t:"Aplicación de actuaciones generales y medidas ordinarias",c:"Actuaciones y medidas",tabs:["medidas"]},
  {n:4,t:"Solicito intervención de los servicios de orientación",c:"Solicito intervención",tabs:["deriv"]},
  {n:5,t:"Medidas específicas para ACNEAE",c:"Medidas específicas",tabs:["medesp","pap","fichas","comp","adapt"]}];
+
+/* ===== v23 · Parada 5: una sola guía en cuatro secciones de color, con desplegables (ACNEAE · medidas específicas · respuesta por perfil · PAP) ===== */
+(()=>{
+ PASOS[4].tabs=["medesp"];
+ const tn=TABS.find(x=>x[0]==="medesp");if(tn)tn[1]="Medidas específicas para ACNEAE";
+ /* bloque tomado de su guía de origen en el momento de pintarlo (conserva cualquier cambio posterior) */
+ const OLDM=Object.fromEntries((GD.medesp.blocks||[]).map(b=>[b[0],b[2]]));
+ const SRC=(g,k)=>B=>{let f=null;if(g==="medidas")f=OLDM[k];else{const e=((GD[g]||{}).blocks||[]).find(b=>b[0]===k);f=e&&e[2]}if(f)f(B);else B.innerHTML=`<p class="muted">Contenido no disponible.</p>`};
+ const FX=n=>F.find(f=>f.n===n)||{};
+ const chev=`<svg class="p5-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`;
+ /* acordeón exclusivo genérico dentro de un contenedor */
+ const accBind=(B,sel)=>$$(sel,B).forEach(d=>d.addEventListener("toggle",()=>{if(d.open)$$(sel,B).forEach(o=>{if(o!==d)o.open=false})}));
+ const CAT9=[
+  ["Necesidades educativas especiales (NEE)","Arts. 73 a 75","Barreras de acceso, presencia, participación o aprendizaje derivadas de discapacidad o de trastornos graves de conducta, de la comunicación y del lenguaje.",["01","02","03","04","05","06","07","08"],"nee"],
+  ["Retraso madurativo","Art. 71.2","Menores de 5 años que no alcanzan los hitos esperados en varios campos del desarrollo y con quienes aún no cabe una valoración sistemática del funcionamiento intelectual.",["09"],"acn"],
+  ["Trastornos del desarrollo del lenguaje y la comunicación","Art. 71.2","Dificultades persistentes, leves o moderadas, de comprensión o expresión del lenguaje, de la fluidez o de la comunicación social.",["10"],"acn"],
+  ["Trastornos de atención o de aprendizaje","Arts. 71.2 y 79 bis","TDA/H, trastornos de la lectura, la escritura y las matemáticas, TANV y dispraxia, e inteligencia límite.",["11","12","13","14","15"],"acn"],
+  ["Desconocimiento grave de la lengua de aprendizaje","Art. 71.2","Sin competencia mínima en español para seguir las clases.",["16"],"acn"],
+  ["Situación de vulnerabilidad socioeducativa","Arts. 71.2, 80 y 81","Desfase curricular por factores sociales, económicos, culturales, geográficos, étnicos, violencia de género o experiencias adversas en la infancia.",["17"],"acn"],
+  ["Altas capacidades intelectuales","Arts. 76 y 77","Alumnado identificado por orientación según protocolo, que precisa medidas de enriquecimiento, ampliación o flexibilización.",["18"],"acn"],
+  ["Incorporación tardía al sistema educativo","Arts. 78 y 79","Procede de otro país y se incorpora con desfase o sin dominio del español.",["19"],"acn"],
+  ["Condiciones personales o de historia escolar","Art. 71.2","Hospitalización o convalecencia prolongada, absentismo, riesgo de abandono u otras circunstancias no incluidas en las anteriores.",["20"],"acn"]];
+ let P5_PERF=null;
+ const chipP=n=>{const f=FX(n);return`<button type="button" class="p5-chip ${f.type==="NEE"?"nee":"acn"}" data-p5w="${esc(n)}"><b>${esc(n)}</b>${esc(f.title||"")}</button>`};
+ const bindChips=B=>$$("[data-p5w]",B).forEach(b=>b.onclick=()=>{P5_PERF=b.dataset.p5w;S.blk.medesp="perfil";P5_REQ="perfil";renderGuide("medesp")});
+ /* ---------- Sección 1 ---------- */
+ const bAcneae=B=>{B.innerHTML=`<div class="p5-hero"><div class="p5-umb"><div class="o"><b>ACNEAE</b><small>alumnado con necesidad específica de apoyo educativo · art. 71.2</small><div class="i"><b>ACNEE</b><small>necesidades educativas especiales · art. 73</small></div></div></div>
+   <ul class="p5-keys"><li><b>ACNEAE</b> es el paraguas: nueve categorías de alumnado que requiere una atención educativa diferente a la ordinaria.</li><li><b>ACNEE</b> es una de ellas: barreras derivadas de discapacidad o de trastornos graves de conducta, de la comunicación y del lenguaje.</li><li><b>Todo ACNEE es ACNEAE, pero no al revés.</b> La adaptación curricular significativa es solo para el ACNEE.</li></ul></div>
+  <div class="p5-lawbar"><span class="kicker">Marco legal</span><b>Ley Orgánica 2/2006, de 3 de mayo, de Educación (LOE), en la redacción dada por la Ley Orgánica 3/2020, de 29 de diciembre (LOMLOE)</b><span>Título II, capítulo I · artículos 71 a 79 bis</span></div>
+  <div class="p5-mini">
+   <details class="p5-dd"><summary>Leer el artículo 71.2 · quién es ACNEAE${chev}</summary><blockquote>«Corresponde a las Administraciones educativas asegurar los recursos necesarios para que los alumnos y alumnas que requieran una atención educativa diferente a la ordinaria, por presentar necesidades educativas especiales, por retraso madurativo, por trastornos del desarrollo del lenguaje y la comunicación, por trastornos de atención o de aprendizaje, por desconocimiento grave de la lengua de aprendizaje, por encontrarse en situación de vulnerabilidad socioeducativa, por sus altas capacidades intelectuales, por haberse incorporado tarde al sistema educativo o por condiciones personales o de historia escolar, puedan alcanzar el máximo desarrollo posible de sus capacidades personales y, en todo caso, los objetivos establecidos con carácter general para todo el alumnado.»</blockquote></details>
+   <details class="p5-dd"><summary>Leer el artículo 73.1 · quién es ACNEE${chev}</summary><blockquote>«Se entiende por alumnado que presenta necesidades educativas especiales, aquel que afronta barreras que limitan su acceso, presencia, participación o aprendizaje, derivadas de discapacidad o de trastornos graves de conducta, de la comunicación y del lenguaje, por un periodo de su escolarización o a lo largo de toda ella, y que requiere determinados apoyos y atenciones educativas específicas para la consecución de los objetivos de aprendizaje adecuados a su desarrollo.»</blockquote></details>
+  </div>
+  <h4 class="p5-h">Las nueve categorías del artículo 71.2 <small>Pulsa una para ver qué la define y sus perfiles</small></h4>
+  <div class="p5-cats">${CAT9.map((c,i)=>`<details class="p5-cat ${c[4]}"><summary><i>${i+1}</i><span><b>${esc(c[0])}</b><small>LOE · ${esc(c[1])} · ${c[3].length} perfil${c[3].length>1?"es":""}</small></span>${chev}</summary><div><p>${esc(c[2])}</p><div class="p5-chips">${c[3].map(chipP).join("")}</div></div></details>`).join("")}</div>
+  <div class="p5-mini">
+   <details class="p5-dd"><summary>¿Cuándo se atiende? Identificación temprana${chev}</summary><p>La atención integral al ACNEAE se inicia desde el mismo momento en que se identifica la necesidad y se rige por los principios de normalización e inclusión (art. 71.3).</p></details>
+   <details class="p5-dd"><summary>¿Quién identifica a cada alumno o alumna?${chev}</summary><p>El EOEP, mediante evaluación psicopedagógica. Los perfiles de compensación educativa los identifica el profesorado, con asesoramiento del EOEP, sin evaluación psicopedagógica.</p></details>
+   <details class="p5-dd"><summary>Normativa de la Región de Murcia${chev}</summary><p>Decreto 359/2009, de 30 de octubre (respuesta educativa a la diversidad) y Resolución de 20 de noviembre de 2023 (PAP), cuyo Anexo I define los perfiles. Altas capacidades: Resolución de 18 de febrero de 2026.</p></details>
+  </div>`;accBind(B,".p5-cats>details");bindChips(B)};
+ const profAcc=(ns,mode,art)=>`<div class="p5-profs">${ns.map(n=>{const f=FX(n);return`<details class="p5-prof ${f.type==="NEE"?"nee":"acn"}" data-n="${esc(n)}"${P5_PERF===n?" open":""}><summary><span class="tag ${esc(f.type||"")}">${esc(f.type||"")}</span><b>${esc(f.title||"")}</b><small>Perfil ${esc(n)}${art?` · LOE ${esc(art)}`:""}</small>${chev}</summary><div class="p5-pb">${mode==="quien"?profQuien(f):profResp(f)}</div></details>`}).join("")}</div>`;
+ const profQuien=f=>`<p>${esc(f.def||"")}</p><div class="p5-2"><div class="box"><span class="kicker">En el aula puedo observar</span><ul>${(f.obs||[]).map(o=>`<li>${esc(o)}</li>`).join("")}</ul></div><div class="box t"><span class="kicker">¿Desde cuándo PAP?</span><p>${esc(f.pap||"")}</p></div></div>
+  <div class="p5-act"><button type="button" class="btn primary" data-p5w="${esc(f.n)}">Respuesta educativa para este perfil ›</button><button type="button" class="btn" data-p5f="${esc(f.n)}">Orientaciones PAP</button></div>`;
+ const extraLinks=n=>{const L=[];if(FX(n).type==="NEE")L.push(goBtn("Adaptaciones de acceso","medesp","acceso","pgbtn"),goBtn("Apoyos especializados","medesp","apoyos","pgbtn"));if(n==="18")L.push(goBtn("Altas capacidades","medesp","aacc","pgbtn"));if(["16","17","19"].includes(n))L.push(goBtn("Compensación educativa","medesp","comp-perfiles","pgbtn"));if(n==="20")L.push(goBtn("SAD y aulas hospitalarias","medesp","compid","pgbtn"));return L.join("")};
+ const profResp=f=>{const ord=f.chOrd||(f.met||[]).slice(0,3).join(" · ");const espc=f.chEsp||(f.rec||[]).join(" · ");
+  return`<div class="p5-3"><div class="box"><span class="kicker">Qué puedo observar</span><ul>${(f.obs||[]).slice(0,4).map(o=>`<li>${esc(o)}</li>`).join("")}</ul></div><div class="box g"><span class="kicker">Medidas ordinarias · aplicables ya</span><p>${esc(ord)}</p></div><div class="box o"><span class="kicker">Medidas específicas posibles · requieren valoración del EOEP</span><p>${esc(espc)}</p></div></div>
+  <div class="p5-2"><div class="box t"><span class="kicker">¿Adaptación curricular significativa?</span><p>${esc(f.acs||"")}</p></div><div class="box t"><span class="kicker">¿Desde cuándo PAP?</span><p>${esc(f.pap||"")}</p></div></div>
+  <div class="p5-act"><button type="button" class="btn primary" data-p5f="${esc(f.n)}">Orientaciones PAP completas</button><button type="button" class="btn" data-p5a="${esc(f.n)}">Qué adaptaciones permite la norma</button>${extraLinks(f.n)}</div>`};
+ const bindProf=B=>{accBind(B,".p5-prof");$$("[data-p5f]",B).forEach(b=>b.onclick=()=>openFicha(b.dataset.p5f));bindChips(B);
+  $$("[data-p5a]",B).forEach(b=>b.onclick=()=>{S.perfil=b.dataset.p5a;S.blk.medesp="adapt-perfil";P5_REQ="adapt-perfil";renderGuide("medesp")});
+  const o=$(".p5-prof[open]",B);if(o)setTimeout(()=>scrollToEl(o),60);P5_PERF=null};
+ const bNee=B=>{B.innerHTML=`<p class="p5-lead">Ocho perfiles (Anexo I de la Resolución de 20 de noviembre de 2023). Lo que los une no es el diagnóstico, sino las <b>barreras</b> que la discapacidad o el trastorno grave generan en el entorno escolar (LOE, art. 73.1). Pueden llevar adaptaciones de acceso, apoyos especializados y, solo si se cumplen los requisitos, adaptación curricular significativa. Tienen PAP desde el 2.º ciclo de Educación Infantil.</p>`+profAcc(CAT9[0][3],"quien");bindProf(B)};
+ const bOtros=B=>{B.innerHTML=`<p class="p5-lead">Doce perfiles en las ocho categorías restantes del artículo 71.2. <b>No son ACNEE</b>: se adapta cómo se enseña y cómo se evalúa, no los criterios de evaluación.</p>`+CAT9.slice(1).map(c=>c[3].length>1?`<div class="p5-sg"><h5>${esc(c[0])} <small>LOE · ${esc(c[1])}</small></h5>${profAcc(c[3],"quien")}</div>`:`<div class="p5-sg one">${profAcc(c[3],"quien",c[1])}</div>`).join("");bindProf(B)};
+ /* ---------- Sección 2 ---------- */
+ const T2={"c.1":"acs","c.2":"acceso","c.3":"aacc","c.4":"aacc","c.5":"aacc","c.6":"apoyos","c.8":"apoyos","c.9":"apoyos","c.10":"compid","c.11":"compid","c.12":"compid","c.13":"compid","c.19":"compid","c.20":"compid"};
+ const bEsp=B=>{SRC("medidas","esp")(B);$$("p.muted",B).forEach(x=>{if(/Dos requisitos/.test(x.textContent))x.remove()});
+  const h=$(".sechead",B);const intro=`<div class="p5-what"><div><span class="kicker">Qué son</span><p>Medidas para el ACNEAE que no ha obtenido respuesta suficiente con las actuaciones generales y las medidas ordinarias.</p></div><div><span class="kicker">A quién se dirigen</span><p>Solo al ACNEAE identificado. Algunas, solo al ACNEE (ACS, apoyo específico, aula abierta).</p></div><div><span class="kicker">Requisitos</span><p>Agotar antes las ordinarias y, para programas y aulas específicas, autorización de la Consejería (Orden de 4 de junio de 2010, art. 4.5.c). Se recogen en el PAP.</p></div></div><p class="note">Pulsa cualquier medida de las tablas para abrir su apartado.</p>`;
+  if(h)h.insertAdjacentHTML("afterend",intro);else B.insertAdjacentHTML("afterbegin",intro);
+  $$("tr",B).forEach(tr=>{const c=tr.cells&&tr.cells[0]?tr.cells[0].textContent.trim():"";const k=T2[c];if(!k)return;tr.dataset.go="medesp";tr.dataset.blk=k;tr.classList.add("p5-link");tr.title="Abrir el apartado";tr.tabIndex=0;tr.onkeydown=e=>{if(e.key==="Enter")tr.click()}});
+  B.insertAdjacentHTML("beforeend",`<div class="p5-mini"><details class="p5-dd"><summary>Otras medidas del catálogo (c.22)${chev}</summary><p>c.22 · Otras medidas y programas personalizados, previa autorización de la Consejería.</p></details><details class="p5-dd"><summary>Medidas que no se aplican en Infantil y Primaria${chev}</summary><p>c.7 PRONEEP · c.14 aulas taller · c.15 aulas ocupacionales · c.16 refuerzo curricular · c.17 diversificación curricular · c.18 PCPI · c.21 aulas en centros de internamiento.</p></details></div>`)};
+ const bAacc=B=>{SRC("medidas","aacc")(B);$$(".box",B).forEach(x=>{const h=$("h4",x);if(h&&/^Permanencia extraordinaria/.test(h.textContent))x.remove()});const t=$(".sechead h3",B);if(t)t.textContent="Altas capacidades intelectuales: identificación y respuesta"};
+ const bPerm=B=>{const tmp=document.createElement("div");SRC("medidas","aacc")(tmp);const box=[...tmp.querySelectorAll(".box")].find(x=>{const h=x.querySelector("h4");return h&&/^Permanencia extraordinaria/.test(h.textContent)});
+  B.innerHTML=H("Permanencia extraordinaria del ACNEE",pg("med",10),"Medida específica para el alumnado con necesidades educativas especiales en Educación Primaria, con procedimiento propio.")+(box?box.outerHTML:"")};
+ /* ---------- Sección 3 ---------- */
+ const bPerfil=B=>{B.innerHTML=`<p class="p5-lead">Elige el perfil del alumno o alumna. Para cada uno: qué observar, qué medidas ordinarias puedes aplicar ya, qué medidas específicas pueden proceder tras la valoración del EOEP, si cabe adaptación curricular significativa y desde cuándo tiene PAP.</p>
+  <div class="p5-legend"><span class="g">Verde · aplicable ya</span><span class="o">Naranja · requiere valoración del EOEP</span></div>
+  ${CAT9.map(c=>c[3].length>1?`<div class="p5-sg ${c[4]}"><h5>${esc(c[0])} <small>LOE · ${esc(c[1])}</small></h5>${profAcc(c[3],"resp")}</div>`:`<div class="p5-sg one">${profAcc(c[3],"resp",c[1])}</div>`).join("")}
+  <details class="p5-dd p5-full"><summary>Ver la tabla resumen de todos los perfiles${chev}</summary><div class="p5-ch"></div></details>`;
+  bindProf(B);const full=$(".p5-full",B);full.addEventListener("toggle",()=>{const c=$(".p5-ch",full);if(full.open&&!c.childElementCount)SRC("medidas","chuleta")(c)})};
+ /* ---------- Sección 4 ---------- */
+ const bPapIntro=B=>{B.innerHTML=`<div class="p5-what"><div><span class="kicker">¿Qué es?</span><p>El documento de planificación docente que concreta la respuesta educativa para el alumnado con NEAE (Resolución de 20 de noviembre de 2023). Lo elabora el equipo docente, lo coordina el tutor o la tutora y asesora el EOEP. Forma parte del expediente.</p></div><div><span class="kicker">¿Qué no es?</span><p>No es el antiguo PTI, figura extinguida. Tener PAP no significa tener adaptación curricular significativa.</p></div></div>
+  <h4 class="p5-h">¿Para quién?</h4>
+  <div class="p5-3"><div class="box t"><span class="kicker">Infantil (3-5 años)</span><p><b>Solo ACNEE</b>, desde el segundo ciclo.</p></div><div class="box t"><span class="kicker">1.º y 2.º de Primaria</span><p><b>ACNEE</b> y alumnado con <b>desconocimiento grave del español</b>.</p></div><div class="box t"><span class="kicker">3.º a 6.º de Primaria</span><p><b>Todo el alumnado con NEAE.</b> Puede tenerlo antes si así se especifica en su informe psicopedagógico.</p></div></div>
+  <div class="p5-mini"><details class="p5-dd"><summary>Altas capacidades${chev}</summary><p>Todo este alumnado tiene PAP, en cualquier curso, tras su identificación (Resolución de 18 de febrero de 2026, resuelvo cuarto, ap. 4).</p></details><details class="p5-dd"><summary>A mitad de curso${chev}</summary><p>Se redacta tras la identificación, sin esperar al curso siguiente.</p></details></div>
+  <h4 class="p5-h">¿Cuándo? Del aula al PAP</h4>
+  <ol class="p5-time">${[["Detecto","Observación en el aula, evaluación inicial, información de la familia o de otros docentes."],["Aplico y registro","Medidas ordinarias en la programación; anoto qué, desde cuándo y con qué resultado."],["Solicito (Anexo I)","Si no hay respuesta suficiente, el tutor o la tutora cumplimenta la solicitud y la entrega a jefatura de estudios."],["Valoración","Jefatura y orientación valoran la idoneidad: informe (Anexo II) o evaluación psicopedagógica."],["Elaboro el PAP","Si es ACNEAE con PAP, lo coordina el tutor o la tutora con el profesorado y los especialistas; asesora el EOEP."],["Sigo y reviso","El equipo docente lo valora en cada sesión de evaluación y decide su continuidad en la evaluación final."]].map((s,i)=>`<li><i>${i+1}</i><b>${esc(s[0])}</b><span>${esc(s[1])}</span></li>`).join("")}</ol>
+  <div class="p5-mini"><details class="p5-dd"><summary>Plazo de entrega${chev}</summary><p>Con la entrega de las programaciones (referencia del curso: antes del 30 de octubre), en Plumier XXI y en un único archivo.</p></details><details class="p5-dd"><summary>Medidas en cualquier momento del curso${chev}</summary><p>Las medidas de apoyo pueden establecerse en cualquier momento del curso (Decreto 359/2009, art. 10.7).</p></details><details class="p5-dd"><summary>La familia${chev}</summary><p>Participa en las decisiones que afectan a su hijo o hija; el tutor o la tutora le traslada las decisiones del PAP y puede obtener una copia previa solicitud por escrito.</p></details></div>`};
+ const bFichas=B=>{SRC("fichas","buscar")(B);const t=$(".sechead h3",B);if(t)t.textContent="¿Qué observas en el aula?"};
+ const bErr=B=>{SRC("medidas","errores")(B);$$("td",B).forEach(td=>{if(/^LO 2\/2006, de Educación \(mod\. LO 3\/2020\)$/.test(td.textContent.trim()))td.textContent="LO 2/2006, de 3 de mayo, de Educación, en la redacción dada por la LO 3/2020, de 29 de diciembre"})};
+ /* ---------- estructura: [clave, título, resumen, función] ---------- */
+ const groups=[
+  {t:"¿Quiénes son los ACNEAE?",d:"A quién se dirigen las medidas específicas: la LOE y los perfiles.",c:"#C0432F",cl:"#FBEAE6",b:[
+   ["acneae","Qué es ACNEAE y qué es ACNEE","La LOE, las nueve categorías y quién identifica",bAcneae],["nee","Alumnado con NEE (ACNEE)","Ocho perfiles",bNee],["otros","Otros perfiles ACNEAE","Doce perfiles",bOtros]]},
+  {t:"Medidas específicas",d:"Qué son, a quién se dirigen y cuáles son.",c:"#2F6FB0",cl:"#E7F0FA",sep:{acceso:"Adaptaciones de acceso",acs:"Adaptación curricular significativa (ACS)","adapt-tipo":"Tipos de adaptación",apoyos:"Apoyos y otras medidas para el ACNEE"},b:[
+   ["esp","Qué son y cuáles son","Mapa de medidas c.1 a c.22",bEsp],["acceso","Adaptaciones de acceso","Quitar la barrera sin tocar los criterios",SRC("medidas","acceso")],
+   ["acs","Qué es la ACS","Solo ACNEE",SRC("medidas","acs")],["pap-requisitos","¿Cuándo una ACS?","Cuatro requisitos",SRC("pap","requisitos")],["pap-anexo3","Cómo se elabora","Anexo III",SRC("pap","anexo3")],["pap-quienacsi","Quién hace qué","Cada profesional, su parte",SRC("pap","quienacsi")],["pap-promocion","Adaptar no es promocionar","",SRC("pap","promocion")],
+   ["adapt-tipo","Por tipo de adaptación","Acceso, no significativa, significativa, ampliación",SRC("adapt","tipo")],["adapt-perfil","Adaptaciones por perfil","Qué permite la norma en cada perfil",SRC("adapt","perfil")],["adapt-asistente","¿Qué tipo necesita?","Asistente",SRC("adapt","asistente")],["adapt-quiz","¿Es significativa?","Ponte a prueba",SRC("adapt","quiz")],
+   ["apoyos","Apoyos especializados","PT, AL, ATE, fisioterapia y programas",SRC("medidas","apoyos")],["perm","Permanencia extraordinaria","Del ACNEE en Educación Primaria",bPerm]]},
+  {t:"Respuesta educativa por perfil de ACNEAE",d:"Perfil a perfil, altas capacidades y compensación educativa.",c:"#6D4BB0",cl:"#F0EBFA",sep:{perfil:"Perfil a perfil",aacc:"Altas capacidades","comp-perfiles":"Compensación educativa · quién es y cómo trabajar",compid:"Compensación educativa · organización del centro"},b:[
+   ["perfil","Respuesta educativa por perfil","Los veinte perfiles, uno a uno",bPerfil],["aacc","Altas capacidades","Identificación y respuesta",bAacc],
+   ["comp-perfiles","Tres perfiles","Integración tardía, español, desventaja",SRC("comp","perfiles")],["comp-orient","Orientaciones por perfil","Cómo trabajar, evaluar y con la familia",SRC("comp","orient")],["comp-areas","Adaptaciones por área","Con ejemplos de aula",SRC("comp","areas")],["comp-espanol","Aprender español","Fases e interferencias",SRC("comp","espanol")],["comp-casos","Casos prácticos","Ocho situaciones",SRC("comp","casos")],
+   ["compid","Programas, SAD y aulas hospitalarias","c.10 a c.20",SRC("medidas","compid")],["comp-pasos","Procedimiento en 8 pasos","",SRC("comp","pasos")],["comp-calendario","Calendario de dirección","",SRC("comp","calendario")],["comp-escalones","Escalones de respuesta","",SRC("comp","escalones")],["comp-errores","Errores frecuentes","",SRC("comp","errores")]]},
+  {t:"El PAP",d:"Qué es, para quién y cuándo; cómo se elabora y orientaciones por perfil.",c:"#2A8B8D",cl:"#E3F4F4",sep:{"pap-roles":"Guía rápida para elaborar el PAP","fichas-buscar":"Orientaciones PAP por perfiles ACNEAE"},b:[
+   ["pap-intro","Qué es, para quién y cuándo","",bPapIntro],
+   ["pap-roles","Quién hace qué","",SRC("pap","roles")],["pap-proceso","El proceso en seis pasos","De septiembre a junio",SRC("pap","proceso")],["pap-apartados","Apartado por apartado","Anexo II",SRC("pap","apartados")],["pap-anexos","Los anexos","Qué lleva cada alumno",SRC("pap","anexos")],["pap-seguimiento","Seguimiento, familias y custodia","",SRC("pap","seguimiento")],
+   ["fichas-buscar","Orientaciones PAP por perfiles ACNEAE","Buscador de las veinte fichas",bFichas],["comp-generador","Texto de partida · compensación","Generador para el PAP",SRC("comp","generador")],["errores","Errores frecuentes y normativa","",bErr]]}];
+ Object.assign(GD.medesp,{title:"Medidas específicas para el ACNEAE",sub:"A quién se dirigen, cuáles son y cómo se concretan en el PAP",desc:"Cuatro secciones. Pulsa una para desplegarla y abre el apartado que necesites: se abre en su sitio y se cierra al abrir otro.",groups,blocks:groups.flatMap(g=>g.b.map(b=>[b[0],b[1],b[3]]))});
+ /* redirecciones: enlaces y direcciones antiguas llegan a su nuevo sitio */
+ const RD={medesp:{perfiles:"acneae",circuito:"pap-intro",chuleta:"perfil"},pap:{que:"acneae",quien:"pap-intro"},fichas:{},comp:{},adapt:{}};
+ const has=k=>GD.medesp.blocks.some(b=>b[0]===k);
+ const mapK=(t,k)=>{if(t==="medesp")return has(k)?k:(RD.medesp[k]||"acneae");const r=RD[t][k]||(k?`${t}-${k}`:"");return has(r)?r:({pap:"pap-intro",fichas:"fichas-buscar",comp:"comp-perfiles",adapt:"adapt-tipo"})[t]};
+ const OLD=new Set(["pap","fichas","comp","adapt"]);
+ let P5_REQ=null;
+ document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(!b)return;const t=b.dataset.go;if(OLD.has(t)){b.dataset.blk=mapK(t,b.dataset.blk||"");b.dataset.go="medesp"}else if(t==="medesp"&&b.dataset.blk&&!has(b.dataset.blk))b.dataset.blk=mapK("medesp",b.dataset.blk);if(b.dataset.go==="medesp"&&b.dataset.blk)P5_REQ=b.dataset.blk},true);
+ document.addEventListener("click",e=>{const g=e.target.closest('.g-it[data-gt="medesp"]');if(g)P5_REQ=g.dataset.gb;const n=e.target.closest("#p-medesp [data-bn]");if(n){const k=n.dataset.bn;const r=has(k)?k:(["pap","comp","adapt","fichas"].map(t=>`${t}-${k}`).find(has)||RD.medesp[k]);if(r){e.stopImmediatePropagation();e.preventDefault();openItem(r)}}},true);
+ const _sh=show;show=function(t,push){if(OLD.has(t)){S.blk.medesp=mapK(t,S.blk[t]||"");P5_REQ=S.blk.medesp;t="medesp"}return _sh(t,push)};
+ ILL.medesp=ILL.medesp||{};
+ /* ---------- vista con desplegables ---------- */
+ const scrollToEl=el=>{const nv=$("nav.tabs");const h=nv?nv.getBoundingClientRect().height:0;window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-h-12,behavior:"smooth"})};
+ const P=()=>$("#p-medesp");
+ const closeAll=except=>$$(".p5i",P()).forEach(it=>{if(it!==except&&it.classList.contains("open")){it.classList.remove("open");$(".p5i-h",it).setAttribute("aria-expanded","false");const b=$(".p5i-b",it);b.hidden=true;b.innerHTML=""}});
+ const openSec=sec=>{if(!sec)return;$$(".p5s",P()).forEach(s=>{const on=s===sec;s.classList.toggle("open",on);$(".p5s-h",s).setAttribute("aria-expanded",on);$(".p5s-b",s).hidden=!on;if(!on)$$(".p5i.open",s).forEach(it=>closeAll(null))})};
+ function openItem(k,noScroll){const it=$(`.p5i[data-k="${k}"]`,P());if(!it)return;openSec(it.closest(".p5s"));closeAll(it);
+  if(!it.classList.contains("open")){it.classList.add("open");$(".p5i-h",it).setAttribute("aria-expanded","true");const b=$(".p5i-b",it);b.hidden=false;const e=GD.medesp.blocks.find(x=>x[0]===k);const box=document.createElement("div");box.className="p5i-c";b.innerHTML="";b.appendChild(box);
+   try{e[2](box)}catch(err){box.innerHTML=`<p class="muted">No se ha podido cargar este apartado.</p>`}
+   const sec=it.closest(".p5s");const G=groups[+sec.dataset.g];const idx=G.b.findIndex(x=>x[0]===k);const prev=G.b[idx-1],next=G.b[idx+1];
+   b.insertAdjacentHTML("beforeend",`<div class="p5i-f">${prev?`<button type="button" class="btn" data-p5o="${prev[0]}">‹ ${esc(prev[1])}</button>`:"<span></span>"}<button type="button" class="btn" data-p5c="1">Cerrar</button>${next?`<button type="button" class="btn primary" data-p5o="${next[0]}">${esc(next[1])} ›</button>`:"<span></span>"}</div>`);
+   $$("[data-p5o]",b).forEach(x=>x.onclick=()=>openItem(x.dataset.p5o));$("[data-p5c]",b).onclick=()=>{closeAll(null);scrollToEl(it)}}
+  S.blk.medesp=k;try{if(typeof updG==="function")updG("medesp")}catch(e){}
+  if(!noScroll)setTimeout(()=>scrollToEl(it),30)}
+ const renderP5=()=>{const g=GD.medesp,d=DOCS[g.doc];const Pp=P();
+  Pp.innerHTML=`<div class="card ghead"><button class="gcov" data-doc="${g.doc}" data-page="1" aria-label="Leer el documento"><img src="${img(d.img)}" alt=""></button><div class="ghtxt"><div class="eyebrow">Parada 5 · Equipos docentes y tutorías</div><h2>${esc(g.title)}</h2><p class="gsub">${esc(g.sub)}</p><p>${esc(g.desc)}</p><div class="row"><button class="btn primary" data-doc="${g.doc}" data-page="1">Leer la guía de medidas</button>${pdfLink(d.file)}</div></div></div>
+  <div class="p5-acc">${groups.map((G,gi)=>`<section class="p5s" data-g="${gi}" style="--c:${G.c};--cl:${G.cl}"><button type="button" class="p5s-h" aria-expanded="false"><span class="n">${gi+1}</span><span class="t"><small>Sección ${gi+1}</small><b>${esc(G.t)}</b><em>${esc(G.d)}</em></span><span class="cnt">${G.b.length} apartados</span>${chev}</button>
+   <div class="p5s-b" hidden>${G.b.map(([k,l,s],j)=>`${G.sep&&G.sep[k]?`<div class="p5-sep">${esc(G.sep[k])}</div>`:""}<div class="p5i" data-k="${k}"><button type="button" class="p5i-h" aria-expanded="false"><i>${j+1}</i><span><b>${esc(l)}</b>${s?`<small>${esc(s)}</small>`:""}</span>${chev}</button><div class="p5i-b" hidden></div></div>`).join("")}</div></section>`).join("")}</div>`;
+  $$(".p5s-h",Pp).forEach(h=>h.onclick=()=>{const s=h.closest(".p5s");if(s.classList.contains("open")){closeAll(null);s.classList.remove("open");h.setAttribute("aria-expanded","false");$(".p5s-b",s).hidden=true}else{openSec(s);setTimeout(()=>scrollToEl(s),30)}});
+  $$(".p5i-h",Pp).forEach(h=>h.onclick=()=>{const it=h.closest(".p5i");if(it.classList.contains("open")){closeAll(null)}else openItem(it.dataset.k)});
+  const req=P5_REQ;P5_REQ=null;if(req&&has(req))openItem(req);else openSec($(".p5s",Pp))};
+ const _rg=renderGuide;renderGuide=function(k){if(k==="medesp"){renderP5();return}_rg(k)};
+ document.head.insertAdjacentHTML("beforeend",`<style>
+#p-medesp .ghead .gsub{font:800 1.05rem var(--f-display);color:var(--tealD);margin:2px 0 6px}
+.p5-acc{display:grid;gap:12px;margin-top:14px}
+.p5s{border-radius:18px;background:var(--surface);border:1px solid var(--line);border-left:8px solid var(--c);overflow:hidden;box-shadow:0 2px 10px rgba(11,60,62,.05)}
+.p5s-h{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:14px;padding:14px 18px;cursor:pointer;background:var(--surface)}
+.p5s-h:focus-visible{outline:3px solid var(--c);outline-offset:-3px}
+.p5s.open>.p5s-h{background:var(--cl)}
+.p5s-h .n{flex:none;width:42px;height:42px;border-radius:12px;background:var(--c);color:#fff;display:grid;place-items:center;font:900 1.25rem var(--f-display)}
+.p5s-h .t{flex:1;min-width:0;display:grid;gap:1px}.p5s-h small{font:800 .7rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--c)}.p5s-h b{font:900 1.2rem/1.2 var(--f-display);color:var(--fg)}.p5s-h em{font-style:normal;font-size:.88rem;color:var(--muted)}
+.p5s-h .cnt{flex:none;font:800 .78rem var(--f-display);color:var(--c);background:var(--cl);border-radius:999px;padding:4px 10px}
+.p5-chev{flex:none;transition:transform .2s;color:var(--c,var(--tealD))}.open>.p5s-h .p5-chev,.p5i.open>.p5i-h .p5-chev,details[open]>summary .p5-chev{transform:rotate(180deg)}
+.p5s-b{padding:6px 14px 14px;display:grid;gap:6px;background:var(--cl)}
+.p5-sep{font:900 .74rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--c);margin:10px 4px 0}
+.p5i{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.p5i-h{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:12px;padding:11px 14px;cursor:pointer}
+.p5i-h:hover{background:var(--cl)}.p5i-h:focus-visible{outline:3px solid var(--c);outline-offset:-3px}
+.p5i-h i{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--c);color:var(--c);display:grid;place-items:center;font:900 .85rem var(--f-display);font-style:normal}
+.p5i.open>.p5i-h{background:var(--c);color:#fff}.p5i.open>.p5i-h i{background:#fff;border-color:#fff}.p5i.open>.p5i-h .p5-chev,.p5i.open>.p5i-h small{color:#fff}
+.p5i-h span{flex:1;min-width:0;display:grid}.p5i-h b{font:800 1rem var(--f-display)}.p5i-h small{font-size:.8rem;color:var(--muted)}
+.p5i-b{padding:16px;border-top:1px solid var(--line);display:grid;gap:14px}
+.p5i-c{display:grid;gap:14px;min-width:0}
+.p5i-f{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:12px}
+.p5-lead{margin:0;font-size:.98rem;max-width:80ch}
+.p5-hero{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:20px;align-items:center}
+.p5-umb .o{border-radius:22px;background:var(--acnL);border:2px solid var(--acn);padding:14px;text-align:center;display:grid;gap:2px}.p5-umb .o>b{font:900 1.5rem var(--f-display)}.p5-umb small{font-size:.74rem;color:var(--muted)}
+.p5-umb .i{margin:10px auto 0;width:74%;border-radius:16px;background:var(--neeL);border:2px solid var(--nee);padding:10px;display:grid}.p5-umb .i b{font:900 1.15rem var(--f-display);color:var(--nee)}
+.p5-keys{margin:0;padding:0;list-style:none;display:grid;gap:8px}.p5-keys li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:.93rem}
+.p5-lawbar{display:grid;gap:2px;background:var(--tealL);border-radius:14px;padding:10px 14px;border-left:5px solid var(--tealD)}.p5-lawbar b{font:800 .98rem/1.3 var(--f-display);color:var(--tealD)}.p5-lawbar span:last-child{font-size:.85rem;color:var(--muted)}
+.p5-mini{display:grid;gap:6px}
+.p5-dd{border:1px solid var(--line);border-radius:12px;background:var(--surface)}.p5-dd>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;font:800 .92rem var(--f-display);color:var(--tealD)}.p5-dd>summary::-webkit-details-marker{display:none}
+.p5-dd>p,.p5-dd>blockquote,.p5-dd>div{margin:0;padding:0 12px 12px;font-size:.92rem}.p5-dd blockquote{font-style:italic}
+.p5-h{font:900 1.08rem var(--f-display);color:var(--tealD);margin:4px 0 0;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}.p5-h small{font:600 .82rem var(--f-body,inherit);color:var(--muted)}
+.p5-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px;align-items:start}
+.p5-cat{border-radius:14px;border:1px solid var(--line);background:var(--surface);border-left:6px solid var(--acn)}.p5-cat.nee{border-left-color:var(--nee);grid-column:1/-1;background:var(--neeL)}
+.p5-cat>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 12px}.p5-cat>summary::-webkit-details-marker{display:none}
+.p5-cat>summary i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--acn);color:#fff;display:grid;place-items:center;font:900 .82rem var(--f-display);font-style:normal}.p5-cat.nee>summary i{background:var(--nee)}
+.p5-cat>summary span{flex:1;min-width:0;display:grid}.p5-cat b{font:800 .95rem/1.25 var(--f-display)}.p5-cat small{font-size:.76rem;color:var(--muted)}
+.p5-cat>div{padding:0 12px 12px;display:grid;gap:8px}.p5-cat>div p{margin:0;font-size:.9rem}
+.p5-chips{display:flex;flex-wrap:wrap;gap:6px}.p5-chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 11px 5px 5px;font:700 .82rem var(--f-display);cursor:pointer;display:inline-flex;gap:6px;align-items:center;color:var(--fg)}
+.p5-chip b{border-radius:999px;padding:2px 7px;color:#fff;background:var(--acn);font-size:.72rem}.p5-chip.nee b{background:var(--nee)}.p5-chip:hover{border-color:var(--c,var(--teal))}
+.p5-profs{display:grid;gap:6px}
+.p5-prof{border:1px solid var(--line);border-radius:12px;background:var(--surface);border-left:5px solid var(--acn)}.p5-prof.nee{border-left-color:var(--nee)}
+.p5-prof>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 12px}.p5-prof>summary::-webkit-details-marker{display:none}
+.p5-prof>summary b{flex:1;min-width:0;font:800 .96rem var(--f-display)}.p5-prof>summary small{font-size:.76rem;color:var(--muted)}
+.p5-prof[open]>summary{background:var(--cl,var(--tealL));border-radius:12px 12px 0 0}
+.p5-pb{padding:12px;display:grid;gap:10px}.p5-pb>p{margin:0}
+.p5-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.p5-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.p5-2 .box,.p5-3 .box{margin:0}.p5-2 ul,.p5-3 ul{margin:4px 0 0;padding-left:18px;font-size:.88rem}.p5-2 p,.p5-3 p{margin:4px 0 0;font-size:.9rem}
+.p5-act{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.p5-sg{display:grid;gap:6px}.p5-sg.one{margin-top:6px}.p5-sg h5{font:900 .95rem var(--f-display);color:var(--c,var(--tealD));margin:8px 0 0}.p5-sg h5 small{font:700 .76rem var(--f-display);color:var(--muted)}
+.p5-legend{display:flex;gap:8px;flex-wrap:wrap;font:800 .78rem var(--f-display)}.p5-legend span{border-radius:999px;padding:4px 10px}.p5-legend .g{background:var(--greenL)}.p5-legend .o{background:var(--acnL)}
+.p5-what{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.p5-what>div{background:var(--tealL);border-radius:14px;padding:10px 14px}.p5-what p{margin:4px 0 0;font-size:.9rem}
+tr.p5-link{cursor:pointer}tr.p5-link:hover td,tr.p5-link:focus td{background:var(--tealL)}tr.p5-link td:first-child{color:#2F6FB0;text-decoration:underline;font-weight:800}
+.p5-time{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.p5-time li{background:var(--tealL);border-radius:14px;padding:10px;display:grid;gap:3px;align-content:start}.p5-time i{font:900 .85rem var(--f-display);font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--tealD);color:#fff;display:grid;place-items:center}.p5-time b{font-family:var(--f-display)}.p5-time span{font-size:.82rem}
+@media (max-width:1100px){.p5-time{grid-template-columns:repeat(3,minmax(0,1fr))}.p5-3{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.p5-hero,.p5-2,.p5-3{grid-template-columns:1fr}.p5-time{grid-template-columns:1fr 1fr}.p5s-h .cnt{display:none}.p5s-h{padding:12px}.p5i-b{padding:12px}.p5-cats{grid-template-columns:1fr}}
+@media (max-width:480px){.p5-time{grid-template-columns:1fr}.p5s-h em{display:none}}
+</style>`);
+})();
+
 const TABNAME=Object.fromEntries(TABS);
 const pasoDe=t=>PASOS.find(p=>p.tabs.includes(t));
 (()=>{const T=$("#tabs");
