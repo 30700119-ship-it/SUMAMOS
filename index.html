@@ -179,6 +179,199 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
   .bhero .num-badge{font-size:1.4rem;padding:10px 16px}
   .share-block{margin-left:0}
 }
+/* ===== Bloque con minipaneles (v2: ACOGIDA) ===== */
+.block-tile.wide{grid-column:1/-1;cursor:default;min-height:0}
+.block-tile.wide:hover{transform:none;border-color:transparent}
+.wide-head{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:18px;padding:22px 120px 6px 26px;flex-wrap:wrap}
+.wide-head:focus-visible{outline:3px solid #F59E0B;outline-offset:-3px;border-radius:18px}
+.wide-head .bt-name{font-size:1.9rem}
+.wide-head .go{margin-left:auto}
+.wide-head:hover .go{text-decoration:underline}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:16px 26px 26px;align-items:start}
+.mini-d{font-size:.88rem;color:var(--muted);margin:10px 2px 0;line-height:1.45}
+.mini{display:flex;flex-direction:column;background:var(--acc-l);border-radius:18px;padding:18px 18px 14px;border:2px solid transparent;transition:border-color .15s,box-shadow .15s}
+.mini:hover{border-color:var(--acc);box-shadow:0 6px 18px rgba(22,52,59,.10)}
+.mini-top{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
+.mini-top:focus-visible{outline:3px solid #F59E0B;outline-offset:3px;border-radius:12px}
+.mini-ico{width:48px;height:48px;border-radius:14px;background:#fff;color:var(--acc);display:grid;place-items:center;flex:none;box-shadow:0 2px 6px rgba(22,52,59,.08)}
+.mini-ico svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mini-t{font-family:"Quicksand","Nunito",sans-serif;font-weight:700;font-size:1.18rem;line-height:1.2;color:var(--ink)}
+.mini-s{font-size:.86rem;color:var(--acc-d);font-weight:700;margin-top:3px;line-height:1.35}
+.mini-list{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}
+.mini-list a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);background:#fff;border-radius:11px;padding:9px 12px;font-weight:700;font-size:.9rem;line-height:1.3;border:1px solid transparent}
+.mini-list a:hover{border-color:var(--acc);color:var(--acc-d)}
+.mini-list a .dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--doc)}
+.mini-list a.fam .dot{background:var(--fam)}
+.mini-list a .lt{flex:1}
+.mini-list a svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;flex:none;opacity:.55}
+.mini-mom{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--acc-d);margin:10px 2px 0}
+.mini-mom:first-child{margin-top:0}
+.mini-foot{all:unset;box-sizing:border-box;cursor:pointer;margin-top:auto;padding-top:12px;display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--acc-d);font-size:.92rem}
+.mini-foot svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4}
+.mini-foot:hover{text-decoration:underline}
+.mini-foot:focus-visible{outline:3px solid #F59E0B;outline-offset:3px;border-radius:8px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);font-weight:700;padding:0 26px 0}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;background:var(--doc)}
+.legend i.f{background:var(--fam)}
+/* v2b: subbloques como paneles-enlace dentro de la tarjeta del bloque */
+.num-circle{width:72px;height:72px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--acc);color:#fff;font-family:"Quicksand",sans-serif;font-weight:700;font-size:2.2rem;box-shadow:0 0 0 6px var(--acc-l)}
+.wide-head{padding:24px 28px 22px!important;background:linear-gradient(120deg,var(--acc) 0%,var(--acc-dd) 100%);color:#fff;width:100%}
+.wide-head .bt-brand{color:rgba(255,255,255,.85)}
+.wide-head .bt-name{color:#fff}
+.wide-head .bt-sub{color:#fff;opacity:.95}
+.wide-head .go{color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);padding:8px 14px;border-radius:12px}
+.wide-head:hover .go{background:rgba(255,255,255,.3);text-decoration:none}
+.block-tile.wide .bt-band{display:none}
+.block-tile.wide .num-circle{background:#fff;color:var(--acc-d);box-shadow:0 0 0 6px rgba(255,255,255,.28)}
+.subs{display:grid;gap:0}
+.sub{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:8px;padding:24px 24px 22px;min-height:210px;background:var(--sub-bg);border-right:3px solid #fff;transition:filter .15s,box-shadow .15s}
+.sub:last-child{border-right:0}
+.sub:hover{filter:saturate(1.15) brightness(.97);box-shadow:inset 0 -5px 0 var(--acc)}
+.sub:focus-visible{outline:3px solid #F59E0B;outline-offset:-4px}
+.sub-ico{width:56px;height:56px;border-radius:16px;background:var(--sub-ib);color:var(--sub-ink);display:grid;place-items:center;transition:background .15s,color .15s}
+.sub:hover .sub-ico{background:var(--acc);color:#fff}
+.sub-ico svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sub-t{font-family:"Quicksand","Nunito",sans-serif;font-weight:700;font-size:1.3rem;line-height:1.2;color:var(--sub-ink);margin-top:6px}
+.sub-s{font-size:.92rem;color:var(--sub-ink);opacity:.8;line-height:1.45}
+.sub-go{margin-top:auto;padding-top:10px;display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--sub-ink)}
+.sub-go svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;transition:transform .15s}
+.sub:hover .sub-go svg{transform:translateX(4px)}
+@media (max-width:820px){.subs{grid-template-columns:1fr!important}.sub{border-right:0;border-bottom:3px solid #fff;min-height:0}.sub:last-child{border-bottom:0}}
+@media (max-width:640px){.num-circle{width:56px;height:56px;font-size:1.7rem}.wide-head{padding:18px!important}}
+
+.block-tile.colored .ct-head{display:flex;align-items:center;gap:14px;padding:18px 20px;background:linear-gradient(120deg,var(--acc) 0%,var(--acc-dd) 100%);color:#fff}
+.block-tile.colored .ct-head .bt-brand{color:rgba(255,255,255,.85)}
+.block-tile.colored .ct-head .bt-name{color:#fff;font-size:1.45rem}
+.num-circle.sm{width:50px;height:50px;font-size:1.5rem;background:#fff;color:var(--acc-d);box-shadow:0 0 0 5px rgba(255,255,255,.28)}
+.block-tile.colored .bt-body{padding-top:16px}
+
+/* v2c: texto sobre el color del bloque (oscuro en bloques claros como el amarillo) */
+.wide-head,.wide-head .bt-name,.wide-head .bt-sub,.wide-head .go{color:var(--acc-on,#fff)}
+.wide-head .bt-brand{color:var(--acc-on,#fff);opacity:.82}
+.block-tile.colored .ct-head,.block-tile.colored .ct-head .bt-name,.block-tile.colored .ct-head .bt-brand{color:var(--acc-on,#fff)}
+.wide-head .go{background:rgba(255,255,255,.28)}
+.block-tile.wide .num-circle{color:var(--acc-d)}
+.sub:hover .sub-ico{background:#fff;color:var(--sub-ink)}
+.sub:hover{box-shadow:inset 0 -5px 0 var(--sub-ink)}
+.num-badge,.tab[aria-selected="true"]{color:var(--acc-on,#fff)}
+.ptab[aria-selected="true"]{background:var(--sub-bg)!important;border-color:var(--sub-ink)!important;box-shadow:inset 0 0 0 2px var(--sub-ink),var(--shadow)}
+.ptab[aria-selected="true"] .mini-t,.ptab[aria-selected="true"] .mini-s{color:var(--sub-ink)!important}
+.ptab[aria-selected="true"] .mini-ico{background:var(--sub-ib)!important;color:var(--sub-ink)!important}
+.ptab[aria-selected="true"] .n{background:#fff!important;color:var(--sub-ink)!important}
+
+/* v2d: subpaneles con fondo claro; se diferencian por número, etiqueta, letra y recuadro */
+.subs{gap:16px!important;padding:20px 22px 22px;background:#fff}
+.sub{position:relative;overflow:hidden;background:#FFFDF7!important;border:2px solid var(--acc-l)!important;border-radius:20px;padding:22px 22px 20px!important;min-height:230px;box-shadow:none!important;filter:none!important}
+.sub::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--acc)}
+.sub:hover{border-color:var(--acc)!important;background:#fff!important;box-shadow:0 10px 24px rgba(22,52,59,.10)!important;transform:translateY(-2px)}
+.sub{transition:border-color .15s,box-shadow .15s,transform .15s,background .15s}
+.sub-num{position:absolute;right:16px;top:8px;font-family:"Quicksand","Nunito",sans-serif;font-weight:700;font-size:3.6rem;line-height:1;color:transparent;-webkit-text-stroke:2px var(--acc);opacity:.55;letter-spacing:-.02em}
+.sub:hover .sub-num{opacity:.9}
+.sub .sub-ico,.sub:hover .sub-ico{width:52px;height:52px;border-radius:50%;background:var(--acc-l);color:var(--acc-d)}
+.sub-tag{display:inline-block;align-self:flex-start;margin-top:8px;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-d);border-bottom:2px solid var(--acc);padding-bottom:2px}
+.sub .sub-t{color:var(--ink);font-size:1.32rem;margin-top:2px}
+.sub .sub-s{color:var(--muted);opacity:1;font-style:italic}
+.sub .sub-go{color:var(--acc-d);border-top:1px dashed var(--acc);padding-top:12px;margin-top:auto;width:100%}
+@media (max-width:820px){.sub{min-height:0;border-bottom:2px solid var(--acc-l)!important}}
+/* en la pantalla del bloque, los selectores también en claro */
+.ptab{background:#FFFDF7!important;border:2px solid var(--acc-l)!important;position:relative!important;overflow:hidden!important}
+.ptab::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--acc)}
+.ptab .mini-ico{background:var(--acc-l)!important;color:var(--acc-d)!important;border-radius:50%}
+.ptab .mini-t{color:var(--ink)!important}
+.ptab .mini-s{color:var(--muted)!important;font-style:italic}
+.ptab:hover{border-color:var(--acc)!important}
+.ptab[aria-selected="true"]{background:#fff!important;border-color:var(--acc)!important;box-shadow:0 0 0 3px var(--acc-l),var(--shadow)!important}
+.ptab[aria-selected="true"]::before{width:10px}
+.ptab[aria-selected="true"] .mini-ico{background:var(--acc)!important;color:var(--acc-on,#fff)!important}
+.ptab[aria-selected="true"] .mini-t,.ptab[aria-selected="true"] .mini-s{color:var(--ink)!important}
+.ptab[aria-selected="true"] .n,.ptab .n{background:var(--acc-l)!important;color:var(--acc-d)!important}
+
+/* v3: todos los bloques en fila con subpaneles */
+.subs.n1{grid-template-columns:1fr}
+.subs.n2{grid-template-columns:repeat(2,1fr)}
+.subs.n3{grid-template-columns:repeat(3,1fr)}
+.subs.n4{grid-template-columns:repeat(4,1fr)}
+.subs.n5{grid-template-columns:repeat(5,1fr)}
+.subs.n5 .sub{padding:20px 16px 18px 20px!important}
+.subs.n5 .sub-t{font-size:1.12rem}
+.subs.n5 .sub-num{font-size:2.8rem;right:10px}
+.subs.n2 .sub{min-height:200px}
+.sub-go.prep{color:var(--muted);font-weight:700;font-style:italic}
+.ptabs.n2{grid-template-columns:repeat(2,1fr)}
+.ptabs.n5{grid-template-columns:repeat(5,1fr)}
+.ptabs.n5 .ptab{flex-direction:column;align-items:flex-start;text-align:left}
+.ptabs.n5 .ptab .n{margin-left:0}
+@media (max-width:1100px){.subs.n5,.ptabs.n5{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:820px){.subs.n2,.subs.n3,.subs.n4,.subs.n5,.ptabs.n2,.ptabs.n5{grid-template-columns:1fr!important}}
+
+/* v4: segunda pantalla con los colores del bloque y títulos diferenciados */
+#bhero{padding:0;overflow:hidden;background:#fff}
+#bhero .bhero-top{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:26px 28px;background:linear-gradient(120deg,var(--acc) 0%,var(--acc-dd) 100%);color:var(--acc-on,#fff)}
+#bhero .num-circle{background:#fff;color:var(--acc-d);box-shadow:0 0 0 6px rgba(255,255,255,.28)}
+#bhero .bt-brand{color:var(--acc-on,#fff);opacity:.82}
+#bhero h1{color:var(--acc-on,#fff);font-size:clamp(1.8rem,4.5vw,2.5rem)}
+#bhero .bt-sub{color:var(--acc-on,#fff);opacity:.95}
+#bhero .bhero-txt{flex:1;min-width:220px}
+#bhero .share-block{margin-left:auto;background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.5);color:var(--acc-on,#fff)}
+#bhero .share-block:hover{background:rgba(255,255,255,.35)}
+.bhero-desc{padding:16px 28px 20px;color:var(--muted);font-size:1rem;max-width:900px;margin:0}
+#block .sec-title h2{color:var(--acc-d);display:flex;align-items:center;gap:10px}
+#block .sec-title h2::before{content:"";width:6px;height:1.3em;border-radius:3px;background:var(--acc)}
+#block .seg button[aria-pressed="true"]{background:var(--acc-d)!important;color:#fff}
+.mat{padding:0;border-left:0;border:2px solid var(--acc-l);overflow:hidden;gap:0;border-radius:18px}
+.mat:hover{border-color:var(--acc)}
+.mat-head{background:var(--acc-l);padding:16px 18px 14px;border-bottom:3px solid var(--acc);display:flex;flex-direction:column;gap:8px}
+.mat-head h3{font-family:"Quicksand","Nunito",sans-serif;font-weight:700;font-size:1.22rem;line-height:1.25;color:var(--acc-d);letter-spacing:.005em}
+.mat.fam,.mat{border-left:2px solid var(--acc-l)!important}
+.mat:hover{border-color:var(--acc)!important}
+.mat-head .where{color:var(--acc-d)}
+.mat-head .chip{background:#fff}
+.mat-head .chip.tipo{color:var(--acc-d)}
+.mat-body{padding:14px 18px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.mat-lbl{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mat-body p{font-size:.92rem;color:var(--muted);line-height:1.55}
+.mat .btn.primary{background:var(--acc-d);border-color:var(--acc-d);color:#fff}
+.mat .btn.primary:hover{background:var(--acc-dd)}
+.mat .btn:hover{border-color:var(--acc)}
+.momhead{color:var(--acc-d)}
+.momhead::after{background:var(--acc-l)}
+@media (max-width:640px){#bhero .bhero-top{padding:20px}.bhero-desc{padding:14px 20px 18px}#bhero .share-block{margin-left:0}}
+
+/* v5: el subpanel y sus materiales con color propio */
+.grp .sec-title h2,.grp .momhead{color:var(--acc-d)!important}
+.grp .sec-title h2::before{background:var(--acc)!important}
+.grp .momhead::after{background:var(--acc-l)!important}
+.ptab::before{background:var(--acc)!important}
+.ptab{border-color:var(--acc-l)!important}
+.ptab .mini-ico{background:var(--acc-l)!important;color:var(--acc-d)!important}
+.ptab .n{background:var(--acc-l)!important;color:var(--acc-d)!important}
+.ptab[aria-selected="true"]{background:var(--acc-l)!important;border-color:var(--acc)!important;box-shadow:0 0 0 3px var(--acc-l),var(--shadow)!important}
+.ptab[aria-selected="true"] .mini-ico{background:var(--acc)!important;color:#fff!important}
+.ptab[aria-selected="true"] .mini-t{color:var(--acc-dd)!important}
+.ptab[aria-selected="true"] .n{background:#fff!important}
+.mat{border-color:var(--acc-l)!important;border-top:5px solid var(--acc)!important}
+.mat-head{background:var(--acc-l)}
+.mat-head h3{color:var(--acc-dd)!important}
+
+/* Pantalla de bloque: minipaneles como pestañas */
+.ptabs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 4px}
+.ptab{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:12px;align-items:center;background:var(--sub-bg);border:2px solid transparent;border-radius:18px;padding:14px 16px;box-shadow:var(--shadow)}
+.ptab:hover{border-color:var(--acc)}
+.ptab .mini-ico{background:var(--sub-ib);color:var(--sub-ink)}
+.ptab .mini-t,.ptab .mini-s{color:var(--sub-ink)}
+.ptab:focus-visible{outline:3px solid #F59E0B;outline-offset:3px}
+.ptab[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.ptab[aria-selected="true"] .mini-ico{background:rgba(255,255,255,.22);color:#fff;box-shadow:none}
+.ptab[aria-selected="true"] .mini-t,.ptab[aria-selected="true"] .mini-s{color:#fff}
+.ptab .n{margin-left:auto;font-size:.8rem;font-weight:800;background:var(--acc-l);color:var(--acc-d);border-radius:999px;padding:2px 10px;flex:none}
+.ptab[aria-selected="true"] .n{background:rgba(255,255,255,.25);color:#fff}
+.toolbar.pt{justify-content:space-between}
+.tab.all{padding:9px 16px;font-size:.92rem}
+.momhead{display:flex;align-items:center;gap:10px;margin:22px 0 0;font-weight:800;color:var(--acc-d);font-size:.86rem;letter-spacing:.08em;text-transform:uppercase}
+.momhead::after{content:"";flex:1;height:2px;background:var(--acc-l);border-radius:2px}
+@media (max-width:900px){.minis,.ptabs{grid-template-columns:1fr}}
+@media (max-width:640px){.wide-head{padding:18px 70px 4px 18px}.wide-head .go{display:none}.minis{padding:14px 16px 18px}.legend{padding:0 18px}.wide-head .bt-name{font-size:1.5rem}}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -230,6 +423,7 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
     <div class="wrap">
       <button class="back" id="back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Todos los bloques</button>
       <div class="bhero" id="bhero"></div>
+      <div class="ptabs" id="ptabs" role="tablist" aria-label="Apartados del bloque" hidden></div>
       <div class="toolbar">
         <div class="tabs" id="tabs" role="tablist" aria-label="Apartados del bloque"></div>
         <div class="seg" id="audB" role="group" aria-label="Destinatarios">
@@ -275,62 +469,107 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
 const BASE="https://30700119-ship-it.github.io/SUMAMOS/";
 
 const ICONS={
+  protocolo:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/>',
+  guia:'<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7M9 12h5"/>',
+  infantil:'<circle cx="12" cy="6" r="3"/><path d="M8 21v-5l-2-4h12l-2 4v5"/><path d="M10 21h4"/>',
+  primaria:'<path d="M3 10 12 5l9 5-9 5z"/><path d="M7 12.2V17c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.8"/><path d="M21 10v5"/>',
+  alerta:'<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+  lenguaje:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/>',
+  psicomotor:'<circle cx="14" cy="4.5" r="2"/><path d="m6 20 3.5-5 3 2.5V22"/><path d="m8 11 3-3 3 2 3 4"/><path d="M11 8 9.5 14.5"/>',
+  emocion:'<path d="M19.5 12.6 12 20l-7.5-7.4A5 5 0 1 1 12 6a5 5 0 1 1 7.5 6.6z"/>',
+  autonomia:'<path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.4l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15"/>',
+  pantalla:'<rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/>',
+  familia:'<circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M2.5 21v-1.5A5.5 5.5 0 0 1 8 14a5.5 5.5 0 0 1 5.5 5.5V21"/><path d="M14.5 15.3A4 4 0 0 1 21.5 18v3"/>',
+  docente:'<rect x="3" y="3" width="18" height="12" rx="1.5"/><path d="M7 21l3-6M17 21l-3-6"/><path d="M7 8h6M7 11h4"/>',
   acogida:'<path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9.5 21v-6h5v6"/>',
   dia:'<rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/><path d="m9 15.5 2 2 4-4"/>',
   detecta:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v3l2 1.5"/>',
   raices:'<path d="M12 21v-9"/><path d="M12 12C12 8 9 5.5 4.5 5.5 4.5 10 7.5 12 12 12z"/><path d="M12 10c0-3.5 2.5-6 7-6 0 4-2.5 6-7 6z"/><path d="M8 21h8"/>',
   etapa:'<path d="M3 20h5v-5h5v-5h5V5h3"/><path d="m17 2 3 3-3 3"/>',
+  puerta:'<path d="M4 21h16"/><path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17"/><path d="M14 12h.01"/><path d="M10 3v18"/>',
+  mochila:'<path d="M6 9a6 6 0 0 1 12 0v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/><path d="M9 3.5V6M15 3.5V6"/><path d="M9 14h6v4H9z"/>',
+  llegada:'<rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/><path d="M12 13v6M9 16h6"/>',
   caminos:'<path d="M12 22V3"/><path d="M5 5.5h11.5l3 3-3 3H5z"/><path d="M19 13.5H8.5l-3 3 3 3H19z"/>'
 };
 
 const BLOQUES=[
-  {id:"acogida",name:"ACOGIDA",sub:"Acogida y período de adaptación",icon:"acogida",acc:"#2AA7AA",accL:"#DDF4F4",accD:"#1E7D80",
-   desc:"Protocolo completo para construir la confianza familia-escuela desde el primer contacto e iniciar el curso con seguridad.",
-   apartados:["Reunión de junio","Septiembre: período de adaptación","Incorporación durante el curso"],
+  {id:"acogida",name:"ACOGIDA",sub:"Acogida y período de adaptación",icon:"acogida",acc:"#F4BE1A",accL:"#FFF4CC",accD:"#7A5800",accDD:"#E39B00",accOn:"#3B2A00",
+   desc:"",
+   /* v2: minipaneles que se ven ya en la portada. Para añadir un minipanel, copiar una línea. */
+   paneles:[
+     {id:"puertas-abiertas",ap:"Jornadas de Puertas Abiertas",icon:"puerta",tag:"Primer contacto",sub:"Primer encuentro con las familias de nuevo ingreso"},
+     {id:"durante-el-curso",ap:"Protocolo de incorporación durante el curso",icon:"llegada",tag:"En cualquier momento del curso",sub:"Acogida del alumnado que llega con el curso ya iniciado"},
+     {id:"infantil-3-anos",ap:"Incorporación a Educación Infantil 3 años",icon:"mochila",tag:"De junio a septiembre",sub:"De la reunión de junio al período de adaptación de septiembre"}
+   ],
+   apartados:["Jornadas de Puertas Abiertas","Protocolo de incorporación durante el curso","Incorporación a Educación Infantil 3 años"],
    previsto:[]},
   {id:"cada-dia-cuenta",name:"CADA DÍA CUENTA",sub:"Prevención del absentismo",icon:"dia",acc:"#D9822B",accL:"#FBEBD9",accD:"#9A5410",
    desc:"Sensibilizar, asesorar y prevenir desde Educación Infantil: por qué la prevención del absentismo es una obligación de todos y qué hacemos en el centro, en el aula y con las familias a lo largo del curso.",
-   apartados:["Guía del bloque","El centro"],
+   paneles:[
+     {id:"protocolo",ap:"Protocolo de prevención del absentismo en Infantil",icon:"protocolo",tag:"Para el centro",sub:"Base legal, indicadores, plan del centro y secuencia de actuación"},
+     {id:"guia-docente",ap:"Abordar el absentismo desde Infantil a Primaria",icon:"guia",tag:"Guía docente",sub:"Cinco paradas del curso, ficha de indicadores, calculadora de faltas y autoevaluación"}
+   ],
+   apartados:["Protocolo de prevención del absentismo en Infantil","Abordar el absentismo desde Infantil a Primaria"],
    previsto:[["Protocolo de prevención del absentismo en Educación Infantil","Para equipos docentes y equipos directivos"],["Guía para familias: cada día cuenta","Asistencia regular y compromiso escolar"],["Registro trimestral de seguimiento","Seguimiento por tutoría y perfiles de riesgo"]]},
   {id:"detecta",name:"DETECTA",sub:"Detección precoz y seguimiento",icon:"detecta",acc:"#3A7FC1",accL:"#E0ECF8",accD:"#235B92",
    desc:"Sistema de cribado educativo diferenciado por edades y ciclos, con criterios claros de alerta y seguimiento.",
-   apartados:[],
+   paneles:[
+     {id:"infantil",ap:"DETECTA Infantil",icon:"infantil",tag:"3, 4 y 5 años",sub:"Cuestionarios para familias y tutorías de Educación Infantil"},
+     {id:"primaria",ap:"DETECTA Primaria",icon:"primaria",tag:"Por ciclos de 1.º a 6.º",sub:"Protocolos y cuestionarios para cada ciclo de Educación Primaria"},
+     {id:"criterios",ap:"Criterios de alerta y seguimiento",icon:"alerta",tag:"Qué hacer ante cada señal",sub:"Cuándo intervenir, cómo hacer el seguimiento y cuándo avisar al EOEP"}
+   ],
+   apartados:["DETECTA Infantil","DETECTA Primaria","Criterios de alerta y seguimiento"],
    previsto:[["DETECTA Infantil","Cuestionarios para familias y tutorías de 3, 4 y 5 años"],["DETECTA Primaria","Protocolos y cuestionarios por ciclos: 1.º-2.º, 3.º-4.º y 5.º-6.º"],["Criterios de alerta y seguimiento","Qué hacer ante cada señal y cuándo intervenir"]]},
   {id:"raices",name:"RAÍCES DEL DESARROLLO",sub:"Programas de estimulación",icon:"raices",acc:"#4C9A5A",accL:"#E1F2E4",accD:"#2F6B3A",
    desc:"Desarrollo activo de las capacidades clave en Educación Infantil, con una mirada preventiva y coordinada entre escuela y familia.",
-   apartados:[],
+   paneles:[
+     {id:"lenguaje-oral",ap:"Desarrollo del lenguaje oral",icon:"lenguaje",tag:"Comunicación",sub:"Programa de estimulación del lenguaje oral en el aula"},
+     {id:"psicomotricidad",ap:"Desarrollo de la psicomotricidad",icon:"psicomotor",tag:"Movimiento y cuerpo",sub:"Actividades motrices y estrategias de intervención por edades"},
+     {id:"socioemocional",ap:"Desarrollo socioemocional",icon:"emocion",tag:"Emociones y relaciones",sub:"Programa y registro del desarrollo socioemocional"},
+     {id:"autonomia",ap:"Hábitos de autonomía",icon:"autonomia",tag:"Rutinas del día a día",sub:"Comida, aseo, vestido y orden: guías para docentes y familias"},
+     {id:"pantallas",ap:"Uso saludable de pantallas",icon:"pantalla",tag:"Escuela y familia",sub:"Guía para docentes y guía para familias"}
+   ],
+   apartados:["Desarrollo del lenguaje oral","Desarrollo de la psicomotricidad","Desarrollo socioemocional","Hábitos de autonomía","Uso saludable de pantallas"],
    previsto:[["Lenguaje oral y psicomotricidad","Programas de estimulación para el aula"],["Desarrollo socioemocional y hábitos de autonomía","Guías para docentes y familias"],["Uso saludable de pantallas","Guía para docentes y guía para familias"]]},
   {id:"cambio-de-etapa",name:"CAMBIO DE ETAPA",sub:"Transición entre la etapa de Educación Infantil y la de Educación Primaria",icon:"etapa",acc:"#7563B0",accL:"#ECE8F7",accD:"#51428A",
    desc:"Plan de transición coordinado entre la etapa de Educación Infantil y la de Educación Primaria para garantizar un tránsito seguro, inclusivo y sin rupturas.",
-   apartados:[],
+   paneles:[
+     {id:"familias",ap:"Transición Infantil a Primaria: familias",icon:"familia",tag:"Para familias",sub:"Qué cambia al pasar a 1.º y cómo ayudar desde casa"},
+     {id:"docentes",ap:"Transición Infantil a Primaria: docentes",icon:"docente",tag:"Para docentes",sub:"Plan de transición coordinado y traspaso de información"}
+   ],
+   apartados:["Transición Infantil a Primaria: familias","Transición Infantil a Primaria: docentes"],
    previsto:[]},
   {id:"caminos",name:"CAMINO A LA INCLUSIÓN",sub:"Itinerario de respuesta a la diversidad",icon:"caminos",acc:"#C9536A",accL:"#F9E3E8",accD:"#93344A",
    desc:"Cinco paradas para atender a la diversidad: revisar si el aula es accesible para todos, conocer al alumnado, aplicar actuaciones generales y medidas ordinarias, solicitar la intervención del EOEP y dar una respuesta específica al ACNEAE.",
-   apartados:[],
+   paneles:[
+     {id:"docentes",ap:"Camino a la inclusión para docentes",icon:"docente",tag:"Para docentes",sub:"Cinco paradas para atender a la diversidad en el aula"},
+     {id:"familias",ap:"Camino a la inclusión para familias",icon:"familia",tag:"Para familias",sub:"Cómo acompañamos juntos a cada niño y cada niña"}
+   ],
+   apartados:["Camino a la inclusión para docentes","Camino a la inclusión para familias"],
    previsto:[["Aula accesible para todos", "Organización del aula, pautas y materiales visuales"], ["Conozco a mi alumnado (DETECTA)", "Observación y detección inicial del grupo"], ["Aplicación de actuaciones generales y medidas ordinarias", "Actuaciones del centro, medidas del aula y análisis del grupo-clase"], ["Solicito intervención de los servicios de orientación", "El Anexo I paso a paso"], ["Medidas específicas para ACNEAE", "Plan de Actuación Personalizado (PAP) y fichas por necesidad"]]}
 ];
 
-/* bloque | apartado | título | destinatario (docentes/familias) | tipo | descripción | ruta */
+/* bloque | apartado | título | destinatario (docentes/familias) | tipo | descripción | ruta | momento (opcional) */
 const MATERIALES=[
-  ["acogida","Reunión de junio","Jornadas de Puertas Abiertas","docentes","Guía","Cómo preparar y desarrollar las Jornadas de Puertas Abiertas con las familias de nuevo ingreso.","GUIAS/b1-guia-jornadas-puertas-abiertas.html"],
-  ["acogida","Reunión de junio","Guía para familias: período de adaptación","familias","Guía","Lo que conviene saber antes de empezar el cole: cómo será el período de adaptación y cómo acompañar en casa.","GUIAS/b1-guia-fam-adaptacion-junio.html"],
-  ["acogida","Reunión de junio","Programa de retirada del pañal","familias","Programa","Pautas prácticas para que las familias trabajen la retirada del pañal en casa antes de septiembre.","GUIAS/b1-prog-fam-retirada-panal.html"],
-  ["acogida","Reunión de junio","Protocolo de transición del aula de 2 a 3 años","docentes","Protocolo","Coordinación entre el primer ciclo y el aula de 3 años para un paso sin rupturas.","GUIAS/b1-proto-transicion-2a3.html"],
-  ["acogida","Reunión de junio","Traspaso de información 2-3 años","docentes","Cuestionario","Cuestionario de traspaso de información entre docentes del aula de 2 años y el aula de 3 años.","CUESTIONARIOS/b1-cuest-doc-traspaso-2a3.html"],
-  ["acogida","Septiembre: período de adaptación","Guía docente: período de adaptación","docentes","Guía","Organización del período de adaptación de septiembre en el aula de 3 años.","GUIAS/b1-guia-doc-adaptacion-septiembre.html"],
-  ["acogida","Septiembre: período de adaptación","Guía para familias: período de adaptación","familias","Guía","Cómo acompañar a vuestro hijo o hija en sus primeros días de cole.","GUIAS/b1-guia-fam-adaptacion-septiembre.html"],
-  ["acogida","Septiembre: período de adaptación","Entrevista inicial con familias (3 años)","familias","Cuestionario","Entrevista para conocer al niño o la niña y a su familia al comenzar la escolaridad.","CUESTIONARIOS/b1-entrev-fam-3anos.html"],
-  ["acogida","Septiembre: período de adaptación","Entrevista con familias de alumnado ACNEAE (3 años)","familias","Cuestionario","Entrevista inicial para familias de alumnado con necesidad específica de apoyo educativo.","CUESTIONARIOS/b1-entrev-fam-acneae-3anos.html"],
-  ["acogida","Incorporación durante el curso","Protocolo de incorporación durante el curso","docentes","Protocolo","Acogida del alumnado que se incorpora una vez iniciado el curso escolar.","GUIAS/b1-proto-incorporacion-curso.html"],
-  ["cada-dia-cuenta","Guía del bloque","Guía docente: SUMAMOS Cada día cuenta","docentes","Guía","Prevención del absentismo desde Educación Infantil: por qué nos obliga y cinco paradas del curso, con ficha de indicadores de riesgo, calculadora de faltas y autoevaluación del centro.","GUIAS/b2-guia-doc-cada-dia-cuenta.html"],
-  ["cada-dia-cuenta","El centro","Protocolo de prevención del absentismo en Educación Infantil","docentes","Plantilla Word","Documento completo para equipos directivos y tutorías: base legal, indicadores, plan del centro para la PGA, coordinación, secuencia del PRAE, perfiles familiares y ficha de indicadores fotocopiable.","GUIAS/b2-proto-doc-absentismo-infantil.docx"],
-  ["cambio-de-etapa","","Guía para familias: el paso a Primaria","familias","Guía","Qué cambia al pasar a 1.º de Primaria y cómo ayudar desde casa.","GUIAS/b5-guia-fam-transicion.html"],
-  ["cambio-de-etapa","","Entrevista con familias: transición Infantil–Primaria","familias","Cuestionario","Entrevista para recoger la información de la familia antes del cambio de etapa.","CUESTIONARIOS/b5-entrev-fam-transicion.html"],
-  ["cambio-de-etapa","","Guía docente: transición Infantil–Primaria","docentes","Guía","Plan de transición coordinado entre el equipo de Infantil y el de Primaria.","GUIAS/b5-guia-doc-transicion.html"],
-  ["cambio-de-etapa","","Traspaso de información: tutoría de Infantil a Primaria","docentes","Cuestionario","Ficha de traspaso individual de la tutoría de 5 años a la tutoría de 1.º.","CUESTIONARIOS/b5-cuest-tut-traspaso-ei-primaria.html"],
-  ["caminos","","Guía docente: SUMAMOS Camino a la inclusión","docentes","Guía","Itinerario de atención a la diversidad en cinco paradas: aula accesible para todos, conozco a mi alumnado (DETECTA), aplicación de actuaciones generales y medidas ordinarias, solicito intervención de los servicios de orientación y medidas específicas para ACNEAE.","GUIAS/b6-guia-doc-caminos-inclusion.html"],
-  ["caminos","","Anexo I: solicitud de intervención de los servicios de orientación","docentes","Plantilla Word","Modelo editable para solicitar la intervención del orientador/a, PSC o fisioterapeuta del EOEP, una vez aplicadas y registradas las medidas ordinarias.","GUIAS/b6-caminos/doc/anexo-i-solicitud.docx"],
-].map(m=>({b:m[0],ap:m[1],t:m[2],a:m[3],tipo:m[4],d:m[5],url:BASE+m[6]}));
+  ["acogida","Jornadas de Puertas Abiertas","Jornadas de Puertas Abiertas","docentes","Guía","Cómo preparar y desarrollar las Jornadas de Puertas Abiertas con las familias de nuevo ingreso.","GUIAS/b1-guia-jornadas-puertas-abiertas.html"],
+  ["acogida","Incorporación a Educación Infantil 3 años","Guía para familias: período de adaptación","familias","Guía","Lo que conviene saber antes de empezar el cole: cómo será el período de adaptación y cómo acompañar en casa.","GUIAS/b1-guia-fam-adaptacion-junio.html","Antes de empezar: junio"],
+  ["acogida","Incorporación a Educación Infantil 3 años","Programa de retirada del pañal","familias","Programa","Pautas prácticas para que las familias trabajen la retirada del pañal en casa antes de septiembre.","GUIAS/b1-prog-fam-retirada-panal.html","Antes de empezar: junio"],
+  ["acogida","Incorporación a Educación Infantil 3 años","Protocolo de transición del aula de 2 a 3 años","docentes","Protocolo","Coordinación entre el primer ciclo y el aula de 3 años para un paso sin rupturas.","GUIAS/b1-proto-transicion-2a3.html","Antes de empezar: junio"],
+  ["acogida","Incorporación a Educación Infantil 3 años","Traspaso de información 2-3 años","docentes","Cuestionario","Cuestionario de traspaso de información entre docentes del aula de 2 años y el aula de 3 años.","CUESTIONARIOS/b1-cuest-doc-traspaso-2a3.html","Antes de empezar: junio"],
+  ["acogida","Incorporación a Educación Infantil 3 años","Guía docente: período de adaptación","docentes","Guía","Organización del período de adaptación de septiembre en el aula de 3 años.","GUIAS/b1-guia-doc-adaptacion-septiembre.html","Septiembre: período de adaptación"],
+  ["acogida","Incorporación a Educación Infantil 3 años","Guía para familias: período de adaptación","familias","Guía","Cómo acompañar a vuestro hijo o hija en sus primeros días de cole.","GUIAS/b1-guia-fam-adaptacion-septiembre.html","Septiembre: período de adaptación"],
+  ["acogida","Incorporación a Educación Infantil 3 años","Entrevista inicial con familias (3 años)","familias","Cuestionario","Entrevista para conocer al niño o la niña y a su familia al comenzar la escolaridad.","CUESTIONARIOS/b1-entrev-fam-3anos.html","Septiembre: período de adaptación"],
+  ["acogida","Incorporación a Educación Infantil 3 años","Entrevista con familias de alumnado ACNEAE (3 años)","familias","Cuestionario","Entrevista inicial para familias de alumnado con necesidad específica de apoyo educativo.","CUESTIONARIOS/b1-entrev-fam-acneae-3anos.html","Septiembre: período de adaptación"],
+  ["acogida","Protocolo de incorporación durante el curso","Protocolo de incorporación durante el curso","docentes","Protocolo","Acogida del alumnado que se incorpora una vez iniciado el curso escolar.","GUIAS/b1-proto-incorporacion-curso.html"],
+  ["cada-dia-cuenta","Abordar el absentismo desde Infantil a Primaria","Guía docente: abordar el absentismo desde Infantil a Primaria","docentes","Guía","Prevención del absentismo desde Educación Infantil: por qué nos obliga y cinco paradas del curso, con ficha de indicadores de riesgo, calculadora de faltas y autoevaluación del centro.","GUIAS/b2-guia-doc-cada-dia-cuenta.html"],
+  ["cada-dia-cuenta","Protocolo de prevención del absentismo en Infantil","Protocolo de prevención del absentismo en Educación Infantil","docentes","Plantilla Word","Documento completo para equipos directivos y tutorías: base legal, indicadores, plan del centro para la PGA, coordinación, secuencia del PRAE, perfiles familiares y ficha de indicadores fotocopiable.","GUIAS/b2-proto-doc-absentismo-infantil.docx"],
+  ["cambio-de-etapa","Transición Infantil a Primaria: familias","Guía para familias: el paso a Primaria","familias","Guía","Qué cambia al pasar a 1.º de Primaria y cómo ayudar desde casa.","GUIAS/b5-guia-fam-transicion.html"],
+  ["cambio-de-etapa","Transición Infantil a Primaria: familias","Entrevista con familias: transición Infantil–Primaria","familias","Cuestionario","Entrevista para recoger la información de la familia antes del cambio de etapa.","CUESTIONARIOS/b5-entrev-fam-transicion.html"],
+  ["cambio-de-etapa","Transición Infantil a Primaria: docentes","Guía docente: transición Infantil–Primaria","docentes","Guía","Plan de transición coordinado entre el equipo de Infantil y el de Primaria.","GUIAS/b5-guia-doc-transicion.html"],
+  ["cambio-de-etapa","Transición Infantil a Primaria: docentes","Traspaso de información: tutoría de Infantil a Primaria","docentes","Cuestionario","Ficha de traspaso individual de la tutoría de 5 años a la tutoría de 1.º.","CUESTIONARIOS/b5-cuest-tut-traspaso-ei-primaria.html"],
+  ["caminos","Camino a la inclusión para docentes","Guía docente: SUMAMOS Camino a la inclusión","docentes","Guía","Itinerario de atención a la diversidad en cinco paradas: aula accesible para todos, conozco a mi alumnado (DETECTA), aplicación de actuaciones generales y medidas ordinarias, solicito intervención de los servicios de orientación y medidas específicas para ACNEAE.","GUIAS/b6-guia-doc-caminos-inclusion.html"],
+  ["caminos","Camino a la inclusión para docentes","Anexo I: solicitud de intervención de los servicios de orientación","docentes","Plantilla Word","Modelo editable para solicitar la intervención del orientador/a, PSC o fisioterapeuta del EOEP, una vez aplicadas y registradas las medidas ordinarias.","GUIAS/b6-caminos/doc/anexo-i-solicitud.docx"],
+].map(m=>({b:m[0],ap:m[1],t:m[2],a:m[3],tipo:m[4],d:m[5],url:BASE+m[6],mom:m[7]||""}));
 
 /* ===================================================================== */
 const $=s=>document.querySelector(s);
@@ -339,7 +578,7 @@ const norm=s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
 BLOQUES.forEach((b,i)=>b.n=i+1);
 const byId=Object.fromEntries(BLOQUES.map(b=>[b.id,b]));
 const svg=(k,cls)=>`<svg viewBox="0 0 24 24" class="${cls||""}">${ICONS[k]}</svg>`;
-const accStyle=b=>`--acc:${b.acc};--acc-l:${b.accL};--acc-d:${b.accD}`;
+const accStyle=b=>`--acc:${b.acc};--acc-l:${b.accL};--acc-d:${b.accD};--acc-on:${b.accOn||"#fff"};--acc-dd:${b.accDD||tone(b.acc,-.35)}`;
 const matsOf=id=>MATERIALES.filter(m=>m.b===id);
 const AUD={docentes:"Docentes",familias:"Familias"};
 const I={open:'<path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>',
@@ -347,6 +586,37 @@ const I={open:'<path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1
   wa:'<path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/>',
   arrow:'<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>'};
 const ic=k=>`<svg viewBox="0 0 24 24">${I[k]}</svg>`;
+/* mezcla un color con blanco (t=0 color puro, t=1 blanco) o con negro si t<0 */
+function tone(hex,t){const n=parseInt(hex.slice(1),16),c=[n>>16,(n>>8)&255,n&255].map(v=>Math.round(t>=0?v+(255-v)*t:v*(1+t)));return"#"+c.map(v=>v.toString(16).padStart(2,"0")).join("")}
+/* tonos de los subpaneles: de más claro a más intenso, en el mismo color del bloque */
+const SUBTONES=[[.86,.70],[.74,.52],[.60,.30],[.46,.12],[.80,.60]];
+const isDoc=u=>/\.docx?$/i.test(u);
+/* v5: dentro de cada bloque, cada subpanel tiene su propio color, distinto del encabezado */
+const SC={teal:"#1F8A8C",indigo:"#4B57C8",fram:"#C0396B",azul:"#2F6FB5",morado:"#7B4FB0",naranja:"#C9601A",pizarra:"#4A5C6A",verde:"#3C8C4F"};
+const SUBCOL={
+  "acogida":[SC.teal,SC.indigo,SC.fram],
+  "cada-dia-cuenta":[SC.teal,SC.indigo],
+  "detecta":[SC.teal,SC.fram,SC.morado],
+  "raices":[SC.azul,SC.fram,SC.morado,SC.naranja,SC.pizarra],
+  "cambio-de-etapa":[SC.teal,SC.naranja],
+  "caminos":[SC.teal,SC.indigo]
+};
+function subColor(b,ap){const i=(b.paneles||[]).findIndex(p=>p.ap===ap);return i>=0&&SUBCOL[b.id]?SUBCOL[b.id][i]:null}
+const subAcc=c=>c?`--acc:${c};--acc-l:${tone(c,.9)};--acc-d:${tone(c,-.18)};--acc-dd:${tone(c,-.4)};--acc-on:#fff`:"";
+const panelOf=(b,slug)=>(b.paneles||[]).find(p=>p.id===slug);
+/* agrupa una lista de materiales por "momento", respetando el orden de aparición */
+function byMom(list){const g=[];list.forEach(m=>{let x=g.find(y=>y.mom===m.mom);if(!x){x={mom:m.mom,items:[]};g.push(x)}x.items.push(m)});return g}
+function subVars(b,p,i){const [bg,ib]=SUBTONES[i%SUBTONES.length];return `--sub-bg:${p.bg||tone(b.acc,bg)};--sub-ib:${p.ib||tone(b.acc,ib)};--sub-ink:${p.ink||tone(b.acc,-.55)}`}
+function miniPanel(b,p,i){
+  return `<button class="sub" style="${subVars(b,p,i)}" data-go="${b.id}/${p.id}" aria-label="${esc(p.ap)}">
+    <span class="sub-num" aria-hidden="true">${String(i+1).padStart(2,"0")}</span>
+    <span class="sub-ico">${svg(p.icon)}</span>
+    ${p.tag?`<span class="sub-tag">${esc(p.tag)}</span>`:""}
+    <span class="sub-t">${esc(p.ap)}</span>
+    <span class="sub-s">${esc(p.sub)}</span>
+    ${matsOf(b.id).some(m=>m.ap===p.ap)?`<span class="sub-go">Entrar${ic("arrow")}</span>`:`<span class="sub-go prep">En preparación</span>`}
+  </button>`;
+}
 
 function toast(msg){const t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,2200)}
 function copy(text,msg){
@@ -358,15 +628,20 @@ const wa=(t,u)=>"https://wa.me/?text="+encodeURIComponent(t+" · SUMAMOS\n"+u);
 
 function matCard(m,showBlock){
   const b=byId[m.b];
-  return `<article class="mat ${m.a==="familias"?"fam":""}">
-    ${showBlock?`<div class="where">BLOQUE ${b.n} · SUMAMOS ${esc(b.name)}${m.ap?" · "+esc(m.ap):""}</div>`:""}
-    <div class="chips"><span class="chip ${m.a==="familias"?"fam":"doc"}">${AUD[m.a]}</span><span class="chip">${esc(m.tipo)}</span></div>
-    <h3>${esc(m.t)}</h3>
+  return `<article class="mat ${m.a==="familias"?"fam":""}" style="${accStyle(b)};${subAcc(subColor(b,m.ap))}">
+    <div class="mat-head">
+      ${showBlock?`<div class="where">BLOQUE ${b.n} · SUMAMOS ${esc(b.name)}${m.ap?" · "+esc(m.ap):""}</div>`:""}
+      <div class="chips"><span class="chip ${m.a==="familias"?"fam":"doc"}">${AUD[m.a]}</span><span class="chip tipo">${esc(m.tipo)}</span></div>
+      <h3>${esc(m.t)}</h3>
+    </div>
+    <div class="mat-body">
+    <div class="mat-lbl">Qué contiene</div>
     <p>${esc(m.d)}</p>
     <div class="mat-actions">
       ${/\.docx?$/i.test(m.url)?`<a class="btn primary" href="${esc(m.url)}" download>${ic("open")}Descargar Word</a>`:`<a class="btn primary" href="${esc(m.url)}" target="_blank" rel="noopener">${ic("open")}Abrir</a>`}
       <button class="btn" data-copy="${esc(m.url)}">${ic("copy")}Copiar enlace</button>
       <a class="btn" href="${esc(wa(m.t,m.url))}" target="_blank" rel="noopener" aria-label="Compartir por WhatsApp">${ic("wa")}WhatsApp</a>
+    </div>
     </div>
   </article>`;
 }
@@ -378,10 +653,17 @@ function renderBlocks(){
     const foot=ms.length
       ?`<div class="chips"><span class="chip ok">Disponible</span><span class="chip doc">${nd} docentes</span><span class="chip fam">${nf} familias</span></div>`
       :`<div class="chips"><span class="chip wip">En elaboración</span></div>`;
-    return `<button class="block-tile" style="${accStyle(b)}" data-go="${b.id}" aria-label="Bloque ${b.n}. SUMAMOS ${esc(b.name)}: ${esc(b.sub)}">
-      <div class="bt-band"></div><span class="num-badge" aria-hidden="true">${String(b.n).padStart(2,"0")}</span>
+    if(b.paneles) return `<div class="block-tile wide" style="${accStyle(b)};--acc-dd:${b.accDD||tone(b.acc,-.35)}">
+      <div class="bt-band"></div>
+      <button class="wide-head" data-go="${b.id}" aria-label="Bloque ${b.n}. SUMAMOS ${esc(b.name)}">
+        <span class="num-circle" aria-hidden="true">${b.n}</span>
+        <div><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><div class="bt-name">${esc(b.name)}</div><div class="bt-sub">${esc(b.sub)}</div></div>
+        <span class="go">Ver todo el bloque${ic("arrow")}</span></button>
+      <div class="subs n${b.paneles.length}">${b.paneles.map((p,i)=>miniPanel(b,p,i)).join("")}</div>
+    </div>`;
+    return `<button class="block-tile colored" style="${accStyle(b)};--acc-dd:${b.accDD||tone(b.acc,-.35)}" data-go="${b.id}" aria-label="Bloque ${b.n}. SUMAMOS ${esc(b.name)}: ${esc(b.sub)}">
+      <div class="ct-head"><span class="num-circle sm" aria-hidden="true">${b.n}</span><div><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><div class="bt-name">${esc(b.name)}</div></div></div>
       <div class="bt-body">
-        <div class="bt-head"><div class="ico">${svg(b.icon)}</div><div><div class="bt-brand">SUMAMOS</div><div class="bt-name">${esc(b.name)}</div></div></div>
         <div class="bt-sub">${esc(b.sub)}</div>
         <div class="bt-desc">${esc(b.desc)}</div>
         <div class="bt-foot">${foot}<span class="go">Entrar${ic("arrow")}</span></div>
@@ -407,29 +689,41 @@ function renderResults(){
 
 /* ---------- Bloque ---------- */
 let cur=null,tab="__all",bAud="todos";
-function renderBlock(id){
-  const b=byId[id];cur=b;tab="__all";bAud="todos";
+function renderBlock(id,slug){
+  const b=byId[id];cur=b;const sp=panelOf(b,slug);tab=sp?sp.ap:"__all";bAud="todos";
   setSeg("#audB","todos");
   const sec=$("#block");sec.setAttribute("style",accStyle(b));
-  $("#bhero").innerHTML=`<div class="bt-band"></div><span class="num-badge" aria-hidden="true">${String(b.n).padStart(2,"0")}</span><div class="bhero-in">
-      <div class="ico">${svg(b.icon)}</div>
-      <div class="bhero-txt"><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><h1>${esc(b.name)}</h1><div class="bt-sub">${esc(b.sub)}</div><p class="bt-desc">${esc(b.desc)}</p></div>
+  $("#bhero").innerHTML=`<div class="bhero-top">
+      <span class="num-circle" aria-hidden="true">${b.n}</span>
+      <div class="bhero-txt"><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><h1>${esc(b.name)}</h1><div class="bt-sub">${esc(b.sub)}</div></div>
       <button class="btn share-block" data-copy="${esc(location.href.split("#")[0]+"#"+b.id)}" data-msg="Enlace del bloque copiado">${ic("copy")}Copiar enlace del bloque</button>
-    </div>`;
+    </div>${b.desc?`<p class="bhero-desc">${esc(b.desc)}</p>`:""}`;
   $("#others").innerHTML=BLOQUES.filter(o=>o.id!==b.id).map(o=>`<button class="other" style="${accStyle(o)}" data-go="${o.id}"><span class="ico">${svg(o.icon)}</span><span><span class="on">${o.n}.</span> ${esc(o.name)}</span></button>`).join("");
   const has=matsOf(b.id).length>0;
   $(".toolbar").hidden=!has;
+  $(".toolbar").classList.toggle("pt",!!b.paneles);
+  $("#ptabs").hidden=!b.paneles;$("#ptabs").className="ptabs"+(b.paneles?" n"+b.paneles.length:"");
   renderTabs();renderBlockContent();
   document.title="Bloque "+b.n+" · SUMAMOS "+b.name.charAt(0)+b.name.slice(1).toLowerCase()+" | Panel de Materiales";
 }
 function renderTabs(){
   const ms=matsOf(cur.id).filter(m=>bAud==="todos"||m.a===bAud);
+  if(cur.paneles){
+    $("#ptabs").innerHTML=cur.paneles.map((p,i)=>`<button class="ptab" style="${subVars(cur,p,i)};${subAcc(subColor(cur,p.ap))}" role="tab" aria-selected="${p.ap===tab}" data-tab="${esc(p.ap)}"><span class="mini-ico">${svg(p.icon)}</span><span><span class="mini-t" style="display:block">${esc(p.ap)}</span><span class="mini-s" style="display:block">${esc(p.sub)}</span></span>${ms.filter(m=>m.ap===p.ap).length?`<span class="n">${ms.filter(m=>m.ap===p.ap).length}</span>`:`<span class="n" style="font-style:italic;font-weight:700">En preparación</span>`}</button>`).join("");
+    $("#tabs").innerHTML=`<button class="tab all" role="tab" aria-selected="${tab==="__all"}" data-tab="__all">Ver todos los materiales del bloque<span class="n">${ms.length}</span></button>`;
+    return;
+  }
   const aps=cur.apartados.length>1?cur.apartados:[];
   const t=[["__all","Todos los materiales",ms.length]].concat(aps.map(a=>[a,a,ms.filter(m=>m.ap===a).length]));
   $("#tabs").innerHTML=t.map(([k,l,n])=>`<button class="tab" role="tab" aria-selected="${k===tab}" data-tab="${esc(k)}">${esc(l)}<span class="n">${n}</span></button>`).join("");
 }
 function renderBlockContent(){
   const all=matsOf(cur.id);
+  if(tab!=="__all"&&!all.some(m=>m.ap===tab)){
+    const pp=(cur.paneles||[]).find(p=>p.ap===tab);
+    $("#bcontent").innerHTML=`<div class="empty"><span class="chip wip">En preparación</span><h3 style="margin-top:10px">${esc(tab)}</h3><p style="color:var(--muted);margin-top:6px">${pp?esc(pp.sub)+". ":""}El equipo del EOEP está elaborando estos materiales. Aparecerán aquí en cuanto estén disponibles.</p></div>`;
+    return;
+  }
   if(!all.length){
     $("#bcontent").innerHTML=`<div class="empty"><span class="chip wip">En elaboración</span>
       <h3 style="margin-top:10px">Materiales en preparación</h3>
@@ -441,25 +735,27 @@ function renderBlockContent(){
   if(tab==="__all"&&cur.apartados.length>1){
     $("#bcontent").innerHTML=cur.apartados.map(a=>{
       const g=list.filter(m=>m.ap===a);if(!g.length)return"";
-      return `<div class="sec-title" style="margin:24px 0 0"><h2 style="font-size:1.2rem">${esc(a)}</h2><span>${g.length} ${g.length===1?"material":"materiales"}</span></div><div class="mats">${g.map(m=>matCard(m,false)).join("")}</div>`;
+      return `<section class="grp" style="${subAcc(subColor(cur,a))}"><div class="sec-title" style="margin:24px 0 0"><h2 style="font-size:1.2rem">${esc(a)}</h2><span>${g.length} ${g.length===1?"material":"materiales"}</span></div>${momGrid(g)}</section>`;
     }).join("")||`<div class="noresults">No hay materiales para este destinatario en este bloque.</div>`;
   }else{
-    $("#bcontent").innerHTML=list.length?`<div class="mats">${list.map(m=>matCard(m,false)).join("")}</div>`:`<div class="noresults">No hay materiales para este destinatario en este apartado.</div>`;
+    $("#bcontent").innerHTML=list.length?`<section class="grp" style="${subAcc(subColor(cur,tab))}">${momGrid(list)}</section>`:`<div class="noresults">No hay materiales para este destinatario en este apartado.</div>`;
   }
 }
+
+function momGrid(list){return byMom(list).map(g=>(g.mom?`<div class="momhead">${esc(g.mom)}</div>`:"")+`<div class="mats">${g.items.map(m=>matCard(m,false)).join("")}</div>`).join("")}
 
 /* ---------- Navegación ---------- */
 function setSeg(sel,v){document.querySelectorAll(sel+" button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.a===v?"true":"false"))}
 function route(){
-  const id=decodeURIComponent(location.hash.slice(1));
-  if(byId[id]){ $("#home").hidden=true;$("#block").hidden=false;renderBlock(id);window.scrollTo(0,0); }
+  const [id,slug]=decodeURIComponent(location.hash.slice(1)).split("/");
+  if(byId[id]){ $("#home").hidden=true;$("#block").hidden=false;renderBlock(id,slug);window.scrollTo(0,0); }
   else{ $("#block").hidden=true;$("#home").hidden=false;document.title="Panel de Materiales | Proyecto SUMAMOS"; }
 }
 document.addEventListener("click",e=>{
   if(e.target.closest("[data-home]")){$("#back").click();return}
   const g=e.target.closest("[data-go]");if(g){location.hash=g.dataset.go;return}
   const c=e.target.closest("[data-copy]");if(c){copy(c.dataset.copy,c.dataset.msg);return}
-  const t=e.target.closest("[data-tab]");if(t){tab=t.dataset.tab;renderTabs();renderBlockContent();return}
+  const t=e.target.closest("[data-tab]");if(t){tab=t.dataset.tab;const pp=(cur.paneles||[]).find(p=>p.ap===tab);history.replaceState(null,"","#"+cur.id+(pp?"/"+pp.id:""));renderTabs();renderBlockContent();return}
 });
 $("#back").onclick=()=>{location.hash="";history.replaceState(null,"",location.pathname+location.search);route()};
 document.querySelectorAll("#aud button").forEach(b=>b.onclick=()=>{homeAud=b.dataset.a;setSeg("#aud",homeAud);renderResults()});
