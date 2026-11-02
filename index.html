@@ -373,6 +373,134 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
 @media (max-width:640px){.wide-head{padding:18px 70px 4px 18px}.wide-head .go{display:none}.minis{padding:14px 16px 18px}.legend{padding:0 18px}.wide-head .bt-name{font-size:1.5rem}}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== EL CAMINO SUMAMOS (portada) ===== */
+.camino{margin:30px 0 18px;background:#FFF9EF;border:2px solid #F1DFC4;border-radius:24px;padding:20px 18px 18px}
+.cam-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin-bottom:12px}
+.cam-head h2{font-family:"Quicksand","Nunito",sans-serif;font-size:clamp(1.3rem,3vw,1.75rem);color:#1E6466;margin:0;line-height:1.15}
+.cam-suma{margin:0;font-family:"Quicksand","Nunito",sans-serif;font-weight:700;font-size:1rem;color:#33484D}
+.cam-suma span{display:inline-block;border-radius:999px;padding:2px 10px;color:#fff;font-size:.9rem}
+.cam-suma .s1{background:#2A8B8D}.cam-suma .s2{background:#D9822B}.cam-suma .s3{background:#7563B0}
+.cam-suma b{color:#1E6466;letter-spacing:.06em}
+.cam-road{position:relative;padding:4px 0 0}
+.cam-line{position:absolute;left:4%;right:4%;top:34px;height:20px;background:#3E4A52;border-radius:10px}
+.cam-line::after{content:"";position:absolute;left:10px;right:10px;top:8px;border-top:3px dashed #F5C542}
+.cam-stops{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr repeat(6,1fr) 1fr;gap:6px;align-items:start}
+.cam-stop{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.cam-stop .c{position:relative;width:64px;height:64px;border-radius:50%;background:#fff;border:5px solid var(--k);color:var(--kd);display:grid;place-items:center;box-shadow:0 3px 10px rgba(0,0,0,.12);transition:transform .15s}
+.cam-stop .c svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cam-stop .nn{position:absolute;top:-7px;right:-8px;width:24px;height:24px;border-radius:50%;background:var(--k);color:var(--on,#fff);font-weight:800;font-size:.8rem;display:grid;place-items:center;border:2px solid #fff}
+.cam-stop .l{font-family:"Quicksand","Nunito",sans-serif;font-weight:700;font-size:.8rem;line-height:1.15;color:#1C2A2E;background:#fff;border:2px solid var(--k);border-radius:12px;padding:3px 8px;max-width:130px}
+.cam-stop:hover .c,.cam-stop:focus-visible .c{transform:translateY(-3px) scale(1.04)}
+.cam-stop:focus-visible{outline:none}.cam-stop:focus-visible .c{outline:3px solid #F59E0B;outline-offset:3px}
+.cam-start,.cam-end{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.cam-start .c,.cam-end .c{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.cam-start .c{background:conic-gradient(#2A8B8D 0 33%,#D9822B 0 66%,#7563B0 0);border:5px solid #fff}
+.cam-start .c b{width:36px;height:36px;border-radius:50%;background:#fff;color:#1E6466;display:grid;place-items:center;font-size:1.5rem;font-weight:900;line-height:1}
+.cam-end .c{background:#1E6466;border:5px solid #fff;color:#fff}
+.cam-end .c svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cam-start .l,.cam-end .l{font-family:"Quicksand","Nunito",sans-serif;font-weight:700;font-size:.78rem;line-height:1.2;color:#1E6466}
+.cam-hint{margin:12px 0 0;font-size:.88rem;color:#4F6166}
+@media (max-width:820px){
+  .cam-stops{grid-template-columns:repeat(6,1fr)}
+  .cam-start,.cam-end{display:none}
+  .cam-line{top:26px;height:14px;left:6%;right:6%}
+  .cam-line::after{top:5px;border-top-width:2px}
+  .cam-stop .c{width:48px;height:48px;border-width:4px}
+  .cam-stop .c svg{width:20px;height:20px}
+  .cam-stop .nn{width:18px;height:18px;font-size:.62rem;top:-5px;right:-6px}
+  .cam-stop .l{font-size:.62rem;padding:2px 4px;border-width:1px;border-radius:8px;max-width:80px;word-break:normal;hyphens:none;overflow-wrap:normal}
+}
+@media (max-width:640px){
+  .camino{margin:12px 0 10px;padding:10px 8px 8px;border-radius:16px}
+  .cam-head{margin-bottom:6px;gap:4px 8px}
+  .cam-head h2{font-size:1.05rem}
+  .cam-suma{font-size:.78rem}
+  .cam-suma span{font-size:.7rem;padding:1px 7px}
+  .cam-stops{gap:3px}
+  .cam-stop{gap:4px}
+  .cam-stop .c{width:40px;height:40px;border-width:3px}
+  .cam-stop .c svg{width:17px;height:17px}
+  .cam-line{top:22px;height:12px}
+  .cam-stop .l{font-size:.5rem;line-height:1.15;letter-spacing:-.01em;padding:2px 3px}
+  .cam-hint{display:none}
+}
+
+/* ===== MÓVIL (v6): todo el panel de un vistazo ===== */
+@media (max-width:640px){
+  body{font-size:15px}
+  .hero{border-radius:0 0 20px 20px}
+  .hero::after{width:160px;height:160px;right:-60px;top:-60px}
+  .hero-in{padding:10px 12px 26px}
+  .hero .logo-strip{gap:10px;padding:5px 10px;border-radius:12px;margin:0 auto 8px}
+  .hero .logo-strip img{height:22px}
+  .hero .pill{display:none}
+  .hero h1{font-size:1.9rem;margin-top:0;letter-spacing:.05em}
+  .hero .eq{font-size:.95rem;margin-top:0}
+  .hero p.lead{font-size:.82rem;margin-top:2px}
+  .hero-in{padding-bottom:22px!important}
+  .search-card{padding:10px;margin-top:-16px;border-radius:16px}
+  .search-row{gap:8px!important}
+  .search-box{min-width:0}
+  .search-box input{padding:9px 10px 9px 38px;font-size:.92rem;border-radius:12px}
+  .search-box svg{left:12px!important;width:18px!important;height:18px!important}
+  .search-hint{display:none}
+  .seg button{padding:6px 6px!important;font-size:.85rem}
+  #home .sec-title h2{font-size:1.15rem}
+  #home .sec-title span{display:none}
+  /* Los 6 bloques en dos columnas, compactos */
+  .blocks{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .block-tile,.block-tile.wide{grid-column:auto!important;min-height:0!important;border-radius:16px}
+  .block-tile .subs,.block-tile .bt-desc,.block-tile .chips,.block-tile .bt-band{display:none!important}
+  .wide-head,.block-tile.colored .ct-head{flex-direction:row!important;align-items:flex-start!important;gap:8px!important;padding:10px!important;height:100%;min-height:84px;flex-wrap:nowrap!important}
+  .block-tile .num-circle,.block-tile .num-circle.sm{width:28px!important;height:28px!important;font-size:.95rem!important;box-shadow:0 0 0 3px rgba(255,255,255,.3)!important;margin-top:1px}
+  .block-tile .bt-brand{display:none!important}
+  .block-tile .bt-name{font-size:.98rem!important;line-height:1.12!important;word-break:normal;hyphens:auto}
+  .wide-head .bt-sub,.block-tile.colored .bt-sub{font-size:.74rem!important;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:2px}
+  .block-tile.colored .bt-body{padding:8px 12px 10px!important}
+  .block-tile.colored .bt-foot{padding-top:6px;border-top:0}
+  .wide-head .go{display:none!important}
+  /* Pantalla de bloque más compacta */
+  .minihero-in{padding:8px 12px}
+  .mh-brand{font-size:1.15rem!important}
+  .logo-strip.sm img{height:20px!important}
+  #bhero .bhero-top{padding:14px!important;gap:12px!important}
+  #bhero .num-circle{width:44px!important;height:44px!important;font-size:1.3rem!important}
+  #bhero h1{font-size:1.45rem!important}
+  .bhero-desc{padding:10px 14px 12px!important;font-size:.9rem!important}
+  .ptabs{gap:8px!important;margin:12px 0 4px!important}
+  .ptab{padding:10px 12px!important;min-height:0!important}
+  .ptab .mini-ico{width:36px!important;height:36px!important}
+  .ptab .mini-ico svg{width:20px!important;height:20px!important}
+  .ptab .mini-t{font-size:1rem!important}
+  .ptab .mini-s{font-size:.8rem!important}
+  .ptab .sub-num,.ptab .n{font-size:1.6rem!important}
+  .back{margin-top:10px}
+  .mat-head h3{font-size:1.05rem}
+  .minihero-in{flex-wrap:nowrap!important;justify-content:space-between!important;gap:8px!important}
+  .mh-brand span{display:none!important}
+  .back{padding:6px 12px!important;font-size:.88rem!important;margin:10px 0 0!important}
+  #bhero{margin-top:10px!important;border-radius:18px!important}
+  #bhero .bt-brand{font-size:.62rem!important;letter-spacing:.12em!important}
+  #bhero .bt-name,#bhero h1{font-size:1.3rem!important;line-height:1.15!important}
+  #bhero .bt-sub{font-size:.86rem!important;line-height:1.3!important}
+  #bhero .bhero-top button,#bhero .share-block .btn{padding:5px 10px!important;font-size:.8rem!important}
+  #bhero .bhero-top .num-circle{width:44px!important;height:44px!important;font-size:1.3rem!important;box-shadow:0 0 0 4px rgba(255,255,255,.28)!important}
+  .ptab .n{width:34px!important;height:34px!important;font-size:1rem!important}
+  .license{font-size:.72rem!important;line-height:1.45!important;padding:10px 12px!important;border-width:1px!important}
+}
+.cam-head{flex-direction:column!important;align-items:flex-start!important}
+.cam-lema{margin:0;font-size:1rem;line-height:1.45;color:#33484D;max-width:80ch}
+@media (max-width:640px){.cam-lema{font-size:.78rem;line-height:1.35}}
+.cam-words{display:flex!important;flex-wrap:wrap;align-items:center;gap:10px 12px}
+.cam-words .w{display:inline-block;font-family:"Quicksand","Nunito",sans-serif;font-weight:800;font-size:clamp(1.25rem,3.2vw,1.9rem);line-height:1;color:#fff;padding:10px 18px 11px;border-radius:999px;letter-spacing:.02em;box-shadow:0 3px 0 rgba(0,0,0,.12)}
+.cam-words .w1{background:#2A8B8D;transform:rotate(-1.5deg)}
+.cam-words .w2{background:#D9822B;transform:rotate(1deg)}
+.cam-words .w3{background:#7563B0;transform:rotate(-1deg)}
+.cam-words .sep{width:9px;height:9px;border-radius:50%;background:#F5C542;box-shadow:0 0 0 3px #3E4A52}
+.cam-lema{margin-top:4px!important;font-weight:700;color:#1E6466!important}
+@media (max-width:640px){.cam-words{gap:6px}.cam-words .w{font-size:.95rem;padding:6px 10px 7px}.cam-words .sep{width:6px;height:6px;box-shadow:0 0 0 2px #3E4A52}.cam-lema{font-size:.8rem!important}}
+@media (max-width:640px){body .license,body .license *{font-size:11px!important;line-height:1.45!important}body .license{padding:10px 12px!important;border-width:1px!important;margin-top:14px!important}}
 </style>
 </head>
 <body>
@@ -412,7 +540,11 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
         <div class="mats" id="resList"></div>
       </div>
 
-      <div class="sec-title"><h2>Los bloques de SUMAMOS</h2><span>Pulsa un bloque para ver sus materiales</span></div>
+      <section class="camino" aria-label="El camino SUMAMOS">
+      <div class="cam-head"><h2 class="cam-words" aria-label="Prevenir, acompañar, crecer"><span class="w w1">Prevenir</span><span class="sep" aria-hidden="true"></span><span class="w w2">Acompañar</span><span class="sep" aria-hidden="true"></span><span class="w w3">Crecer</span></h2><p class="cam-lema">Prevención y desarrollo integral desde Infantil.</p></div>
+      <div class="cam-road"><div class="cam-line" aria-hidden="true"></div><div class="cam-stops" id="camStops"></div></div>
+      <p class="cam-hint">Seis paradas, de la acogida a la inclusión. Pulsa una parada o una tarjeta para ver sus materiales.</p>
+    </section>
       <div class="blocks" id="blocks"></div>
     </div>
   </section>
@@ -647,7 +779,15 @@ function matCard(m,showBlock){
 }
 
 /* ---------- Inicio ---------- */
+function renderCamino(){
+  const el=document.getElementById("camStops");if(!el)return;
+  const meta='<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>';
+  el.innerHTML=`<div class="cam-start" aria-hidden="true"><span class="c"><b>+</b></span><span class="l">Escuela, familia<br>y EOEP</span></div>`+
+   BLOQUES.map(b=>`<button class="cam-stop" data-go="${b.id}" style="--k:${b.acc};--kd:${b.accD||b.acc};--on:${b.accOn||"#fff"}" aria-label="Parada ${b.n}: ${esc(b.name)}"><span class="c">${svg(b.icon)}<span class="nn">${b.n}</span></span><span class="l">${esc(b.name)}</span></button>`).join("")+
+   `<div class="cam-end" aria-hidden="true"><span class="c"><svg viewBox="0 0 24 24">${meta}</svg></span><span class="l">Desarrollo<br>integral</span></div>`;
+}
 function renderBlocks(){
+  renderCamino();
   $("#blocks").innerHTML=BLOQUES.map(b=>{
     const ms=matsOf(b.id),nd=ms.filter(m=>m.a==="docentes").length,nf=ms.length-nd;
     const foot=ms.length
