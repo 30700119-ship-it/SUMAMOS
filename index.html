@@ -559,6 +559,13 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
 .nh-tag{font-size:.82rem!important;letter-spacing:.1em;text-transform:uppercase;color:#4F6166!important}
 @media (max-width:640px){.nh-what{font-size:.98rem;margin-bottom:6px;letter-spacing:-.005em}.nh-tag{font-size:.55rem!important;letter-spacing:.06em}}
 @media (max-width:360px){.nh-what{font-size:.88rem}}
+
+/* v7d: subtítulo corto en móvil, sin puntos suspensivos */
+.bt-sub .sm{display:none}
+@media (max-width:640px){
+  .bt-sub .sl{display:none}.bt-sub .sm{display:inline}
+  .wide-head .bt-sub,.block-tile.colored .bt-sub{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
+}
 </style>
 </head>
 <body>
@@ -720,7 +727,7 @@ const BLOQUES=[
    ],
    apartados:["Desarrollo del lenguaje oral","Desarrollo de la psicomotricidad","Desarrollo socioemocional","Hábitos de autonomía","Uso saludable de pantallas"],
    previsto:[["Lenguaje oral y psicomotricidad","Programas de estimulación para el aula"],["Desarrollo socioemocional y hábitos de autonomía","Guías para docentes y familias"],["Uso saludable de pantallas","Guía para docentes y guía para familias"]]},
-  {id:"cambio-de-etapa",name:"CAMBIO DE ETAPA",sub:"Transición entre la etapa de Educación Infantil y la de Educación Primaria",icon:"etapa",acc:"#7563B0",accL:"#ECE8F7",accD:"#51428A",
+  {id:"cambio-de-etapa",subM:"Transición de Infantil a Primaria",name:"CAMBIO DE ETAPA",sub:"Transición entre la etapa de Educación Infantil y la de Educación Primaria",icon:"etapa",acc:"#7563B0",accL:"#ECE8F7",accD:"#51428A",
    desc:"Plan de transición coordinado entre la etapa de Educación Infantil y la de Educación Primaria para garantizar un tránsito seguro, inclusivo y sin rupturas.",
    paneles:[
      {id:"familias",ap:"Transición Infantil a Primaria: familias",icon:"familia",tag:"Para familias",sub:"Qué cambia al pasar a 1.º y cómo ayudar desde casa"},
@@ -728,7 +735,7 @@ const BLOQUES=[
    ],
    apartados:["Transición Infantil a Primaria: familias","Transición Infantil a Primaria: docentes"],
    previsto:[]},
-  {id:"caminos",name:"CAMINO A LA INCLUSIÓN",sub:"Itinerario de respuesta a la diversidad",icon:"caminos",acc:"#C9536A",accL:"#F9E3E8",accD:"#93344A",
+  {id:"caminos",subM:"Respuesta a la diversidad",name:"CAMINO A LA INCLUSIÓN",sub:"Itinerario de respuesta a la diversidad",icon:"caminos",acc:"#C9536A",accL:"#F9E3E8",accD:"#93344A",
    desc:"Cinco paradas para atender a la diversidad: revisar si el aula es accesible para todos, conocer al alumnado, aplicar actuaciones generales y medidas ordinarias, solicitar la intervención del EOEP y dar una respuesta específica al ACNEAE.",
    paneles:[
      {id:"docentes",ap:"Camino a la inclusión para docentes",icon:"docente",tag:"Para docentes",sub:"Cinco paradas para atender a la diversidad en el aula"},
@@ -854,14 +861,14 @@ function renderBlocks(){
       <div class="bt-band"></div>
       <button class="wide-head" data-go="${b.id}" aria-label="Bloque ${b.n}. SUMAMOS ${esc(b.name)}">
         <span class="num-circle" aria-hidden="true">${b.n}</span>
-        <div><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><div class="bt-name">${esc(b.name)}</div><div class="bt-sub">${esc(b.sub)}</div></div>
+        <div><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><div class="bt-name">${esc(b.name)}</div><div class="bt-sub">${b.subM?`<span class="sl">${esc(b.sub)}</span><span class="sm">${esc(b.subM)}</span>`:esc(b.sub)}</div></div>
         <span class="go">Ver todo el bloque${ic("arrow")}</span></button>
       <div class="subs n${b.paneles.length}">${b.paneles.map((p,i)=>miniPanel(b,p,i)).join("")}</div>
     </div>`;
     return `<button class="block-tile colored" style="${accStyle(b)};--acc-dd:${b.accDD||tone(b.acc,-.35)}" data-go="${b.id}" aria-label="Bloque ${b.n}. SUMAMOS ${esc(b.name)}: ${esc(b.sub)}">
       <div class="ct-head"><span class="num-circle sm" aria-hidden="true">${b.n}</span><div><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><div class="bt-name">${esc(b.name)}</div></div></div>
       <div class="bt-body">
-        <div class="bt-sub">${esc(b.sub)}</div>
+        <div class="bt-sub">${b.subM?`<span class="sl">${esc(b.sub)}</span><span class="sm">${esc(b.subM)}</span>`:esc(b.sub)}</div>
         <div class="bt-desc">${esc(b.desc)}</div>
         <div class="bt-foot">${foot}<span class="go">Entrar${ic("arrow")}</span></div>
       </div></button>`;
@@ -892,7 +899,7 @@ function renderBlock(id,slug){
   const sec=$("#block");sec.setAttribute("style",accStyle(b));
   $("#bhero").innerHTML=`<div class="bhero-top">
       <span class="num-circle" aria-hidden="true">${b.n}</span>
-      <div class="bhero-txt"><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><h1>${esc(b.name)}</h1><div class="bt-sub">${esc(b.sub)}</div></div>
+      <div class="bhero-txt"><div class="bt-brand">BLOQUE ${b.n} · SUMAMOS</div><h1>${esc(b.name)}</h1><div class="bt-sub">${b.subM?`<span class="sl">${esc(b.sub)}</span><span class="sm">${esc(b.subM)}</span>`:esc(b.sub)}</div></div>
       <button class="btn share-block" data-copy="${esc(location.href.split("#")[0]+"#"+b.id)}" data-msg="Enlace del bloque copiado">${ic("copy")}Copiar enlace del bloque</button>
     </div>${b.desc?`<p class="bhero-desc">${esc(b.desc)}</p>`:""}`;
   $("#others").innerHTML=BLOQUES.filter(o=>o.id!==b.id).map(o=>`<button class="other" style="${accStyle(o)}" data-go="${o.id}"><span class="ico">${svg(o.icon)}</span><span><span class="on">${o.n}.</span> ${esc(o.name)}</span></button>`).join("");
