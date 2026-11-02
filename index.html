@@ -566,6 +566,16 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
   .bt-sub .sl{display:none}.bt-sub .sm{display:inline}
   .wide-head .bt-sub,.block-tile.colored .bt-sub{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
 }
+
+/* v7e: licencia y pie cortos en móvil */
+.lic-short{display:none}
+@media (max-width:640px){
+  .lic-full{display:none}.lic-short{display:inline}
+  body .license{text-align:center;margin-top:12px!important}
+  footer{padding:12px 12px!important}
+  footer .f1{font-size:.72rem!important;letter-spacing:.04em}
+  footer .f2{font-size:.68rem!important;margin-top:3px!important}
+}
 </style>
 </head>
 <body>
@@ -636,19 +646,19 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
   </section>
 
   <div class="wrap">
-    <div class="license">
+    <div class="license"><span class="lic-full">
       <strong>Aviso legal y licencia de uso.</strong>
       © EOEP General Cehegín · Consejería de Educación, Región de Murcia.
       Material del Proyecto SUMAMOS (Escuela+Familia+EOEP) · Innovación educativa Modalidad D · 2025-2027.
       Licencia Creative Commons CC BY-NC-ND 4.0: se permite descargar, usar y difundir sin ánimo de lucro citando la autoría; no se permite modificar ni el uso comercial sin autorización (<a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a>).
       Licencia: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">creativecommons.org/licenses/by-nc-nd/4.0/deed.es</a>
-    </div>
+    </span><span class="lic-short"><strong>© EOEP General Cehegín</strong> · Proyecto SUMAMOS · Licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: uso libre sin ánimo de lucro citando la autoría, sin modificar. <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a></span></div>
   </div>
 </main>
 
 <footer>
-  <div class="f1">PROYECTO SUMAMOS (Escuela+Familia+EOEP) | Consejería de Educación · Región de Murcia</div>
-  <div class="f2">EOEP General Cehegín · Centros participantes: CEIP La Esperanza (Calasparra) · CEIP Germán Teruel Escobar (Moratalla) · CC Jesucristo Aparecido (Moratalla) · CEIP Cervantes (Caravaca de la Cruz) · CEIP Conde Campillos (Cehegín) · <a href="mailto:30700119@murciaeduca.es" style="color:#fff">30700119@murciaeduca.es</a></div>
+  <div class="f1"><span class="lic-full">PROYECTO SUMAMOS (Escuela+Familia+EOEP) | Consejería de Educación · Región de Murcia</span><span class="lic-short">PROYECTO SUMAMOS · Región de Murcia</span></div>
+  <div class="f2"><span class="lic-full">EOEP General Cehegín · Centros participantes: CEIP La Esperanza (Calasparra) · CEIP Germán Teruel Escobar (Moratalla) · CC Jesucristo Aparecido (Moratalla) · CEIP Cervantes (Caravaca de la Cruz) · CEIP Conde Campillos (Cehegín) · <a href="mailto:30700119@murciaeduca.es" style="color:#fff">30700119@murciaeduca.es</a></span><span class="lic-short">EOEP General Cehegín · <a href="mailto:30700119@murciaeduca.es" style="color:#fff">30700119@murciaeduca.es</a></span></div>
 </footer>
 
 <div class="toast" id="toast" hidden role="status"></div>
