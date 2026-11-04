@@ -1694,7 +1694,7 @@ const DV={
   ["no","Mejorable","Se han aplicado varias medidas y no mejora. Necesita evaluación."]]
 };
 const sn3=(id,cur)=>`<div class="sn3" role="group" data-id="${id}">${[["si","SÍ"],["proc","EN PROCESO"],["no","NO"]].map(([v,t])=>`<button type="button" data-v="${v}" aria-pressed="${cur===v}">${t}</button>`).join("")}</div>`;
-function docxDl(){const k="doc/anexo-i-solicitud.docx";if(!EMBED){const a=document.createElement("a");a.href="b6-caminos/doc/anexo-i-solicitud.docx";a.download="ANEXO I - Solicitud de intervención EOEP Cehegín.docx";document.body.appendChild(a);a.click();a.remove();return}if(!FILES[k])return;const b=atob(FILES[k]);const u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([u],{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"}));a.download="ANEXO I - Solicitud de intervención EOEP Cehegín.docx";document.body.appendChild(a);a.click();a.remove()}
+function docxDl(){const k="doc/anexo-i-solicitud.docx";if(!EMBED&&location.protocol==="file:"&&window.__axBlank){window.__axBlank();return}if(!EMBED){const a=document.createElement("a");a.href="b6-caminos/doc/anexo-i-solicitud.docx";a.download="ANEXO I - Solicitud de intervención EOEP Cehegín.docx";document.body.appendChild(a);a.click();a.remove();return}if(!FILES[k])return;const b=atob(FILES[k]);const u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([u],{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"}));a.download="ANEXO I - Solicitud de intervención EOEP Cehegín.docx";document.body.appendChild(a);a.click();a.remove()}
 document.addEventListener("click",e=>{if(e.target.closest("[data-docx]"))docxDl()});
 const anxBtns=(cls)=>`<div class="row"><button class="btn ${cls||"primary"}" data-docx="1" type="button">Descargar el Anexo I (Word)</button><button class="btn" data-doc="anx" data-page="1">Ver el Anexo I</button></div>`;
 /* v8: asistente del apartado 6 del Anexo I (sigue el modelo del Anexo I) */
@@ -3589,6 +3589,7 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .ax-m6.only tr.off{display:none}
 .ax-link{border:0;background:none;padding:0;font:inherit;color:var(--tealD);text-decoration:underline;cursor:pointer}
 .ax-act{display:block;width:100%;margin-top:6px;min-height:52px;font:inherit;font-size:.84rem;border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+.ax-dl{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;padding:12px 14px;border:2px solid var(--tealD,#2a9fa1);border-radius:12px;background:#fff}.ax-dl-t{display:flex;flex-direction:column;gap:2px}.ax-dl-t span{font-size:.85rem;opacity:.8}.ax-dl-b{display:flex;flex-wrap:wrap;gap:8px}@media(max-width:600px){.ax-dl-b,.ax-dl-b .btn{width:100%}}
 .ax-priv{font-size:.85rem;background:var(--acnL);border-radius:10px;padding:10px 12px}
 .ax-miss{display:grid;gap:4px;margin:0;padding-left:18px}
 .ax-miss a{cursor:pointer;color:var(--tealD);text-decoration:underline}
@@ -3611,7 +3612,7 @@ let M6N=0;const m6Html=()=>{M6N=syncP2();const A=store.get("eoep-analisis-grupo"
 const finHtml=()=>{const M=missing();return`${fld(["Fecha de la solicitud","fecha_sol","date"])}
  <p class="muted">El apartado 9 (fecha de recepción y firmas del servicio de orientación y del equipo directivo) se cumplimenta al recibir la solicitud. Recuerda firmar el apartado 8 y entregar el Anexo I a la jefatura de estudios (Resolución de 30 de mayo de 2024, resuelvo quinto, apartado 2).</p>
  <div class="${M.length?"result warn":"result nos"}"><h4>${M.length?`${M.length>1?"Faltan":"Falta"} ${M.length} dato${M.length>1?"s":""} para completar el Anexo I`:"El Anexo I está completo"}</h4>${M.length?`<ul class="ax-miss">${M.slice(0,14).map(m=>`<li><a data-gost="${m[0]}">${esc(m[1])}</a></li>`).join("")}</ul><p class="muted">Puedes descargarlo igualmente y completarlo en Word.</p>`:`<p>Descárgalo, revísalo, fírmalo y entrégalo a la jefatura de estudios.</p>`}</div>
- <div class="row"><button type="button" class="btn primary" id="axInf">Descargar el informe de solicitud (Word)</button><button type="button" class="btn" id="axInfPdf">Ver, imprimir o guardar en PDF</button><button type="button" class="btn" id="axClear">Borrar los datos de este alumno</button></div><p class="muted" style="font-size:.85rem">El informe recoge los apartados 1 a 9 del Anexo I. En el apartado 6 solo aparecen las actuaciones y medidas marcadas, con sus actividades y evidencias. ¿Necesitas el modelo Word anterior del equipo? <button type="button" class="ax-link" id="axDocx">Descargar el Anexo I en el modelo Word</button>.</p><p class="muted" id="axClearMsg" hidden></p>`};
+ <div class="row"><button type="button" class="btn primary" id="axInf">Descargar el informe de solicitud (Word)</button><button type="button" class="btn" id="axDocxFin">Descargar nuestra hoja de derivación (Word)</button><button type="button" class="btn" id="axInfPdf">Ver, imprimir o guardar en PDF</button><button type="button" class="btn" id="axClear">Borrar los datos de este alumno</button></div><p class="muted" style="font-size:.85rem">El informe recoge los apartados 1 a 9 del Anexo I. En el apartado 6 solo aparecen las actuaciones y medidas marcadas, con sus actividades y evidencias. ¿Necesitas el modelo Word anterior del equipo? <button type="button" class="ax-link" id="axDocx">Descargar el Anexo I en el modelo Word</button>.</p><p class="muted" id="axClearMsg" hidden></p>`};
 const stepHtml=s=>{let h="";
  if(s.f)h+=`<div class="ax-grid">${s.f.map(f=>fld(f)).join("")}</div>`;
  if(s.blocks)h+=s.blocks.map(b=>{if(b[1]==="abs")return`<div class="ax-blk"><b>${esc(b[0])}</b><div class="ax-abs">${["Septiembre","Octubre","Noviembre","Diciembre","Enero","Febrero","Marzo","Abril","Mayo","Junio"].map((m,i)=>`<label class="ax-f">${m}<input type="text" inputmode="decimal" data-k="abs_${i}" value="${esc(F.v["abs_"+i]||"")}" placeholder="%"></label>`).join("")}</div></div>`;
@@ -3622,6 +3623,7 @@ const stepHtml=s=>{let h="";
 const render=B=>{const i=STEPS.findIndex(s=>s.k===cur);const s=STEPS[i];
  B.innerHTML=H("Cumplimentar el Anexo I en pantalla",pg("anx",1,"ver el modelo"),"Rellena la solicitud apartado por apartado. Al terminar, la plataforma genera el <b>informe de solicitud al servicio de orientación</b> (Anexo I) en Word o en PDF, listo para revisar, firmar y entregar a la jefatura de estudios.")+
  `<p class="ax-priv"><b>Protección de datos:</b> lo que escribes se guarda solo en esta pestaña del navegador y se borra al cerrarla. No se envía a ningún sitio. Cuando descargues el Word, pulsa «Borrar los datos de este alumno» si usas un ordenador compartido.</p>
+ <div class="ax-dl noprint" role="group" aria-label="Descargar la hoja de derivación en Word"><div class="ax-dl-t"><b>Nuestra hoja de derivación en Word</b><span>Descárgala cuando quieras, desde cualquier pestaña.</span></div><div class="ax-dl-b"><button type="button" class="btn primary" id="axDocxTop">Descargar en Word (con lo rellenado)</button><button type="button" class="btn" id="axBlankTop">Descargar en blanco (Word)</button></div></div>
  <div class="ax-wrap"><nav class="ax-steps" aria-label="Apartados del Anexo I">${STEPS.map((x,j)=>`<button type="button" data-st="${x.k}" aria-current="${x.k===cur}" class="${stepDone(x)?"ok":""}"><i>${stepDone(x)?"✓":j+1}</i>${esc(x.t)}</button>`).join("")}</nav>
  <div class="ax-card"><h3>${esc(s.t)}</h3>${stepHtml(s)}<div class="ax-nav">${i>0?`<button type="button" class="btn" data-st="${STEPS[i-1].k}">‹ ${esc(STEPS[i-1].t)}</button>`:"<span></span>"}${i<STEPS.length-1?`<button type="button" class="btn primary" data-st="${STEPS[i+1].k}">${esc(STEPS[i+1].t)} ›</button>`:""}</div></div></div>`;
  bind(B)};
@@ -3640,6 +3642,7 @@ const bind=B=>{
   const t=`Desde ${(on.map(x=>F.v[`r${x.r}_mes`]).filter(Boolean)[0])||"[mes]"} se aplican de forma sistemática: ${on.map(nm).join("; ")||"[medidas]"}.${si.length?` Han producido la mejora esperada: ${si.map(nm).join("; ")}.`:""}${pr.length?` Mejora parcial, todavía en valoración: ${pr.map(nm).join("; ")}.`:""}${no.length?` No se observa la mejora esperada tras su aplicación sistemática en: ${no.map(nm).join("; ")}.`:""} Datos del seguimiento: [indicar el dato observado al inicio y ahora, por ejemplo palabras por minuto, minutos en tarea o conductas por semana]. Dificultades que persisten: [describir].`;
   F.v.a7=(F.v.a7?F.v.a7+"\n\n":"")+t;save();render(B)};
  const dx=$("#axDocx",B);if(dx)dx.onclick=()=>makeDocx();
+ ["#axDocxTop","#axDocxFin"].forEach(q=>{const b=$(q,B);if(b)b.onclick=()=>makeDocx()});const bl=$("#axBlankTop",B);if(bl)bl.onclick=()=>makeBlank();
  const xi=$("#axInf",B);if(xi)xi.onclick=()=>makeInforme();const xp=$("#axInfPdf",B);if(xp)xp.onclick=()=>openInforme();
  const cl=$("#axClear",B);if(cl){let arm=false;cl.onclick=()=>{if(!arm){arm=true;cl.textContent="Pulsa otra vez para borrar";const m=$("#axClearMsg",B);m.hidden=false;m.textContent="Se borrarán todos los datos de este alumno en el formulario. El Word ya descargado no se ve afectado.";setTimeout(()=>{arm=false;if(cl.isConnected)cl.textContent="Borrar los datos de este alumno"},4000);return}ss.del();F={v:{curso},c:{}};cur="s1";render(B)}}};
 const toastAx=(B,msg)=>{const c=$(".ax-card",B);if(!c)return;const p=document.createElement("p");p.className="note";p.textContent=msg;c.insertBefore(p,c.children[1]);setTimeout(()=>p.remove(),7000)};
@@ -3669,7 +3672,7 @@ function makeDocx(){const dec=new TextDecoder();let xml=dec.decode(b64u(TPL["wor
  const files=names.map(n=>({name:n,data:n==="word/document.xml"?enc.encode(xml):b64u(TPL[n])}));
  const blob=zip(files);const a=document.createElement("a");a.href=URL.createObjectURL(blob);
  const nm=(F.v.nombre||"alumno").split(/\s+/).map(w=>w[0]||"").join("").toUpperCase().replace(/[^A-ZÁÉÍÓÚÑ]/g,"");
- a.download=`ANEXO I - Solicitud EOEP - ${nm||"alumno"} - ${new Date().toISOString().slice(0,10)}.docx`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}
+ a.download=BLANK?"ANEXO I - Solicitud de intervencion EOEP Cehegin - EN BLANCO.docx":`ANEXO I - Solicitud EOEP - ${nm||"alumno"} - ${new Date().toISOString().slice(0,10)}.docx`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}
 /* ---------- registro en la guía ---------- */
 const fForm=B=>render(B);
 const DG=GD.deriv;if(!DG.blocks.some(b=>b[0]==="form")){const i=DG.blocks.findIndex(b=>b[0]==="claves");DG.blocks.splice(i+1,0,["form","Cumplimentar el Anexo I",fForm])}
@@ -3792,11 +3795,27 @@ table{width:100%;border-collapse:collapse;margin:0 0 6px;table-layout:fixed}td,t
 .r-si{color:#2E7D32}.r-proc{color:#9A5B00}.r-no{color:#C62828}.abs td{text-align:right}.why{background:#F0FAFA;border:1px solid #9DC3C6;padding:6px 8px;font-size:7.5pt;color:#444;margin-top:10px;break-inside:avoid}.why b{color:#296272;font-size:8pt}.why p{margin:4px 0;text-align:justify}
 @media print{.bar{display:none}.pg{padding:0;max-width:none}thead{display:table-header-group}}`;
  const html=`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(fileBase())}</title><style>${css}</style></head><body><div class="bar"><span>Informe de solicitud · revisa, imprime o guarda en PDF («Destino: Guardar como PDF»)</span><button onclick="window.print()">Imprimir / Guardar en PDF</button></div><div class="pg">${img?`<img class="hd" alt="Región de Murcia · EOEP Cehegín" src="data:image/jpeg;base64,${img}">`:""}${infModel().map(hBlock).join("")}</div></body></html>`;
+ let inFr=true;try{inFr=window.self!==window.top}catch(e){}
+ if(location.protocol==="file:"||inFr){axPrintOverlay(html);return}
  const url=URL.createObjectURL(new Blob([html],{type:"text/html"}));const w=window.open(url,"_blank");
  if(!w){const a=document.createElement("a");a.href=url;a.download=fileBase()+".html";document.body.appendChild(a);a.click();a.remove()}
  setTimeout(()=>URL.revokeObjectURL(url),60000)}
+/* v24 · versión imprimible dentro de la propia página (funciona abriendo el HTML desde el ordenador, sin GitHub) */
+function axPrintOverlay(html){html=html.replace('<div class="bar">','<div class="bar" style="display:none">');const prev=document.getElementById("axPrintOv");if(prev)prev.remove();
+ const ov=document.createElement("div");ov.id="axPrintOv";ov.setAttribute("role","dialog");ov.setAttribute("aria-label","Versión imprimible del informe de solicitud");
+ ov.style.cssText="position:fixed;inset:0;z-index:99999;background:#fff;display:flex;flex-direction:column";
+ ov.innerHTML='<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:10px 14px;background:#0B2545;color:#fff;font:600 15px Arial,sans-serif"><span>Versión imprimible · para guardar en PDF elige «Guardar como PDF» como destino</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" id="axPrOk" style="font:700 15px Arial;border:0;border-radius:8px;padding:9px 14px;background:#48C5C7;color:#0B2545;cursor:pointer">Imprimir / Guardar en PDF</button><button type="button" id="axPrX" style="font:700 15px Arial;border:0;border-radius:8px;padding:9px 14px;background:#fff;color:#0B2545;cursor:pointer">Cerrar y volver</button></span></div>';
+ const fr=document.createElement("iframe");fr.title="Informe de solicitud";fr.style.cssText="flex:1;width:100%;border:0;background:#fff";fr.srcdoc=html;ov.appendChild(fr);document.body.appendChild(ov);
+ const ovf=document.documentElement.style.overflow;document.documentElement.style.overflow="hidden";
+ const close=()=>{ov.remove();document.documentElement.style.overflow=ovf;document.removeEventListener("keydown",esc1)};
+ const esc1=e=>{if(e.key==="Escape")close()};document.addEventListener("keydown",esc1);
+ ov.querySelector("#axPrX").onclick=close;
+ ov.querySelector("#axPrOk").onclick=()=>{try{fr.contentWindow.focus();fr.contentWindow.print()}catch(e){window.print()}}}
 window.__axInforme=makeInforme;window.__axInformeHtml=openInforme;
 
+let BLANK=false;
+function makeBlank(){const keep=F;BLANK=true;F={v:{},c:{},unp:{}};try{makeDocx()}finally{F=keep;BLANK=false}}
+window.__axBlank=makeBlank;
 window.__axDocx=makeDocx;
 })();
 
