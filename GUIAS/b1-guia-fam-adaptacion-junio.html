@@ -2056,6 +2056,8 @@ svg.road .e{stroke:#fff}svg.road .a{stroke:#4E6470}svg.road .t{stroke:var(--acc)
 :where(.sh) .cam-st:hover .cam-pin{transform:translateY(-3px) scale(1.06)}
 :where(.sh) .cam-st[aria-current="true"] .cam-pin{transform:scale(1.14);box-shadow:0 0 0 4px #fff,0 0 0 7px var(--k),0 6px 16px rgba(0,0,0,.25)}
 :where(.sh) .cam-st[aria-current="true"] .cam-lab{background:var(--k);color:var(--kt,#fff)}
+:where(.sh) .cam-st[aria-current="true"] .cam-lab{white-space:nowrap;max-width:240px;overflow:hidden;text-overflow:ellipsis}
+:where(.sh) .cam-st[aria-current="true"]{z-index:2}
 :where(.sh) .cam-st[aria-current="true"] .cam-lab .hp{display:inline;font-weight:700}
 :where(.sh) .cam-end{position:absolute;top:8px;z-index:2;display:grid;justify-items:center;gap:1px;border-radius:12px;padding:6px 9px;font:900 .7rem var(--f-display);letter-spacing:.1em;color:#fff;box-shadow:0 3px 8px rgba(0,0,0,.2);text-decoration:none}
 :where(.sh) .cam-end svg{width:20px;height:20px}
