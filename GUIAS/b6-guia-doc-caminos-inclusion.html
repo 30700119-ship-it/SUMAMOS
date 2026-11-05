@@ -2036,8 +2036,8 @@ const B_cmpNew=[
 B_comp.splice(1,0,...B_cmpNew);
 
 /* ===== v9: guías de los pasos 1 y 3 ===== */
-const B_conozco=[["detecta","Próximamente",B=>{B.innerHTML=H("Paso 1 · Conozco a mi alumnado","","")+`<div class="dv-alert"><span class="dv-ico" aria-hidden="true">!</span><p><b>En preparación.</b> Este paso se completará con <b>SUMAMOS DETECTA</b>: detección precoz e indicadores de alerta por etapas y ciclos.</p></div>
- <div class="grid2"><div class="box t"><h4>Mientras tanto: el mapa del grupo</h4><p>Herramienta para conocer las necesidades del grupo y organizar la respuesta del aula.</p><div class="row">${goBtn("Abrir el mapa del grupo","org","partida","btn primary")}</div></div>
+const B_conozco=[["detecta","SUMAMOS DETECTA",B=>{B.innerHTML=H("Paso 1 · Conozco a mi alumnado","","")+`<div class="box t"><h4>SUMAMOS DETECTA · Leer y escribir: mirar a tiempo</h4><p>Indicadores de riesgo de dificultades en el aprendizaje de la lectura y la escritura de 3 años a 2.º de Primaria: qué esperar a cada edad, señales de alerta, registro del tutor/a con descarga en Word y qué hacer en el aula desde el primer día.</p><div class="row"><a class="btn primary" data-sm href="b3-guia-doc-detecta-lectoescritura.html">Abrir SUMAMOS DETECTA</a><a class="btn" data-sm href="b3-guia-doc-detecta-lectoescritura.html#p1">Educación Infantil</a><a class="btn" data-sm href="b3-guia-doc-detecta-lectoescritura.html#p4">Educación Primaria (1.º y 2.º)</a><a class="btn" data-sm href="b3-guia-doc-detecta-lectoescritura.html#p6">Del indicador a la respuesta</a></div></div>
+ <div class="grid2"><div class="box t"><h4>También: el mapa del grupo</h4><p>Herramienta para conocer las necesidades del grupo y organizar la respuesta del aula.</p><div class="row">${goBtn("Abrir el mapa del grupo","org","partida","btn primary")}</div></div>
  <div class="box"><h4>Y después</h4><p>Con lo que observas, pasa al paso 2: medidas ordinarias en el aula para todo el alumnado y para quien lo necesite.</p><div class="row">${goBtn("Ir al paso 2","medidas","m25","btn")}</div></div></div>`}]];
 const B_evalua=[
  ["eslabones","Cinco eslabones",B=>{B_der[1][2](B)}],
@@ -2046,7 +2046,7 @@ const B_evalua=[
  <p class="note"><b>Error frecuente:</b> ${esc(a.err)}</p>${H4("Ejemplos de valoración")}<div class="grid3">${DV.ej7.map(e=>`<div class="box ${e[0]==="no"?"n":e[0]==="inf"?"o":"t"}">${e[0]==="no"?`<span class="kicker">✕ ${esc(e[1])}</span>`:`<h4><span class="lvl ${e[0]}">${e[0]==="inf"?"INF":"PRI"}</span>${esc(e[1])}</h4>`}<p>${esc(e[2])}</p></div>`).join("")}</div>
  <div class="row">${goBtn("Paso 4 · Solicito la intervención","deriv","claves","btn primary")}</div>`}]];
 Object.assign(GD,{
- conozco:{doc:null,eyebrow:"Paso 1 · Todo el profesorado",title:"Conozco a mi alumnado",desc:"Próximamente, con SUMAMOS DETECTA.",blocks:B_conozco},
+ conozco:{doc:null,eyebrow:"Paso 1 · Todo el profesorado",title:"Conozco a mi alumnado",desc:"Indicadores de riesgo de la lectura y la escritura, de 3 años a 2.º de Primaria, con SUMAMOS DETECTA.",blocks:B_conozco},
  evalua:{doc:"anx",eyebrow:"Paso 3 · Tutorías y equipos docentes",title:"Evalúo lo que funciona",desc:"Las medidas ordinarias solo cuentan si están decididas, programadas, aplicadas, registradas y evaluadas. Aquí se registran (apartado 6 del Anexo I) y se valoran con datos (apartado 7).",blocks:B_evalua}});
 ILL.evalua={_:["il-der-check","¿funciona lo que hacemos?"],eslabones:["il-der-eslabones","cinco eslabones, ni uno menos"],registro:["il-der-anexo","qué, desde cuándo y con qué resultado"],valoracion:["il-der-check","con datos, no con impresiones"]};
 ILL.conozco={_:["il-escalera","conocer para responder"]};
@@ -2111,7 +2111,7 @@ renderInicio();
 /* ===== v9: navegación por los 6 pasos del itinerario ===== */
 const PASOS=[
  {n:1,t:"Aula accesible para todos",c:"Aula accesible",tabs:["aula","org","pautas"]},
- {n:2,t:"Conozco a mi alumnado (DETECTA)",c:"Conozco (DETECTA)",tabs:["conozco"],pend:true},
+ {n:2,t:"Conozco a mi alumnado (DETECTA)",c:"Conozco (DETECTA)",tabs:["conozco"],pend:false},
  {n:3,t:"Aplicación de actuaciones generales y medidas ordinarias",c:"Actuaciones y medidas",tabs:["medidas"]},
  {n:4,t:"Solicito intervención de los servicios de orientación",c:"Solicito intervención",tabs:["deriv"]},
  {n:5,t:"Medidas específicas para ACNEAE",c:"Medidas específicas",tabs:["medesp","pap","fichas","comp","adapt"]}];
@@ -2321,7 +2321,7 @@ const pasoDe=t=>PASOS.find(p=>p.tabs.includes(t));
  $$(".nv-step").forEach(b=>b.onclick=()=>{const p=PASOS[+b.dataset.paso-1];show(p.tabs[0])});
  /* Inicio: tarjetas agrupadas por paso */
  const hg=$("#p-inicio .homegrid");if(hg){const cards={};$$(".hcard",hg).forEach(c=>cards[c.dataset.go]=c);
-  const extra={medesp:["Respuesta específica para el ACNEAE","ACNEAE y ACNEE, medidas específicas, adaptaciones, otros ACNEAE y el camino al PAP.","il-medidas"],conozco:["Conozco a mi alumnado","Próximamente: SUMAMOS DETECTA. Mientras, el mapa del grupo.","il-aula"],evalua:["Evalúo lo que funciona","Cinco eslabones, registro de medidas (apartado 6) y valoración con datos (apartado 7).","il-der-check"]};
+  const extra={medesp:["Respuesta específica para el ACNEAE","ACNEAE y ACNEE, medidas específicas, adaptaciones, otros ACNEAE y el camino al PAP.","il-medidas"],conozco:["Conozco a mi alumnado","SUMAMOS DETECTA: indicadores de riesgo de 3 años a 2.º de Primaria. Y el mapa del grupo.","il-aula"],evalua:["Evalúo lo que funciona","Cinco eslabones, registro de medidas (apartado 6) y valoración con datos (apartado 7).","il-der-check"]};
   Object.entries(extra).forEach(([k,[t,s,il]])=>{const b=document.createElement("button");b.className="hcard";b.dataset.go=k;b.innerHTML=`<span class="hill"><img src="${img(il)}" alt="" loading="lazy"></span><span class="hbody">${k==="medesp"?`<img class="hcov" src="${img(DOCS.med.img)}" alt="">`:`<span class="hicon">${k==="conozco"?"1":"3"}</span>`}<span><b>${esc(t)}</b><span>${esc(s)}</span></span></span>`;cards[k]=b});
   const wrap=document.createElement("div");wrap.className="hsteps";
   wrap.innerHTML=PASOS.map(p=>`<section class="hstep${p.pend?" pend":""}"><h3><i>${p.n}</i>${esc(p.t)}</h3><div class="homegrid" data-p="${p.n}"></div></section>`).join("");
@@ -4394,6 +4394,50 @@ const lead=$("#p-inicio .hero p.lead");if(lead)lead.textContent="Sigue el camino
 
 show(location.hash.slice(1)||"inicio",false);
 })();
+</script>
+<script>
+/* SUMAMOS · vuelta a DETECTA (añadido el 5-11-2026): si se llega desde SUMAMOS DETECTA, botón fijo para volver al mismo sitio */
+(function(){try{var q=new URLSearchParams(location.search),K="sm-vuelta-detecta";
+ if(q.get("desde")==="detecta"){sessionStorage.setItem(K,q.get("vuelta")||"inicio")}
+ var v=sessionStorage.getItem(K);if(v===null)return;
+ var a=document.createElement("a");a.href="b3-guia-doc-detecta-lectoescritura.html#"+encodeURIComponent(v).replace(/%2F/g,"/");a.className="sm-back-detecta";
+ a.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg><span>‹ Volver a SUMAMOS DETECTA</span>';
+ a.setAttribute("aria-label","Volver a SUMAMOS DETECTA, donde estabas");
+ var st=document.createElement("style");st.textContent=".sm-back-detecta{position:fixed;left:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:8px;background:#3A7FC1;color:#fff!important;text-decoration:none;font:900 .95rem Nunito,'Segoe UI',sans-serif;padding:12px 18px;border-radius:999px;box-shadow:0 0 0 3px #fff,0 6px 18px rgba(0,0,0,.3)}.sm-back-detecta:hover{background:#235B92}@media print{.sm-back-detecta{display:none}}";
+ document.head.appendChild(st);document.body.appendChild(a);
+}catch(e){}})();
+</script>
+<script>
+/* SUMAMOS · enlaces entre materiales con vuelta (añadido el 5-11-2026)
+   - Coloca un botón «Abrir en SUMAMOS DETECTA» junto a los textos que lo mencionan (CFG.chips).
+   - Cualquier enlace con data-sm lleva la dirección de vuelta.
+   - Si se llega desde otro material SUMAMOS, muestra «‹ Volver a …» y devuelve al sitio exacto. */
+(function(CFG){try{
+var K="sm-volver",here=function(){return location.href.split("?")[0].split("#")[0]};
+var css=".sm-link{display:inline-flex;align-items:center;gap:6px;margin:4px 0 2px 6px;padding:4px 11px;border-radius:999px;background:#3A7FC1;color:#fff!important;font:800 .78rem/1.3 Nunito,'Segoe UI',sans-serif;text-decoration:none;vertical-align:middle;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.2)}.sm-link:hover{background:#235B92}.sm-link svg{width:14px;height:14px}"+
+".sm-back{position:fixed;left:16px;bottom:16px;z-index:9998;display:inline-flex;align-items:center;gap:8px;background:#296272;color:#fff!important;text-decoration:none;font:900 .92rem Nunito,'Segoe UI',sans-serif;padding:11px 17px;border-radius:999px;box-shadow:0 0 0 3px #fff,0 6px 18px rgba(0,0,0,.3);max-width:calc(100vw - 110px)}.sm-back span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sm-back:hover{background:#1D4E5C}@media print{.sm-link,.sm-back{display:none!important}}";
+var st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
+var LUPA='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg>';
+/* 1 · vuelta */
+var q=new URLSearchParams(location.search),u=q.get("volver"),t=q.get("vtxt");
+var okURL=function(x){try{var a=new URL(x,location.href);return (a.origin===location.origin||a.protocol==="file:")&&/\.html$/i.test(a.pathname)}catch(e){return false}};
+if(u&&okURL(u)){try{sessionStorage.setItem(K+":"+here(),JSON.stringify({u:u,t:t||"el material anterior"}))}catch(e){}}
+var back=null;try{back=JSON.parse(sessionStorage.getItem(K+":"+here())||"null")}catch(e){}
+if(back&&okURL(back.u)&&!document.querySelector(".sm-back-detecta")){var b=document.createElement("a");b.className="sm-back";b.href=back.u;b.innerHTML='<b aria-hidden="true">‹</b><span>Volver a '+back.t.replace(/[<>&]/g,"")+'</span>';b.setAttribute("aria-label","Volver a "+back.t);document.body.appendChild(b)}
+/* 2 · enlaces de salida con vuelta */
+var withBack=function(href){var hs=href.split("#"),base=hs[0],h=hs[1]?"#"+hs[1]:"";return base+(base.indexOf("?")<0?"?":"&")+"volver="+encodeURIComponent(location.href.split("?")[0])+"&vtxt="+encodeURIComponent(CFG.nombre)+h};
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[data-sm]");if(!a)return;var h=a.getAttribute("data-sm-href")||a.getAttribute("href");a.setAttribute("data-sm-href",h);a.href=withBack(h)},true);
+/* 3 · botones junto al texto */
+var SKIP="a,button,label,option,select,textarea,script,style,summary,svg,input,[role=tab],nav,.sm-link,.sm-back,header";
+var chips=CFG.chips||[];if(!chips.length)return;var done=chips.map(function(){return 0});
+var scan=function(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),n;
+ while((n=w.nextNode())){var p=n.parentElement;if(!p||p.closest(SKIP))continue;
+  for(var i=0;i<chips.length;i++){var c=chips[i];if(done[i]>=(c.max||2))continue;if(!c.re.test(n.nodeValue))continue;
+   var blk=p.closest("p,li,td,dd,h4,.indicador,.cp,.niv")||p;if(blk.getAttribute("data-smlink"))continue;blk.setAttribute("data-smlink","1");
+   var a=document.createElement("a");a.className="sm-link";a.setAttribute("data-sm","");a.href=c.href;a.innerHTML=LUPA+(c.txt||"Abrir en SUMAMOS DETECTA")+" ›";blk.appendChild(a);done[i]++;break}}};
+var tm=0;var mo=new MutationObserver(function(){clearTimeout(tm);tm=setTimeout(scan,250)});mo.observe(document.body,{childList:true,subtree:true});document.addEventListener("click",function(){clearTimeout(tm);tm=setTimeout(scan,300)},true);setTimeout(scan,400);
+}catch(e){}})
+({nombre:"SUMAMOS: Camino a la inclusión",chips:[]});
 </script>
 </body>
 </html>
