@@ -958,6 +958,41 @@ html[lang="es"] svg text[data-i18n-es],html[lang="ar"] svg text[data-i18n-ar]{di
   .volver,.lang,.lang-big{display:none!important}
   #content.card{border:0}
 }
+
+/* ===== SUMAMOS · Bloque 5 · La carretera se sustituye por un PUENTE (5-11-2026) =====
+   Solo cambia el dibujo de la línea: barandilla y tablero de madera clara con arco turquesa y agua debajo. */
+:root{--pt-deck:#F7D9A6;--pt-deckD:#E9C27F;--pt-rail:#2AA5A0;--pt-water:#CDEDF2}
+/* barra fija de arriba */
+.rb-line{top:19px;height:26px;border-radius:0;background:
+  linear-gradient(var(--pt-rail),var(--pt-rail)) 0 0/100% 3px no-repeat,
+  repeating-linear-gradient(90deg,var(--pt-rail) 0 3px,transparent 3px 22px) 0 3px/100% 10px no-repeat,
+  linear-gradient(var(--pt-deck),var(--pt-deck)) 0 13px/100% 9px no-repeat,
+  linear-gradient(var(--pt-rail),var(--pt-rail)) 0 22px/100% 4px no-repeat}
+.rb-line::after{left:0;right:0;top:26px;height:9px;border:0;background:
+  radial-gradient(circle at 50% 100%,transparent 9px,var(--pt-rail) 9px 11.5px,transparent 12px) 0 0/30px 9px repeat-x,
+  linear-gradient(var(--pt-water),var(--pt-water)) 0 6px/100% 3px no-repeat}
+/* camino grande de la portada */
+.road::before{left:2%;right:2%;top:24px;height:52px;border-radius:0;background:
+  linear-gradient(var(--pt-rail),var(--pt-rail)) 0 0/100% 5px no-repeat,
+  repeating-linear-gradient(90deg,var(--pt-rail) 0 5px,transparent 5px 34px) 0 5px/100% 19px no-repeat,
+  linear-gradient(var(--pt-deck),var(--pt-deck)) 0 24px/100% 20px no-repeat,
+  linear-gradient(var(--pt-deckD),var(--pt-deckD)) 0 44px/100% 2px no-repeat,
+  linear-gradient(var(--pt-rail),var(--pt-rail)) 0 46px/100% 6px no-repeat}
+.road::after{left:2%;right:2%;top:76px;height:26px;border:0;background:
+  radial-gradient(circle at 50% 100%,transparent 26px,var(--pt-rail) 26px 32px,transparent 32.5px) 0 0/80px 26px repeat-x,
+  linear-gradient(var(--pt-water),var(--pt-water)) 0 18px/100% 8px no-repeat;border-radius:0 0 6px 6px}
+@media (max-width:640px){
+  .rb-line{top:12px;height:18px;left:20px;right:20px;background:
+    linear-gradient(var(--pt-rail),var(--pt-rail)) 0 0/100% 2px no-repeat,
+    repeating-linear-gradient(90deg,var(--pt-rail) 0 2px,transparent 2px 14px) 0 2px/100% 7px no-repeat,
+    linear-gradient(var(--pt-deck),var(--pt-deck)) 0 9px/100% 6px no-repeat,
+    linear-gradient(var(--pt-rail),var(--pt-rail)) 0 15px/100% 3px no-repeat}
+  .rb-line::after{top:18px;height:6px;background:
+    radial-gradient(circle at 50% 100%,transparent 6px,var(--pt-rail) 6px 8px,transparent 8.5px) 0 0/20px 6px repeat-x}
+}
+/* el contenido nunca se sale por los lados en el móvil */
+#view{grid-template-columns:minmax(0,1fr)}
+#view>*{min-width:0}
 </style>
 </head>
 <body>
