@@ -722,24 +722,19 @@ const BLOQUES=[
   {id:"detecta",name:"DETECTA",sub:"Detección precoz y seguimiento",icon:"detecta",acc:"#3A7FC1",accL:"#E0ECF8",accD:"#235B92",
    desc:"Sistema de cribado educativo diferenciado por edades y ciclos, con criterios claros de alerta y seguimiento.",
    paneles:[
-     {id:"infantil",ap:"DETECTA Infantil",icon:"infantil",tag:"3, 4 y 5 años",sub:"Cuestionarios para familias y tutorías de Educación Infantil"},
-     {id:"primaria",ap:"DETECTA Primaria",icon:"primaria",tag:"Por ciclos de 1.º a 6.º",sub:"Protocolos y cuestionarios para cada ciclo de Educación Primaria"},
-     {id:"criterios",ap:"Criterios de alerta y seguimiento",icon:"alerta",tag:"Qué hacer ante cada señal",sub:"Cuándo intervenir, cómo hacer el seguimiento y cuándo avisar al EOEP"}
+     {id:"docentes",ap:"DETECTA de Infantil a Primaria: docentes",icon:"docente",tag:"Para docentes",sub:"Leer y escribir: indicadores de riesgo de 3 años a 2.º de Primaria"},
+     {id:"familias",ap:"DETECTA de Infantil a Primaria: familias",icon:"familia",tag:"Para familias",sub:"Qué observar en casa y cómo acompañar la lectura y la escritura"}
    ],
-   apartados:["DETECTA Infantil","DETECTA Primaria","Criterios de alerta y seguimiento"],
-   previsto:[["DETECTA Infantil","Cuestionarios para familias y tutorías de 3, 4 y 5 años"],["DETECTA Primaria","Protocolos y cuestionarios por ciclos: 1.º-2.º, 3.º-4.º y 5.º-6.º"],["Criterios de alerta y seguimiento","Qué hacer ante cada señal y cuándo intervenir"]]},
+   apartados:["DETECTA de Infantil a Primaria: docentes","DETECTA de Infantil a Primaria: familias"],
+   previsto:[]},
   {id:"raices",name:"RAÍCES DEL DESARROLLO",sub:"Programas de estimulación",icon:"raices",acc:"#4C9A5A",accL:"#E1F2E4",accD:"#2F6B3A",
    desc:"Desarrollo activo de las capacidades clave en Educación Infantil, con una mirada preventiva y coordinada entre escuela y familia.",
    paneles:[
-     {id:"lenguaje-oral",ap:"Desarrollo del lenguaje oral",icon:"lenguaje",tag:"Comunicación",sub:"Programa «Hablamos en el aula»: estimulación del lenguaje oral"},
-     {id:"psicomotricidad",ap:"Desarrollo de la psicomotricidad",icon:"psicomotor",tag:"Movimiento y cuerpo",sub:"Actividades motrices y estrategias de intervención por edades"},
-     {id:"socioemocional",ap:"Desarrollo socioemocional",icon:"emocion",tag:"Emociones y relaciones",sub:"Programa «Crecer con emociones»: desarrollo socioemocional"},
-     {id:"funciones-ejecutivas",ap:"Funciones ejecutivas",icon:"ejecutivas",tag:"Atención, memoria y autocontrol",sub:"Programa «Cerebro en marcha»: atención, autocontrol, memoria, flexibilidad y planificación"},
-     {id:"autonomia",ap:"Hábitos de autonomía",icon:"autonomia",tag:"Rutinas del día a día",sub:"Programa «¡Lo hago yo!»: aseo, comida, vestido, orden y tarea"},
-     {id:"pantallas",ap:"Uso saludable de pantallas",icon:"pantalla",tag:"Escuela y familia",sub:"Programa «Desconecto para conectar»: bienestar digital en el aula y en casa"}
+     {id:"docentes",ap:"Raíces del desarrollo: docentes",icon:"docente",tag:"Para docentes",sub:"Una guía única con todos los programas de estimulación"},
+     {id:"familias",ap:"Raíces del desarrollo: familias",icon:"familia",tag:"Para familias",sub:"Juegos y rutinas para acompañar el desarrollo desde casa"}
    ],
-   apartados:["Desarrollo del lenguaje oral","Desarrollo de la psicomotricidad","Desarrollo socioemocional","Funciones ejecutivas","Hábitos de autonomía","Uso saludable de pantallas"],
-   previsto:[["Lenguaje oral y psicomotricidad","Programas de estimulación para el aula"],["Desarrollo socioemocional y funciones ejecutivas","Programas para el aula y orientaciones para familias"],["Hábitos de autonomía","Guías para docentes y familias"],["Uso saludable de pantallas","Guía para docentes y guía para familias"]]},
+   apartados:["Raíces del desarrollo: docentes","Raíces del desarrollo: familias"],
+   previsto:[]},
   {id:"cambio-de-etapa",subM:"Transición de Infantil a Primaria",name:"CAMBIO DE ETAPA",sub:"Transición entre la etapa de Educación Infantil y la de Educación Primaria",icon:"etapa",acc:"#7563B0",accL:"#ECE8F7",accD:"#51428A",
    desc:"Plan de transición coordinado entre la etapa de Educación Infantil y la de Educación Primaria para garantizar un tránsito seguro, inclusivo y sin rupturas.",
    paneles:[
@@ -780,19 +775,8 @@ const MATERIALES=[
   ["caminos","Camino a la inclusión para docentes","Anexo I: solicitud de intervención de los servicios de orientación","docentes","Plantilla Word","Modelo editable para solicitar la intervención del orientador/a, PSC o fisioterapeuta del EOEP, una vez aplicadas y registradas las medidas ordinarias.","GUIAS/b6-caminos/doc/anexo-i-solicitud.docx"],
   ["caminos","Camino a la inclusión para familias","Guía para familias: SUMAMOS Camino a la inclusión","familias","Guía","Seis paradas: quién os acompaña (los tres niveles de la orientación), lo que el colegio hace para todo el alumnado, el camino al EOEP y la evaluación psicopedagógica, medidas específicas con 20 fichas por necesidad, acompañar en casa y recursos y ayudas.","GUIAS/b6-guia-fam-caminos-inclusion.html"],
   ["caminos","Camino a la inclusión para familias","Guía para familias en Word: Camino a la inclusión","familias","Plantilla Word","La misma guía en Word, lista para imprimir o entregar: las seis partes y las 20 fichas por necesidad, una por página.","GUIAS/b6-caminos/doc/b6-guia-fam-caminos-inclusion.docx"],
-  ["detecta","DETECTA Infantil","Guía docente: SUMAMOS DETECTA · Leer y escribir (3, 4 y 5 años)","docentes","Guía","Indicadores de riesgo de dificultades en el aprendizaje de la lectura y la escritura a los 3, 4 y 5 años: qué esperar, señales de alerta, registro del tutor/a con descarga en Word y qué hacer en el aula.","GUIAS/b3-guia-doc-detecta-lectoescritura.html#p1"],
-  ["detecta","DETECTA Primaria","Guía docente: SUMAMOS DETECTA · Leer y escribir (1.º y 2.º)","docentes","Guía","Indicadores de riesgo en 1.º y 2.º de Primaria: hitos orientativos por trimestre, registro del tutor/a y refuerzo dentro del aula.","GUIAS/b3-guia-doc-detecta-lectoescritura.html#p4"],
-  ["detecta","Criterios de alerta y seguimiento","Del indicador a la respuesta: semáforo, medidas y solicitud al EOEP","docentes","Guía","Los tres niveles de respuesta, el registro de medidas que prepara el Anexo I, cómo comunicar al EOEP y a la familia, y el registro de grupo para la CCP.","GUIAS/b3-guia-doc-detecta-lectoescritura.html#p6"],
-  ["raices","Desarrollo del lenguaje oral","Programa «Hablamos en el aula»","docentes","Programa","Estimulación del lenguaje oral de 3 a 5 años: hitos y señales por edad, 18 fichas por curso, barreras de acceso a la comunicación, aprender español, comunicación aumentativa y registros.","GUIAS/b4-raices-del-desarrollo.html#lenguaje-oral"],
-  ["raices","Desarrollo del lenguaje oral","Hoja para las familias: lenguaje oral","familias","Hoja","Juegos y rutinas para hablar más y mejor en casa, lista para entregar.","GUIAS/b4-raices-del-desarrollo.html#lenguaje-oral/hoja"],
-  ["raices","Desarrollo socioemocional","Programa «Crecer con emociones»","docentes","Programa","Conciencia y regulación emocional, autoestima, relaciones y resolución de conflictos: 18 fichas, materiales, registros y síntesis para el tránsito.","GUIAS/b4-raices-del-desarrollo.html#socioemocional"],
-  ["raices","Desarrollo socioemocional","Hoja para las familias: emociones","familias","Hoja","Cómo acompañar las emociones en casa, con juegos y frases sencillas.","GUIAS/b4-raices-del-desarrollo.html#socioemocional/hoja"],
-  ["raices","Funciones ejecutivas","Programa «Cerebro en marcha»","docentes","Programa","Atención, control inhibitorio, memoria de trabajo, flexibilidad, planificación y regulación emocional: 24 fichas de 3 años a 2.º, 19 materiales, semáforo y registros.","GUIAS/b4-raices-del-desarrollo.html#funciones-ejecutivas"],
-  ["raices","Funciones ejecutivas","Hoja para las familias: funciones ejecutivas","familias","Hoja","Juegos, rutinas y sueño para ayudar en casa a prestar atención, esperar y organizarse.","GUIAS/b4-raices-del-desarrollo.html#funciones-ejecutivas/hoja"],
-  ["raices","Hábitos de autonomía","Programa «¡Lo hago yo!»","docentes","Programa","Aseo, comida, vestido, entorno escolar y tarea con la ayuda justa: 24 fichas, 19 secuencias, perfil de autonomía y registro de esfínteres.","GUIAS/b4-raices-del-desarrollo.html#autonomia"],
-  ["raices","Hábitos de autonomía","Hoja para las familias: autonomía","familias","Hoja","Mismos pasos y mismas palabras en casa para que lo hagan solos.","GUIAS/b4-raices-del-desarrollo.html#autonomia/hoja"],
-  ["raices","Uso saludable de pantallas","Programa «Desconecto para conectar»","docentes","Programa","Bienestar digital en el aula y en casa: juego, conversación, descanso, calma, límites y uso seguro. 24 fichas, materiales y registros.","GUIAS/b4-raices-del-desarrollo.html#pantallas"],
-  ["raices","Uso saludable de pantallas","Hoja para las familias: pantallas","familias","Hoja","Recomendaciones por edad y alternativas a las pantallas en casa.","GUIAS/b4-raices-del-desarrollo.html#pantallas/hoja"],
+  ["detecta","DETECTA de Infantil a Primaria: docentes","Guía docente: SUMAMOS DETECTA de Infantil a Primaria","docentes","Guía","Indicadores de riesgo de dificultades en la lectura y la escritura de 3 años a 2.º de Primaria: qué esperar en cada edad, señales de alerta, registro del tutor/a con descarga en Word, medidas en el aula, semáforo y solicitud de intervención al EOEP.","GUIAS/b3-guia-doc-detecta-lectoescritura.html"],
+  ["raices","Raíces del desarrollo: docentes","Guía docente: SUMAMOS Raíces del desarrollo","docentes","Guía","Una única guía con los programas de estimulación: lenguaje oral, socioemocional, funciones ejecutivas, autonomía y uso saludable de pantallas. Fichas, materiales para imprimir, registros, hojas para familias y guías en PDF.","GUIAS/b4-raices-del-desarrollo.html"],
 ].map(m=>({b:m[0],ap:m[1],t:m[2],a:m[3],tipo:m[4],d:m[5],url:BASE+m[6],mom:m[7]||""}));
 
 /* ===================================================================== */
@@ -820,8 +804,8 @@ const SC={teal:"#1F8A8C",indigo:"#4B57C8",fram:"#C0396B",azul:"#2F6FB5",morado:"
 const SUBCOL={
   "acogida":[SC.teal,SC.indigo,SC.fram],
   "cada-dia-cuenta":[SC.teal,SC.indigo],
-  "detecta":[SC.teal,SC.fram,SC.morado],
-  "raices":[SC.azul,SC.fram,SC.morado,SC.teal,SC.naranja,SC.pizarra],
+  "detecta":[SC.teal,SC.naranja],
+  "raices":[SC.teal,SC.naranja],
   "cambio-de-etapa":[SC.teal,SC.naranja],
   "caminos":[SC.teal,SC.indigo]
 };
