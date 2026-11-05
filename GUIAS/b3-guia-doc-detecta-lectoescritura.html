@@ -468,6 +468,44 @@ body.is-home .hero-ill .hand{font-size:1.2rem}
 .bt-sub{gap:5px}
 body.is-home .layout{padding-top:14px}
 .cam-end.m{min-width:96px;text-align:center}.cam-end.m small{line-height:1.15}
+
+/* ===== Móvil (añadido 5-11-2026): recorrido de pistas horizontal que cabe entero en la pantalla + imágenes ajustadas ===== */
+img{max-width:100%}
+main img,.hero img,.ph-ill img,.hero-ill img{max-width:100%;height:auto}
+html,body{overflow-x:hidden}
+@media (max-width:720px){
+ .cam-wrap{overflow:visible;padding:30px 0 6px;margin-top:-20px}
+ .cam{min-width:0;height:96px;margin-inline:50px;max-width:none}
+ .cam-hint{font-size:.58rem;letter-spacing:.08em;padding:2px 9px;top:-14px}
+ svg.trail{top:20px;height:40px}
+ svg.trail .bg{stroke-width:5;stroke-dasharray:0.1 10}
+ svg.trail .done{stroke-width:7;stroke-dasharray:0.1 10}
+ .cam-st{width:auto;min-width:0;gap:0}
+ .cam-pin{width:34px;height:32px;border-radius:9px;border-width:2px;margin-top:calc(var(--y)*.5 + 7px)}
+ .cam-pin::before{top:-7px;width:10px;height:10px;margin-left:-5px;border-width:2px}
+ .cam-pin svg{width:20px;height:20px}
+ .cam-pin b{width:17px;height:17px;font:900 .62rem/15px var(--f-display);bottom:-7px;right:-8px;border-width:1.5px}
+ .cam-lab{font-size:.64rem;margin-top:9px;padding:1px 5px;max-width:64px;white-space:nowrap}
+ .cam-lab .pista,.cam-lab small{display:none}
+ .cam-st[aria-current="true"] .cam-lab{margin-top:11px;font-size:.66rem;max-width:72px}
+ .cam-st[aria-current="true"] .cam-lab::before{content:none}
+ .cam-st[aria-current="true"] .cam-pin{transform:scale(1.12);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--c),0 4px 10px rgba(0,0,0,.25)}
+ .cam-st:hover .cam-pin{transform:none}
+ .cam-end{top:14px;min-width:0;width:46px;padding:5px 1px;font-size:.47rem;letter-spacing:0;border-radius:8px}
+ .cam-end.m{width:46px}
+ .cam-end.s{left:-48px}
+ .cam-end.m{right:-48px;min-width:0}
+ .cam-end svg{width:18px;height:18px}
+ .cam-end small{display:none}
+ .lupa{width:52px;height:52px}
+}
+@media (max-width:380px){.cam-lab{font-size:.6rem}}
+@media (max-width:720px){
+ .hero-ill,.ph-ill{max-width:100%;overflow:hidden;margin-inline:auto}
+ .hero-ill img,.ph-ill img{width:100%;max-height:200px;object-fit:contain;background:#EEF5FB}
+ .hero-ill .hand,.ph-ill .hand,body.is-home .hero-ill .hand{font-size:1.15rem;text-align:center;transform:none;white-space:normal;overflow-wrap:anywhere;line-height:1.15}
+ .hero .wrap,.ph{min-width:0}
+}
 </style>
 </head>
 <body>
@@ -21455,7 +21493,7 @@ function buildCam(){
  ${PARADAS.map((p,i)=>`<button class="cam-st" type="button" data-cg="${p.id}" style="--c:${p.color};--x:${XC[i]}%;--y:${YC[i]}px;--r:${ROT[i]}deg" aria-label="Pista ${p.n}: ${esc(p.short)}, ${esc(p.name)}"><span class="cam-pin">${ICON[p.id]}<b>${p.n}</b></span><span class="cam-lab"><span class="pista">Pista ${p.n}</span>${esc(p.short)}<small>${esc(p.name)}</small></span></button>`).join("")}`;
  $$("[data-cg]",$("#cam")).forEach(b=>b.onclick=()=>{goTo(b.dataset.cg);scrollTo({top:$(".cam-bar").offsetTop,behavior:"smooth"})});
  const el=$("#smk"),box=$("#cam"),yAt=sampler(PTS);let cur=null,raf=0;const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
- const put=x=>{el.style.left=(x/1000*box.clientWidth)+"px";el.style.top=(yAt(x)-41)+"px"};
+ const put=x=>{const sv=$("svg.trail",box),L=el.offsetWidth||112,T=sv?sv.offsetTop:30,H=sv?sv.getBoundingClientRect().height/80:1;el.style.left=(x/1000*box.clientWidth)+"px";el.style.top=(T+yAt(x)*H-L*0.635)+"px"};
  RIDER={go(x,inst){cancelAnimationFrame(raf);if(cur===null||inst||RM){cur=x;put(x);return}const f=cur,d=Math.max(500,Math.min(1400,Math.abs(x-f)*2)),t0=performance.now();el.classList.add("moving");const st=n=>{const k=Math.min(1,(n-t0)/d),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;cur=f+(x-f)*e;put(cur);if(k<1)raf=requestAnimationFrame(st);else el.classList.remove("moving")};raf=requestAnimationFrame(st)},refresh(){if(cur!==null)put(cur)}};
  addEventListener("resize",()=>RIDER.refresh());
 }
