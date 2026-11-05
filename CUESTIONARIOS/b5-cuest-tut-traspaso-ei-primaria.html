@@ -2559,5 +2559,37 @@ const vb=$("#volver");window.addEventListener("scroll",()=>vb.classList.toggle("
 setBar();upd(true);setTimeout(()=>{setBar();upd(true)},400);
 })();
 </script>
+<script>
+/* SUMAMOS · enlaces entre materiales con vuelta (añadido el 5-11-2026)
+   - Coloca un botón «Abrir en SUMAMOS DETECTA» junto a los textos que lo mencionan (CFG.chips).
+   - Cualquier enlace con data-sm lleva la dirección de vuelta.
+   - Si se llega desde otro material SUMAMOS, muestra «‹ Volver a …» y devuelve al sitio exacto. */
+(function(CFG){try{
+var K="sm-volver",here=function(){return location.href.split("?")[0].split("#")[0]};
+var css=".sm-link{display:inline-flex;align-items:center;gap:6px;margin:4px 0 2px 6px;padding:4px 11px;border-radius:999px;background:#3A7FC1;color:#fff!important;font:800 .78rem/1.3 Nunito,'Segoe UI',sans-serif;text-decoration:none;vertical-align:middle;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.2)}.sm-link:hover{background:#235B92}.sm-link svg{width:14px;height:14px}"+
+".sm-back{position:fixed;left:16px;bottom:16px;z-index:9998;display:inline-flex;align-items:center;gap:8px;background:#296272;color:#fff!important;text-decoration:none;font:900 .92rem Nunito,'Segoe UI',sans-serif;padding:11px 17px;border-radius:999px;box-shadow:0 0 0 3px #fff,0 6px 18px rgba(0,0,0,.3);max-width:calc(100vw - 110px)}.sm-back span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sm-back:hover{background:#1D4E5C}@media print{.sm-link,.sm-back{display:none!important}}";
+var st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
+var LUPA='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg>';
+/* 1 · vuelta */
+var q=new URLSearchParams(location.search),u=q.get("volver"),t=q.get("vtxt");
+var okURL=function(x){try{var a=new URL(x,location.href);return (a.origin===location.origin||a.protocol==="file:")&&/\.html$/i.test(a.pathname)}catch(e){return false}};
+if(u&&okURL(u)){try{sessionStorage.setItem(K+":"+here(),JSON.stringify({u:u,t:t||"el material anterior"}))}catch(e){}}
+var back=null;try{back=JSON.parse(sessionStorage.getItem(K+":"+here())||"null")}catch(e){}
+if(back&&okURL(back.u)&&!document.querySelector(".sm-back-detecta")){var b=document.createElement("a");b.className="sm-back";b.href=back.u;b.innerHTML='<b aria-hidden="true">‹</b><span>Volver a '+back.t.replace(/[<>&]/g,"")+'</span>';b.setAttribute("aria-label","Volver a "+back.t);document.body.appendChild(b)}
+/* 2 · enlaces de salida con vuelta */
+var withBack=function(href){var hs=href.split("#"),base=hs[0],h=hs[1]?"#"+hs[1]:"";return base+(base.indexOf("?")<0?"?":"&")+"volver="+encodeURIComponent(location.href.split("?")[0])+"&vtxt="+encodeURIComponent(CFG.nombre)+h};
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[data-sm]");if(!a)return;var h=a.getAttribute("data-sm-href")||a.getAttribute("href");a.setAttribute("data-sm-href",h);a.href=withBack(h)},true);
+/* 3 · botones junto al texto */
+var SKIP="a,button,label,option,select,textarea,script,style,summary,svg,input,[role=tab],nav,.sm-link,.sm-back,header";
+var chips=CFG.chips||[];if(!chips.length)return;var done=chips.map(function(){return 0});
+var scan=function(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),n;
+ while((n=w.nextNode())){var p=n.parentElement;if(!p||p.closest(SKIP))continue;
+  for(var i=0;i<chips.length;i++){var c=chips[i];if(done[i]>=(c.max||2))continue;if(!c.re.test(n.nodeValue))continue;
+   var blk=p.closest("p,li,td,dd,h4,.indicador,.cp,.niv")||p;if(blk.getAttribute("data-smlink"))continue;blk.setAttribute("data-smlink","1");
+   var a=document.createElement("a");a.className="sm-link";a.setAttribute("data-sm","");a.href=c.href;a.innerHTML=LUPA+(c.txt||"Abrir en SUMAMOS DETECTA")+" ›";blk.appendChild(a);done[i]++;break}}};
+var tm=0;var mo=new MutationObserver(function(){clearTimeout(tm);tm=setTimeout(scan,250)});mo.observe(document.body,{childList:true,subtree:true});document.addEventListener("click",function(){clearTimeout(tm);tm=setTimeout(scan,300)},true);setTimeout(scan,400);
+}catch(e){}})
+({nombre:"Traspaso de Infantil a Primaria",chips:[{re:/indicadores de cribado DETECTA/i,href:"../GUIAS/b3-guia-doc-detecta-lectoescritura.html#p4",txt:"Registro completo de 1.º en DETECTA",max:2},{re:/DETECTA/,href:"../GUIAS/b3-guia-doc-detecta-lectoescritura.html#p3",txt:"Abrir SUMAMOS DETECTA",max:1}]});
+</script>
 </body>
 </html>
