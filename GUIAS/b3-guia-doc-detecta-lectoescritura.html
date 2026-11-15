@@ -180,6 +180,11 @@ aside.idx{position:sticky;top:calc(var(--camh) + 14px);max-height:calc(100vh - v
 
 
 
+
+/* ---------- palabra DETECTA con el logotipo (D-lupa) en paneles y textos (nov. 2026) ---------- */
+.lg-w{display:inline-block;line-height:0;vertical-align:-.12em;color:inherit}
+.lg-w svg{height:1.08em;width:auto;display:block}
+.ap-b .lg-w svg,.ap-b .lg-in svg{height:1em}
 /* ---------- aviso de descargas (nov. 2026) ---------- */
 #dl-toast{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);z-index:9999;width:min(560px,calc(100% - 24px));background:#fff;color:#1d2b36;border:1px solid #cfe3e4;border-left:6px solid #2A8B8D;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:12px 40px 12px 14px;font-size:.92rem;line-height:1.35;transition:transform .25s;display:flex;flex-direction:column;gap:6px}
 #dl-toast.show{transform:translate(-50%,0)}
@@ -21986,6 +21991,20 @@ function init(){
 document.addEventListener("click",e=>{const a=e.target.closest("a[data-obj]");if(!a)return;const h=location.hash.slice(1)||"inicio";a.href="b6-guia-doc-caminos-inclusion.html?desde=detecta&vuelta="+encodeURIComponent(h)},true);
 window.__DETECTA={evalReg,REG};
 init();
+/* SUMAMOS DETECTA · la palabra DETECTA se muestra con su logotipo (D-lupa) en paneles, apartados e índice (nov. 2026) */
+(function(){
+ let n=0;const D=LOGO_SVG.replace(/viewBox="[^"]*"/,'viewBox="5909 -40 4964 940"').replace(/<path d="M313[^"]*"\/>/,"").replace('aria-label="SUMAMOS DETECTA"','aria-label="DETECTA"');
+ const word=()=>{const u="W"+(++n);return `<span class="lg-w" dir="ltr" aria-hidden="true">${D.replace(/id="lens/g,`id="lens${u}`).replace(/url\(#lens/g,`url(#lens${u}`)}</span>`};
+ const RX=/(SUMAMOS )?DETECTA/;const SKIP=".lg-sr,.lg-in,.lg-w,script,style,textarea,select,option,title,svg,input";
+ const esc=t=>t.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+ function proc(root){if(!root)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:x=>RX.test(x.nodeValue)&&!x.parentElement.closest(SKIP)?1:2});const ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(x=>{const t=document.createElement("template");t.innerHTML=esc(x.nodeValue).replace(/(SUMAMOS )?DETECTA/g,m=>`<span class="lg-sr">${m}</span>`+(m.length>7?logoIn():word()));x.replaceWith(t.content)})}
+ const targets=()=>[document.getElementById("main"),document.getElementById("idxList")];
+ const ob=new MutationObserver(()=>{ob.disconnect();targets().forEach(proc);go()});
+ const go=()=>targets().forEach(t=>t&&ob.observe(t,{childList:true,subtree:true}));
+ const start=()=>{targets().forEach(proc);go()};
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start();
+})();
 })();
 </script>
 <script>/* SUMAMOS · enlaces entre materiales con vuelta (añadido el 5-11-2026)
