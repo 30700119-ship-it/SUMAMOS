@@ -1734,6 +1734,7 @@ const B_der=[
  ["claves","Antes de empezar",B=>{let sel=-1;
   B.innerHTML=H("¿A quién pedimos la intervención?",pg("der",1,"infografía"),"Un único documento, el Anexo I, del apartado 1 al 9, para orientación educativa, servicios a la comunidad y fisioterapia. La jefatura de estudios y el EOEP deciden qué profesional atiende la demanda (Resolución de 30 de mayo de 2024, quinto, ap. 3).")+
   `<div class="dv-alert"><span class="dv-ico" aria-hidden="true">!</span><p><b>Solicitar la intervención no es solicitar una evaluación psicopedagógica.</b> La evaluación es solo una de las tres salidas posibles y la decide el EOEP.</p></div>
+  <div class="box t" data-nota="T4-glosario-nov2026" style="margin:12px 0"><h4>Glosario · Términos (nov. 2026)</h4><p>«Solicitud de intervención» es la petición al EOEP (Resolución de 30-5-2024, Anexo I). «Derivación» se usa solo para servicios externos (Servicios Sociales, sanidad, Comisión de Absentismo). Profesor/a de Servicios a la Comunidad: PSC (antes PTSC).</p></div>
   <div class="grid3">${DV.prof.map(p=>`<div class="box dv-prof" style="--c:${p.c}"><span class="kicker">Se solicita la intervención de</span><h4>${esc(p.t)}</h4><p>${esc(p.d)}</p><ul>${p.ej.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div>
   ${H4("¿A quién pido? Elige lo que te preocupa")}
   <div class="dv-worry" id="dvw">${DV.worry.map((w,i)=>`<button type="button" class="dv-wbtn" data-i="${i}" aria-pressed="false">${esc(w[0])}</button>`).join("")}</div>
