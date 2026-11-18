@@ -626,7 +626,7 @@ footer .f2{opacity:.9;margin-top:6px;font-size:.82rem}
 .mt-x svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
 .mt-x button:hover,.mt-x a:hover{color:var(--ink);border-color:var(--acc)}
 #resList.mts,#resList{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-@media (max-width:640px){.bh-id{width:84px;height:84px;padding:4px;position:absolute;right:12px;top:12px}.mts,#resList{grid-template-columns:minmax(0,1fr)}.mt-img{aspect-ratio:16/8}}
+@media (max-width:640px){.bh-id{width:84px;height:84px;padding:4px}.mts,#resList{grid-template-columns:minmax(0,1fr)}.mt-img{aspect-ratio:16/8}}
 .mt-x button,.mt-x a{white-space:nowrap!important;padding:5px 10px!important;min-height:0!important;font-size:.78rem!important;line-height:1.2!important;width:auto!important}
 .gwrap.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:0 22px;align-items:start}
 .gwrap.cols .mts{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
@@ -645,6 +645,13 @@ footer .f0{font-weight:800;margin-bottom:6px;font-size:.95rem}
 /* 18-11-2026: «Para qué» en negro, con escuela, familia y EOEP en rojo */
 .qx-pq li span,.qx-pq li span b{color:#1A1A1A!important}
 .qx-pq li span b.rj{color:#C62828!important}
+/* 18-11-2026: móvil, la imagen del bloque no se solapa */
+@media (max-width:760px){
+ .bhero-top{flex-wrap:wrap!important}
+ .bh-id{position:static!important;order:2!important;width:118px!important;height:118px!important;padding:5px!important;margin:4px auto 2px!important;flex:0 0 118px!important}
+ .bhero-top .bhero-txt{flex:1 1 calc(100% - 110px);min-width:0}
+ .bhero-top .share-block{order:5!important;flex:1 1 100%;justify-content:center}
+}
 </style>
 </head>
 <body>
