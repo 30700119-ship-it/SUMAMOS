@@ -1671,4 +1671,51 @@ function init(){parts().forEach(function(p){if(p.querySelector('.smap')&&!p.getA
  document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.smap-all');if(!t)return;var p=t.closest('.part');var on=p.getAttribute('data-sm')!=='all';
   p.setAttribute('data-sm',on?'all':'map');t.setAttribute('aria-pressed',on?'true':'false');t.textContent=on?'Ver por paneles':'Ver todo junto';if(on)p.querySelectorAll('details.sm-b').forEach(function(x){x.open=true});else marca(p,null)});
  var h=(location.hash||'').slice(1);if(h)focusFor(h)}
-if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);})();</script></body></html>
+if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);})();</script><!-- ===== SUMAMOS · Ruta rápida del tutor (acceso directo siempre visible) ===== -->
+<style>
+#sr-fab{position:fixed;right:14px;bottom:14px;z-index:9990;border:0;border-radius:999px;background:#F4BE1A;color:#3B2A00;font:900 .92rem "Nunito",system-ui,sans-serif;padding:11px 18px;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+#sr-fab:hover{filter:brightness(.95)}#sr-fab:focus-visible{outline:3px solid #48C5C7;outline-offset:3px}
+#sr-dlg{border:0;border-radius:18px;padding:0;width:min(94vw,640px);background:#fff;color:#1D2B2A;font-family:"Nunito Sans",system-ui,sans-serif}
+#sr-dlg::backdrop{background:rgba(10,25,30,.55)}
+#sr-dlg .sr-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:5px solid #F4BE1A}
+#sr-dlg .sr-h h3{margin:0;font:900 1.15rem "Nunito",system-ui,sans-serif;color:#173B45}
+#sr-dlg .sr-h small{display:block;font:800 .72rem "Nunito",sans-serif;letter-spacing:.08em;color:#7A5800}
+#sr-dlg .sr-x{border:0;background:none;font-size:1.7rem;line-height:1;color:#5A6B69;cursor:pointer}
+#sr-dlg .sr-b{padding:12px 16px 16px;max-height:76vh;overflow:auto}
+#sr-dlg .sr-b>p{margin:0 0 8px}
+#sr-dlg ol{list-style:none;margin:8px 0;padding:0;display:grid;gap:8px}
+#sr-dlg ol a{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;text-decoration:none;color:inherit;border:1px solid #DCE8E3;border-left:6px solid #F4BE1A;border-radius:12px;padding:9px 12px}
+#sr-dlg ol a:hover,#sr-dlg ol a:focus-visible{background:#F7F3EA;outline:none}
+#sr-dlg ol i{font-style:normal;width:30px;height:30px;border-radius:50%;background:#F4BE1A;color:#3B2A00;display:grid;place-items:center;font:900 .95rem "Nunito",sans-serif}
+#sr-dlg ol b{display:block;font-family:"Nunito",sans-serif}#sr-dlg ol small{color:#5A6B69}
+#sr-dlg ol em{font-style:normal;font:800 .78rem "Nunito",sans-serif;color:#7A5800;white-space:nowrap}
+#sr-dlg ol a.sr-on{background:#F7F3EA}
+#sr-dlg .sr-full{margin-top:10px;border-top:1px dashed #DCE8E3;padding-top:10px}
+#sr-dlg .sr-full b{font:900 .8rem "Nunito",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#7A5800}
+#sr-dlg .sr-full div{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+#sr-dlg .sr-full a{display:inline-block;border:2px solid #F4BE1A;border-radius:999px;padding:6px 13px;font:800 .85rem "Nunito",sans-serif;color:#173B45;text-decoration:none}
+#sr-dlg .sr-full a:first-child{background:#F4BE1A;color:#3B2A00}
+@media (max-width:600px){#sr-fab{font-size:.8rem;padding:9px 13px;right:10px;bottom:72px}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #sr-dlg{background:#1A2421;color:#E7F0EC}:root:not([data-theme="light"]) #sr-dlg .sr-h h3,:root:not([data-theme="light"]) #sr-dlg .sr-full a{color:#E7F0EC}:root:not([data-theme="light"]) #sr-dlg ol a:hover,:root:not([data-theme="light"]) #sr-dlg ol a.sr-on{background:#24302D}}
+:root[data-theme="dark"] #sr-dlg{background:#1A2421;color:#E7F0EC}:root[data-theme="dark"] #sr-dlg .sr-h h3,:root[data-theme="dark"] #sr-dlg .sr-full a{color:#E7F0EC}:root[data-theme="dark"] #sr-dlg ol a:hover{background:#24302D}
+@media print{#sr-fab,#sr-dlg{display:none!important}}
+</style>
+<button type="button" id="sr-fab" aria-haspopup="dialog" aria-controls="sr-dlg"><span aria-hidden="true">➜</span> Ruta rápida del tutor</button>
+<dialog id="sr-dlg" aria-labelledby="sr-t"><div class="sr-h"><div><small></small><h3 id="sr-t">Ruta rápida del tutor</h3></div><button type="button" class="sr-x" aria-label="Cerrar">×</button></div><div class="sr-b"></div></dialog>
+<script>
+(function(){const C={"name": "ACOGIDA", "intro": "La acogida en 3 años en cinco pasos, de junio a septiembre.", "reload": false, "steps": [["Prepara la acogida en junio", "Checklist de junio y reunión con las familias.", "b1-guia-doc-adaptacion-septiembre.html#p1-1"], ["Organiza las Jornadas de Puertas Abiertas", "Planificación paso a paso y carta de bienvenida.", "b1-guia-jornadas-puertas-abiertas.html#p1-2"], ["Conoce a cada familia", "Entrevista de acogida (y entrevista ACNEAE si hace falta).", "b1-guia-doc-adaptacion-septiembre.html#p2-0"], ["Recoge el traspaso de 0-3 años", "Instrumento de traspaso de la Escuela Infantil o del primer ciclo.", "b1-proto-transicion-2a3.html#p2-2"], ["Acoge en septiembre y decide con el semáforo", "Periodo de adaptación, registro y derivación al EOEP.", "b1-guia-doc-adaptacion-septiembre.html#p5-1"]], "full": [["Cuestionario de traspaso 2-3 años", "../CUESTIONARIOS/b1-cuest-doc-traspaso-2a3.html"], ["Entrevista con la familia (3 años)", "../CUESTIONARIOS/b1-entrev-fam-3anos.html"], ["Si llega a mitad de curso", "b1-proto-incorporacion-curso.html#pf1"]]};const d=document.getElementById("sr-dlg"),fab=document.getElementById("sr-fab");
+ const E=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+ const here=location.pathname.split("/").pop();
+ const same=u=>u.split("#")[0]===here;
+ d.querySelector("small").textContent=C.name;
+ function draw(){const h=location.hash.slice(1);
+  d.querySelector(".sr-b").innerHTML=`<p>${E(C.intro)} Pulsa un paso para ir directamente.</p><ol>${C.steps.map((s,i)=>{const on=same(s[2])&&s[2].split("#")[1]===h;return `<li><a href="${E(s[2])}" class="${on?"sr-on":""}"><i>${i+1}</i><span><b>${E(s[0])}</b><small>${E(s[1])}</small></span><em>${on?"Estás aquí":"Ir ›"}</em></a></li>`}).join("")}</ol>
+  <div class="sr-full"><b>Cuestionario y documentos completos</b><div>${C.full.map(f=>`<a href="${E(f[1])}">${E(f[0])}</a>`).join("")}</div></div>`}
+ fab.addEventListener("click",()=>{draw();d.showModal()});
+ d.querySelector(".sr-x").addEventListener("click",()=>d.close());
+ d.addEventListener("click",e=>{if(e.target===d){d.close();return}const a=e.target.closest("a[href]");if(!a)return;const u=a.getAttribute("href");
+  if(same(u)&&u.includes("#")){e.preventDefault();d.close();const h=u.split("#")[1];if(location.hash.slice(1)===h&&!C.reload){window.dispatchEvent(new HashChangeEvent("hashchange"))}else location.hash=h;if(C.reload)setTimeout(()=>location.reload(),30)}else d.close()});
+})();
+</script>
+
+</body></html>
