@@ -757,6 +757,278 @@ body[data-prog="pantallas"]{--soc:#3F5566;--socD:#24384A;--socL:#ECF1F5;--socA:#
 :root:not([data-theme="light"]) body[data-prog="autonomia"]{--socL:#36261A;--socAL:#3A3020;--socD:#F6D3B8}
 :root:not([data-theme="light"]) body[data-prog="pantallas"]{--socL:#232C34;--socAL:#3A3020;--socD:#D3DEE8}}
 </style>
+<style id="dv-css">
+/* ===== GUÍA DOCENTE · PANTALLAS QUE SE VEN ENTERAS (modelo guía para familias y panel v8) =====
+   Se añade encima de lo anterior: el código previo sigue en el archivo y solo se oculta en pantalla. */
+body.dv{padding-left:0!important;background:#F4F8F8;overflow-x:hidden}
+:root[data-theme="dark"] body.dv{background:var(--bg)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body.dv{background:var(--bg)}}
+body.dv>header.top,body.dv>.where,body.dv>#road,body.dv>.crumbs,body.dv>footer,body.dv .idx-fab,body.dv #rutaFab{display:none!important}
+#DL{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+@media (min-width:901px){#DL{height:100vh;height:100dvh;overflow:hidden}}
+
+/* Cabecera: triple logo + marca + acciones */
+.dv-top{flex:none;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between;padding:8px max(16px,4vw);background:#fff;border-bottom:5px solid #48C5C7}
+.dv-lg .logos{background:#fff;padding:0;gap:14px}.dv-lg .logos img{height:42px}
+.dv-brand{font:900 .86rem var(--f-display);letter-spacing:.08em;color:#296272}
+.dv-acts{display:flex;gap:8px;flex-wrap:wrap}
+.dv-btn{display:inline-flex;align-items:center;gap:6px;border:2px solid #2A8B8D;background:#fff;color:#296272;border-radius:999px;padding:6px 14px;font:800 .88rem var(--f-display);text-decoration:none;cursor:pointer}
+.dv-btn:hover,.dv-btn:focus-visible{background:#E3F4F4}
+
+/* Banda de título: GUÍA PARA DOCENTES muy visible */
+.dv-hd{flex:none;background:linear-gradient(135deg,#E6F7F7 0%,#D3EFEF 60%,#E9F3FB 100%);border-bottom:1px solid #CFE6E6}
+:root[data-theme="dark"] .dv-hd{background:linear-gradient(135deg,#16302F,#1B2B33);border-color:#2C3A36}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dv-hd{background:linear-gradient(135deg,#16302F,#1B2B33);border-color:#2C3A36}}
+.dv-hd-in{max-width:1280px;margin:0 auto;padding:clamp(4px,1.2vh,12px) 20px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.dv-tt{display:flex;align-items:center;gap:12px}
+.dv-s{font:900 clamp(1.5rem,4.4vh,2.4rem) var(--f-display);color:#0B2545;letter-spacing:.01em}
+.dv-eq{font:900 1.6rem var(--f-display);color:#F4BE1A}
+.dv-t5{display:flex;flex-direction:column;gap:2px;line-height:1.05}
+.dv-k{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;background:#2A8B8D;color:#fff;border-radius:999px;padding:3px 14px 3px 8px;font:900 clamp(.82rem,1.9vh,1.05rem)/1.2 var(--f-display);letter-spacing:.08em;box-shadow:0 2px 6px rgba(42,139,141,.35)}
+.dv-k svg{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dv-t5 b{font:900 clamp(1.5rem,4.6vh,2.6rem)/1.05 var(--f-display);color:#2F6B3A;letter-spacing:.01em}
+.dv-t5 small{font:800 clamp(.8rem,1.9vh,1.05rem)/1.25 var(--f-display);color:#1E6466}
+:root[data-theme="dark"] .dv-s{color:#E4EFEF}:root[data-theme="dark"] .dv-t5 b{color:#8FD19B}:root[data-theme="dark"] .dv-t5 small{color:#9FDCDD}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dv-s{color:#E4EFEF}:root:not([data-theme="light"]) .dv-t5 b{color:#8FD19B}:root:not([data-theme="light"]) .dv-t5 small{color:#9FDCDD}}
+.dv-hand{justify-self:end;font:700 clamp(1.1rem,2.6vh,1.5rem) var(--f-hand);color:#2F6B3A;transform:rotate(-1.5deg);text-align:right}
+:root[data-theme="dark"] .dv-hand{color:#8FD19B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dv-hand{color:#8FD19B}}
+
+/* Pantallas */
+#dvApp{flex:1;display:flex;flex-direction:column;min-height:0}
+.dv-scr{flex:1;display:flex;flex-direction:column;min-height:0}.dv-scr[hidden]{display:none!important}
+.dv-in{flex:1;display:flex;flex-direction:column;width:100%;max-width:1560px;margin:0 auto;padding:clamp(6px,1.4vh,16px) 20px;box-sizing:border-box;min-height:0;gap:clamp(6px,1.4vh,14px)}
+.dv-hb{flex:none;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.dv-q{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:#F4BE1A;color:#2B2410;border-radius:999px;padding:8px 18px;font:900 1rem var(--f-display);letter-spacing:.02em;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.dv-q span{width:22px;height:22px;border-radius:50%;border:2px solid #2B2410;display:grid;place-items:center;font:italic 700 .8rem Georgia,serif}
+.dv-q:hover,.dv-q:focus-visible{background:#FFD24A}.dv-q:focus-visible{outline:3px solid #0B2545}
+.dv-h2{all:unset;cursor:pointer;background:#fff;color:#1E6466;border:2px solid #2A8B8D;border-radius:999px;padding:7px 16px;font:800 .95rem var(--f-display)}
+.dv-h2:hover,.dv-h2:focus-visible{background:#E3F4F4}
+.dv-h2.ruta{background:var(--acc);border-color:var(--acc);color:#fff}.dv-h2.ruta:hover{background:var(--accD)}
+.dv-rh{flex:none;display:flex;align-items:baseline;justify-content:space-between;gap:4px 18px;flex-wrap:wrap}
+.dv-rh h2{margin:0;font:900 clamp(1.2rem,3.2vh,1.7rem) var(--f-display);color:#0B2545}
+:root[data-theme="dark"] .dv-rh h2{color:var(--navy)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dv-rh h2{color:var(--navy)}}
+.dv-rh p{margin:2px 0 0;font-weight:700;color:var(--muted)}
+.dv-rh .dv-hand{font-size:clamp(1.1rem,2.8vh,1.5rem)}
+.dv-road{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+body.dv .dv-road .rec-scroll{max-width:none!important;margin:0}
+@media (min-width:901px){body.dv .rec{min-width:0}}
+
+/* Barra del programa */
+.dv-ab{flex:none;display:flex;align-items:center;gap:12px;background:var(--c);color:#fff;border-radius:18px;padding:8px 14px}
+.dv-bk{all:unset;cursor:pointer;background:#fff;color:var(--c);border-radius:999px;padding:7px 14px;font:800 .86rem var(--f-display);white-space:nowrap}
+.dv-bk:focus-visible,.dv-abb:focus-visible,.dv-ach:focus-visible{outline:3px solid #F59E0B}
+.dv-ab-ic{width:clamp(40px,7vh,52px);aspect-ratio:1;border-radius:50%;background:#fff;color:var(--c);display:grid;place-items:center;flex:none}
+.dv-ab-ic svg{width:58%;height:58%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dv-ab-t{flex:1;min-width:0}
+.dv-ab-t small{display:block;font:800 .72rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;opacity:.95}
+.dv-ab-t h2{margin:0;font:900 clamp(1.1rem,3vh,1.45rem)/1.1 var(--f-display);color:#fff}
+.dv-ab-t p{margin:2px 0 0;font-weight:600;font-size:.84rem;line-height:1.3;opacity:.96}
+.dv-achs{display:flex;gap:6px;flex:none}
+.dv-ach{all:unset;cursor:pointer;box-sizing:border-box;min-width:34px;height:34px;padding:0 6px;border-radius:999px;background:#fff;color:var(--k);border:2px solid #fff;display:grid;place-items:center;font:900 .84rem var(--f-display)}
+.dv-ach.on{background:var(--k);color:#fff;box-shadow:0 0 0 2px #fff}
+.dv-ach.prep{cursor:default;opacity:.6;border-style:dashed;border-color:#fff;background:transparent;color:#fff}
+.dv-abb{all:unset;cursor:pointer;white-space:nowrap;background:rgba(255,255,255,.16);color:#fff;border:2px solid rgba(255,255,255,.8);border-radius:999px;padding:6px 12px;font:800 .82rem var(--f-display)}
+.dv-abb:hover{background:rgba(255,255,255,.28)}
+.dv-abb.y{background:#F4BE1A;border-color:#F4BE1A;color:#2B2410}
+.dv-body{flex:1;min-height:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center}
+#dvRoadP{height:100%}
+#dvPzw{min-width:0;height:100%;display:flex;flex-direction:column;justify-content:center}
+body.dv #main{max-width:none;width:100%;padding:0;margin:0}
+body.dv #main .gview,body.dv #main .prog-h,body.dv #main .pz-bar,body.dv #main>.k-nav{display:none!important}
+body.dv .pz-sec{margin:0}
+body.dv .pz-sec .sec-h{margin:0 0 2px;align-items:baseline}
+body.dv .pz-sec .sec-h h2{font-size:clamp(1.05rem,2.6vh,1.35rem)}
+body.dv .pz-sec .sec-h p{font-weight:700}
+.dv-pzh{margin:0 0 6px;font-weight:700;color:var(--muted);font-size:.9rem}
+body.dv .pz{margin-top:4px}
+body.dv.dvfit .pzt{font-size:clamp(.74rem,calc(var(--ph,110px)*.13),1rem)}
+body.dv.dvfit .pzs{font-size:clamp(.68rem,calc(var(--ph,110px)*.11),.86rem)}
+body.dv.dvfit .pzn{width:clamp(26px,calc(var(--ph,110px)*.3),34px);height:clamp(26px,calc(var(--ph,110px)*.3),34px)}
+
+/* Pie: igual que el panel principal SUMAMOS */
+.dv-ft{flex:none;margin:0;padding:0;text-align:center}
+.dv-ft .ft-lic{margin:0 auto;max-width:1280px;padding:4px 20px 5px;font-size:clamp(.66rem,1.45vh,.76rem);line-height:1.3;color:#3D4A57}
+:root[data-theme="dark"] .dv-ft .ft-lic{color:var(--muted)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dv-ft .ft-lic{color:var(--muted)}}
+.dv-ft .ft-lic a,.dv-ft .ft-b{color:#1D6466;font-weight:700}
+:root[data-theme="dark"] .dv-ft .ft-lic a,:root[data-theme="dark"] .dv-ft .ft-b{color:#7FD6D8}
+.dv-ft .ft-b{all:unset;cursor:pointer;color:#1D6466;font-weight:800;text-decoration:underline}
+.dv-ft .ft-bar{background:#2A8B8D;color:#fff;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 18px;padding:clamp(5px,1vh,9px) 16px;font-size:clamp(.68rem,1.5vh,.8rem);line-height:1.3}
+.dv-ft .ft-bar b{color:#fff}
+
+/* Ventanas que se abren y se cierran */
+.dmw{position:fixed;inset:0;z-index:100;background:rgba(11,37,69,.5);display:grid;place-items:center;padding:2vh 2vw}
+.dmw[hidden]{display:none!important}
+body.dv-mo{overflow:hidden}
+.dmw-box{width:min(1220px,96vw);height:min(92vh,980px);background:var(--surface);color:var(--fg);border-radius:22px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.dmw-box.sm{height:auto;max-height:92vh;width:min(900px,96vw)}
+.dmw-h{flex:none;display:flex;align-items:center;gap:12px;background:var(--c);color:#fff;padding:10px 16px}
+.dmw-ic{width:46px;height:46px;border-radius:50%;background:#fff;color:var(--c);display:grid;place-items:center;flex:none;font:900 1.3rem var(--f-display)}
+.dmw-ic svg{width:58%;height:58%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dmw-tt{flex:1;min-width:0}.dmw-tt b{display:block;font:900 clamp(1.05rem,2.6vh,1.35rem)/1.15 var(--f-display)}.dmw-tt small{font-weight:700;opacity:.95}
+.dmw-x{all:unset;cursor:pointer;background:#fff;color:var(--c);border-radius:999px;padding:7px 14px;font:900 .92rem var(--f-display);white-space:nowrap}
+.dmw-x:focus-visible,.dmw-pg button:focus-visible,.dmn:focus-visible{outline:3px solid #F59E0B}
+.dmw-pg{display:flex;gap:6px;flex:none}
+.dmw-pg button{all:unset;cursor:pointer;white-space:nowrap;background:rgba(255,255,255,.16);color:#fff;border:2px solid rgba(255,255,255,.8);border-radius:999px;padding:6px 12px;font:800 .82rem var(--f-display)}
+.dmw-pg button:disabled{opacity:.4;cursor:default}
+.dmw-in{flex:1;display:grid;grid-template-columns:270px minmax(0,1fr);min-height:0}
+.dmw-nav{overflow-y:auto;background:var(--cl);padding:10px;display:flex;flex-direction:column;gap:4px;border-inline-end:1px solid rgba(0,0,0,.06)}
+:root[data-theme="dark"] .dmw-nav{background:color-mix(in srgb,var(--c) 16%,var(--surface))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dmw-nav{background:color-mix(in srgb,var(--c) 16%,var(--surface))}}
+.dmn{all:unset;cursor:pointer;box-sizing:border-box;padding:8px 12px;border-radius:12px;font:800 .9rem/1.25 var(--f-display);color:var(--fg);display:flex;flex-direction:column;gap:2px}
+.dmn small{font:700 .72rem var(--f-body);color:var(--muted)}
+.dmn:hover{background:rgba(255,255,255,.7)}.dmn.on{background:var(--c);color:#fff}.dmn.on small{color:#fff;opacity:.9}
+.dmn.intro{border:2px dashed color-mix(in srgb,var(--c) 55%,transparent);margin-bottom:4px}
+.dmn-l{font:900 .7rem var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--c);padding:8px 12px 2px}
+.dmw-pane{overflow-y:auto;padding:16px clamp(14px,2.2vw,28px) 26px;-webkit-overflow-scrolling:touch;min-width:0}
+.dmw-one{overflow-y:auto;padding:16px clamp(14px,2.2vw,28px) 22px}
+.dmw-pane .detail{margin:0;box-shadow:none;border:0;padding:0;background:none}
+.dmw-pane .detail>.eb,.dmw-pane .detail>h2{display:block}
+.dmw-pane .pager{position:sticky;bottom:-26px;background:var(--surface);padding:10px 0 4px;margin-top:16px;z-index:2;border-top:1px solid var(--line)}
+.dv-pi-lead{font:700 1.05rem var(--f-display);color:var(--muted);margin:0 0 14px}
+.dv-pi-q{font:900 clamp(1.2rem,3vh,1.6rem) var(--f-display);color:var(--c);margin:0 0 4px}
+.dmw .themes{grid-template-columns:repeat(3,minmax(0,1fr))}
+.dv-uso{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dv-uso li{display:flex;gap:12px;align-items:flex-start;background:color-mix(in srgb,var(--c) 8%,var(--surface));border:2px solid color-mix(in srgb,var(--c) 30%,transparent);border-radius:16px;padding:12px 14px}
+.dv-uso i{flex:none;width:32px;height:32px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font:900 1rem var(--f-display);font-style:normal}
+.dv-uso b{display:block;font:900 1rem var(--f-display);color:var(--navy)}.dv-uso span{font-size:.95rem;line-height:1.45}
+.dmw .prog-h{display:grid!important;margin:0;box-shadow:none}
+.dv-lic p{margin:0 0 10px;line-height:1.55}
+
+/* Fichas y materiales: se abren en su propia ventana, no debajo */
+body.dv details.fi[open],body.dv details.mt[open]{position:fixed;z-index:160;inset:max(3vh,10px) max(4vw,10px);margin:0!important;background:var(--surface);border-radius:20px;overflow:auto;box-shadow:0 0 0 100vmax rgba(11,37,69,.55),0 24px 60px rgba(0,0,0,.4);overscroll-behavior:contain}
+body.dv details.fi[open]>summary,body.dv details.mt[open]>summary{position:sticky;top:0;z-index:3;background:var(--surface);border-bottom:3px solid var(--c);padding-right:120px}
+body.dv details.fi[open]>summary::after,body.dv details.mt[open]>summary::after{content:"Cerrar ✕";position:absolute;right:14px;top:50%;transform:translateY(-50%);background:var(--c);color:#fff;border-radius:999px;padding:6px 14px;font:900 .86rem var(--f-display)}
+.dv-subnav{position:sticky;bottom:0;z-index:3;display:flex;justify-content:space-between;gap:8px;background:var(--surface);border-top:1px solid var(--line);padding:10px 14px;margin-top:14px}
+.dv-subnav button{all:unset;cursor:pointer;border:2px solid var(--c);color:var(--c);background:var(--surface);border-radius:999px;padding:7px 14px;font:800 .88rem var(--f-display)}
+.dv-subnav button.x{background:var(--c);color:#fff}
+.dv-subnav button:disabled{opacity:.35;cursor:default}
+.dv-subnav button:focus-visible{outline:3px solid #F59E0B}
+
+/* Ajustes por tamaño */
+@media (min-width:901px) and (max-height:700px){.dv-rh p{display:none}.dv-hd-in{padding-top:3px;padding-bottom:3px}.dv-s{font-size:1.5rem}.dv-t5 b{font-size:1.7rem}.dv-t5 small{font-size:.84rem}.dv-top{padding-top:4px;padding-bottom:4px}.dv-lg .logos img{height:36px}.dv-ab-t p{display:none}.dv-pzh{display:none}}
+@media (max-width:1180px){.dv-achs{display:none}}
+@media (max-width:900px){
+ .dv-hd-in{grid-template-columns:1fr;gap:4px;padding:8px 12px}.dv-hand.hd{display:none}.dv-tt{flex-wrap:wrap;gap:4px 10px}
+ .dv-top{padding:8px 12px}.dv-lg .logos img{height:32px}.dv-brand{display:none}.dv-acts .dv-btn{padding:5px 10px;font-size:.8rem}
+ .dv-in{padding:10px 12px}
+ .dv-body{grid-template-columns:1fr}
+ #dvRoadP{height:auto;width:auto!important}
+ .dv-ab{flex-wrap:wrap}.dv-ab-t{flex-basis:100%;order:3}
+ .dmw{padding:0}.dmw-box,.dmw-box.sm{width:100vw;height:100dvh;max-height:none;border-radius:0}
+ .dmw-h{flex-wrap:wrap}.dmw-pg{order:4;flex-basis:100%;justify-content:space-between}
+ .dmw-in{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+ .dmw-nav{flex-direction:row;overflow-x:auto;overflow-y:hidden;gap:6px;padding:8px;border:0;border-bottom:1px solid rgba(0,0,0,.08)}
+ .dmn{flex:0 0 auto;white-space:nowrap;background:var(--surface);padding:6px 10px;font-size:.82rem}.dmn small{display:none}.dmn-l{display:none}
+ .dmw .themes{grid-template-columns:1fr}
+ .dv-uso{grid-template-columns:1fr}
+ body.dv details.fi[open],body.dv details.mt[open]{inset:0;border-radius:0}
+}
+@media (max-width:560px){.dv-t5 b{font-size:1.5rem}.dv-s{font-size:1.4rem}.dv-k{font-size:.8rem}}
+
+/* Impresión: se imprime el contenido abierto */
+@media print{
+ body.dv #DL{display:block;height:auto;overflow:visible}
+ body.dv .dv-acts,body.dv .dv-hb,body.dv .dv-ab,body.dv .dv-road,body.dv .dv-rh,body.dv .pz-sec{display:none!important}
+ body.dv #main .gview,body.dv #main .prog-h{display:block!important}
+ body.dv #main .gsec{display:block!important}
+ body.dv.dv-mo #DL{display:none!important}
+ body.dv .dmw{position:static;background:none;padding:0;display:block}
+ body.dv .dmw-box{width:auto;height:auto;box-shadow:none;border-radius:0;overflow:visible}
+ body.dv .dmw-in{display:block}body.dv .dmw-nav,body.dv .dmw-x,body.dv .dmw-pg,body.dv .dv-subnav{display:none!important}
+ body.dv .dmw-pane,body.dv .dmw-one{overflow:visible}
+ body.dv details.fi[open],body.dv details.mt[open]{position:static;box-shadow:none}
+}
+body.dv .idx{transform:translateX(-100%);z-index:90}
+body.dv.idx-open .idx{transform:none}
+body.dv .idx-x{display:block}
+body.dv .idx-veil{display:block;z-index:89}
+body.dv .pzt{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+body.dv .dv-road .rec-scroll{width:100%}
+@media (max-width:900px){body.dv .dv-road{display:block}body.dv #dvRoadP{margin-bottom:6px}}
+#dvHome .dv-in{max-width:1280px}
+/* ===== v2 · inicio con el recorrido más grande y letras legibles ===== */
+.dv-hrow{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px 18px;flex-wrap:wrap}
+.dv-ht{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.dv-ht h2{margin:0;font:900 clamp(1.2rem,3.2vh,1.7rem) var(--f-display);color:#0B2545}
+:root[data-theme="dark"] .dv-ht h2{color:var(--navy)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dv-ht h2{color:var(--navy)}}
+.dv-ht .dv-hand{font-size:clamp(1.05rem,2.6vh,1.4rem)}
+@media (max-width:1500px){.dv-ht .dv-hand{display:none}}
+#dvHome .dv-in{max-width:1280px}
+#dvHome .dv-road .rec-scroll{box-shadow:0 6px 22px rgba(40,60,60,.16)}
+body.dv .dv-road .rec .rlab{font-size:1.5cqw;line-height:1.12;padding:.6cqw .35cqw;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;border-width:.36cqw}
+body.dv .dv-road .rec .rlab small{font-size:1.08cqw;line-height:1.15;color:#3F4E4C}
+body.dv #dvRoadH .rec .rlab{font-size:1.62cqw}
+body.dv #dvRoadH .rec .rlab small{font-size:1.15cqw}
+body.dv .dv-road .pin-tag{font-size:1.05cqw}
+.dmw-one{flex:1;min-height:0}
+/* Los seis programas en la ventana: tarjetas que caben */
+.dmw .themes{gap:14px}
+.dmw .theme .ill{aspect-ratio:320/130}
+.dmw .theme .ill svg{width:100%;height:100%}
+
+/* ===== v2 · Ruta rápida del tutor con diseño ===== */
+body.dv .ruta-dlg{--c:#4C9A5A;width:min(96vw,1180px);border-radius:24px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+body.dv .ruta-h{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;column-gap:14px;align-items:center;background:linear-gradient(120deg,var(--c),color-mix(in srgb,var(--c) 62%,#0B2545));color:#fff;border:0;padding:14px 20px}
+body.dv .ruta-h::before{content:"➜";grid-row:1/3;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--c);display:grid;place-items:center;font:900 1.5rem var(--f-display)}
+body.dv .ruta-h h3{color:#fff;font:900 clamp(1.2rem,3vh,1.55rem) var(--f-display);letter-spacing:.02em;text-transform:uppercase}
+body.dv .ruta-sub{grid-column:2;font:700 clamp(1.05rem,2.6vh,1.35rem) var(--f-hand);color:#fff;opacity:.95;text-align:left;margin:0;transform:none}
+body.dv #rutaX{grid-column:3;grid-row:1/3;background:#fff;color:var(--c);border-radius:999px;padding:7px 14px;font:900 .92rem var(--f-display);line-height:1.2}
+body.dv .ruta-b{max-height:min(78vh,760px);padding:18px 20px 20px;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 8%,var(--surface)),var(--surface) 55%)}
+body.dv .ruta-lead{margin:0 0 14px;font:800 1.02rem var(--f-display);color:var(--fg)}
+body.dv .ruta-steps{position:relative;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin:0 0 6px;counter-reset:none}
+body.dv .ruta-steps::before{content:"";position:absolute;left:4%;right:4%;top:34px;border-top:4px dashed color-mix(in srgb,var(--c) 45%,#fff);z-index:0}
+body.dv .ruta-steps li{display:flex;position:relative;z-index:1}
+body.dv .ruta-steps li:not(:last-child)::after{content:"›";position:absolute;right:-14px;top:20px;width:14px;text-align:center;font:900 1.4rem var(--f-display);color:color-mix(in srgb,var(--c) 70%,#000)}
+body.dv .ruta-steps button{display:flex;flex-direction:column;align-items:stretch;gap:10px;height:100%;border:0;border-top:8px solid var(--s);border-radius:18px;background:var(--surface);box-shadow:0 4px 14px rgba(20,40,50,.12);padding:12px 14px 14px;transition:transform .15s,box-shadow .15s}
+body.dv .ruta-steps button:hover,body.dv .ruta-steps button:focus-visible{background:color-mix(in srgb,var(--s) 7%,var(--surface));transform:translateY(-3px);box-shadow:0 10px 22px rgba(20,40,50,.18)}
+body.dv .ruta-steps button:focus-visible{outline:3px solid #F59E0B}
+.rs-top{display:flex;align-items:center;gap:8px}
+body.dv .ruta-steps .rs-top i{width:44px;height:44px;font-size:1.35rem;background:var(--s);box-shadow:0 0 0 4px color-mix(in srgb,var(--s) 22%,transparent)}
+.rs-ic{width:38px;height:38px;border-radius:12px;background:color-mix(in srgb,var(--s) 14%,#fff);color:var(--s);display:grid;place-items:center}
+.rs-ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.rs-tag{margin-left:auto;font:900 .68rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--s);background:color-mix(in srgb,var(--s) 12%,transparent);border-radius:999px;padding:3px 8px;text-align:center}
+body.dv .ruta-steps b{font:900 1.06rem/1.2 var(--f-display);color:color-mix(in srgb,var(--s) 75%,#0B2545)}
+:root[data-theme="dark"] body.dv .ruta-steps b{color:color-mix(in srgb,var(--s) 45%,#fff)}
+body.dv .ruta-steps small{display:block;margin-top:5px;font-size:.92rem;line-height:1.4;color:var(--fg)}
+.rs-sem{display:flex;gap:5px;margin-top:8px}.rs-sem i{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 -2px 0 rgba(0,0,0,.15)}
+body.dv .ruta-steps em{margin-top:auto;align-self:flex-start;background:var(--s);color:#fff;border-radius:999px;padding:6px 14px;font:900 .84rem var(--f-display)}
+body.dv .ruta-full{justify-content:center;gap:10px;margin-top:16px;padding-top:14px;border-top:2px dashed color-mix(in srgb,var(--c) 30%,transparent)}
+body.dv .ruta-full .dbtn{border-radius:999px}
+body.dv .ruta-progs{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+body.dv .ruta-pb{display:flex;align-items:center;gap:12px;background:color-mix(in srgb,var(--c) 9%,var(--surface));border:2px solid color-mix(in srgb,var(--c) 40%,transparent);border-left:8px solid var(--c);border-radius:16px;padding:12px 14px}
+body.dv .ruta-pb:hover,body.dv .ruta-pb:focus-visible{background:color-mix(in srgb,var(--c) 18%,var(--surface))}
+.rp-ic{width:46px;height:46px;flex:none;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center}
+.rp-ic svg{width:56%;height:56%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+body.dv .ruta-pb b{font:900 1.08rem var(--f-display);color:color-mix(in srgb,var(--c) 75%,#0B2545)}
+body.dv .ruta-pb em{margin-left:auto;font:900 .82rem var(--f-display);font-style:normal;color:var(--c);white-space:nowrap}
+@media (max-width:900px){
+ body.dv .ruta-dlg{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0}
+ body.dv .ruta-b{max-height:calc(100dvh - 90px)}
+ body.dv .ruta-steps{grid-template-columns:1fr}body.dv .ruta-steps::before{left:36px;right:auto;top:20px;bottom:20px;border-top:0;border-left:4px dashed color-mix(in srgb,var(--c) 45%,#fff)}
+ body.dv .ruta-steps li::after{display:none}
+ body.dv .ruta-progs{grid-template-columns:1fr}
+ body.dv .ruta-h::before{display:none}body.dv .ruta-h{grid-template-columns:1fr auto}body.dv .ruta-sub{grid-column:1}body.dv #rutaX{grid-column:2}
+}
+.dmw .theme .ill{aspect-ratio:auto!important;height:clamp(64px,12vh,120px)}
+.dmw .theme .ill svg{width:100%;height:100%}
+.dmw .theme .body{padding:10px 14px 12px}
+.dmw .theme .tico{display:none}
+.dmw .theme .num{font-size:2rem;top:6px;right:10px}
+.dmw .theme h3{font-size:1.02rem}
+.dmw .theme .s{font-size:.9rem;line-height:1.4;text-align:left}
+.dmw .theme .foot{padding-top:6px}
+.dmw .theme .ill{height:clamp(70px,15vh,150px)}
+#m-que .dmw-h{color:#2B2410}#m-que .dmw-x{color:#2B2410}
+.rp-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+:root[data-theme="dark"] body.dv .ruta-pb b,:root[data-theme="dark"] body.dv .ruta-steps b{color:color-mix(in srgb,var(--c) 40%,#fff)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body.dv .ruta-pb b{color:color-mix(in srgb,var(--c) 40%,#fff)}}
+:root[data-theme="dark"] body.dv .ruta-steps b{color:color-mix(in srgb,var(--s) 40%,#fff)}
+#dvApp{padding:0!important;margin:0!important}
+</style>
 </head>
 <body>
 <header class="top">
@@ -4354,6 +4626,232 @@ addEventListener("popstate",()=>{ROUTE=null;render()});
 $("#themeBtn").addEventListener("click",()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=dark?"light":"dark";try{localStorage.setItem("sm-theme",r.dataset.theme)}catch(e){}});
 try{const s=localStorage.getItem("sm-theme");if(s)document.documentElement.dataset.theme=s}catch(e){}
 render();
+</script>
+<script id="dv-js">
+/* ===== GUÍA DOCENTE · PANTALLAS QUE SE VEN ENTERAS (modelo guía para familias y panel v8) =====
+   Capa añadida: reutiliza los datos y las vistas de siempre (P, viewTile, enhance, recorrido, puzle, índice, visor, ruta rápida).
+   Todo lo que se abre es una pantalla completa o una ventana con «Cerrar» y con anterior / siguiente. */
+(function(){
+const D=document,B=D.body;
+B.classList.add("dv","dvfit");
+const IC_DOC='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20l3-4M17 20l-3-4M7 8h6M7 11h4"/></svg>';
+const LIC_URL="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es";
+const smw=(id,c,cl,title,sub,body,size)=>`<div class="dmw" id="${id}" hidden role="dialog" aria-modal="true" aria-label="${esc(title)}" style="--c:${c};--cl:${cl}"><div class="dmw-box ${size||""}"><header class="dmw-h"><div class="dmw-tt"><b>${title}</b>${sub?`<small>${sub}</small>`:""}</div><button type="button" class="dmw-x" data-dvclose>Cerrar <span aria-hidden="true">✕</span></button></header><div class="dmw-one">${body}</div></div></div>`;
+
+/* --- Estructura de la página --- */
+const L=D.createElement("div");L.id="DL";
+L.innerHTML=`<header class="dv-top"><div class="dv-lg"></div><span class="dv-brand">SUMAMOS (ESCUELA+FAMILIA+EOEP)</span><div class="dv-acts"><button type="button" class="dv-btn" id="dvIdx" aria-controls="idx">☰ Índice</button><button type="button" class="dv-btn" id="dvTheme">Modo claro / oscuro</button><a class="dv-btn" href="../index.html">‹ Volver al panel de materiales</a></div></header>
+<div class="dv-hd"><div class="dv-hd-in"><div class="dv-tt"><span class="dv-s">SUMAMOS</span><span class="dv-eq">=</span><div class="dv-t5"><span class="dv-k">${IC_DOC}GUÍA PARA DOCENTES</span><b>RAÍCES DEL DESARROLLO</b><small>Bloque 4 · Programas de estimulación en Educación Infantil y 1.º-2.º de Primaria</small></div></div><span class="dv-hand hd">lo que trabajamos abajo sostiene el camino de arriba</span></div></div>
+<main id="dvApp">
+ <section class="dv-scr" id="dvHome" aria-label="Inicio"><div class="dv-in">
+  <div class="dv-hrow"><div class="dv-ht"><h2>El recorrido de las raíces</h2><span class="dv-hand">¡crecemos juntos desde la raíz!</span></div><div class="dv-hb"><button type="button" class="dv-q" data-dvopen="m-que"><span>i</span>¿QUÉ ES RAÍCES DEL DESARROLLO?</button><button type="button" class="dv-h2" data-dvopen="m-progs">Los seis programas</button><button type="button" class="dv-h2" data-dvopen="m-uso">Cómo usar la guía</button><button type="button" class="dv-h2 ruta" data-dvruta>➜ Ruta rápida del tutor</button></div></div>
+  <div class="dv-road" id="dvRoadH"></div>
+ </div></section>
+ <section class="dv-scr" id="dvProg" hidden aria-label="Programa"><div class="dv-in">
+  <div class="dv-ab" id="dvAb"></div>
+  <div class="dv-body" id="dvBody"><div class="dv-road" id="dvRoadP"></div><div id="dvPzw"></div></div>
+ </div></section>
+</main>
+<footer class="dv-ft"><p class="ft-lic"><b>© EOEP General Cehegín</b> · Proyecto SUMAMOS · Licencia <a href="${LIC_URL}" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: uso libre sin ánimo de lucro citando la autoría, sin modificar · <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a> · <button type="button" class="ft-b" data-dvopen="m-lic">Aviso legal</button></p><div class="ft-bar"><b>PROYECTO SUMAMOS (Escuela+Familia+EOEP) | Consejería de Educación · Región de Murcia</b><span>Proyecto financiado por la Consejería de Educación y Formación Profesional. Región de Murcia</span></div></footer>`;
+B.prepend(L);
+const lg=D.querySelector("header.top .logos");if(lg)L.querySelector(".dv-lg").appendChild(lg);
+const RS=D.querySelector("#road .rec-scroll"),RB=D.querySelector("#rbtns");
+$("#dvPzw").appendChild($("#main"));
+
+/* --- Ventanas fijas: qué es, programas, cómo usar, aviso legal, sobre el programa --- */
+const hv=D.createElement("div");hv.innerHTML=viewHome();
+const queH=(hv.querySelector(".que-cols")||{}).outerHTML||"";
+const thH=(hv.querySelector(".themes")||{}).outerHTML||"";
+const oldFoot=D.querySelector("body>footer .wrap");
+const USO=[["Elige un programa","Pulsa una parada del recorrido de las raíces o uno de «Los seis programas»."],
+ ["Pulsa una pieza del puzle","Cada programa está ordenado en piezas: conocer, programar, barreras, organizar, intervenir, seguimiento y familias."],
+ ["Se abre una ventana","A la izquierda, los apartados de la pieza; a la derecha, su contenido. Con «Anterior» y «Siguiente» pasas de un apartado a otro."],
+ ["Fichas y materiales","Cada ficha y cada material se abre en su propia ventana, con «Ficha anterior», «Cerrar» y «Ficha siguiente»."],
+ ["Registros","Los registros se rellenan en la pantalla (SÍ / EN PROCESO / NO + Plan de acción), se guardan en el navegador y se descargan en Word."],
+ ["Cerrar y volver","«Cerrar» o la tecla Esc te devuelven a la pantalla anterior. «‹ Recorrido» vuelve al inicio y «☰ Índice» muestra todos los apartados."],
+ ["Ruta rápida del tutor","Cinco pasos para empezar: ficha, lista del aula, registro, semáforo y familia."],
+ ["PDF","En «Sobre el programa» y al pie de cada apartado: ver la página de la guía o del anexo y descargarlos para imprimir."]];
+const W=D.createElement("div");
+W.innerHTML=smw("m-que","#F4BE1A","#FFF6D6","¿QUÉ ES RAÍCES DEL DESARROLLO?","Guía para docentes · lo que trabajamos abajo sostiene el camino de arriba",`<div class="que">${queH}</div>`,"sm")
+ +smw("m-progs","#2A8B8D","#E3F4F4","Los seis programas","Cada panel responde a una pregunta. Pulsa uno para entrar.",thH)
+ +smw("m-uso","#2F6B3A","#E1F2E4","Cómo usar la guía para docentes","Todo se ve en una pantalla. Lo que abres es una ventana que se cierra.",`<ol class="dv-uso" style="--c:#2F6B3A">${USO.map((u,i)=>`<li><i>${i+1}</i><span><b>${u[0]}</b>${u[1]}</span></li>`).join("")}</ol>`)
+ +smw("m-lic","#2A8B8D","#E3F4F4","Aviso legal y licencia de uso","CC BY-NC-ND 4.0",`<div class="dv-lic">${oldFoot?oldFoot.innerHTML:""}</div>`,"sm")
+ +smw("m-prog","#2A8B8D","#E3F4F4","Sobre el programa","","","sm")
+ +`<div class="dmw" id="dvPiece" hidden role="dialog" aria-modal="true" aria-labelledby="dvPT"><div class="dmw-box"><header class="dmw-h"><span class="dmw-ic" id="dvPN"></span><div class="dmw-tt"><b id="dvPT"></b><small id="dvPS"></small></div><div class="dmw-pg" id="dvPG"></div><button type="button" class="dmw-x" data-dvclose>Cerrar <span aria-hidden="true">✕</span></button></header><div class="dmw-in"><nav class="dmw-nav" id="dvPNav" aria-label="Apartados de la pieza"></nav><div class="dmw-pane" id="dvPane"></div></div></div></div>`;
+while(W.firstChild)B.appendChild(W.firstChild);
+
+function anyOpen(){return !!D.querySelector(".dmw:not([hidden])")}
+function openW(id){const m=D.getElementById(id);if(!m)return;m.hidden=false;B.classList.add("dv-mo");const x=m.querySelector(".dmw-x");if(x)x.focus({preventScroll:true})}
+function closeW(m){if(!m)return;m.hidden=true;if(!anyOpen())B.classList.remove("dv-mo")}
+function closeStatic(){D.querySelectorAll(".dmw:not(#dvPiece):not([hidden])").forEach(closeW)}
+
+/* --- Puzle que cabe en el hueco libre --- */
+let PZ=null;const rp0=renderPuzzle;
+renderPuzzle=function(){
+  const box=$("#pz");if(!box)return;if(!PZ)return rp0();
+  const p=P.find(x=>x.id===box.dataset.p);if(!p)return;
+  const gs=groupsOf(p),N=gs.length,cols=PZ.cols,W=PZ.W,H=PZ.H,rows=Math.ceil(N/cols),m=Math.min(W,H),K=Math.ceil(.26*m);
+  const pos=i=>{const r=Math.floor(i/cols),c=i%cols;return[r,r%2?cols-1-c:c]};
+  const at={};gs.forEach((_,i)=>{const[r,c]=pos(i);at[r+","+c]=i});
+  const E=gs.map(()=>[0,0,0,0]);
+  const link=(a,b,ea,eb)=>{let sg;if(Math.abs(a-b)===1)sg=a<b?1:-1;else sg=(Math.min(a,b)%2?-1:1)*(a<b?1:-1);E[a][ea]=sg;E[b][eb]=-sg};
+  gs.forEach((_,i)=>{const[r,c]=pos(i),R=at[r+","+(c+1)],Dn=at[(r+1)+","+c];if(R!==undefined)link(i,R,1,3);if(Dn!==undefined)link(i,Dn,2,0)});
+  box.style.height=(rows*H)+"px";box.style.width=(cols*W)+"px";box.style.setProperty("--ph",H+"px");
+  const sel=box.dataset.sel;
+  box.innerHTML=gs.map((x,i)=>{const[r,c]=pos(i),e=E[i],g={...G[x.g],c:gcol(p,x.g)},isSel=sel===x.g;
+    const A=[K,K],Bp=[K+W,K],C=[K+W,K+H],Dp=[K,K+H];
+    const d="M"+A.join(" ")+pzEdge(A,Bp,e[0],m,.86)+pzEdge(Bp,C,e[1],m,.24)+pzEdge(C,Dp,e[2],m,.14)+pzEdge(Dp,A,e[3],m,.76)+"Z";
+    const lx=Math.max(.05*W,.23*m+8),rx=(cols===2?.75:cols===3?.79:.80)*W;
+    return `<div class="pzc${isSel?" sel":""}${sel&&!isSel?" dim":""}" style="left:${c*W-K}px;top:${r*H-K}px;width:${W+2*K}px;height:${H+2*K}px;--g:${g.c};--d:${i*55}ms">
+      <svg viewBox="0 0 ${W+2*K} ${H+2*K}" aria-hidden="true"><path d="${d}"/></svg>
+      <button type="button" class="pzb" data-go="${p.id}/@${x.g}" ${isSel?'aria-current="true"':""} style="left:${K+lx}px;top:${K+.06*H}px;width:${rx-lx}px;height:${H*.88}px">
+        <span class="pzn">${i+1}</span><span class="pzx"><span class="pzt">${esc(g.n)}</span><span class="pzs">${esc(GQ[x.g])}</span></span></button></div>`}).join("");
+};
+function curP(){const h=ROUTE!==null?ROUTE:decodeURIComponent(location.hash.slice(1));return P.find(x=>x.id===h.split("/")[0]&&!x.prep)}
+function fit(){
+  const mob=innerWidth<=900;
+  if(mob){PZ=null;if(RS)RS.style.width="";$("#dvRoadP").style.width="";const b=$("#pz");if(b){b.style.width=""}rp0();return}
+  if(!$("#dvHome").hidden){const box=$("#dvRoadH");RS.style.width=Math.max(320,Math.min(box.clientWidth,box.clientHeight*2.5))+"px";return}
+  const p=curP();if(!p)return;
+  const body=$("#dvBody"),Wb=body.clientWidth,Hb=body.clientHeight;
+  const rw=Math.floor(Math.min(Wb*.47,Hb*2.5));RS.style.width=rw+"px";$("#dvRoadP").style.width=rw+"px";
+  const head=$("#main .pz-sec .sec-h"),hint=$("#main .dv-pzh");
+  const pw=Wb-rw-16-12,ph=Hb-(head?head.offsetHeight:0)-(hint&&hint.offsetParent?hint.offsetHeight+6:0)-22;
+  const N=groupsOf(p).length;let best=null;
+  for(let c=1;c<=4;c++){const r=Math.ceil(N/c),w=pw/c,h=Math.min(ph/r,140);if(w<150)continue;const s=Math.min(w/2.3,h)+(r*c-N===0?2:0);if(!best||s>best.s)best={s,cols:c,W:Math.floor(w),H:Math.floor(h)}}
+  PZ=best||{cols:2,W:Math.floor(pw/2),H:Math.floor(Math.min(ph/Math.ceil(N/2),140))};
+  renderPuzzle();
+}
+let fT;addEventListener("resize",()=>{clearTimeout(fT);fT=setTimeout(fit,90)});
+try{D.fonts&&D.fonts.ready.then(fit)}catch(e){}
+
+/* --- Barra del programa y ventana «Sobre el programa» --- */
+function abBar(p){
+  return `<button type="button" class="dv-bk" data-go="">‹ Recorrido</button><span class="dv-ab-ic" aria-hidden="true">${ri(RICO[p.id])}</span>
+  <div class="dv-ab-t"><small>Guía para docentes · Tema ${p.n} · ${esc(p.tema)}</small><h2>«${esc(p.prog)}»</h2><p>${esc(p.ps)}</p></div>
+  <div class="dv-achs" aria-label="Cambiar de programa">${P.map(q=>q.prep?`<span class="dv-ach prep" title="${esc(q.tema)}: en preparación">${q.n}</span>`:`<button type="button" class="dv-ach${q.id===p.id?" on":""}" style="--k:${q.c}" data-go="${q.id}" title="${esc(q.tema)}" ${q.id===p.id?'aria-current="page"':""}>${q.n}</button>`).join("")}</div>
+  <button type="button" class="dv-abb" data-dvopen="m-prog">Sobre el programa · PDF</button><button type="button" class="dv-abb" data-dvruta>➜ Ruta rápida</button><button type="button" class="dv-abb y" data-dvopen="m-que">¿Qué es?</button>`;
+}
+function fillProgW(p){const m=$("#m-prog");m.style.setProperty("--c",p.c);m.querySelector(".dmw-tt b").textContent="Sobre «"+p.prog+"»";
+  const ph=$("#main .prog-h");m.querySelector(".dmw-one").innerHTML=ph?ph.outerHTML:"";enhance(m)}
+
+/* --- Ventana de la pieza: apartados a la izquierda, contenido a la derecha --- */
+let PK=null;
+function pieceIntro(p,gs,gi){
+  const x=gs[gi],prev=gs[gi-1],next=gs[gi+1];
+  return `<p class="dv-pi-q">${esc(GQ[x.g])}</p><p class="dv-pi-lead">${esc(GS[x.g])}. Pulsa un apartado para abrirlo.</p>
+  <div class="tiles">${x.items.map(t=>{const lf=(LF[p.id]||{})[t.k];return `<button class="tile${lf?" lfx":""}" type="button" data-go="${p.id}/${t.k}">${lf&&PIC[lf.pic]?`<img class="t-pic" src="${PIC[lf.pic]}" alt="">`:""}<span class="tt">${esc(t.t)}</span>${lf?`<span class="t-para">${esc(lf.para)}</span>`:`<span class="td">${esc(t.d)}</span>`}<span class="tp">${t.dest==="fam"?'<span class="lbl fam">Familias</span>':""}${t.gp?`<span class="pg">Guía · ${pgTxt(t.gp)}</span>`:""}${t.ap?`<span class="pg">Anexo · ${pgTxt(t.ap)}</span>`:""}</span></button>`}).join("")}</div>
+  <div class="pager"><button type="button" ${prev?`data-go="${p.id}/@${prev.g}"`:"disabled"}>‹ ${prev?esc(G[prev.g].n):"Anterior"}</button><button class="mid" type="button" data-dvclose>Cerrar y volver al puzle</button><button type="button" ${next?`data-go="${p.id}/@${next.g}"`:"disabled"}>${next?esc(G[next.g].n):"Siguiente"} ›</button></div>`;
+}
+function openPiece(p,gk,k){
+  const gs=groupsOf(p),gi=gs.findIndex(x=>x.g===gk);if(gi<0){closePiece(true);return}
+  const x=gs[gi],c=gcol(p,gk),m=$("#dvPiece"),prev=gs[gi-1],next=gs[gi+1];
+  m.style.setProperty("--c",c);m.style.setProperty("--cl",`color-mix(in srgb,${c} 10%,#fff)`);
+  $("#dvPN").textContent=gi+1;$("#dvPT").textContent=G[gk].n;$("#dvPS").textContent=`«${p.prog}» · pieza ${gi+1} de ${gs.length} · ${GQ[gk]}`;
+  $("#dvPG").innerHTML=`<button type="button" ${prev?`data-go="${p.id}/@${prev.g}"`:"disabled"}>‹ Pieza anterior</button><button type="button" ${next?`data-go="${p.id}/@${next.g}"`:"disabled"}>Pieza siguiente ›</button>`;
+  const key=p.id+"/"+gk;
+  if(PK!==key){PK=key;$("#dvPNav").innerHTML=`<button type="button" class="dmn intro" data-go="${p.id}/@${gk}">Presentación de la pieza<small>Todos sus apartados</small></button><span class="dmn-l">Apartados</span>`+x.items.map(t=>`<button type="button" class="dmn" data-k="${t.k}" data-go="${p.id}/${t.k}">${esc(t.t)}${t.dest==="fam"?"<small>Para las familias</small>":""}</button>`).join("")}
+  const nav=$("#dvPNav");nav.querySelectorAll(".dmn").forEach(b=>b.classList.toggle("on",k?b.dataset.k===k:b.classList.contains("intro")));
+  const on=nav.querySelector(".dmn.on");if(on&&on.scrollIntoView)on.scrollIntoView({block:"nearest",inline:"nearest"});
+  const pane=$("#dvPane");pane.innerHTML=k?viewTile(p,k):pieceIntro(p,gs,gi);pane.scrollTop=0;enhance(pane);
+  const was=m.hidden;m.hidden=false;B.classList.add("dv-mo");if(was){const xb=m.querySelector(".dmw-x");if(xb)xb.focus({preventScroll:true})}
+}
+function closePiece(silent){const m=$("#dvPiece");if(m.hidden)return;m.hidden=true;PK=null;$("#dvPane").innerHTML="";if(!anyOpen())B.classList.remove("dv-mo")}
+
+/* --- Nueva forma de pintar cada pantalla --- */
+let CUR=null;
+render=function(){
+  const h=ROUTE!==null?ROUTE:decodeURIComponent(location.hash.slice(1));const [pid,k]=h.split("/");
+  const p=P.find(x=>x.id===pid&&!x.prep);
+  closeStatic();
+  let gk=null,t=null,tk=null;
+  if(p&&k){if(k[0]==="@"){gk=k.slice(1);if(gk==="todo")gk=null}else{const tt=tilesOf(p).find(x=>x.k===k);if(tt){t=tt.t;gk=tt.g;tk=k}}}
+  $("#dvHome").hidden=!!p;$("#dvProg").hidden=!p;
+  const key=p?p.id:"";
+  if(CUR!==key){CUR=key;
+    if(p){$("#main").innerHTML=viewProg(p,gk||"");const sh=$("#main .pz-sec .sec-h");if(sh)sh.insertAdjacentHTML("afterend",`<p class="dv-pzh">Pulsa una pieza: se abre en una ventana con sus apartados.</p>`);
+      enhance($("#main"));const ab=$("#dvAb");ab.style.setProperty("--c",p.c);ab.innerHTML=abBar(p);fillProgW(p);$("#dvRoadP").appendChild(RS)}
+    else{$("#main").innerHTML="";$("#dvRoadH").appendChild(RS);if(RB)$("#dvRoadH").after(RB)}
+    renderRoad(p?p.id:null);
+  }else{const box=$("#pz");if(box)box.dataset.sel=gk||""}
+  crumbs(p,t,gk);renderIndex(p,gk,k);renderWhere(p,t,gk);
+  B.classList.toggle("sub",!!p);B.dataset.prog=p?p.id:"";
+  fit();
+  if(p&&gk)openPiece(p,gk,tk);else closePiece();
+  document.title=(t?t+" · ":"")+(p?p.prog+" · ":"")+"Raíces del desarrollo · Guía para docentes";
+  render.started=true;
+};
+
+/* --- Fichas y materiales en su propia ventana, con anterior / cerrar / siguiente --- */
+function subSibs(d){const cls=d.classList.contains("fi")?"fi":"mt";return [...d.parentElement.children].filter(x=>x.matches&&x.matches("details."+cls)&&!x.hidden&&getComputedStyle(x).display!=="none")}
+function subNav(d){const s=subSibs(d),i=s.indexOf(d),fi=d.classList.contains("fi"),w=fi?"Ficha":"Material";
+  let n=d.querySelector(":scope>.dv-subnav");if(!n){n=D.createElement("div");n.className="dv-subnav";d.appendChild(n)}
+  n.innerHTML=`<button type="button" data-dvsub="-1" ${i>0?"":"disabled"}>‹ ${w} anterior</button><button type="button" class="x" data-dvsub="0">Cerrar ✕</button><button type="button" data-dvsub="1" ${i>=0&&i<s.length-1?"":"disabled"}>${fi?"Ficha siguiente":"Material siguiente"} ›</button>`}
+D.addEventListener("toggle",e=>{const d=e.target;if(!d.matches||!d.matches("details.fi,details.mt"))return;if(d.open){subNav(d);d.scrollTop=0}B.classList.toggle("dv-sub",!!D.querySelector("details.fi[open],details.mt[open]"))},true);
+
+/* --- Clics y teclado --- */
+D.addEventListener("click",e=>{
+  const sb=e.target.closest("[data-dvsub]");if(sb){e.preventDefault();const d=sb.closest("details"),v=+sb.dataset.dvsub;if(!v){d.open=false;return}const s=subSibs(d),n=s[s.indexOf(d)+v];if(n){d.open=false;n.open=true}return}
+  const o=e.target.closest("[data-dvopen]");if(o){e.preventDefault();openW(o.dataset.dvopen);return}
+  const r=e.target.closest("[data-dvruta]");if(r){e.preventDefault();const f=$("#rutaFab");if(f)f.click();return}
+  const c=e.target.closest("[data-dvclose]");if(c){e.preventDefault();const m=c.closest(".dmw");if(m&&m.id==="dvPiece"){const p=curP();go(p?p.id:"")}else closeW(m);return}
+  const bg=e.target.classList&&e.target.classList.contains("dmw")?e.target:null;if(bg){if(bg.id==="dvPiece"){const p=curP();go(p?p.id:"")}else closeW(bg)}
+},true);
+D.addEventListener("keydown",e=>{if(e.key!=="Escape")return;if(D.querySelector("dialog[open]"))return;
+  const d=D.querySelector("details.fi[open],details.mt[open]");if(d){d.open=false;e.preventDefault();return}
+  const s=[...D.querySelectorAll(".dmw:not(#dvPiece):not([hidden])")].pop();if(s){closeW(s);return}
+  if(!$("#dvPiece").hidden){const p=curP();go(p?p.id:"")}});
+$("#dvIdx").addEventListener("click",()=>{const f=$("#idxFab");if(f)f.click()});
+$("#dvTheme").addEventListener("click",()=>{const t=$("#themeBtn");if(t)t.click()});
+
+/* --- Ruta rápida del tutor: diseño por pasos, con color, icono y forma propios --- */
+const RS_C=["#2F6FB5","#1F8A8C","#5B3FA8","#D9752B","#C2562E"],RS_T=["Programar","Revisar el aula","Observar","Decidir","Con la familia"];
+const RS_I=['<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>','<path d="M10 6h10M10 12h10M10 18h10"/><path d="M3.5 6l1.5 1.5L8 4.5M3.5 12l1.5 1.5L8 10.5M3.5 18l1.5 1.5L8 16.5"/>','<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>','<rect x="7" y="2" width="10" height="20" rx="4"/><circle cx="12" cy="7" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="17" r="1.8"/>','<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/>'];
+const RS_K={fichas:0,lista:1,reg:2,perf:2,sema:3,deriv:3,hoja:4};
+const rh0=rutaHTML;
+rutaHTML=function(pid){
+  const t=D.createElement("div");t.innerHTML=rh0(pid);const p=P.find(x=>x.id===pid&&x.s),dl=D.getElementById("rutaDlg");
+  if(dl){dl.style.setProperty("--c",p?p.c:"#4C9A5A");const s=dl.querySelector(".ruta-sub");if(s)s.textContent=p?"«"+p.prog+"» · cinco pasos para empezar mañana":"elige tu programa y empezamos"}
+  const ld=t.querySelector(".k-lead");if(ld)ld.className="ruta-lead";
+  t.querySelectorAll(".ruta-steps button").forEach(b=>{const k=(b.dataset.rutaGo||"").split("/")[1],i=RS_K[k]??0,n=b.querySelector("i"),sp=b.querySelector("span"),em=b.querySelector("em");
+    b.style.setProperty("--s",RS_C[i]);const top=D.createElement("span");top.className="rs-top";
+    top.innerHTML=`<span class="rs-ic"><svg viewBox="0 0 24 24" aria-hidden="true">${RS_I[i]}</svg></span><span class="rs-tag">${RS_T[i]}</span>`;top.prepend(n);b.prepend(top);
+    if(i===3)sp.insertAdjacentHTML("beforeend",'<span class="rs-sem" aria-hidden="true"><i style="background:#2E9E5B"></i><i style="background:#E8A317"></i><i style="background:#D64541"></i></span>');
+    if(em)em.textContent="Ir al paso ›"});
+  t.querySelectorAll(".ruta-pb").forEach(b=>{const q=P.find(x=>x.id===b.dataset.rutaP);const w=D.createElement("span");w.className="rp-t";b.querySelectorAll("b,small").forEach(x=>w.appendChild(x));b.prepend(w);if(q)b.insertAdjacentHTML("afterbegin",`<span class="rp-ic" aria-hidden="true">${ri(RICO[q.id])}</span>`);b.insertAdjacentHTML("beforeend",'<em>Elegir ›</em>')});
+  return t.innerHTML;
+};
+(function(){const dl=D.getElementById("rutaDlg");if(!dl)return;const h=dl.querySelector(".ruta-h h3");if(h)h.insertAdjacentHTML("afterend",'<span class="ruta-sub hand"></span>');const x=D.getElementById("rutaX");if(x)x.innerHTML='Cerrar <span aria-hidden="true">✕</span>'})();
+
+render();
+})();
+
+/* ===== Ventanas ajustadas al espacio: el contenido crece o se reduce para verse entero sin desplazarse (de 0,8 a 1,25) ===== */
+(function(){
+const D=document;
+const SC=".dmw:not([hidden]) .dmw-one,.dmw:not([hidden]) .dmw-pane,.mw:not([hidden]) .mw-one,.mw:not([hidden]) .mw-pane";
+function kids(sc){return [...sc.children].filter(x=>!x.hidden&&getComputedStyle(x).display!=="none")}
+function fitZ(sc){
+  const ks=kids(sc);if(!ks.length)return;
+  const set=z=>ks.forEach(k=>k.style.zoom=z===1?"":String(z));
+  set(1);
+  if(innerWidth<=900||sc.clientHeight<120||sc.querySelector("details.fi,details.mt,.k-tabs .rg,form.rg"))return;
+  const box=sc.closest(".dmw-box,.mw-box"),small=box&&(box.classList.contains("sm")||box.classList.contains("mw-sm")||box.classList.contains("mw-q"));
+  const maxZ=small?1:1.25,minZ=.8;
+  const fits=z=>{set(z);return sc.scrollHeight<=sc.clientHeight+1&&sc.scrollWidth<=sc.clientWidth+1};
+  let lo,hi;
+  if(fits(1)){if(maxZ<=1){set(1);return}if(fits(maxZ))return;lo=1;hi=maxZ}
+  else{if(!fits(minZ)){set(1);return}lo=minZ;hi=1}
+  for(let i=0;i<7;i++){const m=(lo+hi)/2;if(fits(m))lo=m;else hi=m}
+  set(Math.floor(lo*100)/100);
+}
+let T;function fitAll(){clearTimeout(T);T=setTimeout(()=>D.querySelectorAll(SC).forEach(fitZ),40)}
+window.smFitWindows=fitAll;
+new MutationObserver(ms=>{if(ms.some(m=>m.type==="childList"||m.attributeName!=="style"))fitAll()}).observe(D.body,{subtree:true,childList:true,attributes:true,attributeFilter:["hidden","open","class"]});
+addEventListener("resize",fitAll);
+D.addEventListener("load",e=>{if(e.target.tagName==="IMG"&&e.target.closest(".dmw,.mw"))fitAll()},true);
+try{D.fonts&&D.fonts.ready.then(fitAll)}catch(e){}
+})();
 </script>
 <script>/* pdf.js 3.11.174 (Mozilla, Apache 2.0) */
 /**

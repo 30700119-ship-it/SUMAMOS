@@ -653,6 +653,24 @@ html[dir=rtl] .v5 .hd-t5 .hd-k{align-self:flex-end}
  .regt input[type=text]{min-width:0}
 }
 </style>
+<style id="fam-v6">/* ===== Raíces familias · v6: inicio con el recorrido más grande y ventanas ajustadas al espacio ===== */
+@media (min-width:901px){
+ #s-inicio .sc-in{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);align-items:center;column-gap:18px}
+ #s-inicio .rh-h{grid-column:1;grid-row:1}
+ #s-inicio .rh-h p{display:none}
+ #s-inicio .rh-h .hand{display:none}
+ #s-inicio .hb{grid-column:2;grid-row:1;justify-content:flex-end}
+ #s-inicio .rec-w{grid-column:1/3;grid-row:2;height:100%}
+}
+.rec.rh .rlab{font-size:1.95cqw;line-height:1.12;padding:.7cqw .4cqw}
+.rec.rh .rlab small{font-size:1.3cqw;color:#3F4E4C}
+.rec.rh .rlab.se{font-size:1.5cqw}
+.rec:not(.rh) .rlab{font-size:1.5cqw;line-height:1.12;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+.rec:not(.rh) .rlab small{font-size:1.08cqw;color:#3F4E4C}
+.mw-one,.mw-pane{min-height:0}
+.mw-box.mw-sm .mw-one,.mw-box.mw-q .mw-one{flex:1}
+@media (min-width:901px){body.v4 main#app{padding-bottom:0}}
+</style>
 </head>
 <body class="v4 v5">
 <div id="L">
@@ -1118,6 +1136,33 @@ const INF_PRINT='@page{size:A4;margin:0}html,body{margin:0;background:#fff!impor
  '.inf-bot{grid-template-columns:1fr 1.1fr!important}.ib-m span,.ib-c li{font-size:8.6pt}.inf-d{font-size:8.6pt}.hj-f{font-size:7pt;margin-top:4px;color:#4F5D68}.inf-s[dir="rtl"]{line-height:1.42!important}.inf-s[dir="rtl"] .inf-g{gap:2.4mm}.inf-s[dir="rtl"] .ib-c li,.inf-s[dir="rtl"] .ib-m span{font-size:8.2pt;line-height:1.3}.inf-s[dir="rtl"] .it-ya li{font-size:10pt;line-height:1.3}.inf-s[dir="rtl"] .it-pr p,.inf-s[dir="rtl"] .it-co p{font-size:9.6pt;line-height:1.3}.inf-s[dir="rtl"] .inf-tt h4{font-size:17pt!important;line-height:1.25!important}';
 window.INF_PRINT=INF_PRINT;
 
+})();
+</script>
+<script id="fam-v6-js">/* ===== Ventanas ajustadas al espacio: el contenido crece o se reduce para verse entero sin desplazarse (de 0,8 a 1,25) ===== */
+(function(){
+const D=document;
+const SC=".dmw:not([hidden]) .dmw-one,.dmw:not([hidden]) .dmw-pane,.mw:not([hidden]) .mw-one,.mw:not([hidden]) .mw-pane";
+function kids(sc){return [...sc.children].filter(x=>!x.hidden&&getComputedStyle(x).display!=="none")}
+function fitZ(sc){
+  const ks=kids(sc);if(!ks.length)return;
+  const set=z=>ks.forEach(k=>k.style.zoom=z===1?"":String(z));
+  set(1);
+  if(innerWidth<=900||sc.clientHeight<120||sc.querySelector("details.fi,details.mt,.k-tabs .rg,form.rg"))return;
+  const box=sc.closest(".dmw-box,.mw-box"),small=box&&(box.classList.contains("sm")||box.classList.contains("mw-sm")||box.classList.contains("mw-q"));
+  const maxZ=small?1:1.25,minZ=.8;
+  const fits=z=>{set(z);return sc.scrollHeight<=sc.clientHeight+1&&sc.scrollWidth<=sc.clientWidth+1};
+  let lo,hi;
+  if(fits(1)){if(maxZ<=1){set(1);return}if(fits(maxZ))return;lo=1;hi=maxZ}
+  else{if(!fits(minZ)){set(1);return}lo=minZ;hi=1}
+  for(let i=0;i<7;i++){const m=(lo+hi)/2;if(fits(m))lo=m;else hi=m}
+  set(Math.floor(lo*100)/100);
+}
+let T;function fitAll(){clearTimeout(T);T=setTimeout(()=>D.querySelectorAll(SC).forEach(fitZ),40)}
+window.smFitWindows=fitAll;
+new MutationObserver(ms=>{if(ms.some(m=>m.type==="childList"||m.attributeName!=="style"))fitAll()}).observe(D.body,{subtree:true,childList:true,attributes:true,attributeFilter:["hidden","open","class"]});
+addEventListener("resize",fitAll);
+D.addEventListener("load",e=>{if(e.target.tagName==="IMG"&&e.target.closest(".dmw,.mw"))fitAll()},true);
+try{D.fonts&&D.fonts.ready.then(fitAll)}catch(e){}
 })();
 </script>
 </body>
