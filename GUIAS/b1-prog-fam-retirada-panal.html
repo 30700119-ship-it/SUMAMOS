@@ -1404,6 +1404,36 @@ body.pe .minirail .cam-wrap{max-width:100%}
  .pe-t5{grid-column:1 / -1}
  .pe-s{font-size:1.25rem}.pe-acts{justify-content:flex-start}
 }
+/* ===== seña de identidad en la pantalla de inicio: el camino ilustrado original ===== */
+body.pe-home.pe-native .pe-main,body.pe-home.pe-road .pe-main{overflow:hidden}
+body.pe-home.pe-native .pe-main #view,body.pe-home.pe-road .pe-main #view{display:block!important;flex:0 0 auto;min-height:0;padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important}
+body.pe-home.pe-native .pe-main #view>:not(#vtop),body.pe-home.pe-road .pe-main #view>:not(#vtop){display:none!important}
+body.pe-home.pe-native #vtop>:not(.pe-keep),body.pe-home.pe-road #vtop>:not(.pe-keep){display:none!important}
+body.pe-home #vtop .pe-keep>.sec-h{display:none!important}
+body.pe-home #vtop .pe-keep{margin:0!important;padding:0!important}
+body.pe-home.pe-native .pe-ovw .pe-grid{display:none!important}
+body.pe-home.pe-native .pe-ovw,body.pe-home.pe-road .pe-ovw{display:contents!important}
+body.pe-home.pe-road .pe-row{order:0}body.pe-home.pe-road .pe-main #view{order:1}body.pe-home.pe-road .pe-ovw .pe-grid{order:2;flex:1 1 auto}
+body.pe-home.pe-native #vtop .hr-cards{margin-top:10px!important}
+body.pe-home.pe-native #vtop .hr-card p{display:none!important}
+body.pe-home.pe-native #vtop .hr-card .hr-ill img{max-height:clamp(60px,11vh,110px);object-fit:cover}
+body.pe-home.pe-native .minirail,body.pe-home.pe-road .minirail{display:none!important}
+@media (max-width:900px){body.pe-home #vtop .hr-land{overflow-x:auto}}
+@media (min-width:901px){
+ body.pe-home.pe-native #vtop .hr-card .hr-ill{height:clamp(70px,14vh,130px)!important;min-height:0!important;overflow:hidden}
+ body.pe-home.pe-native #vtop .hr-card .hr-ill>svg,body.pe-home.pe-native #vtop .hr-card .hr-ill>img{width:100%!important;height:100%!important;object-fit:cover}
+ body.pe-home.pe-native #vtop .hr-card .hr-chips,body.pe-home.pe-native #vtop .hr-card .hr-subs{display:none!important}
+ body.pe-home.pe-road .pe-ovw .pe-grid{flex:0 0 auto!important;grid-auto-rows:auto!important}
+ body.pe-home.pe-road .pe-ovw .pe-card.home{min-height:84px}
+}
+@media (min-width:901px){
+ body.pe-home.pe-native #vtop .hr-cards{grid-template-columns:repeat(auto-fit,minmax(0,1fr))!important;grid-auto-flow:column}
+ body.pe-home #vtop .pe-rrow{display:flex;gap:12px;align-items:stretch;margin:0!important}
+ body.pe-home #vtop .pe-rrow>.road-card{flex:1 1 auto;min-width:0;margin:0!important}
+ body.pe-home #vtop .pe-rrow>.pe-hill{flex:0 0 auto;width:30%;max-width:360px;object-fit:cover;border-radius:18px;border:1px solid rgba(0,0,0,.08)}
+}
+body.pe-home #vtop .pe-keep>:not(.sec-h){margin-top:0!important}
+@media (max-width:900px){body.pe-home #vtop .pe-hill{display:none}}
 </style>
 </head>
 <body>
@@ -3120,7 +3150,19 @@ const HOME={};
 function harvestHome(){$$("#vtop .stops a.stop").forEach((a,i)=>{const c=a.querySelector(".c svg");HOME[i]=HOME[i]||{ill:c?`<span class=\"bigic\">${c.outerHTML}</span>`:"",eb:"",p:""};const w=VT(a.querySelector(".w"));if(w)HOME[i].eb=(i===0?TX("Salida","الانطلاق"):TX("Parada ","المحطة ")+i)+" · "+w});$$("#vtop .hr-card").forEach(c=>{const i=+c.dataset.i;const ill=$(".hr-ill",c);HOME[i]={ill:ill?ill.innerHTML:"",eb:VT($(".hn span",c)),p:VT($("p",c))}})}
 function renderHome(){const S=stops();harvestHome();
   ovw.innerHTML=`<div class="pe-row"><h2>${TX("¿Qué encontrarás en esta guía?","ماذا ستجدون في هذا الدليل؟")}</h2><div class="bt"><button class="pe-btn y" type="button" data-pe="pres">${TX("Presentación de la guía","تقديم الدليل")}</button></div></div>
-  <div class="pe-grid" style="--cols:${S.length<=4?S.length:Math.ceil(S.length/2)}">${S.map((s,i)=>cardHome(s,i,HOME[i])).join("")}</div>`}
+  <div class="pe-grid" style="--cols:${S.length<=4?S.length:Math.ceil(S.length/2)}">${S.map((s,i)=>cardHome(s,i,HOME[i])).join("")}</div>`;homeMap()}
+/* seña de identidad: el camino ilustrado original (con sus paradas que se pulsan) vuelve a la pantalla de inicio */
+function homeMap(){const v=$("#vtop");document.body.classList.remove("pe-native","pe-road");$$("#vtop .pe-keep").forEach(x=>x.classList.remove("pe-keep"));
+  if(!v)return;const land=v.querySelector("section.hr .hr-land");const rc=v.querySelector(".road-card");
+  if(land){land.closest("section.hr").classList.add("pe-keep");document.body.classList.add("pe-native")}
+  else if(rc){let k=rc;while(k.parentElement&&k.parentElement!==v)k=k.parentElement;k.classList.add("pe-keep");document.body.classList.add("pe-road");
+    const hi=hero&&hero.querySelector(".hero-art img");if(hi&&!rc.parentElement.querySelector(".pe-hill")){const im=document.createElement("img");im.className="pe-hill";im.src=hi.src;im.alt=hi.alt||"";rc.parentElement.classList.add("pe-rrow");rc.parentElement.insertBefore(im,rc)}}
+  else return;
+  requestAnimationFrame(()=>{window.dispatchEvent(new Event("resize"));setTimeout(homeFit,60);setTimeout(homeFit,400)})}
+function homeFit(){const on=document.body.classList.contains("pe-home")&&(document.body.classList.contains("pe-native")||document.body.classList.contains("pe-road"));
+  const els=[view,$(".pe-grid",ovw)].filter(Boolean);els.forEach(e=>e.style.zoom="");if(!on||!matchMedia("(min-width:901px)").matches)return;
+  let z=1;for(let i=0;i<5;i++){const H=main.clientHeight,S=main.scrollHeight;if(S<=H+2)break;z=Math.max(.55,z*H/S*.99);els.forEach(e=>e.style.zoom=z);if(z<=.55)break}}
+addEventListener("resize",()=>{clearTimeout(homeFit.t);homeFit.t=setTimeout(homeFit,80)});
 function renderStop(id){const S=stops(),i=S.findIndex(s=>s.id===id),s=S[i];if(!s)return renderHome();const I=stopInfo(),subs=subsNow();
   const k=`--k:${s.k};--kd:${s.k};--kt:${s.kt}`;const P=S[i-1],N=S[i+1];
   ovw.innerHTML=`<div class="pe-sh" style="${k}"><button class="bk" type="button" data-pe-go="inicio">‹ ${TX("Inicio","البداية")}</button><span class="ic">${I.badge?badgeHTML(I.badge):esc(s.n)}</span><div class="tx"><small>${esc(I.eb)}</small><h2>${esc(I.t||s.t)}</h2>${I.intro?`<p>${esc(I.intro)}</p>`:""}</div><span class="nv"><button type="button" ${P?`data-pe-go="${P.id}"`:"disabled"}>‹ ${TX("Parada anterior","المحطة السابقة")}</button><button type="button" ${N?`data-pe-go="${N.id}"`:"disabled"}>${TX("Parada siguiente","المحطة التالية")} ›</button></span></div>
@@ -3143,7 +3185,7 @@ function closeWin(toStop){ov.hidden=true;document.body.classList.remove("pe-mope
 function go(h){if(location.hash.slice(1)===h){render()}else location.hash=h}
 function moveFab(){if(moveFab.done)return;const b=$$("body > button, body > a, body > div > button").find(x=>/Ruta r[aá]pida/i.test(x.textContent||"")&&getComputedStyle(x).position==="fixed");if(b){b.classList.add("pe-btn","y");b.style.cssText="position:static!important;inset:auto!important;transform:none!important;box-shadow:none!important;margin:0!important";$(".pe-acts",hd).prepend(b);moveFab.done=1}}
 function render(){moveFab();const p=parse();document.body.classList.remove("idx-open");
-  if(p.m==="home"){if(!ov.hidden)closeWin(false);renderHome()}
+  document.body.classList.toggle("pe-home",p.m==="home");if(p.m==="home"){if(!ov.hidden)closeWin(false);renderHome()}
   else if(p.m==="stop"){if(!ov.hidden)closeWin(false);renderStop(p.id)}
   else{renderStop(p.id);openWin(p)}
   /* índice: las paradas abren su panel; los apartados, su ventana */
