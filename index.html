@@ -1230,10 +1230,16 @@ function vBlk(a,id){
 }
 /* ---------- rutas ---------- */
 let MODE="home";
+/* Volver al panel desde un material: se vuelve a la pantalla del bloque y del destinatario de ese material */
+function refMat(){let r="";try{r=decodeURI(document.referrer||"")}catch(e){r=document.referrer||""}if(!r)return null;r=r.split("#")[0].split("?")[0];return MATERIALES.find(m=>{const u=String(m.url||"").replace(BASE,"");return u&&r.endsWith("/"+u)})||null}
+function audFor(b){const rm=refMat();if(rm&&rm.b===b)return rm.a;let a=null;try{a=sessionStorage.getItem("sumamos-aud")}catch(e){}if(!A[a])a="docentes";if(!ms(a,b).length){const o=a==="docentes"?"familias":"docentes";if(ms(o,b).length)a=o}return a}
 function route8(){
   const [p0,p1]=decodeURIComponent(location.hash.slice(1)).split("/");
   const cl=document.body.classList;cl.remove("m8-home","m8-aud","m8-blk","v8-on");closeQx();
-  if(byId[p0]&&!A[p0]){MODE="old";return route()}         /* enlaces antiguos a un bloque (#acogida…) */
+  if(byId[p0]&&!A[p0]){history.replaceState(null,"","#"+audFor(p0)+"/"+p0);return route8()}         /* enlaces antiguos (#acogida…): ahora abren la pantalla nueva del bloque */
+  if(!p0&&!route8.done){const rm=refMat();if(rm){route8.done=1;history.replaceState(null,"","#"+rm.a+"/"+rm.b);return route8()}}
+  route8.done=1;if(A[p0]){try{sessionStorage.setItem("sumamos-aud",p0)}catch(e){}}
+           /* enlaces antiguos a un bloque (#acogida…) */
   cl.add("v8-on");$("#home").hidden=true;$("#block").hidden=true;
   if(A[p0]&&p1&&byId[p1]){MODE="blk";cl.add("m8-blk");vBlk(p0,p1);document.title=A[p0].n+" · "+byId[p1].name+" | Panel SUMAMOS"}
   else if(A[p0]){MODE="aud";cl.add("m8-aud");vAud(p0);document.title=A[p0].t+" | Panel SUMAMOS"}
