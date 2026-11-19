@@ -355,6 +355,60 @@ html[lang="ar"] .pf-ft .ft-ar{display:block}html[lang="ar"] .pf-ft .ft-es{displa
 .pf-back:hover{background:#E3F4F4}
 .pf-back.pf-fix{position:sticky;top:6px;z-index:50;margin:6px 12px}
 </style>
+<style id="pg-css">
+/* ===== SUMAMOS · PANTALLA ENTERA para guías con motor propio (B2, B3, B6) · capa 19-11-2026 ===== */
+@media (min-width:901px){
+ body.pg{overflow:hidden!important}
+ #pgApp{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden}
+ #pgApp>*{flex:none;min-width:0;max-width:100%;position:relative!important;top:auto!important}
+ #pgApp{box-sizing:border-box}
+ #pgApp>.pg-body{flex:1!important;min-height:0;display:grid!important;grid-template-columns:minmax(210px,250px) minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important;gap:16px!important;margin:0 auto!important;padding:10px 20px 8px!important;width:100%;max-width:1480px;box-sizing:border-box}
+ #pgApp>.pg-body>aside{grid-column:1;grid-row:1;position:relative!important;top:auto!important;height:100%!important;max-height:none!important;overflow:auto;margin:0!important;transform:none!important;display:block!important}
+ #pgApp>.pg-body>:not(aside){grid-column:2;grid-row:1;min-height:0;height:100%;overflow:auto;overscroll-behavior:contain;margin:0!important;padding-top:0!important}
+ #pgApp>.pg-body>:not(aside)[hidden]{display:none!important}
+ body.pg .pg-hide{display:none!important}
+ #pgApp .cam-bar,#pgApp .minirail{padding-top:2px!important;padding-bottom:2px!important}
+ #pgApp>.pf-ft .ft-lic{padding:3px 20px!important;font-size:.68rem!important}
+ #pgApp>.pf-ft .ft-bar{padding:4px 16px!important;font-size:.7rem!important}
+ #pgApp>.pf-ft{margin:0!important}
+ #pgApp .cam-bar .cam-wrap{transform:scale(.82);transform-origin:center top;margin-bottom:-34px}
+ #pgApp>.pg-body{padding-top:6px!important}
+ body.pg .fab-idx,body.pg #toTop,body.pg .idx-fab,body.pg #volver{display:none!important}
+}
+.pg-hd{background:linear-gradient(135deg,var(--pgL,#FFF4CC) 0%,#F3FAFA 70%);border-bottom:1px solid rgba(0,0,0,.06)}
+.pg-hd-in{max-width:1480px;margin:0 auto;padding:4px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.pg-tt{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.pg-s{font:900 clamp(1.3rem,3.4vh,1.9rem)/1 "Nunito",system-ui,sans-serif;color:#0B2545}
+.pg-eq{font:900 1.35rem/1 "Nunito",sans-serif;color:#F4BE1A}
+.pg-t5{display:flex;flex-direction:column;gap:2px;line-height:1.05;min-width:0}
+.pg-k{display:inline-flex;align-items:center;align-self:flex-start;color:#fff;border-radius:999px;padding:2px 12px;font:900 .78rem/1.3 "Nunito",sans-serif;letter-spacing:.08em;background:#2A8B8D}
+.pg-k.fam{background:#C2562E}
+.pg-t5 b{font:900 clamp(1.1rem,3vh,1.6rem)/1.05 "Nunito",sans-serif;color:var(--pgD,#7A5800);display:flex;align-items:center;gap:6px}
+.pg-t5 b svg{height:1.2em;width:auto}
+.pg-t5 small{font:800 .86rem/1.2 "Nunito",sans-serif;color:#1E6466;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60vw}
+.pg-hand{font:700 clamp(1.05rem,2.5vh,1.4rem) "Caveat",cursive;color:var(--pgD,#7A5800);transform:rotate(-1.5deg)}
+.pg-acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pg-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border:2px solid #2A8B8D;background:#fff;color:#296272;border-radius:999px;padding:5px 13px;font:800 .84rem "Nunito",sans-serif;white-space:nowrap}
+.pg-btn:hover,.pg-btn:focus-visible{background:#E3F4F4}
+.pg-acts #sr-fab{position:static!important;inset:auto!important;box-shadow:none!important;margin:0!important;padding:6px 14px!important;font-size:.84rem!important}
+/* ventana para los apartados */
+.pg-ov{position:fixed;inset:0;background:rgba(11,37,69,.45);display:flex;align-items:center;justify-content:center;padding:2vh 2vw;z-index:2147483000}
+.pg-ov[hidden]{display:none}
+.pg-win{background:#F4F8F8;border-radius:22px;width:min(1240px,100%);height:96vh;height:96dvh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.pg-wh{flex:none;display:flex;gap:12px;align-items:center;background:var(--k,#2A8B8D);color:#fff;padding:9px 16px}
+.pg-wh .tx{flex:1;min-width:0}.pg-wh small{display:block;font:800 .74rem "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.pg-wh h3{margin:0;font:900 clamp(1rem,2.6vh,1.3rem)/1.15 "Nunito",sans-serif;color:#fff}
+.pg-x{all:unset;cursor:pointer;background:#fff;color:#1D6466;border-radius:999px;padding:6px 14px;font:900 .84rem "Nunito",sans-serif}
+.pg-wb{flex:1;min-height:0;overflow:auto;padding:12px 16px;overscroll-behavior:contain}
+.pg-wb>.pg-in>.sec-h{pointer-events:none}
+.pg-wb>.pg-in>.sec-h .sec-ar{display:none}
+.pg-wf{flex:none;display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:8px 16px;border-top:1px solid #D6E6E6;background:#fff}
+.pg-nb{all:unset;cursor:pointer;border:2px solid #2A8B8D;color:#1D6466;border-radius:999px;padding:5px 13px;font:800 .84rem "Nunito",sans-serif;background:#fff;max-width:40vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pg-nb[disabled]{opacity:.35;cursor:default}
+body.pg-mopen{overflow:hidden!important}
+@media (max-width:900px){.pg-hand{display:none}.pg-t5 small{white-space:normal;max-width:none}.pg-hd-in{padding:4px 12px}.pg-ov{padding:0}.pg-win{border-radius:0;height:100dvh}}
+@media print{body.pg{overflow:visible!important}#pgApp{height:auto!important;overflow:visible!important}#pgApp>.pg-body>*{overflow:visible!important;height:auto!important}.pg-hd{display:none!important}}
+</style>
 </head>
 <body>
 
@@ -1057,5 +1111,77 @@ var tm=0;var mo=new MutationObserver(function(){clearTimeout(tm);tm=setTimeout(s
 
 <div class="pf-ft" id="pf-ft" role="contentinfo"><p class="ft-lic ft-es">© EOEP General Cehegín · Proyecto SUMAMOS · Licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: uso libre sin ánimo de lucro citando la autoría, sin modificar · <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a> · EOEP General Cehegín · C/ Esparteros, 22 · 30430 Cehegín · 968 72 36 14 · 672 44 04 17</p><div class="ft-bar"><span><b>PROYECTO SUMAMOS (Escuela+Familia+EOEP)</b> | Consejería de Educación · Región de Murcia</span><span>Proyecto financiado por la Consejería de Educación y Formación Profesional. Región de Murcia</span></div></div>
 <script id="pf-js">document.body.classList.add("pf");(function(){var ok=[].some.call(document.querySelectorAll("a[href]"),function(a){var u;try{u=new URL(a.getAttribute("href"),location.href)}catch(e){return false}var p=u.pathname.replace(/\/+$/,"");var panel=(/\/index\.html$/.test(p)&&!/GUIAS|CUESTIONARIOS/.test(p))||(u.host==="30700119-ship-it.github.io"&&/^\/SUMAMOS(\/index\.html)?$/.test(p));if(!panel)return false;var r=a.getBoundingClientRect();return r.width>0&&r.top<innerHeight});if(ok)return;var h=document.querySelector("header");var a=document.createElement("a");a.className="pf-back";a.href="../index.html";a.textContent="‹ Volver al panel de materiales";if(h){(h.querySelector(".wrap")||h).appendChild(a)}else{a.classList.add("pf-fix");document.body.insertBefore(a,document.body.firstChild)}})();</script>
+<script id="pg-js">
+window.PG_CFG={"hero": "#hero", "cam": "nav.minirail", "layout": ".wrap.layout", "l": "#FBEBD9", "d": "#9A5410"};
+/* ===== SUMAMOS · PANTALLA ENTERA para guías con motor propio (B2, B3, B6) · capa 19-11-2026 =====
+   La pantalla queda fija: cabecera, banda del material, camino, índice a la izquierda y el contenido en su panel
+   (solo se desplaza el panel). En DETECTA, cada bloque de apartados se abre en una ventana con anterior / siguiente.
+   No se toca el contenido ni el motor de la guía. */
+(function(){
+"use strict";
+if(window.__PG)return;window.__PG=1;
+const C=window.PG_CFG||{};
+const $=(s,r)=>(r||document).querySelector(s),$$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const txt=el=>el?(el.textContent||"").replace(/\s+/g," ").trim():"";
+const top=$("header.top");if(!top)return;
+const layout=$(C.layout);if(!layout)return;
+const hero=C.hero?$(C.hero):null;
+document.body.classList.add("pg");
+const app=document.createElement("div");app.id="pgApp";top.parentNode.insertBefore(app,top);app.appendChild(top);
+/* banda */
+const fam=/-fam-/.test(location.pathname);
+const title=hero&&($(C.titleSel||".h-name",hero)||$("h1,h2",hero));
+const sub=hero&&$(C.subSel||".h-sub",hero);
+const lema=hero&&$(".lema, .hand",hero)||$(C.lemaSel||"#__none");
+let back=$$("a[href]").find(a=>/(^|\/)index\.html(#.*)?$|github\.io\/SUMAMOS\/?(#.*)?$/.test(a.getAttribute("href")||""));
+const hd=document.createElement("div");hd.className="pg-hd";
+hd.innerHTML=`<div class="pg-hd-in"><div class="pg-tt"><span class="pg-s">SUMAMOS</span><span class="pg-eq">=</span><div class="pg-t5"><span class="pg-k${fam?" fam":""}">${fam?"GUÍA PARA FAMILIAS":"GUÍA PARA DOCENTES"}</span><b>${C.name||(title?title.innerHTML:"")}</b><small>${txt(sub)}</small></div></div>${lema?`<div class="pg-hand">${txt(lema)}</div>`:""}<div class="pg-acts"><a class="pg-btn" href="${back?back.getAttribute("href"):"../index.html"}">‹ Volver al panel de materiales</a></div></div>`;
+app.appendChild(hd);
+if(hero)hero.classList.add("pg-hide");
+$$(".pf-back").forEach(a=>a.classList.add("pg-hide"));$$("a[href]",top).forEach(a=>{if(/index\.html|github\.io\/SUMAMOS\/?(#|$)/.test(a.getAttribute("href")||""))a.classList.add("pg-hide")});
+if(C.cam){const cam=$(C.cam);if(cam)app.appendChild(cam)}
+layout.classList.add("pg-body");app.appendChild(layout);
+const ft=$("#pf-ft");if(ft)app.appendChild(ft);
+const fab=$("#sr-fab");if(fab)$(".pg-acts",hd).prepend(fab);
+const acc=getComputedStyle(document.documentElement).getPropertyValue("--acc").trim(),accD=getComputedStyle(document.documentElement).getPropertyValue("--accD").trim();
+if(C.l)app.style.setProperty("--pgL",C.l);else if(acc)app.style.setProperty("--pgL",`color-mix(in srgb, ${acc} 22%, #fff)`);
+if(C.d)app.style.setProperty("--pgD",C.d);else if(accD)app.style.setProperty("--pgD",accD);
+const wide=()=>matchMedia("(min-width:901px)").matches;
+const pane=()=>[...layout.children].find(c=>c.tagName!=="ASIDE"&&c.offsetHeight>0&&!c.hidden)||layout;
+/* el motor desplaza la ventana: en escritorio se desplaza el panel */
+const ws=window.scrollTo.bind(window);
+window.scrollTo=function(a,b){if(!wide())return ws(a,b);let y=typeof a==="object"?a.top:b;if(y==null)return;const p=pane();const r=p.getBoundingClientRect();
+  const beh=typeof a==="object"&&a.behavior?a.behavior:"auto";p.scrollTo({top:Math.max(0,p.scrollTop+y-r.top-(C.off||0)),behavior:beh==="smooth"?"smooth":"auto"})};
+window.scroll=window.scrollTo;
+/* ventana (DETECTA: bloques .sec) */
+if(C.win){
+ const ov=document.createElement("div");ov.className="pg-ov";ov.hidden=true;
+ ov.innerHTML='<div class="pg-win" role="dialog" aria-modal="true" aria-labelledby="pgT"><div class="pg-wh"><div class="tx"><small id="pgE"></small><h3 id="pgT"></h3></div><button class="pg-x" type="button" data-pgc>Cerrar ✕</button></div><div class="pg-wb" id="pgB"></div><div class="pg-wf"><button class="pg-nb" type="button" id="pgP"></button><button class="pg-nb" type="button" data-pgc>Volver a la pantalla</button><button class="pg-nb" type="button" id="pgN"></button></div></div>';
+ document.body.appendChild(ov);const wb=$("#pgB");let CUR=null,PH=null,busy=false;
+ const head=s=>$(C.winHead,s);
+ const sib=s=>$$(C.win,PH?PH.parentNode:s.parentNode).filter(x=>x!==s||true);
+ function open(s){if(!wide()||busy)return;if(CUR===s)return;if(CUR)restore(true);
+  const list=$$(C.win,s.parentNode);const i=list.indexOf(s);
+  PH=document.createComment("pg");s.parentNode.insertBefore(PH,s);wb.innerHTML="";wb.appendChild(s);s.classList.add("pg-in");CUR={s,list,i};
+  const k=getComputedStyle(s).getPropertyValue(C.winColor||"--sc").trim()||"#2A8B8D";$(".pg-win",ov).style.setProperty("--k",k);
+  const h=head(s);$("#pgE").textContent=txt($(C.winEyebrow||"#__none"))||document.title.split("·")[0];$("#pgT").textContent=txt(h&&$(C.winTitle||"b",h))||txt(h);
+  const pv=list[i-1],nx=list[i+1],pb=$("#pgP"),nb=$("#pgN");
+  pb.disabled=!pv;nb.disabled=!nx;pb.textContent="‹ "+(pv?txt($(C.winTitle||"b",head(pv))):"Anterior");nb.textContent=(nx?txt($(C.winTitle||"b",head(nx))):"Siguiente")+" ›";
+  pb.onclick=()=>pv&&go(pv);nb.onclick=()=>nx&&go(nx);
+  ov.hidden=false;document.body.classList.add("pg-mopen");wb.scrollTop=0}
+ function go(s){restore(true);busy=true;const h=head(s);if(h)h.click();busy=false;open(s)}
+ function restore(closeSec){if(!CUR)return;const s=CUR.s;s.classList.remove("pg-in");if(PH&&PH.parentNode){PH.parentNode.insertBefore(s,PH);PH.remove()}PH=null;CUR=null;
+  if(closeSec&&s.classList.contains(C.winOpen||"open")){busy=true;const h=head(s);if(h)h.click();busy=false}}
+ function close(){restore(true);ov.hidden=true;document.body.classList.remove("pg-mopen")}
+ $$("[data-pgc]",ov).forEach(b=>b.onclick=close);ov.addEventListener("click",e=>{if(e.target===ov)close()});
+ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!ov.hidden)close()});
+ const mo=new MutationObserver(ms=>{if(busy)return;for(const m of ms){const s=m.target;if(s.matches&&s.matches(C.win)&&s.classList.contains(C.winOpen||"open")&&!wb.contains(s)&&layout.contains(s)){open(s);break}}});
+ mo.observe(layout,{subtree:true,attributes:true,attributeFilter:["class"]});
+ /* al salir de la pantalla (camino, índice), se cierra */
+ document.addEventListener("click",e=>{if(!ov.hidden&&e.target.closest(".cam-st,.cam-end,#idxList a,#idxList button,.idx-i>button"))close()},true);
+}
+window.dispatchEvent(new Event("resize"));
+})();
+</script>
 </body>
 </html>
