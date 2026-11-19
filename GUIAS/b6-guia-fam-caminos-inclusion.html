@@ -1430,6 +1430,22 @@ html[dir="rtl"] :is(a[href^="tel:"],a[href^="mailto:"]){direction:ltr;unicode-bi
 @media print{.lang-sw,.lang-big{display:none!important}}
 </style>
 
+<style id="pf-css">
+/* SUMAMOS · pie común como el panel (19-11-2026): se ocultan en pantalla el pie y la licencia anteriores (siguen en el código y salen al imprimir) */
+@media screen{
+ body.pf>footer,body.pf footer.foot,body.pf .pie-orig,body.pf .wrap>.lic,body.pf .wrap>.license,body.pf>div>.license,body.pf>.license,body.pf p.sm-lic2,body.pf p.sm-foot{display:none!important}
+}
+.pf-ft{margin:18px 0 0;padding:0;text-align:center;font-family:"Nunito Sans","Nunito",system-ui,sans-serif}
+.pf-ft .ft-lic{margin:0 auto;max-width:1280px;padding:6px 20px;font-size:.75rem;line-height:1.35;color:#3D4A57}
+.pf-ft .ft-lic a{color:#1D6466;font-weight:700}
+.pf-ft .ft-ar{display:none;direction:rtl}
+html[lang="ar"] .pf-ft .ft-ar{display:block}html[lang="ar"] .pf-ft .ft-es{display:none}
+.pf-ft .ft-bar{background:#2A8B8D;color:#fff;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 18px;padding:8px 16px;font-size:.78rem;line-height:1.3}
+@media print{.pf-ft,.pf-back{display:none!important}}
+.pf-back{display:inline-flex;align-items:center;gap:6px;margin-left:auto;border:2px solid #2A8B8D;background:#fff;color:#296272;border-radius:999px;padding:6px 14px;font:800 .88rem "Nunito",system-ui,sans-serif;text-decoration:none;white-space:nowrap}
+.pf-back:hover{background:#E3F4F4}
+.pf-back.pf-fix{position:sticky;top:6px;z-index:50;margin:6px 12px}
+</style>
 </head>
 <body>
 <header class="top sm-head">
@@ -1628,5 +1644,7 @@ document.addEventListener('click',function(e){var c=e.target.closest&&e.target.c
  var oa=e.target.closest&&e.target.closest('.fm-openall');if(oa){var pp=oa.closest('.panel');setTimeout(function(){var any=pp.querySelectorAll('.p5s.open').length===pp.querySelectorAll('.p5s').length;pp.setAttribute('data-fm',any?'all':'map');marca()},30);return}
  if(e.target.closest&&e.target.closest('.btn-idioma')){setTimeout(all,60);return}
  setTimeout(marca,60)});
-if(document.readyState!=='loading')all();else document.addEventListener('DOMContentLoaded',all);})();</script></body>
+if(document.readyState!=='loading')all();else document.addEventListener('DOMContentLoaded',all);})();</script><div class="pf-ft" id="pf-ft" role="contentinfo"><p class="ft-lic ft-es">© EOEP General Cehegín · Proyecto SUMAMOS · Licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: uso libre sin ánimo de lucro citando la autoría, sin modificar · <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a> · EOEP General Cehegín · C/ Esparteros, 22 · 30430 Cehegín · 968 72 36 14 · 672 44 04 17</p><p class="ft-lic ft-ar" lang="ar">© فريق التوجيه العام في سيهيخين · مشروع سوماموس · رخصة <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: يُسمح بالاستخدام دون هدف ربحي مع ذكر التأليف ودون تعديل · <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a></p><div class="ft-bar"><span><b>PROYECTO SUMAMOS (Escuela+Familia+EOEP)</b> | Consejería de Educación · Región de Murcia</span><span>Proyecto financiado por la Consejería de Educación y Formación Profesional. Región de Murcia</span></div></div>
+<script id="pf-js">document.body.classList.add("pf");(function(){var ok=[].some.call(document.querySelectorAll("a[href]"),function(a){var u;try{u=new URL(a.getAttribute("href"),location.href)}catch(e){return false}var p=u.pathname.replace(/\/+$/,"");var panel=(/\/index\.html$/.test(p)&&!/GUIAS|CUESTIONARIOS/.test(p))||(u.host==="30700119-ship-it.github.io"&&/^\/SUMAMOS(\/index\.html)?$/.test(p));if(!panel)return false;var r=a.getBoundingClientRect();return r.width>0&&r.top<innerHeight});if(ok)return;var h=document.querySelector("header");var a=document.createElement("a");a.className="pf-back";a.href="../index.html";a.textContent="‹ Volver al panel de materiales";if(h){(h.querySelector(".wrap")||h).appendChild(a)}else{a.classList.add("pf-fix");document.body.insertBefore(a,document.body.firstChild)}})();</script>
+</body>
 </html>

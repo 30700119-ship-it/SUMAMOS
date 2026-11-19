@@ -1406,6 +1406,150 @@ svg.road .t{stroke:var(--acc);opacity:.6}
  .cam .smk{width:26px;height:26px}
 }
 </style>
+<style id="pe-css">
+/* ===== SUMAMOS · PANTALLA ENTERA (capa común, 19-11-2026) =====
+   Se añade encima de la guía: el código anterior sigue en el archivo; en pantalla se reordena
+   en una sola pantalla con camino arriba, índice a la izquierda, paneles y ventanas. */
+body.pe{padding:0!important;overflow-x:hidden}
+body.pe #hero,body.pe .pie-orig,body.pe .license,body.pe>footer,body.pe footer.foot,body.pe #volver,body.pe .idx-fab,body.pe .idx-veil{display:none!important}
+body.pe.is-home .minirail{display:block!important}
+body.pe .minirail{position:relative!important;top:auto!important;flex:none}
+#peApp{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+@media (min-width:901px){body.pe{overflow:hidden}#peApp{height:100vh;height:100dvh;overflow:hidden}}
+#peApp>header.top{flex:none;position:relative!important}
+/* banda de título */
+.pe-hd{flex:none;background:linear-gradient(135deg,var(--peL,#FFF4CC) 0%,#F3FAFA 70%);border-bottom:1px solid rgba(0,0,0,.06)}
+.pe-hd-in{max-width:1480px;margin:0 auto;padding:clamp(3px,.8vh,8px) 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.pe-tt{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.pe-s{font:900 clamp(1.3rem,3.6vh,2rem)/1 var(--f-display,"Nunito",system-ui,sans-serif);color:#0B2545}
+.pe-eq{font:900 1.4rem/1 var(--f-display,"Nunito",sans-serif);color:#F4BE1A}
+.pe-t5{display:flex;flex-direction:column;gap:2px;line-height:1.05;min-width:0}
+.pe-k{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;color:#fff;border-radius:999px;padding:2px 12px 2px 8px;font:900 clamp(.74rem,1.6vh,.9rem)/1.2 var(--f-display,"Nunito",sans-serif);letter-spacing:.08em;background:#2A8B8D}
+.pe-k.fam{background:#C2562E}
+.pe-k svg{width:1.2em;height:1.2em;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pe-t5 b{font:900 clamp(1.15rem,3.2vh,1.75rem)/1.05 var(--f-display,"Nunito",sans-serif);color:var(--peD,#7A5800)}
+.pe-t5 small{font:800 clamp(.74rem,1.6vh,.92rem)/1.2 var(--f-display,"Nunito",sans-serif);color:#1E6466;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pe-hand{font:700 clamp(1.05rem,2.5vh,1.45rem) "Caveat",cursive;color:var(--peD,#7A5800);transform:rotate(-1.5deg)}
+.pe-acts{display:flex;gap:8px;flex-wrap:wrap}
+.pe-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border:2px solid #2A8B8D;background:#fff;color:#296272;border-radius:999px;padding:5px 13px;font:800 .84rem var(--f-display,"Nunito",sans-serif);white-space:nowrap}
+.pe-btn:hover,.pe-btn:focus-visible{background:#E3F4F4}
+.pe-btn.y{background:#F4BE1A;border-color:#F4BE1A;color:#2B2410}
+.pe-btn.mob{display:none}
+/* cuerpo: índice + paneles */
+.pe-body{flex:1;min-height:0;display:grid;grid-template-columns:minmax(200px,236px) minmax(0,1fr);gap:16px;width:100%;max-width:1480px;margin:0 auto;padding:clamp(6px,1.2vh,12px) 20px;box-sizing:border-box}
+.pe-body>aside.idx{position:relative!important;top:auto!important;max-height:none!important;height:100%;overflow:auto;margin:0!important;transform:none!important;width:auto!important}
+.pe-main{min-height:0;display:flex;flex-direction:column;gap:clamp(6px,1.2vh,12px)}
+.pe-main #view{display:none}
+/* cabecera de parada */
+.pe-sh{flex:none;display:flex;align-items:center;gap:12px;background:var(--k,#2A8B8D);color:var(--kt,#fff);border-radius:18px;padding:8px 14px}
+.pe-sh .bk{all:unset;cursor:pointer;background:#fff;color:var(--kd,#0B2545);border-radius:999px;padding:6px 13px;font:800 .84rem var(--f-display,"Nunito",sans-serif);white-space:nowrap}
+.pe-sh .ic{width:clamp(38px,6.4vh,50px);aspect-ratio:1;border-radius:50%;background:#fff;color:var(--kd,#0B2545);display:grid;place-items:center;flex:none;font:900 1.1rem var(--f-display,"Nunito",sans-serif)}
+.pe-sh .ic svg,.pe-wh .ic svg{width:58%;height:58%;color:var(--kd,#0B2545)}
+.pe-sh .ic svg *,.pe-wh .ic svg *{vector-effect:non-scaling-stroke}
+.pe-sh .tx{flex:1;min-width:0}
+.pe-sh small{display:block;font:800 .72rem var(--f-display,"Nunito",sans-serif);letter-spacing:.08em;text-transform:uppercase;opacity:.95}
+.pe-sh h2{margin:0;font:900 clamp(1.05rem,2.8vh,1.4rem)/1.12 var(--f-display,"Nunito",sans-serif);color:inherit}
+.pe-sh p{margin:2px 0 0;font-weight:600;font-size:clamp(.78rem,1.7vh,.9rem);line-height:1.3;opacity:.96}
+.pe-sh .nv{display:flex;gap:6px;flex:none}
+.pe-sh .nv button{all:unset;cursor:pointer;white-space:nowrap;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.85);border-radius:999px;padding:5px 11px;font:800 .8rem var(--f-display,"Nunito",sans-serif)}
+.pe-sh .nv button[disabled]{opacity:.35;cursor:default}
+/* rejilla de paneles */
+.pe-grid{flex:1;min-height:0;display:grid;gap:clamp(8px,1.2vw,14px);grid-template-columns:repeat(var(--cols,3),minmax(0,1fr));grid-auto-rows:minmax(0,1fr)}
+.pe-card{all:unset;cursor:pointer;box-sizing:border-box;position:relative;display:flex;flex-direction:column;background:#fff;border:3px solid var(--k,#2A8B8D);border-radius:18px;overflow:hidden;min-height:0;box-shadow:0 4px 14px rgba(11,37,69,.07);transition:transform .15s,box-shadow .15s}
+.pe-card:hover,.pe-card:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(11,37,69,.14)}
+.pe-card:focus-visible{outline:3px solid #F59E0B;outline-offset:2px}
+.pe-card .ill{flex:1;min-height:0;overflow:hidden;background:color-mix(in srgb,var(--k,#2A8B8D) 10%,#fff);display:flex;align-items:center;justify-content:center}
+.pe-card .ill svg,.pe-card .ill img{width:100%;height:100%;object-fit:cover;display:block}
+.pe-card .tx{flex:none;padding:clamp(6px,1.1vh,11px) 13px clamp(8px,1.2vh,12px);display:flex;flex-direction:column;gap:3px}
+.pe-card .n{display:flex;align-items:center;gap:7px;font:900 .72rem var(--f-display,"Nunito",sans-serif);letter-spacing:.07em;text-transform:uppercase;color:var(--kd,#0B2545)}
+.pe-card .n i{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--k,#2A8B8D);color:var(--kt,#fff);display:grid;place-items:center;font-size:.8rem}
+.pe-card h3{margin:0;font:900 clamp(.95rem,2.3vh,1.2rem)/1.15 var(--f-display,"Nunito",sans-serif);color:#0B2545}
+.pe-card p{margin:0;font-size:clamp(.74rem,1.6vh,.88rem);line-height:1.3;color:#4A5866;font-weight:600;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pe-card .go{align-self:flex-end;margin-top:2px;font:900 .78rem var(--f-display,"Nunito",sans-serif);color:var(--kd,#0B2545)}
+.pe-card.home{flex-direction:row;align-items:stretch}
+.pe-card.home .ill{flex:0 0 42%;max-width:42%}
+.pe-card.home .tx{flex:1;min-width:0;justify-content:center}
+.pe-card.home p{-webkit-line-clamp:4}
+.pe-card.sub{flex-direction:row;align-items:stretch}
+.pe-card.sub .big{flex:0 0 32%!important;max-width:32%}
+.pe-card.sub .tx{flex:1;min-width:0;justify-content:center}
+.pe-card.sub .big{flex:1;min-height:0;display:grid;place-items:center;background:color-mix(in srgb,var(--k,#2A8B8D) 12%,#fff);color:var(--kd,#0B2545)}
+.pe-card.sub .big svg{width:clamp(34px,8vh,72px);height:auto;stroke-width:1.8}
+.pe-card.sub .big b{position:absolute;top:10px;left:12px;width:30px;height:30px;border-radius:50%;background:var(--k,#2A8B8D);color:var(--kt,#fff);display:grid;place-items:center;font:900 .95rem var(--f-display,"Nunito",sans-serif)}
+.pe-row{flex:none;display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.pe-row h2{margin:0;font:900 clamp(1.05rem,2.7vh,1.45rem) var(--f-display,"Nunito",sans-serif);color:#0B2545}
+.pe-row .bt{display:flex;gap:8px;flex-wrap:wrap}
+/* ventana */
+.pe-ov{position:fixed;inset:0;background:rgba(11,37,69,.45);display:flex;align-items:center;justify-content:center;padding:2vh 2vw;z-index:2147483000}
+.pe-ov[hidden]{display:none}
+.pe-win{background:#F4F8F8;border-radius:22px;width:min(1240px,100%);height:96vh;height:96dvh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.pe-wh{flex:none;display:flex;gap:12px;align-items:center;background:var(--k,#2A8B8D);color:var(--kt,#fff);padding:9px 16px}
+.pe-wh .ic{width:42px;height:42px;border-radius:50%;background:#fff;color:var(--kd,#0B2545);display:grid;place-items:center;flex:none;font:900 1rem var(--f-display,"Nunito",sans-serif)}
+.pe-wh .ic svg{width:58%;height:58%}
+.pe-wh .tx{flex:1;min-width:0}.pe-wh small{display:block;font:800 .72rem var(--f-display,"Nunito",sans-serif);letter-spacing:.08em;text-transform:uppercase}
+.pe-wh h3{margin:0;font:900 clamp(1rem,2.6vh,1.3rem)/1.15 var(--f-display,"Nunito",sans-serif);color:inherit}
+.pe-x{all:unset;cursor:pointer;background:#fff;color:var(--kd,#0B2545);border-radius:999px;padding:6px 14px;font:900 .84rem var(--f-display,"Nunito",sans-serif);white-space:nowrap}
+.pe-wb{flex:1;min-height:0;overflow:auto;padding:12px 16px;overscroll-behavior:contain}
+.pe-wb #view{display:block!important;max-width:none!important;width:auto!important;margin:0!important;padding:0!important}
+.pe-wb #vtop .stop-head2,.pe-wb #vtop .stop-head,.pe-wb #vtop .intro,.pe-wb #vtop .guia-pill{display:none!important}
+.pe-wb #vtop>section.card{padding:8px 12px!important;margin-bottom:10px}
+.pe-wb #vbot .pager{display:none!important}
+.pe-wf{flex:none;display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:8px 16px;border-top:1px solid #D6E6E6;background:#fff}
+.pe-wf .mid{display:flex;gap:8px;flex-wrap:wrap}
+.pe-nb{all:unset;cursor:pointer;border:2px solid #2A8B8D;color:#296272;border-radius:999px;padding:5px 13px;font:800 .84rem var(--f-display,"Nunito",sans-serif);background:#fff;max-width:42vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pe-nb[disabled]{opacity:.35;cursor:default}
+body.pe-mopen{overflow:hidden}
+/* pie como el panel */
+.pe-ft{flex:none;margin:0;padding:0;text-align:center}
+.pe-ft .ft-lic{margin:0 auto;max-width:1280px;padding:4px 20px 5px;font-size:clamp(.64rem,1.4vh,.75rem);line-height:1.3;color:#3D4A57}
+.pe-ft .ft-lic a,.pe-ft .ft-b{color:#1D6466;font-weight:700}
+.pe-ft .ft-b{all:unset;cursor:pointer;color:#1D6466;font-weight:800;text-decoration:underline}
+.pe-ft .ft-ar{display:none;direction:rtl}
+html[lang="ar"] .pe-ft .ft-ar{display:block}html[lang="ar"] .pe-ft .ft-es{display:none}
+.pe-ft .ft-bar{background:#2A8B8D;color:#fff;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 18px;padding:clamp(4px,.9vh,8px) 16px;font-size:clamp(.66rem,1.45vh,.78rem);line-height:1.3}
+.pe-legal{background:#fff;border-radius:16px;padding:14px 18px;font-size:.95rem}
+.pe-legal h4{margin:.4em 0;color:#296272;font:900 1.02rem var(--f-display,"Nunito",sans-serif)}
+/* modo oscuro de las guías */
+:root[data-theme="dark"] .pe-card,:root[data-theme="dark"] .pe-ft .ft-lic{background:transparent}
+:root[data-theme="dark"] .pe-card{background:#1B2528}:root[data-theme="dark"] .pe-card h3,:root[data-theme="dark"] .pe-row h2{color:#E4EFEF}
+:root[data-theme="dark"] .pe-win,:root[data-theme="dark"] .pe-wf{background:#121A1C}
+/* móvil */
+@media (max-width:900px){
+ .pe-body{grid-template-columns:1fr;padding:8px 12px}
+ .pe-body>aside.idx{display:none!important}
+ body.pe.idx-open .pe-body>aside.idx{display:block!important;position:fixed!important;inset:0;z-index:9500;background:#fff;height:100dvh;padding:12px}
+ .pe-btn.mob{display:inline-flex}
+ .pe-grid{grid-template-columns:1fr!important;grid-auto-rows:auto}
+ .pe-card{flex-direction:row;min-height:96px}.pe-card .ill,.pe-card.home .ill{flex:0 0 34%;max-width:34%}
+ .pe-card.sub{flex-direction:row}.pe-card.sub .big{flex:0 0 84px}
+ .pe-sh{flex-wrap:wrap}.pe-sh .tx{flex-basis:calc(100% - 64px)}
+ .pe-ov{padding:0}.pe-win{border-radius:0;height:100dvh}
+ .pe-hand{display:none}.pe-t5 small{white-space:normal}
+ .pe-wf .pe-nb{font-size:.76rem;padding:4px 9px}
+}
+@media print{
+ body.pe{overflow:visible!important}#peApp{height:auto!important;overflow:visible!important}
+ body.pe .pe-hd,body.pe .minirail,body.pe .pe-grid,body.pe .pe-sh,body.pe .pe-row,body.pe .pe-ft,body.pe aside.idx{display:none!important}
+ body.pe #view{display:block!important}
+ .pe-body{display:block!important;padding:0!important}
+ .pe-ov{position:static!important;background:none!important;padding:0!important;display:block!important}
+ .pe-win{height:auto!important;box-shadow:none!important;border-radius:0!important}
+ .pe-wh,.pe-wf{display:none!important}.pe-wb{overflow:visible!important}
+}
+
+.pe-card .ill .bigic{display:grid;place-items:center;width:100%;height:100%;color:var(--kd,#0B2545)}
+.pe-card .ill .bigic svg{width:clamp(34px,9vh,70px);height:auto;object-fit:contain}
+#peApp>*{min-width:0;max-width:100%}
+body.pe .minirail{overflow:hidden}
+body.pe .minirail .cam-wrap{max-width:100%}
+@media (max-width:900px){.pe-hd-in{padding:4px 12px}.pe-tt{flex-wrap:wrap}.pe-t5 b{overflow-wrap:anywhere}}
+@media (max-width:900px){
+ .pe-hd-in{flex-direction:column;align-items:stretch;gap:6px}
+ .pe-tt{display:grid;grid-template-columns:auto auto 1fr;gap:8px;align-items:center}
+ .pe-t5{grid-column:1 / -1}
+ .pe-s{font-size:1.25rem}.pe-acts{justify-content:flex-start}
+}
+</style>
 </head>
 <body>
 
@@ -2629,5 +2773,145 @@ route();
 })();
 </script>
 
+<script id="pe-js">
+/* ===== SUMAMOS · PANTALLA ENTERA (capa común, 19-11-2026) =====
+   Reordena la guía en una sola pantalla: camino arriba, índice a la izquierda, paneles por parada
+   y cada apartado en una ventana que se abre y se cierra. No toca el contenido ni el motor de la guía:
+   usa sus rutas (#p1-0, #p1-1…) y mueve su zona de contenido dentro de la ventana mientras está abierta. */
+(function(){
+"use strict";
+const $=(s,r)=>(r||document).querySelector(s),$$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const view=$("#view"),idxUl=$("#idx"),aside=idxUl&&idxUl.closest("aside"),mr=$(".minirail"),top=$("header.top");
+if(!view||!idxUl||!aside)return;
+const CFG=window.PE_CFG||{};
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const AR=()=>document.documentElement.lang==="ar";
+const TX=(es,ar)=>AR()&&ar?ar:es;
+const VT=el=>{if(!el)return "";const c=el.cloneNode(true);c.querySelectorAll(AR()?"[data-i18n-es]":"[data-i18n-ar]").forEach(x=>{if(x.matches(AR()?"[data-i18n-es]":"[data-i18n-ar]")&&!(x.hasAttribute("data-i18n-es")&&x.hasAttribute("data-i18n-ar")))x.remove()});return (c.textContent||"").replace(/\s+/g," ").trim()};
+const ICB='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20l4-4 4 4"/><path d="M7 9h6M7 12h9"/></svg>';
+const ICF='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg>';
+const ICS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M9 7h6"/></svg>';
+document.body.classList.add("pe");
+/* ---------- estructura ---------- */
+const hero=$("#hero");
+const hName=hero&&$(".h-name",hero),hSub=hero&&$(".h-sub",hero),lema=hero&&$(".lema",hero);
+const back=(hero&&$(".h-back a",hero))||null;
+const fam=CFG.fam!=null?CFG.fam:/-fam-|entrev-fam/.test(location.pathname);
+const app=document.createElement("div");app.id="peApp";
+top.parentNode.insertBefore(app,top);app.appendChild(top);
+const hd=document.createElement("div");hd.className="pe-hd";
+const html=el=>el?el.innerHTML:"";
+hd.innerHTML=`<div class="pe-hd-in"><div class="pe-tt"><span class="pe-s">SUMAMOS</span><span class="pe-eq">=</span><div class="pe-t5"><span class="pe-k${fam?" fam":""}">${fam?ICF:ICB}<span>${fam?TX("GUÍA PARA FAMILIAS","دليل للعائلات"):"GUÍA PARA DOCENTES"}</span></span><b>${html(hName)}</b><small>${html(hSub)}</small></div></div>${lema?`<div class="pe-hand">${html(lema)}</div>`:""}<div class="pe-acts"><button class="pe-btn mob" type="button" data-pe="idx">☰ Índice</button><a class="pe-btn" href="${esc(back?back.getAttribute("href"):"../index.html")}">‹ ${TX("Volver al panel de materiales","العودة إلى لوحة المواد")}</a></div></div>`;
+app.appendChild(hd);
+if(mr)app.appendChild(mr);
+const body=document.createElement("div");body.className="pe-body";app.appendChild(body);
+body.appendChild(aside);
+const main=document.createElement("div");main.className="pe-main";body.appendChild(main);
+const ovw=document.createElement("div");ovw.className="pe-ovw";ovw.style.cssText="flex:1;min-height:0;display:flex;flex-direction:column;gap:inherit";main.appendChild(ovw);
+main.appendChild(view);
+const ft=document.createElement("div");ft.className="pe-ft";
+const BI=!!$(".btn-idioma");
+ft.innerHTML=`<p class="ft-lic ft-es">© EOEP General Cehegín · Proyecto SUMAMOS · Licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: uso libre sin ánimo de lucro citando la autoría, sin modificar · <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a> · <button class="ft-b" type="button" data-pe="legal">Aviso legal</button></p>`+
+ (BI?`<p class="ft-lic ft-ar">© فريق التوجيه العام في سيهيخين · مشروع سوماموس · رخصة <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>: يُسمح بالاستخدام دون هدف ربحي مع ذكر التأليف ودون تعديل · <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a> · <button class="ft-b" type="button" data-pe="legal">الإشعار القانوني</button></p>`:"")+
+ `<div class="ft-bar"><span><b>PROYECTO SUMAMOS (Escuela+Familia+EOEP)</b> | Consejería de Educación · Región de Murcia</span><span>Proyecto financiado por la Consejería de Educación y Formación Profesional. Región de Murcia</span></div>`;
+app.appendChild(ft);
+/* ventana */
+const ov=document.createElement("div");ov.className="pe-ov";ov.hidden=true;
+ov.innerHTML=`<div class="pe-win" role="dialog" aria-modal="true" aria-labelledby="peWT"><div class="pe-wh"><span class="ic" id="peWI"></span><div class="tx"><small id="peWE"></small><h3 id="peWT"></h3></div><button class="pe-x" type="button" data-pe="close">${TX("Cerrar ✕","إغلاق ✕")}</button></div><div class="pe-wb" id="peWB"></div><div class="pe-wf"><button class="pe-nb" type="button" id="pePrev"></button><span class="mid"><button class="pe-nb" type="button" data-pe="print">${TX("Imprimir","طباعة")}</button><button class="pe-nb" type="button" data-pe="close" id="peBackStop"></button></span><button class="pe-nb" type="button" id="peNext"></button></div></div>`;
+document.body.appendChild(ov);
+const wb=$("#peWB");
+/* colores del bloque */
+const acc=getComputedStyle(document.documentElement).getPropertyValue("--acc").trim();
+const accD=getComputedStyle(document.documentElement).getPropertyValue("--accD").trim();
+if(acc)app.style.setProperty("--peL",`color-mix(in srgb, ${acc} 22%, #fff)`);
+if(accD)app.style.setProperty("--peD",accD);
+/* ---------- datos del índice y de la parada ---------- */
+function stops(){return $$("#idx > li > a").map(a=>{const h=(a.getAttribute("href")||"").slice(1);const id=h.replace(/-\d+$/,"");const nb=$(".nb",a);
+  const st=nb?getComputedStyle(nb):null;return{id,home:id==="inicio",n:nb?nb.textContent.trim():"",t:(()=>{const c=a.cloneNode(true);const n=c.querySelector(".nb");if(n)n.remove();return VT(c)})(),
+  k:st?st.backgroundColor:"#2A8B8D",kt:st?st.color:"#fff"}}).filter(s=>!s.home)}
+const RXS=()=>new RegExp("^("+stops().map(s=>s.id).join("|")+")(?:-(\\d+))?$");
+function parse(){const h=decodeURIComponent(location.hash.slice(1));if(!h||h==="inicio")return{m:"home"};
+  const m=h.match(RXS());if(m)return m[2]==null?{m:"stop",id:m[1]}:{m:"win",id:m[1],sub:+m[2]};
+  const cur=$("#idx > li > a[aria-current='true']");const id=cur?(cur.getAttribute("href")||"").slice(1).replace(/-\d+$/,""):null;
+  return id&&id!=="inicio"?{m:"win",id,sub:curSub(),el:h}:{m:"home"}}
+function curSub(){const t=$$("#vtop .tabs a");const i=t.findIndex(a=>a.getAttribute("aria-selected")==="true"||a.classList.contains("on")||a.classList.contains("activo"));return i<0?0:i}
+function subsNow(){return $$("#vtop .tabs a").map((a,i)=>({h:(a.getAttribute("href")||"").slice(1),t:VT(a),svg:(a.querySelector("svg")||{}).outerHTML||ICS,i}))}
+function badgeHTML(b){if(!b)return "";const c=b.cloneNode(true);c.querySelectorAll("[stroke]").forEach(e=>{if(e.getAttribute("stroke")!=="none")e.setAttribute("stroke","currentColor")});c.querySelectorAll("[fill]").forEach(e=>{const f=e.getAttribute("fill");if(f&&f!=="none")e.setAttribute("fill","currentColor")});const sv=c.querySelector("svg");if(sv){sv.style.color="";return sv.outerHTML}return c.innerHTML}
+function stopInfo(){const v=$("#vtop");return{eb:VT($(".stop-head .eyebrow",v)||$(".eyebrow",v)),t:VT($(".stop-head h2",v)||$("h2",v)),
+  intro:VT($(".intro",v)),ill:$(".sh-ill",v),badge:$(".stop-badge",v)}}
+/* ---------- pantallas ---------- */
+let LAST=null;
+function colsFor(n){return n<=2?n:(n===4?2:3)}
+function cardHome(s,i,info){const k=`--k:${s.k};--kd:${s.k};--kt:${s.kt}`;const ill=info&&info.ill?info.ill:"";
+  return `<button class="pe-card home" type="button" style="${k}" data-pe-go="${esc(s.id)}">${ill?`<span class="ill">${ill}</span>`:""}<span class="tx"><span class="n"><i>${esc(s.n)}</i>${esc(info&&info.eb?info.eb:(s.n==="S"?TX("Salida","الانطلاق"):TX("Parada ","المحطة ")+s.n))}</span><h3>${esc(s.t)}</h3>${info&&info.p?`<p>${esc(info.p)}</p>`:""}<span class="go">${TX("Entrar ›","‹ ادخلوا")}</span></span></button>`}
+const HOME={};
+function harvestHome(){$$("#vtop .stops a.stop").forEach((a,i)=>{const c=a.querySelector(".c svg");HOME[i]=HOME[i]||{ill:c?`<span class=\"bigic\">${c.outerHTML}</span>`:"",eb:"",p:""};const w=VT(a.querySelector(".w"));if(w)HOME[i].eb=(i===0?TX("Salida","الانطلاق"):TX("Parada ","المحطة ")+i)+" · "+w});$$("#vtop .hr-card").forEach(c=>{const i=+c.dataset.i;const ill=$(".hr-ill",c);HOME[i]={ill:ill?ill.innerHTML:"",eb:VT($(".hn span",c)),p:VT($("p",c))}})}
+function renderHome(){const S=stops();harvestHome();
+  ovw.innerHTML=`<div class="pe-row"><h2>${TX("¿Qué encontrarás en esta guía?","ماذا ستجدون في هذا الدليل؟")}</h2><div class="bt"><button class="pe-btn y" type="button" data-pe="pres">${TX("Presentación de la guía","تقديم الدليل")}</button></div></div>
+  <div class="pe-grid" style="--cols:${S.length<=4?S.length:Math.ceil(S.length/2)}">${S.map((s,i)=>cardHome(s,i,HOME[i])).join("")}</div>`}
+function renderStop(id){const S=stops(),i=S.findIndex(s=>s.id===id),s=S[i];if(!s)return renderHome();const I=stopInfo(),subs=subsNow();
+  const k=`--k:${s.k};--kd:${s.k};--kt:${s.kt}`;const P=S[i-1],N=S[i+1];
+  ovw.innerHTML=`<div class="pe-sh" style="${k}"><button class="bk" type="button" data-pe-go="inicio">‹ ${TX("Inicio","البداية")}</button><span class="ic">${I.badge?badgeHTML(I.badge):esc(s.n)}</span><div class="tx"><small>${esc(I.eb)}</small><h2>${esc(I.t||s.t)}</h2>${I.intro?`<p>${esc(I.intro)}</p>`:""}</div><span class="nv"><button type="button" ${P?`data-pe-go="${P.id}"`:"disabled"}>‹ ${TX("Parada anterior","المحطة السابقة")}</button><button type="button" ${N?`data-pe-go="${N.id}"`:"disabled"}>${TX("Parada siguiente","المحطة التالية")} ›</button></span></div>
+  <div class="pe-grid" style="--cols:${colsFor(subs.length)}">${subs.map(x=>`<button class="pe-card sub" type="button" style="${k}" data-pe-win="${esc(x.h)}"><span class="big"><b>${x.i+1}</b>${x.svg}</span><span class="tx"><span class="n">${TX("Apartado","القسم")} ${x.i+1} ${TX("de","من")} ${subs.length}</span><h3>${esc(x.t)}</h3><span class="go">${TX("Abrir ›","‹ افتحوا")}</span></span></button>`).join("")}</div>`}
+function openWin(p){const S=stops(),i=S.findIndex(s=>s.id===p.id),s=S[i];if(!s)return;const subs=subsNow(),I=stopInfo();const sub=p.sub!=null?p.sub:curSub();const x=subs[sub]||{t:""};
+  const w=$(".pe-win",ov);w.style.setProperty("--k",s.k);w.style.setProperty("--kd",s.k);w.style.setProperty("--kt",s.kt);
+  $("#peWI").innerHTML=I.badge?badgeHTML(I.badge):esc(s.n);$("#peWE").textContent=(I.eb||s.t)+" · "+TX("Apartado ","القسم ")+(sub+1)+TX(" de "," من ")+subs.length;$("#peWT").textContent=x.t||I.t;
+  if(view.parentNode!==wb)wb.appendChild(view);
+  const prev=sub>0?{h:subs[sub-1].h,t:subs[sub-1].t}:(S[i-1]?{h:S[i-1].id,t:S[i-1].t,stop:1}:null);
+  const next=sub<subs.length-1?{h:subs[sub+1].h,t:subs[sub+1].t}:(S[i+1]?{h:S[i+1].id+"-0",t:S[i+1].t,stop:1}:null);
+  const pb=$("#pePrev"),nb=$("#peNext");
+  pb.disabled=!prev;pb.textContent="‹ "+(prev?prev.t:TX("Anterior","السابق"));pb.dataset.h=prev?prev.h:"";
+  nb.disabled=!next;nb.textContent=(next?(next.stop?TX("Parada siguiente: ","المحطة التالية: "):"")+next.t:TX("Siguiente","التالي"))+" ›";nb.dataset.h=next?next.h:"";
+  $("#peBackStop").textContent=TX("Volver a la parada","العودة إلى المحطة");$("#peBackStop").dataset.stop=s.id;
+  ov.hidden=false;document.body.classList.add("pe-mopen");
+  requestAnimationFrame(()=>{if(p.el){const el=document.getElementById(p.el);if(el){wb.scrollTop=0;wb.scrollTop=el.getBoundingClientRect().top-wb.getBoundingClientRect().top-8;return}}wb.scrollTop=0});
+  LAST=s.id}
+function closeWin(toStop){ov.hidden=true;document.body.classList.remove("pe-mopen");if(view.parentNode!==main)main.appendChild(view);
+  if(toStop){const p=parse();const id=p.id||LAST;go(id||"inicio")}}
+function go(h){if(location.hash.slice(1)===h){render()}else location.hash=h}
+function moveFab(){if(moveFab.done)return;const b=$$("body > button, body > a, body > div > button").find(x=>/Ruta r[aá]pida/i.test(x.textContent||"")&&getComputedStyle(x).position==="fixed");if(b){b.classList.add("pe-btn","y");b.style.cssText="position:static!important;inset:auto!important;transform:none!important;box-shadow:none!important;margin:0!important";$(".pe-acts",hd).prepend(b);moveFab.done=1}}
+function render(){moveFab();const p=parse();document.body.classList.remove("idx-open");
+  if(p.m==="home"){if(!ov.hidden)closeWin(false);renderHome()}
+  else if(p.m==="stop"){if(!ov.hidden)closeWin(false);renderStop(p.id)}
+  else{renderStop(p.id);openWin(p)}
+  /* índice: las paradas abren su panel; los apartados, su ventana */
+  $$("#idx > li > a").forEach(a=>{const h=(a.getAttribute("href")||"").slice(1);if(/-0$/.test(h)&&!a.dataset.peFix){a.dataset.peFix=1}});
+  window.dispatchEvent(new Event("resize"))}
+/* clics: paradas del camino y del índice → panel de la parada */
+document.addEventListener("click",e=>{
+  const st=e.target.closest(".cam-st, #idx > li > a, .hr-pin, .road .stop, a.stop");
+  if(st&&st.getAttribute("href")){const h=st.getAttribute("href").slice(1);if(/^[\w]+-0$/.test(h)){e.preventDefault();e.stopImmediatePropagation();go(h.replace(/-0$/,""));return}}
+  const g=e.target.closest("[data-pe-go]");if(g){go(g.dataset.peGo);return}
+  const w=e.target.closest("[data-pe-win]");if(w){go(w.dataset.peWin);return}
+  const b=e.target.closest("[data-pe]");if(!b)return;const a=b.dataset.pe;
+  if(a==="close"){closeWin(true)}
+  else if(a==="idx"){document.body.classList.add("idx-open")}
+  else if(a==="print"){window.print()}
+  else if(a==="pres"){presentacion()}
+  else if(a==="legal"){legal()}
+},true);
+$("#pePrev").addEventListener("click",e=>{const h=e.currentTarget.dataset.h;if(h)go(h)});
+$("#peNext").addEventListener("click",e=>{const h=e.currentTarget.dataset.h;if(h)go(h)});
+ov.addEventListener("click",e=>{if(e.target===ov)closeWin(true)});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!ov.hidden)closeWin(true);else document.body.classList.remove("idx-open")}});
+aside.addEventListener("click",e=>{if(e.target.closest("a"))document.body.classList.remove("idx-open")});
+/* presentación (la portada original completa) y aviso legal, en ventana */
+let saved=null;
+function simpleWin(title,eb,node){if(view.parentNode===wb)main.appendChild(view);const w=$(".pe-win",ov);w.style.setProperty("--k","#2A8B8D");w.style.setProperty("--kd","#1D6466");w.style.setProperty("--kt","#fff");
+  $("#peWI").innerHTML="i";$("#peWE").textContent=eb;$("#peWT").textContent=title;wb.innerHTML="";wb.appendChild(node);$("#pePrev").disabled=true;$("#peNext").disabled=true;$("#pePrev").textContent="‹";$("#peNext").textContent="›";
+  $("#peBackStop").textContent=TX("Cerrar","إغلاق");ov.hidden=false;document.body.classList.add("pe-mopen");wb.scrollTop=0}
+function presentacion(){const v=$("#vtop");const box=document.createElement("div");box.innerHTML=v.innerHTML;$$(".hr-land",box).forEach(x=>x.remove());simpleWin(TX("Presentación de la guía","تقديم الدليل"),(hName?hName.textContent:"")+" · "+(hSub?hSub.textContent:""),box)}
+function legal(){const box=document.createElement("div");box.className="pe-legal";box.innerHTML=`<p>© EOEP General Cehegín · Consejería de Educación, Región de Murcia. Material del Proyecto SUMAMOS (Escuela+Familia+EOEP) · Innovación educativa Modalidad D · 2025-2027. Licencia Creative Commons CC BY-NC-ND 4.0: se permite descargar, usar y difundir sin ánimo de lucro citando la autoría; no se permite modificar ni el uso comercial sin autorización (<a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a>).</p><p>Licencia: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener">creativecommons.org/licenses/by-nc-nd/4.0/deed.es</a></p>`+
+ (BI?`<p dir="rtl" lang="ar">© فريق التوجيه العام في سيهيخين · وزارة التعليم، منطقة مورسيا. مادة من مشروع سوماموس (المدرسة+الأسرة+فريق التوجيه) · ابتكار تربوي من النوع D · 2025-2027. رخصة المشاع الإبداعي CC BY-NC-ND 4.0: يُسمح بالتنزيل والاستخدام والنشر دون هدف ربحي مع ذكر التأليف؛ لا يُسمح بالتعديل ولا بالاستخدام التجاري دون إذن (<a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a>).</p>`:"")+
+ `<h4>EOEP General Cehegín</h4><p>C/ Esparteros, 22 · 30430 Cehegín · 968 72 36 14 · 672 44 04 17 · <a href="mailto:30700119@murciaeduca.es">30700119@murciaeduca.es</a></p>`;
+ simpleWin(TX("Aviso legal y licencia de uso","الإشعار القانوني ورخصة الاستخدام"),"SUMAMOS",box)}
+/* al cerrar una ventana simple se recupera la zona de contenido */
+const _close=closeWin;closeWin=function(t){[...wb.childNodes].forEach(n=>{if(n!==view)n.remove()});_close(t)};
+window.addEventListener("hashchange",()=>setTimeout(render,0));
+/* idioma: volver a pintar los textos de la capa */
+document.addEventListener("click",e=>{if(e.target.closest(".btn-idioma"))setTimeout(render,30)});
+render();
+})();
+</script>
 </body>
 </html>
