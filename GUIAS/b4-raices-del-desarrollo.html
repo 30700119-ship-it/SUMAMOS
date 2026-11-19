@@ -2109,7 +2109,7 @@ ejem:`
 <details class="k-norm"><summary>Base normativa</summary><p>Orden de 4/06/2010, b.1, b.10, b.11, b.12 y b.16 · Decreto 196/2022, Crecimiento en Armonía, CE2 y CE4 (criterios 4.1, 4.3 y 4.4).</p></details>`,
 
 escfam:`
-<p class="k-lead">El aula y la casa son los dos contextos donde más se aprende. Las familias tienen su propia guía, con los mismos ámbitos, juegos y frases, y una hoja resumen lista para entregar. Cada ficha tiene su puente con casa.</p>
+<p class="k-lead">El aula y la casa son los dos contextos donde más se aprende. Las familias tienen su propia <a href="b4-guia-fam-raices-del-desarrollo.html#socioemocional">guía para familias</a>, con los mismos ámbitos, juegos y frases, y una hoja resumen lista para entregar. Cada ficha tiene su puente con casa.</p>
 <div class="k-tabs">
 <div class="k-tab" data-t="Puentes con casa"><div class="k-grid k5">
  <div class="k-card" style="--c:#5B3FA8"><h5>Conciencia emocional</h5><p>Caras en el espejo · Detectives de emociones</p></div>
@@ -3665,7 +3665,7 @@ function viewTile(p,k){
   const gi={...G[t.g],c:gcol(p,t.g)};const prev=ord[i-1],next=ord[i+1];
   const pdfRow=`<div class="pdf-row"><span class="pdf-l">${svg("pdf")} En el PDF:</span>${t.gp?`<button type="button" class="k-mini" data-view="${p.g}|${t.gp}|Guía docente · ${esc(t.t)}">Guía docente · ${pgTxt(t.gp)}</button>`:""}${t.ap?`<button type="button" class="k-mini" data-view="${p.a}|${t.ap}|Anexo · ${esc(t.t)}">Anexo · ${pgTxt(t.ap)}</button>`:""}<a class="k-mini dl" href="${PDF+p.g}" download>Descargar guía</a><a class="k-mini dl" href="${PDF+p.a}" download>Descargar anexo</a></div>`;
   return `<article class="detail" data-p="${p.id}" style="--g:${gi.c}"><span class="eb">«${esc(p.prog)}» · ${esc(gi.n)} · ${t.dest==="fam"?'<span class="lbl fam">Para entregar a las familias</span>':'<span class="lbl doc">Docentes</span>'}</span><h2>${esc(t.t)}</h2><p class="gq">${esc(GQ[t.g])}</p>
-  ${lfBox(p,t)}<div class="tc">${tileContent(p,t)}</div>
+  ${lfBox(p,t)}<div class="tc">${tileContent(p,t)}</div>${t.dest==="fam"?`<p class="famg" style="margin:14px 0 0;padding:12px 14px;border-radius:14px;background:#FBE7DE;border-left:6px solid #C2562E;font-weight:700">Esto también está, con lenguaje para familias y en árabe, en la <a href="b4-guia-fam-raices-del-desarrollo.html#${p.id}">guía para familias de Raíces del desarrollo</a>.</p>`:""}
   ${pdfRow}
   <div class="pager"><button type="button" ${prev?`data-go="${p.id}/${prev.k}"`:"disabled"}>‹ ${prev?esc(prev.t):"Anterior"}</button><button class="mid" type="button" data-go="${p.id}/@${t.g}">Volver a «${esc(gi.n)}»</button><button type="button" ${next?`data-go="${p.id}/${next.k}"`:"disabled"}>${next?esc(next.t):"Siguiente"} ›</button></div></article>`;
 }
@@ -3723,7 +3723,7 @@ function axPuentes(p){
   const fs=FICHAS[p.id]||[];const ed=AX_ED.filter(e=>fs.some(f=>fEdad(f)===e));
   return `<p class="k-lead">Al terminar cada ficha, la familia puede seguir el juego en casa unos minutos. Así lo que aprenden en el cole se usa en la vida diaria. Aquí están todos, por edad y trimestre.</p>
   <div class="k-tabs">${ed.map(e=>`<div class="k-tab" data-t="En casa · ${esc(e)}"><ul class="ax-br">${fs.map((f,i)=>[f,i]).filter(([f])=>fEdad(f)===e).map(([f,i])=>`<li><b>${esc(fTrim(f))} · ${esc(f.titulo)}</b><span>${esc(f.puente||"").replace(/(«[^»]*»)/g,'<q>$1</q>')}</span><small>Ficha ${f.n||i+1} · ${esc(f.meta[1]||"")} · <button type="button" class="k-link" data-ficha="${i}">ver la ficha</button></small></li>`).join("")}</ul></div>`).join("")}</div>
-  <p class="k-small">Docentes: copiad la línea del trimestre en la agenda o en el mensaje a las familias. La hoja para las familias completa está en el apartado «Hoja para las familias».</p>`;
+  <p class="k-small">Docentes: copiad la línea del trimestre en la agenda o en el mensaje a las familias. La hoja para las familias completa está en el apartado «Hoja para las familias». Las familias tienen además su guía: <a href="b4-guia-fam-raices-del-desarrollo.html">guía para familias de Raíces del desarrollo</a>.</p>`;
 }
 P.forEach(p=>{if(!p.s)return;const c=CT[p.id]=CT[p.id]||{};
   Object.defineProperty(c,"anexo",{get(){return axAnexo(p)},enumerable:true,configurable:true});
