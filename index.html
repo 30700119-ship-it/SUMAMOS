@@ -1445,5 +1445,124 @@ body.m8-home .v8-fin{display:none}
 
 @media (min-width:901px) and (max-height:640px){.v8-road{margin-top:2px}.v8-sub{margin-top:0}.v8-in{min-height:120px}}
 </style>
+<style id="v8m-css">
+/* ===== Panel v8 · móvil: cada pantalla entera, sin subir ni bajar ===== */
+@media (max-width:900px){
+ body.v8-on main{min-height:0!important}
+ body.v8-on #v8{height:100vh;height:100dvh;min-height:0!important;overflow:hidden}
+ body.v8-on #v8 .nh-top .nh-bar{min-height:0;padding-top:4px;padding-bottom:4px}
+ body.v8-on #v8 .nh-tag{font-size:.55rem}
+ /* cabecera: título en una línea y camino de colores compacto */
+ .v8-hero{flex:none}
+ .v8-hin{padding-top:6px!important;padding-bottom:6px!important;gap:4px!important}
+ .v8-title{gap:6px!important;align-items:center}
+ .v8-title h1{font-size:1.45rem!important;line-height:1}
+ .v8-eq{font-size:1.2rem!important}
+ .v8-words{font-size:.68rem!important;line-height:1.05;padding-left:7px!important}
+ .v8-sub{font-size:.72rem!important;margin:2px 0 0!important}
+ body.m8-aud .v8-sub,body.m8-blk .v8-sub{display:none!important}
+ body.m8-home .v8-tt>:not(.v8-title):not(.v8-sub){display:none!important}
+ .v8-stops{--cs:34px!important}
+ .v8-st .l{font-size:.5rem!important;line-height:1.05}
+ .v8-road{margin:0!important}
+ /* cuerpo: ocupa el hueco libre */
+ .v8-body{flex:1 1 auto!important;min-height:0!important;display:flex!important;flex-direction:column;gap:6px!important;padding-top:6px!important;padding-bottom:6px!important;overflow:hidden}
+ .v8-body>*{min-height:0}
+ /* pie compacto */
+ .v8-foot{flex:none}
+ .v8-lic{font-size:.56rem!important;line-height:1.25!important;padding:3px 10px!important;margin:0!important}
+ .v8-fbar{padding:4px 8px!important;font-size:.55rem!important;line-height:1.25!important}
+ .v8-fbar b,.v8-fbar span{font-size:inherit!important}
+ /* inicio: las dos entradas reparten la pantalla */
+ .v8-home{flex:1 1 auto;display:flex!important;flex-direction:column;gap:6px;min-height:0}
+ .v8-hand{font-size:1.15rem!important;margin:0!important;line-height:1.1;text-align:center}
+ .v8-ent{flex:1 1 auto;display:grid!important;grid-template-columns:1fr!important;grid-template-rows:1fr 1fr;gap:8px!important;min-height:0}
+ .v8-in{min-height:0!important;height:100%;grid-template-columns:34% 1fr!important;overflow:hidden}
+ .v8-in-ill{min-height:0!important;height:100%!important}
+ .v8-in-ill svg,.v8-in-ill img{max-height:100%;width:100%}
+ .v8-in-tx{min-height:0!important;height:auto!important;padding:8px 10px!important;gap:3px!important;justify-content:center}
+ .v8-in-tx b{font-size:1.35rem!important}
+ .v8-in-tx small{font-size:.72rem!important;line-height:1.2}
+ .v8-tags{gap:3px!important}.v8-tags span{font-size:.55rem!important;padding:2px 6px!important}
+ .v8-in-f{gap:6px!important;margin-top:2px!important}
+ .v8-go{padding:6px 12px!important;font-size:.8rem!important}
+ /* barra de botones en una sola fila */
+ .v8-bar{flex:none;padding:6px 8px!important;gap:5px!important;flex-wrap:wrap;align-items:center}
+ .v8-who{font-size:.8rem!important;gap:6px!important}.v8-who b{font-size:.82rem!important}
+ .v8-who-i{width:26px!important;height:26px!important;flex:none}.v8-who-i svg{width:16px;height:16px}
+ .v8-acts{width:auto!important;gap:4px!important;flex-wrap:wrap}
+ .v8-b{font-size:.6rem!important;padding:5px 8px!important;min-height:0!important;line-height:1.1}
+ .v8-b svg{width:12px!important;height:12px!important}
+ body.m8-blk .v8-who{display:none!important}
+ .v8-acts{flex-wrap:nowrap!important;flex:1 1 auto;min-width:0}
+ .v8-bar .v8-b{flex:1 1 auto;white-space:nowrap;justify-content:center;font-size:.56rem!important;padding:6px 5px!important;letter-spacing:0!important;gap:4px!important;min-width:0}
+ body.m8-blk .v8-bar{flex-wrap:nowrap!important}
+ body.m8-aud .v8-who{flex:1 1 100%}
+ .v8-m-img{min-height:46px!important}
+ .v8-bar .v8-acts{display:contents!important}
+ body.m8-blk .v8-bar{flex-wrap:wrap!important}
+ body.m8-blk .v8-bar .v8-b{flex:1 1 calc(50% - 5px)}
+ body.m8-aud .v8-bar .v8-b{flex:1 1 0}
+ .v8-bar .v8-b{font-size:.6rem!important;padding:6px 6px!important}
+ @media (max-height:700px){
+  .v8-m-img{min-height:64px!important}
+  .v8-bk-art{max-height:44px!important}
+  .v8-hand{display:none!important}
+  body.m8-aud .v8-tt,body.m8-blk .v8-tt{display:none!important}
+  .v8-mats{grid-template-rows:repeat(var(--mr,1),minmax(118px,1fr))!important}
+ }
+ .v8-m-x{transform:scale(.85);transform-origin:top right}
+ /* los seis bloques: rejilla de 2 x 3 que llena la pantalla */
+ .v8-blocks{flex:1 1 auto;grid-template-columns:repeat(2,1fr)!important;grid-auto-rows:minmax(0,1fr)!important;gap:6px!important;min-height:0}
+ .v8-bk{min-height:0!important;padding:6px 8px!important;border-radius:14px!important;gap:2px!important;overflow:hidden;display:flex!important;flex-direction:column}
+ .v8-bk-top{min-height:0!important;flex:1 1 auto;align-items:center}
+ .v8-bk-art{width:auto!important;height:100%!important;max-height:58px;aspect-ratio:1}
+ .v8-bk-art img{width:100%!important;height:100%!important}
+ .v8-bk-n{width:24px!important;height:24px!important;font-size:.75rem!important}
+ .v8-bk b{font-size:.8rem!important;line-height:1.1;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;padding-right:0!important;max-width:none!important;position:relative;z-index:1}
+ .v8-bk small{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:none!important}
+ .v8-bk-art{max-height:46px!important}
+ .v8-m-img .v8-m-tipo{top:auto!important;bottom:4px!important}
+ .v8-bk small{font-size:.55rem!important;line-height:1.15}
+ .v8-bk-f{min-height:0!important;margin-top:2px!important}
+ .v8-bk-f>span:first-child{font-size:.52rem!important;padding:2px 6px!important}
+ .v8-bk-go{width:24px!important;height:24px!important}
+ /* materiales de un bloque: rejilla que llena la pantalla, dibujos enteros */
+ .v8-blk{flex:1 1 auto;display:flex!important;flex-direction:column;gap:6px!important;min-height:0}
+ .v8-cur{flex:none;padding:4px 8px!important;gap:6px!important;min-height:0!important}
+ .v8-cur-n{width:26px!important;height:26px!important;font-size:.8rem!important}
+ .v8-cur-i{width:28px!important;height:28px!important}
+ .v8-cur b{font-size:1rem!important;line-height:1}.v8-cur small{font-size:.58rem!important}
+ .v8-mats{flex:1 1 auto;display:grid!important;grid-template-columns:repeat(var(--mc,2),minmax(0,1fr))!important;grid-template-rows:repeat(var(--mr,1),minmax(min-content,1fr))!important;gap:6px!important;min-height:0;padding:0!important;align-content:stretch!important}
+ .v8-mats .v8-m{width:auto!important;max-width:none!important;min-width:0!important;height:auto!important;aspect-ratio:auto!important;min-height:0!important;flex:none!important}
+ .v8-m-a{height:100%!important;display:flex!important;flex-direction:column;min-height:0}
+ .v8-mats .v8-m{overflow:hidden}
+ .v8-m-img{flex:1 1 auto!important;min-height:0!important;height:auto!important}
+ .v8-m-img img{width:100%!important;height:100%!important;object-fit:contain!important}
+ .v8-m-t{flex:none;font-size:.72rem!important;line-height:1.15;padding:4px 7px 2px!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .v8-m-go{flex:none;padding:4px 6px!important;font-size:.7rem!important}
+ .v8-m-tipo{font-size:.5rem!important;padding:2px 6px!important}
+ .v8-m-x button{width:24px!important;height:24px!important}.v8-m-x svg{width:13px!important;height:13px!important}
+}
+</style>
+<script id="v8m-js">
+/* móvil: filas y columnas de materiales según cuántos hay; y si aun así no cabe, se reduce lo justo */
+(function(){
+ const mq=matchMedia("(max-width:900px)");
+ function fit(){
+  const v=document.getElementById("v8");if(!v)return;const body=v.querySelector(".v8-body");if(!body)return;
+  [...body.children].forEach(k=>k.style.zoom="");
+  const g=v.querySelector(".v8-mats");
+  if(g){const n=g.querySelectorAll(".v8-m").length;const c=n<=1?1:n<=6?2:3;g.style.setProperty("--mc",c);g.style.setProperty("--mr",Math.max(1,Math.ceil(n/c)))}
+  if(!mq.matches)return;
+  let z=1;for(let i=0;i<4;i++){const H=body.clientHeight,S=body.scrollHeight;if(S<=H+2)break;z=Math.max(.7,z*H/S*.99);[...body.children].forEach(k=>k.style.zoom=z);if(z<=.7)break}
+ }
+ window.__V8MFIT=fit;
+ addEventListener("hashchange",()=>{setTimeout(fit,30);setTimeout(fit,300)});
+ addEventListener("resize",()=>{clearTimeout(fit.t);fit.t=setTimeout(fit,80)});
+ addEventListener("load",fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+ setTimeout(fit,50);setTimeout(fit,600);
+})();
+</script>
 </body>
 </html>
